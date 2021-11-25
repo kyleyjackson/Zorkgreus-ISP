@@ -3,7 +3,7 @@
     {
       "id": "Spawn Room",
       "name": "Spawn Room ",
-      "description": "You are in a inside of a room with 4 walls. There are family pictures on all of the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
+      "description": "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
       "exits": [
         {
           "direction": "West",
@@ -14,7 +14,7 @@
     {
       "id": "Test Dummy Room",
       "name": "Test Dummy Room",
-      "description": "You are in a room with a skeleton in the middle with one exit heading west.",
+      "description": "You are in a room with a skeleton in the middle with one exit heading west. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
       "exits": [
         {
           "direction": "West",
@@ -25,7 +25,7 @@
     {
       "id": "Boon Room",
       "name": "Boon Room",
-      "description": "You are in a room with three glowing boons.",
+      "description": "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
       "exits": [
         {
           "direction": "West",
@@ -36,7 +36,7 @@
     {
       "id": "F1 1st Attack Room",
       "name": "F1 1st Attack Room",
-      "description": "You are in a room with a few monsters and two exits heading South and West.",
+      "description": "You are in a room with a few monsters and two exits heading South and West. The room is filled with pots and a bag tucked away in the corner of the room and lanterns lighting it up.",
       "exits": [
         {
           "direction": "West",
@@ -51,7 +51,7 @@
     {
       "id": "F1 2nd Attack Room West",
       "name": "F1 2nd Attack Room West",
-      "description": "You are in a room with a few monsters and two exits heading West and East.",
+      "description": "You are in a room with some monsters and two exits heading West and East. The room also has lanterns lighting up the room",
       "exits": [
         {
           "direction": "West",
@@ -66,7 +66,7 @@
     {
       "id": "F1 2nd Attack Room South",
       "name": "F1 2nd Attack Room South",
-      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "description": "You are in a room with a few monsters and two exits heading West and South. The room looks to have a few family pictures hung up with torches lighting them up.",
       "exits": [
         {
           "direction": "West",
@@ -81,7 +81,7 @@
     {
       "id": "F1 3rd Attack Room West 1",
       "name": "F1 3rd Attack Room West 1",
-      "description": "You are in a room with a few monsters and two exits heading East and South.",
+      "description": "You are in a room with some monsters and two exits heading East and South. the room is very plain other then a few torches hung around",
       "exits": [
         {
           "direction": "East",
@@ -96,7 +96,7 @@
     {
       "id": "F1 3rd Attack Room East",
       "name": "F1 3rd Attack Room East",
-      "description": "You are in a room with a few monsters and two exits heading East and West.",
+      "description": "You are in a room with a few monsters and two exits heading East and West. The room has a few torches lighting it up with a few pots laying around on the ground.",
       "exits": [
         {
           "direction": "North",
@@ -111,7 +111,7 @@
     {
       "id": "F1 3rd Attack Room West 2",
       "name": "F1 3rd Attack Room West 2",
-      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "description": "You are in a room with a few monsters and two exits heading West and South. The room has two lanterns hung up beside the exits and a nice view to the river of souls.",
       "exits": [
         {
           "direction": "West",
@@ -126,7 +126,7 @@
     {
       "id": "F1 3rd Attack Room South",
       "name": "F1 3rd Attack Room South",
-      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "description": "You are in a room with some monsters and two exits heading West and South. The room also has a few torches beside a family picture with some pots around it.",
       "exits": [
         {
           "direction": "West",
@@ -141,7 +141,7 @@
     {
       "id": "F1 NPC Room",
       "name": "F1 NPC Room",
-      "description": "You are in a room with a man with a chain attached to him connecting to a boulder and one exit heading West.",
+      "description": "You are in a room with a man with a chain attached to him connecting to a boulder and one exit heading West with a skull above it. The room has a few green torches lighting it up green and a pickaxe beside the man.",
       "exits": [
         {
           "direction": "West",
@@ -152,11 +152,138 @@
     {
       "id": "F1 Mini Boss Room",
       "name": "F1 Mini Boss Room",
-      "description": "You are in a room with two giant bony skeletons with bombs on their backs blocking the one exit heading West.",
+      "description": "You are in a room with two giant bony skeletons with bombs on their backs blocking the one exit heading West and a glowing boon behind them. The room you are in has a shattered pieces of broken pots and what looks like a area that looks to have been exploded.",
       "exits": [
         {
           "direction": "West",
           "adjacentRoom": "F1 6th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 6th Attack Room",
+      "name": "F1 6th Attack Room",
+      "description": "You are in a room with a few monsters with the two exits heading West and North with a few torches around the exits.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 7th Attack Room West"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 7th Attack Room North"
+        }
+      ]
+    },
+    {
+      "id": "F1 7th Attack Room North",
+      "name": "F1 7th Attack Room North ",
+      "description": "You are in a room with some monsters with the two exits heading West and North. The room also has a few torches and pots scattered around the room.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 8th Attack Room West 2"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 8th Attack Room North"
+        }
+      ]
+    },
+    {
+      "id": "F1 7th Attack Room West",
+      "name": "F1 7th Attack Room West",
+      "description": "You are in a room with a few monsters with the two exits heading West and South. The room also has a few pots and a family picture.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 8th Attack Room West 1"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 8th Attack Room South"
+        }
+      ]
+    },
+    {
+      "id": "F1 8th Attack Room West 1",
+      "name": "F1 8th Attack Room West 1",
+      "description": "You are in a room with a few monsters with the two exits heading South and North. The room looks like all the other rooms you have been in but with a coin symbol above the exit.",
+      "exits": [
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 Shop"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 Shop"
+        }
+      ]
+    },
+    {
+      "id": "F1 8th Attack Room South",
+      "name": "F1 8th Attack Room South",
+      "description": "You are in a room with a few monsters with the two exits heading South and West. The room looks like all the other rooms you have been in but with a coin symbol above the exit.",
+      "exits": [
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 Shop"
+        },
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Shop"
+        }
+      ]
+    },
+    {
+      "id": "F1 8th Attack Room North",
+      "name": "F1 8th Attack Room North",
+      "description": "You are in a room with a few monsters with the two exits heading North and West. The room looks like all the other rooms you have been in but with a coin symbol above the exit.",
+      "exits": [
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 Shop"
+        },
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Shop"
+        }
+      ]
+    },
+    {
+      "id": "F1 8th Attack Room West 2",
+      "name": "F1 8th Attack Room Weset 2",
+      "description": "You are in a room with a few monsters with the two exits heading North and West. The room looks like all the other rooms you have been in but with a coin symbol above the exit.",
+      "exits": [
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 Shop"
+        },
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Shop"
+        }
+      ]
+    },
+    {
+      "id": "F1 Shop",
+      "name": "F1 Shop",
+      "description": "You are in a room with a man covered in a robe with glowing purple eyes. Beside the man you can see a bunch of items and one exit heading West with a skull.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Boss Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 Boss Room",
+      "name": "F1 Boss Room",
+      "description": "You are in a room with somebody staring at you with a whip in their hand and wings on their back. The only way up is being blocked by them with a glowing boon also behind them.",
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "F2 Starting Room"
         }
       ]
     }
