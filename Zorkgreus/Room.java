@@ -2,7 +2,7 @@ package Zorkgreus;
 
 import java.util.ArrayList;
 
-public class Rooms {
+public class Room {
 
     private String roomName;
     private String description;

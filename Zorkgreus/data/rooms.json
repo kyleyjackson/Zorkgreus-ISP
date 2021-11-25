@@ -49,17 +49,114 @@
       ]
     },
     {
-      "id": "F1 2st Attack Room",
-      "name": "F1 2st Attack Room",
-      "description": "You are in a room with a few monsters and two exits heading South and West.",
+      "id": "F1 2nd Attack Room West",
+      "name": "F1 2nd Attack Room West",
+      "description": "You are in a room with a few monsters and two exits heading West and East.",
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 3nd Attack Room"
+          "adjacentRoom": "F1 3rd Attack Room West 1"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 3rd Attack Room East"
+        }
+      ]
+    },
+    {
+      "id": "F1 2nd Attack Room South",
+      "name": "F1 2nd Attack Room South",
+      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 3rd Attack Room West 2"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F1 3nd Attack Room"
+          "adjacentRoom": "F1 3rd Attack Room South"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room West 1",
+      "name": "F1 3rd Attack Room West 1",
+      "description": "You are in a room with a few monsters and two exits heading East and South.",
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room East",
+      "name": "F1 3rd Attack Room East",
+      "description": "You are in a room with a few monsters and two exits heading East and West.",
+      "exits": [
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room West 2",
+      "name": "F1 3rd Attack Room West 2",
+      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room South",
+      "name": "F1 3rd Attack Room South",
+      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 NPC Room",
+      "name": "F1 NPC Room",
+      "description": "You are in a room with a man with a chain attached to him connecting to a boulder and one exit heading West.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Mini Boss Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 Mini Boss Room",
+      "name": "F1 Mini Boss Room",
+      "description": "You are in a room with two giant bony skeletons with bombs on their backs blocking the one exit heading West.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 6th Attack Room"
         }
       ]
     }
