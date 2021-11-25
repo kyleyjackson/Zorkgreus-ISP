@@ -1,72 +1,162 @@
 {
   "rooms": [
     {
-      "id": "Hallway",
-      "name": "Hallway",
-      "description": "You are in a long hallway. There are family pictures on all of the walls.",
+      "id": "Spawn Room",
+      "name": "Spawn Room ",
+      "description": "You are in a inside of a room with 4 walls. There are family pictures on all of the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
       "exits": [
         {
-          "isLocked": false,
-          "direction": "North",
-          "adjacentRoom": "Bedroom"
-        },
-        {
-          "isLocked": true,
-          "direction": "East",
-          "adjacentRoom": "Bathroom",
-          "keyId": "1234"
+          "direction": "West",
+          "adjacentRoom": "Test Dummy Room"
         }
       ]
     },
     {
-      "id": "Bedroom",
-      "name": "Bedroom",
-      "description": "You are in a large bedroom",
+      "id": "Test Dummy Room",
+      "name": "Test Dummy Room",
+      "description": "You are in a room with a skeleton in the middle with one exit heading west.",
       "exits": [
         {
-          "isLocked": false,
+          "direction": "West",
+          "adjacentRoom": "Boon Room"
+        }
+      ]
+    },
+    {
+      "id": "Boon Room",
+      "name": "Boon Room",
+      "description": "You are in a room with three glowing boons.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 1st Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 1st Attack Room",
+      "name": "F1 1st Attack Room",
+      "description": "You are in a room with a few monsters and two exits heading South and West.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 2nd Attack Room West"
+        },
+        {
           "direction": "South",
-          "adjacentRoom": "Hallway"
+          "adjacentRoom": "F1 2nd Attack Room South"
+        }
+      ]
+    },
+    {
+      "id": "F1 2nd Attack Room West",
+      "name": "F1 2nd Attack Room West",
+      "description": "You are in a room with a few monsters and two exits heading West and East.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 3rd Attack Room West 1"
         },
         {
-          "isLocked": false,
-          "direction": "SouthEast",
-          "adjacentRoom": "Bathroom"
+          "direction": "North",
+          "adjacentRoom": "F1 3rd Attack Room East"
+        }
+      ]
+    },
+    {
+      "id": "F1 2nd Attack Room South",
+      "name": "F1 2nd Attack Room South",
+      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 3rd Attack Room West 2"
         },
         {
-          "isLocked": false,
+          "direction": "South",
+          "adjacentRoom": "F1 3rd Attack Room South"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room West 1",
+      "name": "F1 3rd Attack Room West 1",
+      "description": "You are in a room with a few monsters and two exits heading East and South.",
+      "exits": [
+        {
           "direction": "East",
-          "adjacentRoom": "Closet"
-        }
-      ]
-    },
-    {
-      "id": "Bathroom",
-      "name": "Bathroom",
-      "description": "You are in a blue bathroom",
-      "exits": [
-        {
-          "isLocked": true,
-          "direction": "West",
-          "adjacentRoom": "Hallway",
-          "keyId": "1234"
+          "adjacentRoom": "F1 NPC Room"
         },
         {
-          "isLocked": false,
-          "direction": "NorthWest",
-          "adjacentRoom": "Bedroom"
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
         }
       ]
     },
     {
-      "id": "Closet",
-      "name": "Closet",
-      "description": "You are in the closet. It is dark.",
+      "id": "F1 3rd Attack Room East",
+      "name": "F1 3rd Attack Room East",
+      "description": "You are in a room with a few monsters and two exits heading East and West.",
       "exits": [
         {
-          "isLocked": false,
+          "direction": "North",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
           "direction": "West",
-          "adjacentRoom": "Bedroom"
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room West 2",
+      "name": "F1 3rd Attack Room West 2",
+      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room South",
+      "name": "F1 3rd Attack Room South",
+      "description": "You are in a room with a few monsters and two exits heading West and South.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 NPC Room",
+      "name": "F1 NPC Room",
+      "description": "You are in a room with a man with a chain attached to him connecting to a boulder and one exit heading West.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Mini Boss Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 Mini Boss Room",
+      "name": "F1 Mini Boss Room",
+      "description": "You are in a room with two giant bony skeletons with bombs on their backs blocking the one exit heading West.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 6th Attack Room"
         }
       ]
     }
