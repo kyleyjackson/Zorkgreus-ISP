@@ -5,7 +5,7 @@ Boon after killing mini boss and big boss
 Has 1 extra life - replenishes half HP when die
 3 HP after every room or free healing room
 Shop - HP | Another Boon | Upgrade Boon
-Linear fashion - CANNOT GO BACKWARDS
+Linear fashion - **CANNOT GO BACKWARDS**
 Starting Room - Weapons Room (Sword, Shield, Spear, Bow)
 2nd Room - Boons Room (Randomized Boon)
 3rd Room - Fighting Room (Skelly)

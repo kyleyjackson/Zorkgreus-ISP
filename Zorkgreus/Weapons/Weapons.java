@@ -12,7 +12,7 @@ public class Weapons {
     private int atkDmg;
     private int speAtkDmg;
 
-    public Weapons(int prio, int atk, int def) {
+    public Weapons(int prio, int atk, int def, int speAtkDmg) {
         this.prio = prio;
         this.atk = atk;
         this.def = def;
