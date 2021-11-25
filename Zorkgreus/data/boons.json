@@ -63,13 +63,13 @@
         {
             "id": "Athena",
             "name": "Fortify",
-            "description": "Gain +25 defense.",
+            "description": "Gain +25 defense. If your weapon is a shield, gain +2 attack priority.",
             "level": 1
         },
         {
             "id": "Athena",
             "name": "Divine Protection",
-            "description": "Your max hp is increased by 50% of your attack and defense.",
+            "description": "Gain a 4% chance to completely block the next instance of damage.",
             "level": 1
         },
         {
