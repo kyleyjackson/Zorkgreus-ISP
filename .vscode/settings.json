@@ -1,0 +1,6 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\fhe\\OneDrive - Bayview Glen Private School\\json-simple-1.1.jar\\json-simple-1.1.jar"
+    ]
+}
