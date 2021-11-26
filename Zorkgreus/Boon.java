@@ -9,7 +9,7 @@ public class Boon {
 
     public Boon(){
         god = "Unknown";
-        boonName = "Unknown";
+        boonName = "Invalid";
         stats = null;
     }
 

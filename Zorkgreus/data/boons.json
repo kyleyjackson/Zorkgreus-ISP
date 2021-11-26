@@ -87,30 +87,35 @@
         {
             "id": "Chaos",
             "name": "Berserker",
+            "colour": "",
             "stat": "Reduce your max hp to 10, but you gain a 500% damage bonus.",
             "level": 1
         },
         {
             "id": "Chaos",
             "name": "Call to Arms",
+            "colour": "",
             "stat": "You can switch your weapon.",
             "level": 1
         },
         {
             "id": "Chaos",
             "name": "Sheath",
+            "colour": "",
             "stat": "You gain +25 attack priority but deal 75% reduced damage.",
             "level": 1
         },
         {
             "id": "Chaos",
             "name": "Playing with Fire",
+            "colour": "",
             "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you do not use the bomb within 4 rooms, you blow up and die.",
             "level": 1
         },
         {
             "id": "Chaos",
             "name": "Exposed",
+            "colour": "",
             "stat": "Convert 100% of your defense into attack.",
             "level": 1
         }
