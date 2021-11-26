@@ -21,9 +21,14 @@ public class Game {
    */
   public Game() {
     try {
-      initRooms("src\\zork\\data\\rooms.json");
+      initRooms("Zorkgreus\\data\\rooms.json");
       currentRoom = roomMap.get("Bedroom");
     } catch (Exception e) {
+      e.printStackTrace();
+    }
+    try{
+      initBoons("Zorkgreus\\data\\boons.json");
+    } catch (Exception e){
       e.printStackTrace();
     }
     parser = new Parser();
@@ -58,6 +63,29 @@ public class Game {
       }
       room.setExits(exits);
       roomMap.put(roomId, room);
+    }
+  }
+
+  private void initBoons(String file) throws Exception {
+    Path path = Path.of(file);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonBoons = (JSONArray) json.get("boons");
+
+    for(Object boonObj : jsonBoons){
+      Boon boon = new Boon();
+      String godName = (String) ((JSONObject) boonObj).get("god");
+      String boonName = (String) ((JSONObject) boonObj).get("name");
+      String decorativeText = (String) ((JSONObject) boonObj).get("colour");
+      String stat = (String) ((JSONObject) boonObj).get("stat");
+      int level = (int) ((JSONObject) boonObj).get("level");
+      boon.setGod(godName);
+      boon.setBoonName(boonName);
+      boon.setColour(decorativeText);
+      boon.setStats(stat);
+      boon.setLevel(level);
     }
   }
 

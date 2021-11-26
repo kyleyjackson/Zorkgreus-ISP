@@ -1,122 +1,122 @@
 {
     "boons": [
         {
-            "id": "Ares",
+            "god": "Ares",
             "name": "Brutal Strength",
             "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
             "stat": "Gain +10 damage on your normal attacks.",
             "level": 1
         },
         {
-            "id": "Ares",
+            "god": "Ares",
             "name": "Bloodlust",
             "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
             "stat": "Gain +15 damage on your special attacks.",
             "level": 1
         },
         {
-            "id": "Artemis",
+            "god": "Artemis",
             "name": "Hunter's Eye",
             "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
             "stat": "Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 damage on your normal and special attacks.",
             "level": 1
         },
         {
-            "id": "Artemis",
+            "god": "Artemis",
             "name": "Precision Strike",
             "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
             "stat": "Gain a 10% chance to deal double damage on your normal and special attacks.",
             "level": 1
         },
         {
-            "id": "Aphrodite",
+            "god": "Aphrodite",
             "name": "Reciprocation",
             "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
             "stat": "When attacked, there is a 44% chance to redirect 50% of damage taken to the attacker.",
             "level": 1
         },
         {
-            "id": "Aphrodite",
+            "god": "Aphrodite",
             "name": "Charm",
             "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
             "stat": "After using your special attack, there is a 44% chance to stun the target for one turn.",
             "level": 1
         },
         {
-            "id": "Zeus",
+            "god": "Zeus",
             "name": "Smite",
             "colour": "A golden glow fills the room. You hear the crackle of lighting followed by a thunderous shout.",
             "stat": "If you were to take lethal damage, execute the enemy who delivered the attack. If the enemy is a boss (excluding minibosses), it deals 10% max hp damage instead.",
             "level": 1
         },
         {
-            "id": "Zeus",
+            "god": "Zeus",
             "name": "Thundering Fury",
             "colour": "A golden glow fills the room. You hear the crackle of lighting followed by a thunderous shout.",
-            "stat": "Once you lose attack priority, halve the defense of the target you just attacked.",
+            "stat": "Once you lose attack priority, halve the defence of the target you just attacked.",
             "level": 1
         },
         {
-            "id": "Poseidon",
+            "god": "Posegodon",
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boon. You feel at ease.",
             "stat": "5% of all damage dealt is restored as health.",
             "level": 1
         },
         {
-            "id": "Poseidon",
+            "god": "Posegodon",
             "name": "Vitality",
             "colour": "A calming blue is emitted from the boon. You feel at ease.",
             "stat": "After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead.",
             "level": 1
         },
         {
-            "id": "Athena",
+            "god": "Athena",
             "name": "Fortify",
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. Your will to protect grows stronger.",
-            "stat": "Gain +25 defense. If your weapon is a shield, this effect is doubled.",
+            "stat": "Gain +25 defence. If your weapon is a shield, this effect is doubled.",
             "level": 1
         },
         {
-            "id": "Athena",
+            "god": "Athena",
             "name": "Divine Protection",
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. Your will to protect grows stronger.",
             "stat": "Gain a 4% chance to completely block the next instance of damage.",
             "level": 1
         },
         {
-            "id": "Chaos",
+            "god": "Chaos",
             "name": "Berserker",
-            "colour": "",
+            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
             "stat": "Reduce your max hp to 10, but you gain a 500% damage bonus.",
             "level": 1
         },
         {
-            "id": "Chaos",
+            "god": "Chaos",
             "name": "Call to Arms",
-            "colour": "",
+            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
             "stat": "You can switch your weapon.",
             "level": 1
         },
         {
-            "id": "Chaos",
+            "god": "Chaos",
             "name": "Sheath",
-            "colour": "",
+            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
             "stat": "You gain +25 attack priority but deal 75% reduced damage.",
             "level": 1
         },
         {
-            "id": "Chaos",
+            "god": "Chaos",
             "name": "Playing with Fire",
-            "colour": "",
+            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
             "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you do not use the bomb within 4 rooms, you blow up and die.",
             "level": 1
         },
         {
-            "id": "Chaos",
+            "god": "Chaos",
             "name": "Exposed",
-            "colour": "",
-            "stat": "Convert 100% of your defense into attack.",
+            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
+            "stat": "Convert 100% of your defence into attack.",
             "level": 1
         }
     ]
