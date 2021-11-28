@@ -39,7 +39,7 @@
             "god": "Aphrodite",
             "name": "Charm",
             "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
-            "stat": "After using your special attack, there is a 44% chance to stun the target for one turn.",
+            "stat": "After using your special attack, there is a 24% chance to stun the target for one turn.",
             "level": 1
         },
         {
@@ -57,14 +57,14 @@
             "level": 1
         },
         {
-            "god": "Posegodon",
+            "god": "Poseidon",
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boon. You feel at ease.",
             "stat": "5% of all damage dealt is restored as health.",
             "level": 1
         },
         {
-            "god": "Posegodon",
+            "god": "Poseidon",
             "name": "Vitality",
             "colour": "A calming blue is emitted from the boon. You feel at ease.",
             "stat": "After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead.",
@@ -109,7 +109,7 @@
             "god": "Chaos",
             "name": "Playing with Fire",
             "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
-            "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you do not use the bomb within 4 rooms, you blow up and die.",
+            "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you do not use the bomb within 4 rooms, well... you don't want to find out.",
             "level": 1
         },
         {
