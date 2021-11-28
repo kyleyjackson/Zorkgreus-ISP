@@ -15,4 +15,19 @@ public class Boss {
         this.def = def;
         this.hp = hp;
     }
+    public boolean activateSpecial(){
+        return hp<=(hp/2);
+    }
+    public int getBossAtk(){
+        return atk;
+    }
+    public int getBossPriority(){
+        return priority;
+    }
+    public void changeBossAtk(int newAtk){
+        atk = newAtk;
+    }
+    public void changeBossPriority(int newPriority){
+        priority = newPriority;
+    }
 }
