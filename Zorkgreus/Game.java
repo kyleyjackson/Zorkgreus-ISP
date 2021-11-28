@@ -259,7 +259,6 @@ public class Game {
 
     String type = command.getSecondWord();
 
-
   }
 
   private void attemptToTake(Command command){
