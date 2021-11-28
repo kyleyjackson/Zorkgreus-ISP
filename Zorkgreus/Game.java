@@ -258,7 +258,7 @@ public class Game {
     }
 
     String type = command.getSecondWord();
-    
+
 
   }
 
