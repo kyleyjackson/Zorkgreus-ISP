@@ -6,6 +6,6 @@ public class bossSkeleton extends Boss{
     super(15, 10, 10, 50);
    }
 
-   public void specialAttack(){
+   public void displaySpecialAttack(){
    }
 }
