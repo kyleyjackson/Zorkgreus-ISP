@@ -15,6 +15,13 @@
             "level": 1
         },
         {
+            "god": "Ares",
+            "name": "Killing Blow",
+            "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
+            "stat": "Enemies left below 5% hp after an attack are automatically executed.",
+            "level": 1
+        },
+        {
             "god": "Artemis",
             "name": "Hunter's Eye",
             "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
@@ -29,6 +36,13 @@
             "level": 1
         },
         {
+            "god": "Artemis",
+            "name": "First Strike",
+            "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
+            "stat": "If you strike an enemy first, your attack will deal double damage.",
+            "level": 1
+        },
+        {
             "god": "Aphrodite",
             "name": "Reciprocation",
             "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
@@ -39,7 +53,14 @@
             "god": "Aphrodite",
             "name": "Charm",
             "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
-            "stat": "After using your special attack, there is a 24% chance to stun the target for one turn.",
+            "stat": "After using your special attack, there is a 14% chance to stun the target for one turn.",
+            "level": 1
+        },
+        {
+            "god": "Aphrodite",
+            "name": "Go Easy on Me",
+            "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
+            "stat": "Enemies deal 10% less damage to you.",
             "level": 1
         },
         {
@@ -57,6 +78,13 @@
             "level": 1
         },
         {
+            "god": "Zeus",
+            "name": "Stormbreaker",
+            "colour": "A golden glow fills the room. You hear the crackle of lighting followed by a thunderous shout.",
+            "stat": "Your attacks bounce to one other target, dealing 75% of the initial attack's damage.",
+            "level": 1
+        },
+        {
             "god": "Poseidon",
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boon. You feel at ease.",
@@ -69,6 +97,13 @@
             "colour": "A calming blue is emitted from the boon. You feel at ease.",
             "stat": "After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead.",
             "level": 1
+        },
+        {
+            "god": "Poseidon",
+            "name": "High Tide",
+            "colour": "A calming blue is emitted from the boon. You feel at ease.",
+            "stat": "Recieve 3 bunches of grapes that each heal 10hp.",
+            "level": 0
         },
         {
             "god": "Athena",
@@ -85,38 +120,52 @@
             "level": 1
         },
         {
+            "god": "Athena",
+            "name": "Stand Your Ground",
+            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. Your will to protect grows stronger.",
+            "stat": "Damage that would otherwise be lethal reduces your hp to 1.",
+            "level": 1
+        },
+        {
             "god": "Chaos",
             "name": "Berserker",
-            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
+            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
             "stat": "Reduce your max hp to 10, but you gain a 500% damage bonus.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Call to Arms",
-            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
+            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
             "stat": "You can switch your weapon.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Sheath",
-            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
+            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
             "stat": "You gain +25 attack priority but deal 75% reduced damage.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Playing with Fire",
-            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
-            "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you do not use the bomb within 4 rooms, well... you don't want to find out.",
+            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you don't use the bomb within 4 rooms, well... you don't want to find out.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Exposed",
-            "colour": "?̸̨̙̺͚̬͉̼̗͆͜͝?̶̼͍̦̫̔̽̍̏̏̈́?̷̧̺̩̺͇̞̤͉̜͌̀̎͜͝?̷̝̠͎̤̥̙̖̜͊̽?̶̢̛̘̫̍̍̀͗̒͋́͜͝͝?̶̫͍͇̹̏?̷̨̛̫͈̳̱͓̥̬̆̋̍̿̒̈́͜?̵͉̝͓̠̰̗̙̖̣̱̍̎̽͊̍̇̊̅͝?̶͖̈́̾͂͋̈́́?̸̢̧̡̩͙̪̮̼̖̯̌̑̃̓̄̚͝?̴͓̘̟̟͊͑̔͛̂?̶͉͆̑̐̐?̸̨̧̖̮͍̩̩̜̉̄̀̋̊̓̍̋͘",
+            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
             "stat": "Convert 100% of your defence into attack.",
+            "level": 1
+        },
+        {
+            "god": "Chaos",
+            "name": "Thou Knoweth Not Weakness",
+            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "stat": "For the next 3 rooms, lose -50% of your attack. Afterwards, gain +25% of your original attack.",
             "level": 1
         }
     ]

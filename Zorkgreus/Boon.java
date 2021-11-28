@@ -1,7 +1,5 @@
 package Zorkgreus;
 
-import java.util.ArrayList;
-
 public class Boon {
     private String god;
     private String boonName;

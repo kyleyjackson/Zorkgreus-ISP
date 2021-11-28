@@ -166,6 +166,12 @@ public class Game {
     else if(commandWord.equals("attack")){
       attackType(command);
     }
+    else if(commandWord.equals("normal")){
+      attackType(command);
+    }
+    else if(commandWord.equals("special")){
+      attackType(command);
+    }
     else if(commandWord.equals("look")){
       currentRoom.longDescription();
     }
@@ -181,7 +187,7 @@ public class Game {
         System.out.println("Woohoo!");
       }
       if(msg == 1){
-        System.out.println("Don't break the floor fatso.");
+        System.out.println("Don't break the floor.");
       }
       if(msg == 2){
         System.out.println("The enemies are just as confused as I am.");
@@ -205,7 +211,7 @@ public class Game {
         System.out.println("I think you just made it angrier.");
       }
       if(msg == 1){
-        System.out.println("what");
+        System.out.println("That did nothing...");
       }
       if(msg == 2){
         System.out.println("Why?");
@@ -242,7 +248,7 @@ public class Game {
    * and a list of the command words.
    */
   private void printHelp() {
-    System.out.println("You managed to slip away from your father, Hades, in the underworld.");
+    System.out.println("Get out of hell: a daunting dask. Many have tried, none have succeeded.");
     System.out.println("You need to use all the tools at your disposal in order to escape.");
     System.out.println("In front of you are four weapons, the sword, bow, spear, and shield.");
     System.out.println("Good luck. May the gods be on your side.");
@@ -252,13 +258,17 @@ public class Game {
   }
 
   private void attackType(Command command){
-    if(!command.hasSecondWord()){
-      System.out.println("What kind of attack?");
+    if(!command.hasSecondWord() || command.getCommandWord() == "attack"){
+      System.out.println("Are you doing a normal or special attack?");
       return;
     }
 
-    String type = command.getSecondWord();
-
+    if(command.getSecondWord() == "normal" || command.getCommandWord() == "normal"){
+      //normalAttack(); 
+    }
+    else if(command.getSecondWord() == "special" || command.getCommandWord() == "special"){
+      //specialAttack();
+    }
   }
 
   private void attemptToTake(Command command){
