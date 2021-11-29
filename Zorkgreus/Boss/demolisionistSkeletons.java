@@ -3,21 +3,16 @@ package Zorkgreus.Boss;
 import java.util.Scanner;
 
 public class demolisionistSkeletons extends Boss {
-    // subclass for demolisionistSkeletons (Richie and Harrison), found in the 5th
-    // room of floor 1 (miniBoss)
-    private int hp;
+    // subclass for demolisionistSkeletons, found in the 5th room of floor 1 (miniBoss)
     Scanner in = new Scanner(System.in);
 
     public demolisionistSkeletons() {
         super(5, 12, 15, 40);
-        hp = 15;
     }
-
-    public boolean isAlive() {
-        return hp <= 0;
+    public void displayBossMessage(){
+        System.out.println("Two skeletons carrying a bagful of bombs on their back look at you with glee in their eyes as they start to laugh maniacally. As they start to juggle those bombs around, they gesture for you to come");
     }
-
-    public void specialAttack() {
+    public void finalAttack() {
         int count = 0;
         boolean validInput = false;
         Scanner in = new Scanner(System.in);

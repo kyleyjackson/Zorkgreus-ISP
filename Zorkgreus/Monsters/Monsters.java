@@ -15,4 +15,6 @@ public class Monsters {
         this.def = def;
         this.hp = hp;
     }
+    public void displayMonsterMessage(){
+    }
 }
