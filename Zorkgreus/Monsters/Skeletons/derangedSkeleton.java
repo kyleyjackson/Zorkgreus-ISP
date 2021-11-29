@@ -9,6 +9,6 @@ public class derangedSkeleton extends Monsters{
     }
     public void displayMonsterMessage(){
         System.out.println("A skeleton slowly lumbers towards you, tugging on a bone in his body.");
-        System.out.println("As the bone pops out with a snap, he looks at it approvingly.");
+        System.out.println("As the bone pops out with a snap, he looks at it approvingly as his lips curl into a snarl.");
     }
 }
