@@ -1,0 +1,22 @@
+{
+    "Monsters": [
+    {
+    "Monster": "Skeleton something",
+    "attack": 1,
+    "priority": 1,
+    "defense": 1,
+    "health": 1,
+    "description": "fred is fat",
+    "Floor and Room": ""
+    },
+    {
+    "Monster": "Skeleton something",
+    "attack": 1,
+    "priority": 1,
+    "defense": 1,
+    "health": 1,
+    "description": "fred is fat",
+    "Floor and Room": ""
+    }
+]
+}
