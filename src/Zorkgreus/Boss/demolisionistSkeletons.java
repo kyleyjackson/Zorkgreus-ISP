@@ -1,9 +1,10 @@
-package Zorkgreus.Boss;
+package src.Zorkgreus.Boss;
 
 import java.util.Scanner;
 
 public class demolisionistSkeletons extends Boss {
-    // subclass for demolisionistSkeletons, found in the 5th room of floor 1 (miniBoss)
+    // subclass for demolisionistSkeletons, found in the 5th room of floor 1
+    // (miniBoss)
     Scanner in = new Scanner(System.in);
 
     public demolisionistSkeletons() {
@@ -12,6 +13,7 @@ public class demolisionistSkeletons extends Boss {
     public void displayBossMessage(){
         System.out.println("Two skeletons carrying a bagful of bombs on their back look at you with glee in their eyes as they start to laugh maniacally. As they juggle those bombs around, they gesture for you to come");
     }
+
     public void finalAttack() {
         int count = 0;
         boolean validInput = false;

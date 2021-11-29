@@ -1,4 +1,4 @@
-package Zorkgreus;
+package src.Zorkgreus;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -26,9 +26,9 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    try{
+    try {
       initBoons("src\\Zorkgreus\\data\\boons.json");
-    } catch (Exception e){
+    } catch (Exception e) {
       e.printStackTrace();
     }
     parser = new Parser();
@@ -68,6 +68,7 @@ public class Game {
 
   /**
    * Initiates the boons.
+   * 
    * @param file boons.json file
    */
   private void initBoons(String file) throws Exception {
@@ -78,7 +79,7 @@ public class Game {
 
     JSONArray jsonBoons = (JSONArray) json.get("boons");
 
-    for(Object boonObj : jsonBoons){
+    for (Object boonObj : jsonBoons) {
       Boon boon = new Boon();
       String godName = (String) ((JSONObject) boonObj).get("god");
       String boonName = (String) ((JSONObject) boonObj).get("name");
@@ -136,107 +137,88 @@ public class Game {
     }
 
     String commandWord = command.getCommandWord();
-    if(commandWord.equals("help")){
+    if (commandWord.equals("help")) {
       printHelp();
-    }
-    else if(commandWord.equals("go")){
+    } else if (commandWord.equals("go")) {
       goRoom(command);
-    }
-    else if(commandWord.equals("quit")) {
+    } else if (commandWord.equals("quit")) {
       if (command.hasSecondWord())
         System.out.println("Quit what?");
       else
         return true; // signal that we want to quit
-    } 
-    else if(commandWord.equals("eat")) {
+    } else if (commandWord.equals("eat")) {
       System.out.println("Do they even have food in the underworld?");
-    }
-    else if(commandWord.equals("east")){
+    } else if (commandWord.equals("east")) {
       goRoom(command);
-    }
-    else if(commandWord.equals("west")){
+    } else if (commandWord.equals("west")) {
       goRoom(command);
-    }
-    else if(commandWord.equals("north")){
+    } else if (commandWord.equals("north")) {
       goRoom(command);
-    }
-    else if(commandWord.equals("south")){
+    } else if (commandWord.equals("south")) {
       goRoom(command);
-    }
-    else if(commandWord.equals("attack")){
+    } else if (commandWord.equals("attack")) {
       attackType(command);
-    }
-    else if(commandWord.equals("normal")){
+    } else if (commandWord.equals("normal")) {
       attackType(command);
-    }
-    else if(commandWord.equals("special")){
+    } else if (commandWord.equals("special")) {
       attackType(command);
-    }
-    else if(commandWord.equals("look")){
+    } else if (commandWord.equals("look")) {
       currentRoom.longDescription();
-    }
-    else if(commandWord.equals("take")){
+    } else if (commandWord.equals("take")) {
       attemptToTake(command);
-    }
-    else if(commandWord.equals("takeall")){
+    } else if (commandWord.equals("takeall")) {
       attemptToTake(command);
-    }
-    else if(commandWord.equals("jump")){
-      int msg = (int)(Math.random() * 3);
-      if(msg == 0){
+    } else if (commandWord.equals("jump")) {
+      int msg = (int) (Math.random() * 3);
+      if (msg == 0) {
         System.out.println("Woohoo!");
       }
-      if(msg == 1){
+      if (msg == 1) {
         System.out.println("Don't break the floor.");
       }
-      if(msg == 2){
+      if (msg == 2) {
         System.out.println("The enemies are just as confused as I am.");
       }
-    }
-    else if(commandWord.equals("run")){
-      int msg = (int)(Math.random() * 3);
-      if(msg == 0){
+    } else if (commandWord.equals("run")) {
+      int msg = (int) (Math.random() * 3);
+      if (msg == 0) {
         System.out.println("You ran!... into a wall.");
       }
-      if(msg == 1){
+      if (msg == 1) {
         System.out.println("It's dangerous to go alone!");
       }
-      if(msg == 2){
+      if (msg == 2) {
         System.out.println("Getting tired yet?");
       }
-    }
-    else if(commandWord.equals("slap")){
-      int msg = (int)(Math.random() * 3);
-      if(msg == 0){
+    } else if (commandWord.equals("slap")) {
+      int msg = (int) (Math.random() * 3);
+      if (msg == 0) {
         System.out.println("I think you just made it angrier.");
       }
-      if(msg == 1){
+      if (msg == 1) {
         System.out.println("That did nothing...");
       }
-      if(msg == 2){
+      if (msg == 2) {
         System.out.println("Why?");
       }
-    }
-    else if(commandWord.equals("cry")){
-      int msg = (int)(Math.random() * 3);
-      if(msg == 0){
+    } else if (commandWord.equals("cry")) {
+      int msg = (int) (Math.random() * 3);
+      if (msg == 0) {
         System.out.println("The underworld feeds off your tears.");
       }
-      if(msg == 1){
-        System.out.println("Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
+      if (msg == 1) {
+        System.out.println(
+            "Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
       }
-      if(msg == 2){
+      if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
-    }
-    else if(commandWord.equals("1") || commandWord.equals("one")){
-      //check if player is on a boon screen
-    }
-    else if(commandWord.equals("2") || commandWord.equals("two")){
-      //check if player is on a boon screen
-    }
-    else if(commandWord.equals("3") || commandWord.equals("three")){
-      //check if player is on a boon screen
+    } else if (commandWord.equals("1") || commandWord.equals("one")) {
+      // check if player is on a boon screen
+    } else if (commandWord.equals("2") || commandWord.equals("two")) {
+      // check if player is on a boon screen
+    } else if (commandWord.equals("3") || commandWord.equals("three")) {
+      // check if player is on a boon screen
     }
     return false;
   }
@@ -257,21 +239,20 @@ public class Game {
     parser.showCommands();
   }
 
-  private void attackType(Command command){
-    if(!command.hasSecondWord() || command.getCommandWord() == "attack"){
+  private void attackType(Command command) {
+    if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
       System.out.println("Are you doing a normal or special attack?");
       return;
     }
 
-    if(command.getSecondWord() == "normal" || command.getCommandWord() == "normal"){
-      //normalAttack(); 
-    }
-    else if(command.getSecondWord() == "special" || command.getCommandWord() == "special"){
-      //specialAttack();
+    if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
+      // normalAttack();
+    } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
+      // specialAttack();
     }
   }
 
-  private void attemptToTake(Command command){
+  private void attemptToTake(Command command) {
 
   }
 
@@ -280,7 +261,8 @@ public class Game {
    * otherwise print an error message.
    */
   private void goRoom(Command command) {
-    if (!command.hasSecondWord() && (command.getCommandWord() != "east" || command.getCommandWord() != "west" || command.getCommandWord() != "north" || command.getCommandWord() != "south")) {
+    if (!command.hasSecondWord() && (command.getCommandWord() != "east" || command.getCommandWord() != "west"
+        || command.getCommandWord() != "north" || command.getCommandWord() != "south")) {
       // if there is no second word, we don't know where to go...
       System.out.println("Go where?");
       return;

@@ -1,4 +1,4 @@
-package Zorkgreus;
+package src.Zorkgreus;
 
 public class OpenableObject {
     private Boolean isLocked;

@@ -1,4 +1,4 @@
-package Zorkgreus;
+package src.Zorkgreus;
 
 public class Item extends OpenableObject {
   private int weight;

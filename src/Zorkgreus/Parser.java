@@ -1,4 +1,4 @@
-package Zorkgreus;
+package src.Zorkgreus;
 
 import java.util.Scanner;
 
