@@ -1,0 +1,186 @@
+{
+  "rooms": [
+    {
+      "id": "Spawn Room",
+      "name": "Spawn Room ",
+      "description": "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "Test Dummy Room"
+        }
+      ]
+    },
+    {
+      "id": "Test Dummy Room",
+      "name": "Test Dummy Room",
+      "description": "You are in a room with a skeleton in the middle with one exit heading west. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "Boon Room"
+        }
+      ]
+    },
+    {
+      "id": "Boon Room",
+      "name": "Boon Room",
+      "description": "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 1st Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 1st Attack Room",
+      "name": "F1 1st Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 2nd Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 2nd Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 2nd Attack Room",
+      "name": "F1 2nd Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 3rd Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 3rd Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 3rd Attack Room",
+      "name": "F1 3rd Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 NPC Room",
+      "name": "F1 NPC Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 MiniBoss Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 MiniBoss Room",
+      "name": "F1 MiniBoss Room",
+      "description": "You Can see two giant bony skeletons with bombs in hand on their backs. The room is full of explosion marks ash and bones. The only exit is being blocked by the skeletons.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 4th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 4th Attack Room",
+      "name": "F1 4th Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 5th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 5th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 5th Attack Room",
+      "name": "F1 5th Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 6th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 6th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 6th Attack Room",
+      "name": "F1 6th Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 7th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F1 7th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 7th Attack Room",
+      "name": "F1 7th Attack Room",
+      "description": "",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Shop Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F1 Shop Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 Shop Room",
+      "name": "F1 Shop Room",
+      "description": "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F1 Boss Room"
+        }
+      ]
+    },
+    {
+      "id": "F1 Boss Room",
+      "name": "F1 Boss Room",
+      "description": "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up with the room being dimly lit up with torches.",
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "F2 Starting Room"
+        }
+      ]
+    }
+  ]
+}

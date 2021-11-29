@@ -21,13 +21,13 @@ public class Game {
    */
   public Game() {
     try {
-      initRooms("Zorkgreus\\data\\rooms.json");
+      initRooms("src\\Zorkgreus\\data\\rooms.json");
       currentRoom = roomMap.get("Bedroom");
     } catch (Exception e) {
       e.printStackTrace();
     }
     try{
-      initBoons("Zorkgreus\\data\\boons.json");
+      initBoons("src\\Zorkgreus\\data\\boons.json");
     } catch (Exception e){
       e.printStackTrace();
     }
