@@ -120,7 +120,7 @@ public class Game {
     System.out.println("Zork is a new, incredibly boring adventure game.");
     System.out.println("Type 'help' if you need help.");
     System.out.println();
-    System.out.println(currentRoom.longDescription());
+    System.out.println(currentRoom.shortDescription());
   }
 
   /**
@@ -160,7 +160,7 @@ public class Game {
     } else if (commandWord.equals("special")) {
       attackType(command);
     } else if (commandWord.equals("look")) {
-      currentRoom.longDescription();
+      currentRoom.shortDescription();
     } else if (commandWord.equals("take")) {
       attemptToTake(command);
     } else if (commandWord.equals("takeall")) {
@@ -305,7 +305,7 @@ public class Game {
       System.out.println("There is no door!");
     else {
       currentRoom = nextRoom;
-      System.out.println(currentRoom.longDescription());
+      System.out.println(currentRoom.shortDescription());
     }
   }
 }
