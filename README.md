@@ -15,13 +15,14 @@ Zorkgreus:
 - Option between shop or free room before big boss
 - 5 rooms big boss 
 - Healing station after 1st floor, before 2nd floor
-- TOTAL 1st Floors
+- TOTAL 
+- **1st Floor**
 - 12 rooms (not counting weapons room)
-- 2nd Floor
+- **2nd Floor**
 - Have NPC room - gives either upgraded boon lvl or another boon
 - 7 rooms mini boss
 - 7 rooms big boss
-- Floor
+- **3rd Floor**
 - Have NPC room - gives either extra life or 50% more dmg
 - 9 rooms mini boss
 - 9 rooms big boss
@@ -31,4 +32,7 @@ Priority Based System
 - You have a priority, enemies have a priority
 - Every time someone attacks, their priority goes down
 - Whoever has the higher priority will attack (Someone can attack multiple times)
+- Special attacks can modify priority, attack and defense
+
+Lore: You are the son of KevinD, god of death. He's been keeping you underground for as long as you remember. You've lost your sense of belonging in the House of ICS3U. You finally decide, against your father's will to escape from the underground. This journey will not be easy...
 
