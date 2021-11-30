@@ -1,11 +1,11 @@
-package src.Zorkgreus.Monsters.Skeletons;
+package Zorkgreus.Monsters.Skeletons;
 
-import src.Zorkgreus.Monsters.Monsters;
+import Zorkgreus.Monsters.Monsters;
 
 public class singleSkeleton extends Monsters {
     // subclass for singleSkeleton, found in the 1st room of floor 1
     public singleSkeleton() {
-        super(0, 0, 10, 15);
+        super(0, 0, 10, 15, "");
     }
 
     public void displayMonsterMessage() {

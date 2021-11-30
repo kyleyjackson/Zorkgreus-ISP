@@ -204,17 +204,41 @@ public class Game {
       }
       if (msg == 1) {
         System.out.println(
-            "Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
+          "Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
       }
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
+    } else if (commandWord.equals("boon") || commandWord.equals("boonlist")){
+      if(command.hasSecondWord()){
+        if(!onBoonScreen()){
+          System.out.println("There is no boon to select!");
+        }
+      }
+      else{
+        
+      }
     } else if (commandWord.equals("1") || commandWord.equals("one")) {
-      // check if player is on a boon screen
+      if(!onBoonScreen()){
+        System.out.println("There is no boon to select!");
+      }
+      else{
+
+      }
     } else if (commandWord.equals("2") || commandWord.equals("two")) {
-      // check if player is on a boon screen
+      if(!onBoonScreen()){
+        System.out.println("There is no boon to select!");
+      }
+      else{
+
+      }
     } else if (commandWord.equals("3") || commandWord.equals("three")) {
-      // check if player is on a boon screen
+      if(!onBoonScreen()){
+        System.out.println("There is no boon to select!");
+      }
+      else{
+
+      }
     }
     return false;
   }
@@ -250,6 +274,13 @@ public class Game {
 
   private void attemptToTake(Command command) {
 
+  }
+
+  private boolean onBoonScreen(){
+    if(currentRoom.getRoomName().equals("Boon Room")/* || boss/miniboss is defeated*/){
+      return true;
+    }
+    return false;
   }
 
   /**

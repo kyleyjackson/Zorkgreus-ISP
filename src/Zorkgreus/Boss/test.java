@@ -1,4 +1,4 @@
-package src.Zorkgreus.Boss;
+package Zorkgreus.Boss;
 
 public class test {
     public static void main(String[] args) {

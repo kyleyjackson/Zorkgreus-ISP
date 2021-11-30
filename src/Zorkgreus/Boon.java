@@ -59,4 +59,8 @@ public class Boon {
     public void setLevel(int level) {
         this.level = level;
     }
+
+    public void displayBoons(String boons){
+        System.out.println("Your boons are: " + boons);
+    }
 }

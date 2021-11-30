@@ -1,11 +1,11 @@
-package src.Zorkgreus.Monsters.Skeletons;
+package Zorkgreus.Monsters.Skeletons;
 
-import src.Zorkgreus.Monsters.Monsters;
+import Zorkgreus.Monsters.Monsters;
 
 public class rangedSkeleton extends Monsters {
     // subclass for rangedSkeleton, found in the 3rd room on floor 1
     public rangedSkeleton() {
-        super(3, 9, 10, 10);
+        super(3, 9, 10, 10, "");
     }
 
     public void displayMonsterMessage() {

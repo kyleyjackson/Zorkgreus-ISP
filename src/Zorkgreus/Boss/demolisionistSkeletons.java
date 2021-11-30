@@ -1,4 +1,4 @@
-package src.Zorkgreus.Boss;
+package Zorkgreus.Boss;
 
 import java.util.Scanner;
 

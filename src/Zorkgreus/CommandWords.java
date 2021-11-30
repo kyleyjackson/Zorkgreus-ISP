@@ -5,7 +5,7 @@ public class CommandWords {
   // represent the boons that they can select)
   private static final String validCommands[] = { "go", "quit", "help", "eat", "east", "west", "north", "south",
       "attack", "normal", "special", "look", "take", "takeall", "jump", "run", "slap", "cry", "1", "2", "3", "one",
-      "two", "three" };
+      "two", "three", "boon"};
 
   /**
    * Constructor - initialise the command words.

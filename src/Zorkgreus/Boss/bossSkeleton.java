@@ -1,4 +1,4 @@
-package src.Zorkgreus.Boss;
+package Zorkgreus.Boss;
 
 public class bossSkeleton extends Boss {
    // subclass for bossSkeleton, found in the 10th room of floor 1 (Boss)
