@@ -1,4 +1,4 @@
-package src.Zorkgreus;
+package Zorkgreus;
 
 public class CommandWords {
   // a constant array that holds all valid command words (the numbers "1 2 3"

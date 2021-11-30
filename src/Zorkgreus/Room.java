@@ -1,4 +1,4 @@
-package src.Zorkgreus;
+package Zorkgreus;
 
 import java.util.ArrayList;
 

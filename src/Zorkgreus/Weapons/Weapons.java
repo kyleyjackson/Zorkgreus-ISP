@@ -1,4 +1,4 @@
-package src.Zorkgreus.Weapons;
+package Zorkgreus.Weapons;
 
 public class Weapons {
     /**

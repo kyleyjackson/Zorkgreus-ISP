@@ -1,4 +1,4 @@
-package src.Zorkgreus;
+package Zorkgreus;
 
 public class Zorkgreus {
     public static void main(String[] args) {

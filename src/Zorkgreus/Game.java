@@ -1,4 +1,4 @@
-package src.Zorkgreus;
+package Zorkgreus;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -23,10 +23,6 @@ public class Game {
     try {
       initRooms("src\\Zorkgreus\\data\\rooms.json");
       currentRoom = roomMap.get("Bedroom");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    try {
       initBoons("src\\Zorkgreus\\data\\boons.json");
     } catch (Exception e) {
       e.printStackTrace();

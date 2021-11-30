@@ -1,4 +1,4 @@
-package src.Zorkgreus.Monsters;
+package Zorkgreus.Monsters;
 
 public class Monsters {
     /* 

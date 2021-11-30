@@ -1,4 +1,4 @@
-package src.Zorkgreus;
+package Zorkgreus;
 
 public class Key extends Item {
   private String keyId;
