@@ -1,22 +1,112 @@
 {
     "Monsters": [
-    {
-    "Monster": "Skeleton something",
-    "attack": 1,
-    "priority": 1,
-    "defense": 1,
-    "health": 1,
-    "description": "fred is fat",
-    "Floor and Room": ""
-    },
-    {
-    "Monster": "Skeleton something",
-    "attack": 1,
-    "priority": 1,
-    "defense": 1,
-    "health": 1,
-    "description": "fred is fat",
-    "Floor and Room": ""
-    }
-]
+        {
+            "Monster": "Single Skeleton",
+            "attack": 0,
+            "priority": 0,
+            "defense": 10,
+            "health": 15,
+            "description": "A frail, weak skeleton with a small chipped dagger. ",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 5,
+            "priority": 5,
+            "defense": 10,
+            "health": 15,
+            "description": "A slighty stronger skeleton with a sword. ",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Ranged Skeleton",
+            "attack": 3,
+            "priority": 9,
+            "defense": 10,
+            "health": 10,
+            "description": "A frail, weak skeleton with a bow. ",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Suspicious Skeleton",
+            "attack": 7,
+            "priority": 10,
+            "defense": 15,
+            "health": 15,
+            "description": "A suspicious skeleton, wielding a 3 metre long rotten baseball bat that seems to light for him comes into the light. ",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Shield Skeleton",
+            "attack": 5,
+            "priority": 5,
+            "defense": 20,
+            "health": 30,
+            "description": "fred is fat",
+            "Floor and Room": "A skeleton with a towering shield that has scratch and burn makrs all over it. He slams it into a ground, creating a heavy impact. "
+        },
+        {
+            "Monster": "Deranged Skeleton",
+            "attack": 15,
+            "priority": 9,
+            "defense": 20,
+            "health": 15,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 1,
+            "priority": 1,
+            "defense": 1,
+            "health": 1,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 1,
+            "priority": 1,
+            "defense": 1,
+            "health": 1,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 1,
+            "priority": 1,
+            "defense": 1,
+            "health": 1,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 1,
+            "priority": 1,
+            "defense": 1,
+            "health": 1,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 1,
+            "priority": 1,
+            "defense": 1,
+            "health": 1,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        },
+        {
+            "Monster": "Stronger Skeleton",
+            "attack": 1,
+            "priority": 1,
+            "defense": 1,
+            "health": 1,
+            "description": "fred is fat",
+            "Floor and Room": ""
+        }
+    ]
 }
