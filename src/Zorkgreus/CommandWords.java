@@ -1,9 +1,11 @@
 package Zorkgreus;
 
 public class CommandWords {
-  // a constant array that holds all valid command words (the numbers "1 2 3" represent the boons that they can select)
-  private static final String validCommands[] = { "go", "quit", "help", "eat", "east", "west", "north", "south", 
-  "attack", "normal", "special", "look", "take", "takeall", "jump", "run", "slap", "cry", "1", "2", "3", "one", "two", "three"};
+  // a constant array that holds all valid command words (the numbers "1 2 3"
+  // represent the boons that they can select)
+  private static final String validCommands[] = { "go", "quit", "help", "eat", "east", "west", "north", "south",
+      "attack", "normal", "special", "look", "take", "takeall", "jump", "run", "slap", "cry", "1", "2", "3", "one",
+      "two", "three", "boon"};
 
   /**
    * Constructor - initialise the command words.

@@ -6,6 +6,6 @@ public class test {
         System.out.println(".");
         temp.changeBossAtk(25);
         temp.changeBossPriority(5);
-        
+
     }
 }

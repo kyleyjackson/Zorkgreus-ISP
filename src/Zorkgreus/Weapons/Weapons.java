@@ -2,9 +2,9 @@ package Zorkgreus.Weapons;
 
 public class Weapons {
     /**
-    * *Each weapon has it's own set priority (1-20)
-    * *Higher DMG = Lower prio
-    */
+     * *Each weapon has it's own set priority (1-20)
+     * *Higher DMG = Lower prio
+     */
 
     private int prio;
     private int atk;
