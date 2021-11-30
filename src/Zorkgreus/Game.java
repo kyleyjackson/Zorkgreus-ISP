@@ -22,7 +22,7 @@ public class Game {
   public Game() {
     try {
       initRooms("src\\Zorkgreus\\data\\rooms.json");
-      currentRoom = roomMap.get("Bedroom");
+      currentRoom = roomMap.get("Spawn Room");
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -49,6 +49,7 @@ public class Game {
       String roomDescription = (String) ((JSONObject) roomObj).get("description");
       room.setDescription(roomDescription);
       room.setRoomName(roomName);
+      // make room description like exits using the array 
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();

@@ -2,8 +2,12 @@
   "rooms": [
     {
       "id": "Spawn Room",
-      "name": "Spawn Room ",
-      "description": "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
+      "name": "Spawn Room",
+      "descriptions": [
+        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
+        "description 2",
+        "Test 3"
+      ],
       "exits": [
         {
           "direction": "West",
