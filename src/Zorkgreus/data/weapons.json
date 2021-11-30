@@ -1,0 +1,36 @@
+{
+    "Weapons": [
+        {
+            "Weapon": "Bow",
+            "Attack": 10,
+            "Priority": 15,
+            "Defense": 0,
+            "SpecialAttackDamage": 8,
+            "Description": "A lime-coloured bow, its golden crests are covered in blood. The weapon for those who wish to attack fast, catching their enemies off guard."
+        },
+        {
+            "Weapon": "Spear", 
+            "Attack": 13, 
+            "Priority": 8, 
+            "Defense": 0, 
+            "SpecialAttackDamage": 25, 
+            "Description": "A blood red spear, stained from countless fights. The jack-of-all trades weapon, with range, excellent damage and blocking potential."
+        },
+        {
+            "Weapon": "Sword",
+            "Attack": 17,
+            "Priority": 5,
+            "Defense": 0,
+            "SpecialAttackDamage": 20,
+            "Description": "A golden broadsword, with edges so sharp it may split the sky in half. The weapon for those who wish to defeat their adversaries in one fell swoop."
+        },
+        {
+            "Weapon": "Shield",
+            "Attack": 15,
+            "Priority": 0,
+            "Defense": 30,
+            "SpecialAttackDamage": 20,
+            "Description": "A brown and white shield, worn out from countless attacks. The weapon for those who wish to keep themselves safe, whilst waiting for the chance to counter attack."
+        }
+    ]
+}
