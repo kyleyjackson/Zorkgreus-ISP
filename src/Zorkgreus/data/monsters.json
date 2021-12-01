@@ -1,112 +1,164 @@
 {
     "Monsters": [
         {
-            "Monster": "Single Skeleton",
+            "Monster": "Weak Skeleton",
             "attack": 0,
             "priority": 0,
             "defense": 10,
             "health": 15,
-            "description": "A frail, weak skeleton with a small chipped dagger. ",
-            "Floor and Room": ""
+            "dodge": 0,
+            "description": "The skeleton cowers in fear, with a small chipped dagger in his right hand. ",
+            "Floor and Room": "F1R1"
         },
         {
-            "Monster": "Stronger Skeleton",
+            "Monster": "Skeleton Fighter",
             "attack": 5,
             "priority": 5,
             "defense": 10,
             "health": 15,
-            "description": "A slighty stronger skeleton with a sword. ",
-            "Floor and Room": ""
+            "dodge": 0,
+            "description": "The skeleton stares at you, grasping his sword and pulling it from the ground. ",
+            "Floor and Room": "F1R2"
         },
         {
-            "Monster": "Ranged Skeleton",
+            "Monster": "Skeleton Archer",
             "attack": 3,
             "priority": 9,
             "defense": 10,
             "health": 10,
-            "description": "A frail, weak skeleton with a bow. ",
-            "Floor and Room": ""
+            "dodge": 0,
+            "description": "Wielding a bow with its bowstrings covered in cobwebs, the skeleton nothces in an arrow.  ",
+            "Floor and Room": "F1R3"
         },
         {
-            "Monster": "Suspicious Skeleton",
+            "Monster": "Skeleton Batter",
             "attack": 7,
             "priority": 10,
             "defense": 15,
             "health": 15,
-            "description": "A suspicious skeleton, wielding a 3 metre long rotten baseball bat that seems to light for him comes into the light. ",
-            "Floor and Room": ""
+            "dodge": 0,
+            "description": "The skeleton wields a long rotten baseball bat swings it around, and starts taking practice swings. ",
+            "Floor and Room": "F1R6"
         },
         {
-            "Monster": "Shield Skeleton",
+            "Monster": "Skeleton Protector",
             "attack": 5,
             "priority": 5,
-            "defense": 20,
-            "health": 30,
-            "description": "fred is fat",
-            "Floor and Room": "A skeleton with a towering shield that has scratch and burn makrs all over it. He slams it into a ground, creating a heavy impact. "
+            "defense": 30,
+            "health": 20,
+            "dodge": 0,
+            "description": "A skeleton with a towering shield that has scratch and burn marks all over it slams it into a ground, sending rubble everywhere and creating a heavy impact. ",
+            "Floor and Room": "F1R7"
         },
         {
-            "Monster": "Deranged Skeleton",
+            "Monster": "Skeleton Manic",
             "attack": 15,
             "priority": 9,
             "defense": 20,
             "health": 15,
-            "description": "fred is fat",
-            "Floor and Room": ""
+            "dodge": 0,
+            "description": "A skeleton slowly lumbers towards you, tugging on a bone in his body. As the bone pops out with a snap, he looks at it approvingly as he snarls at you. ",
+            "Floor and Room": "F1R8"
         },
         {
-            "Monster": "Stronger Skeleton",
+            "Monster": "Spider Hatchling",
+            "attack": 10,
+            "priority": 7,
+            "defense": 10,
+            "health": 10,
+            "dodge": 10,
+            "description": "Crawling along the wall, a small spider gets ready to lunge at you. ",
+            "Floor and Room": "F2R1"
+        },
+        {
+            "Monster": "Adult Spider",
+            "attack": 12,
+            "priority": 7,
+            "defense": 15,
+            "health": 15,
+            "dodge": 5,
+            "description": "A full grown spider, much bigger and bulkier than a hatchling. ",
+            "Floor and Room": "F2R2"
+        },
+        {
+            "Monster": "Evasive Spider",
+            "attack": 10,
+            "priority": 7,
+            "defense": 10,
+            "health": 15,
+            "dodge": 25,
+            "description": "Jumping from wall to wall, the spider's movements are nearly untraceable. ",
+            "Floor and Room": "F2R3"
+        },
+        {
+            "Monster": "Spider Brute",
+            "attack": 15,
+            "priority": 5,
+            "defense": 15,
+            "health": 20,
+            "dodge": 5,
+            "description": "An abnormally large spider, with pulsating tumors on its abdomen. ",
+            "Floor and Room": "F2R4"
+        },
+        {
+            "Monster": "Nest Guardians",
+            "attack": 7,
+            "priority": 7,
+            "defense": 20,
+            "health": 25,
+            "dodge": 25,
+            "description": "The queen's personal guardians, larger than an adult, and as agile as a hatchling",
+            "Floor and Room": "F2R5"
+        },
+        {
+            "Monster": "Agile Spider",
             "attack": 1,
             "priority": 1,
             "defense": 1,
             "health": 1,
+            "dodge": 1, 
             "description": "fred is fat",
-            "Floor and Room": ""
+            "Floor and Room": "F2R8"
         },
         {
-            "Monster": "Stronger Skeleton",
-            "attack": 1,
-            "priority": 1,
-            "defense": 1,
-            "health": 1,
-            "description": "fred is fat",
-            "Floor and Room": ""
+            "Monster": "Webshooter",
+            "attack": 7,
+            "priority": 7,
+            "defense": 20,
+            "health": 25,
+            "dodge": 25,
+            "description": "The queen's personal guardians, larger than an adult, and as agile as a hatchling",
+            "Floor and Room": "F2R9"
         },
         {
-            "Monster": "Stronger Skeleton",
-            "attack": 1,
-            "priority": 1,
-            "defense": 1,
-            "health": 1,
-            "description": "fred is fat",
-            "Floor and Room": ""
+            "Monster": "Nest Guardians",
+            "attack": 7,
+            "priority": 7,
+            "defense": 20,
+            "health": 25,
+            "dodge": 25,
+            "description": "The queen's personal guardians, larger than an adult, and as agile as a hatchling",
+            "Floor and Room": "F2R10"
         },
         {
-            "Monster": "Stronger Skeleton",
-            "attack": 1,
-            "priority": 1,
-            "defense": 1,
-            "health": 1,
-            "description": "fred is fat",
-            "Floor and Room": ""
+            "Monster": "Nest Guardians",
+            "attack": 7,
+            "priority": 7,
+            "defense": 20,
+            "health": 25,
+            "dodge": 25,
+            "description": "The queen's personal guardians, larger than an adult, and as agile as a hatchling",
+            "Floor and Room": "F2R11"
         },
         {
-            "Monster": "Stronger Skeleton",
-            "attack": 1,
-            "priority": 1,
-            "defense": 1,
-            "health": 1,
-            "description": "fred is fat",
-            "Floor and Room": ""
-        },
-        {
-            "Monster": "Stronger Skeleton",
-            "attack": 1,
-            "priority": 1,
-            "defense": 1,
-            "health": 1,
-            "description": "fred is fat",
-            "Floor and Room": ""
+            "Monster": "Nest Guardians",
+            "attack": 7,
+            "priority": 7,
+            "defense": 20,
+            "health": 25,
+            "dodge": 25,
+            "description": "The queen's personal guardians, larger than an adult, and as agile as a hatchling",
+            "Floor and Room": "F2R12"
         }
     ]
 }
