@@ -1,8 +1,8 @@
 package Zorkgreus.Boss;
 
-public class bossSkeleton extends Boss {
+public class kingSkeleton extends Boss {
    // subclass for bossSkeleton, found in the 10th room of floor 1 (Boss)
-   public bossSkeleton() {
+   public kingSkeleton() {
       super(15, 10, 10, 50);
    }
 
