@@ -44,7 +44,7 @@ public class Room {
     public String shortDescription() {
         return "Room: " + roomName + "\n\n" + description;
     }
-// got rid of long description and use math.random to randomize the description to pick one
+// got rid of long description and use math.random to randomize the description to pick one 
 
     /**
      * Return a string describing the room's exits, for example "Exits: north west

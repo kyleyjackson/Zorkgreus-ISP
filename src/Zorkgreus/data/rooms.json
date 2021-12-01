@@ -4,9 +4,9 @@
       "id": "Spawn Room",
       "name": "Spawn Room",
       "descriptions": [
-        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading west.",
-        "description 2",
-        "Test 3"
+        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West.",
+        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West.",
+        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West."
       ],
       "exits": [
         {
@@ -18,7 +18,11 @@
     {
       "id": "Test Dummy Room",
       "name": "Test Dummy Room",
-      "description": "You are in a room with a skeleton in the middle with one exit heading west. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
+      "descriptions": [
+        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
+        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
+        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a bunch of pots and a statue of Hades and a few torches."
+      ],
       "exits": [
         {
           "direction": "West",
@@ -29,7 +33,11 @@
     {
       "id": "Boon Room",
       "name": "Boon Room",
-      "description": "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
+      "descriptions": [
+      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
+      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
+      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture."
+      ],
       "exits": [
         {
           "direction": "West",
@@ -40,7 +48,11 @@
     {
       "id": "F1 1st Attack Room",
       "name": "F1 1st Attack Room",
-      "description": "",
+      "descriptions": [
+      "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with a stony and dusty floor with two exits heading West and South.",
+      "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
+      "You enter a room with a couple monsters inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
+      ],
       "exits": [
         {
           "direction": "West",
@@ -55,7 +67,11 @@
     {
       "id": "F1 2nd Attack Room",
       "name": "F1 2nd Attack Room",
-      "description": "",
+      "descriptions": [
+        "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
+        "You have entered a room with some monsters inside of it with some pots scattered around the ground. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
+        "You have entered a room with a few monsters inside of it with some pots around the room on the ground. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with a few dimly light torches lighting it up and broken stone bricks and two exits heading West and North."
+        ],
       "exits": [
         {
           "direction": "West",
@@ -70,7 +86,11 @@
     {
       "id": "F1 3rd Attack Room",
       "name": "F1 3rd Attack Room",
-      "description": "",
+      "descriptions": [
+        "You enter a room with some monsters inside of it with a few gold coins scattered about the room. The room seems old and creepy very dimly lit with lanterns with what looks to be screaming souls inside of it and a stony and dusty floor with two exits heading West and South.",
+        "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
+        "You enter a room with a couple monsters inside of it with some gold coins scattered around. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
+        ],
       "exits": [
         {
           "direction": "West",
@@ -85,7 +105,11 @@
     {
       "id": "F1 NPC Room",
       "name": "F1 NPC Room",
-      "description": "",
+      "descriptions": [
+      "You enter a room with a big bulky man with a chain attached to his leg and connected to a giant boulder behind him. The room is a big room filled with stone and a pickaxe with green lighting coming from lanterns that seem to be souls with the only exit heading West.",
+      "You enter a room with a big bulky man with a chain attached to his leg and connected to a giant boulder behind him. The room is a big room filled with stone and a pickaxe with green lighting coming from lanterns that seem to be souls with the only exit heading West.",
+      "You enter a room with a big bulky man with a chain attached to his leg and connected to a giant boulder behind him. The room is a big room filled with stone and a pickaxe with green lighting coming from lanterns that seem to be souls with the only exit heading West."
+      ],
       "exits": [
         {
           "direction": "West",
@@ -96,7 +120,11 @@
     {
       "id": "F1 MiniBoss Room",
       "name": "F1 MiniBoss Room",
-      "description": "You Can see two giant bony skeletons with bombs in hand on their backs. The room is full of explosion marks ash and bones. The only exit is being blocked by the skeletons.",
+      "descriptions": [
+        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash . Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
+        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash . Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
+        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash . Behind the skeletons you can see a glowing boon and the only exit to the room heading West."
+        ],
       "exits": [
         {
           "direction": "West",
@@ -107,7 +135,11 @@
     {
       "id": "F1 4th Attack Room",
       "name": "F1 4th Attack Room",
-      "description": "",
+      "descriptions": [
+        "",
+        "",
+        ""
+        ],
       "exits": [
         {
           "direction": "West",
@@ -122,7 +154,11 @@
     {
       "id": "F1 5th Attack Room",
       "name": "F1 5th Attack Room",
-      "description": "",
+      "descriptions": [
+        "",
+        "",
+        ""
+        ],
       "exits": [
         {
           "direction": "West",
@@ -137,7 +173,11 @@
     {
       "id": "F1 6th Attack Room",
       "name": "F1 6th Attack Room",
-      "description": "",
+      "descriptions": [
+        "",
+        "",
+        ""
+        ],
       "exits": [
         {
           "direction": "West",
@@ -152,7 +192,11 @@
     {
       "id": "F1 7th Attack Room",
       "name": "F1 7th Attack Room",
-      "description": "",
+      "descriptions": [
+        "",
+        "",
+        ""
+        ],
       "exits": [
         {
           "direction": "West",
