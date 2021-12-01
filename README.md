@@ -34,5 +34,5 @@ Priority Based System
 - Whoever has the higher priority will attack (Someone can attack multiple times)
 - Special attacks can modify priority, attack and defense
 
-Lore: You are the son of KevinD, god of death. He's been keeping you underground for as long as you remember. You've lost your sense of belonging in the House of ICS3U. You finally decide, against your father's will to escape from the underground. This journey will not be easy...
+You are the son of KevinD, god of bayviewglen's computer science program. He's been keeping you in his classroom for as long as you remember. You've lost your sense of belonging in the House of ICS3U. You finally decide, against your father's will to escape from the underground. This journey will not be easy...
 
