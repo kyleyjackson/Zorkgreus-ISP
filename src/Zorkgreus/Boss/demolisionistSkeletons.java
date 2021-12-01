@@ -44,4 +44,11 @@ public class demolisionistSkeletons extends Boss {
             }
         }
     }
+    
+    public boolean isDefeated() {
+        if(super.isAlive()){
+            return false;
+        }
+        return true;
+    }
 }

@@ -9,9 +9,9 @@
         },
         {
             "god": "Ares",
-            "name": "Bloodlust",
+            "name": "Exposed",
             "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
-            "stat": "Gain +15 damage on your special attacks.",
+            "stat": "Convert 100% of your defence into attack.",
             "level": 1
         },
         {
@@ -156,9 +156,9 @@
         },
         {
             "god": "Chaos",
-            "name": "Exposed",
+            "name": "Satanic Ritual",
             "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
-            "stat": "Convert 100% of your defence into attack.",
+            "stat": "Once per room, using your special attack begins a ritual. Immediately after casting, you lose attack priority for the next 4 turns. Once the ritual is complete, damage an enemy for 99% of their current hp.",
             "level": 1
         },
         {

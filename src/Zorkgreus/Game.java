@@ -9,21 +9,26 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import Zorkgreus.Boss.*;
+
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 
   private Parser parser;
   private Room currentRoom;
-
+  private Boss currentBoss;
+  
+  private int bossCounter;
   /**
    * Create the game and initialise its internal map.
    */
   public Game() {
     try {
       initRooms("src\\Zorkgreus\\data\\rooms.json");
-      currentRoom = roomMap.get("Spawn Room");
       initBoons("src\\Zorkgreus\\data\\boons.json");
+      currentRoom = roomMap.get("Spawn Room");
+      currentBoss = new demolisionistSkeletons();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -193,7 +198,7 @@ public class Game {
         System.out.println("I think you just made it angrier.");
       }
       if (msg == 1) {
-        System.out.println("That did nothing...");
+        System.out.println("OMG YOU DISMEMBERED THE ENEMY...\n\njk lol");
       }
       if (msg == 2) {
         System.out.println("Why?");
@@ -210,35 +215,21 @@ public class Game {
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
-    } else if (commandWord.equals("boon") || commandWord.equals("boonlist")){
-      if(command.hasSecondWord()){
-        if(!onBoonScreen()){
-          System.out.println("There is no boon to select!");
+    } else if(commandWord.equals("boonlist") || commandWord.equals("myboons")){
+      //display the boons you already have
+    }
+    else if (commandWord.equals("boon")){
+      if(onBoonScreen()){
+        generateBoons();
+        if(command.hasSecondWord()){
+
+        }
+        else{
+          System.out.println("Which boon do you wish to receive?");
         }
       }
       else{
-        
-      }
-    } else if (commandWord.equals("1") || commandWord.equals("one")) {
-      if(!onBoonScreen()){
         System.out.println("There is no boon to select!");
-      }
-      else{
-
-      }
-    } else if (commandWord.equals("2") || commandWord.equals("two")) {
-      if(!onBoonScreen()){
-        System.out.println("There is no boon to select!");
-      }
-      else{
-
-      }
-    } else if (commandWord.equals("3") || commandWord.equals("three")) {
-      if(!onBoonScreen()){
-        System.out.println("There is no boon to select!");
-      }
-      else{
-
       }
     }
     return false;
@@ -260,6 +251,10 @@ public class Game {
     parser.showCommands();
   }
 
+  /**
+   * Sees what kind of attack the player will perform.
+   * @param command
+   */
   private void attackType(Command command) {
     if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
       System.out.println("Are you doing a normal or special attack?");
@@ -273,12 +268,46 @@ public class Game {
     }
   }
 
+  private void generateBoons() {
+    int num = (int)(Math.random() * 69420);
+  }
+
+  /**
+   * checks if the currentBoss has been defeated. Changes currentBoss to the next miniboss/boss.
+   * @return T/F
+   */
+  private boolean currentBossDefeated(){
+    if(currentBoss.isDefeated()){
+      if(bossCounter == 0){
+        currentBoss = new kingSkeleton();
+      }
+      if(bossCounter == 1){
+        //miniboss Asphodel
+      }
+      if(bossCounter == 2){
+        //boss Asphodel
+      }
+      if(bossCounter == 3){
+        //miniboss Elysium
+      }
+      if(bossCounter == 4){
+        //final boss
+      }
+      return true;
+    }
+    return false;
+  }
+
   private void attemptToTake(Command command) {
 
   }
 
+  /**
+   * Check if you are able to receive a boon.
+   * @return T/F
+   */
   private boolean onBoonScreen(){
-    if(currentRoom.getRoomName().equals("Boon Room")/* || boss/miniboss is defeated*/){
+    if(currentRoom.getRoomName().equals("Boon Room") || currentBossDefeated()){
       return true;
     }
     return false;
