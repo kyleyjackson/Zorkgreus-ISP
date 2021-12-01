@@ -35,25 +35,30 @@ public class Weapons {
 
     public void changeWeaponAtk(int n) {
         atk = n;
+        System.out.println("Your attack changed to " + n + "!");
     }
 
     public void changeWeaponDef(int n) {
         def = n;
+        System.out.println("Your defense changed to " + n + "!");
     }
 
     public void changeWeaponPrio(int n) {
         prio = n;
+        System.out.println("Your priority changed to " + n + "!");
     }
 
     public int weaponNormalAtk() {
-        int rand = (int) (Math.random() * 2) + 1;
+        int rand = (int) (Math.random() * 3) + 1;
         int randDmg = (int) (Math.random() * (atk / 10)) + 1;
         int dmg = atk;
 
-        if (rand > 1) {
+        if (rand == 1) {
             dmg -= randDmg;
-        } else {
+        } else if (rand == 2) {
             dmg += randDmg;
+        }else {
+            dmg += 0;
         }
         return dmg;
     }

@@ -6,7 +6,8 @@
             "Priority": 15,
             "Defense": 0,
             "SpecialAttackDamage": 8,
-            "Description": "A lime-coloured bow, its golden crests are covered in blood. The weapon for those who wish to attack fast, catching their enemies off guard."
+            "SpecialAttackName": "Accelerate",
+            "Description": "A lime-coloured bow, its golden crests are covered in blood. The weapon for those who wish to attack quickly, catching their enemies off guard."
         },
         {
             "Weapon": "Spear", 
@@ -14,6 +15,7 @@
             "Priority": 8, 
             "Defense": 0, 
             "SpecialAttackDamage": 25, 
+            "SpecialAttackName": "Conditioning",
             "Description": "A blood red spear, stained from countless fights. The jack-of-all trades weapon, with range, excellent damage and blocking potential."
         },
         {
@@ -22,6 +24,7 @@
             "Priority": 5,
             "Defense": 0,
             "SpecialAttackDamage": 20,
+            "SpecialAttackName": "Berserker",
             "Description": "A golden broadsword, with edges so sharp it may split the sky in half. The weapon for those who wish to defeat their adversaries in one fell swoop."
         },
         {
@@ -30,6 +33,7 @@
             "Priority": 0,
             "Defense": 30,
             "SpecialAttackDamage": 20,
+            "SpecialAttackName": "Rage",
             "Description": "A brown and white shield, worn out from countless attacks. The weapon for those who wish to keep themselves safe, whilst waiting for the chance to counter attack."
         }
     ]

@@ -1,7 +1,7 @@
 package Zorkgreus;
 
 public class Player {
-    private static int maxHP;
+    private int maxHP;
     private int HP;
     private int def;
     private int atk;
@@ -31,17 +31,21 @@ public class Player {
 
     public void changePlayerHP(int n) {
         HP = n;
+        System.out.println("Your HP changed to " + n + "!");
     }
 
     public void changePlayerMaxHP(int n) {
         maxHP = n;
+        System.out.println("Your maximum HP changed to " + n + "!");
     }
 
     public void changePlayerDef(int n) {
         def = n;
+        System.out.println("Your defense changed to " + n + "!");
     }
 
     public void changePlayerAtk(int n) {
         atk = n;
+        System.out.println("Your attack changed to " + n + "!");
     }
 }
