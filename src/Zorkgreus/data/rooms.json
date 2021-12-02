@@ -218,6 +218,21 @@
           "adjacentRoom": "F2 Starting Room"
         }
       ]
+    },
+    {
+      "id": "F2 Starting Room",
+      "name": "F1 Starting Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 1st Attack Room"
+        }
+      ]
     }
   ]
 }
