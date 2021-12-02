@@ -19,7 +19,7 @@ public class Game {
   private Room currentRoom;
   private Boss currentBoss;
 
-  private JSONArray jsonBoons;
+  private ArrayList<Boon> boons;
   
   private int bossCounter;
   /**
@@ -73,12 +73,13 @@ public class Game {
    * @param file boons.json file
    */
   private void initBoons(String file) throws Exception {
+    boons = new ArrayList<Boon>();
     Path path = Path.of(file);
     String jsonString = Files.readString(path);
     JSONParser parser = new JSONParser();
     JSONObject json = (JSONObject) parser.parse(jsonString);
 
-    jsonBoons = (JSONArray) json.get("boons");
+    JSONArray jsonBoons = (JSONArray) json.get("boons");
 
     for (Object boonObj : jsonBoons) {
       Boon boon = new Boon();
@@ -92,6 +93,7 @@ public class Game {
       boon.setColour(decorativeText);
       boon.setStats(stat);
       boon.setLevel(level);
+      boons.add(boon);
     }
   }
 
@@ -268,8 +270,8 @@ public class Game {
   }
 
   private void generateBoons() {
-    int num = (int)(Math.random() * jsonBoons.size());
-    System.out.println(jsonBoons.get(0));
+    int num = (int)(Math.random() * boons.size());
+    System.out.println(boons.get(0));
   }
 
   /**

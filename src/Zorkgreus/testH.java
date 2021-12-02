@@ -18,7 +18,8 @@ public class testH {
             e.printStackTrace();
         }
         parser = new Parser();
-        System.out.println(jsonBoons.get(16));
+        Boon boon1 = boons.get(1);
+        System.out.println(boon1.displayBoon());
     }
     public static void initBoons(String file) throws Exception {
         boons = new ArrayList<Boon>();
