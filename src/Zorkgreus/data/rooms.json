@@ -49,7 +49,7 @@
       "id": "F1 1st Attack Room",
       "name": "F1 1st Attack Room",
       "descriptions": [
-      "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with a stony and dusty floor with two exits heading West and South.",
+      "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
       "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
       "You enter a room with a couple monsters inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
       ],
@@ -70,7 +70,7 @@
       "descriptions": [
         "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
         "You have entered a room with some monsters inside of it with some pots scattered around the ground. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
-        "You have entered a room with a few monsters inside of it with some pots around the room on the ground. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with a few dimly light torches lighting it up and broken stone bricks and two exits heading West and North."
+        "You have entered a room with a few monsters inside of it with some pots around the room on the ground. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with only a few dimly lit torches lighting it up and broken stone bricks and two exits heading West and North."
         ],
       "exits": [
         {
@@ -121,9 +121,9 @@
       "id": "F1 MiniBoss Room",
       "name": "F1 MiniBoss Room",
       "descriptions": [
-        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash . Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
-        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash . Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
-        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash . Behind the skeletons you can see a glowing boon and the only exit to the room heading West."
+        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
+        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
+        "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West."
         ],
       "exits": [
         {
@@ -136,9 +136,9 @@
       "id": "F1 4th Attack Room",
       "name": "F1 4th Attack Room",
       "descriptions": [
-        "",
-        "",
-        ""
+        "You enter a room with a couple of skeletons looking at you with bones around the room and some gold coins with a few dimly lit torches. The only exits out of the room are heading West and South.",
+        "You enter a room with a few skeletons looking off in the distance at the river of souls lighting up the otherwise bland room with a few bones laying around the room. The only exits out of the room are heading West and South.",
+        "You enter a eerie room with some skeletons walking around the two exits heading South and West. The room has a couple of bones laying around and the room being lit up by a couple of lanterns with souls screaming inside of it."
         ],
       "exits": [
         {
@@ -155,9 +155,9 @@
       "id": "F1 5th Attack Room",
       "name": "F1 5th Attack Room",
       "descriptions": [
-        "",
-        "",
-        ""
+        "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing green with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
+        "You have entered a room with some monsters inside of it with some pots scattered around the ground. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
+        "You have entered a room with a few monsters inside of it with some pots around the room on the ground. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with only a few dimly lit torches lighting it up and broken stone bricks and two exits heading West and North."
         ],
       "exits": [
         {
@@ -174,10 +174,10 @@
       "id": "F1 6th Attack Room",
       "name": "F1 6th Attack Room",
       "descriptions": [
-        "",
-        "",
-        ""
-        ],
+      "You enter a room with some skeletons inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
+      "You enter a room with a few skeletons inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
+      "You enter a room with a couple skeletons inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few soul lanterns lighting the room up and the only exits heading West and South."
+      ],
       "exits": [
         {
           "direction": "West",
@@ -193,9 +193,9 @@
       "id": "F1 7th Attack Room",
       "name": "F1 7th Attack Room",
       "descriptions": [
-        "",
-        "",
-        ""
+        "You have entered a room with a couple of skeletons inside of it with some pots laying around on the ground with some coins on the ground. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
+        "You have entered a room with some skeletons inside of it with some pots scattered around the ground with some coins scattered around. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
+        "You have entered a room with a few skeletons inside of it with some pots around the room on the ground and coins. The room seems very creepy and old broken and worn down bricks and the room looks like its going to fall apart with only a few dimly lit torches lighting it up and two exits heading West and North."
         ],
       "exits": [
         {
@@ -211,7 +211,11 @@
     {
       "id": "F1 Shop Room",
       "name": "F1 Shop Room",
-      "description": "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "descriptions": [
+      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west."
+      ],
       "exits": [
         {
           "direction": "West",
@@ -222,7 +226,11 @@
     {
       "id": "F1 Boss Room",
       "name": "F1 Boss Room",
-      "description": "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up with the room being dimly lit up with torches.",
+      "descriptions": [
+      "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up which is a stair case leading up with a cliff up top with the room being lit up by a bunch of soul lanterns glowing red and screaming.",
+      "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up which is a stair case leading up with a cliff up top with the room being lit up by a bunch of soul lanterns glowing red and screaming.",
+      "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up which is a stair case leading up with a cliff up top with the room being lit up by a bunch of soul lanterns glowing red and screaming."
+      ],
       "exits": [
         {
           "direction": "Up",
