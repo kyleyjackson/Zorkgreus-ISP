@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Room {
 
     private String roomName;
-    private String description;
     private ArrayList<Exit> exits;
     private ArrayList<String> descriptions;
     public ArrayList<Exit> getExits() {
@@ -21,14 +20,12 @@ public class Room {
      * "description" is something like "a kitchen" or "an open court yard".
      */
     public Room(String description) {
-        this.description = description;
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
     }
 
     public Room() {
         roomName = "DEFAULT ROOM";
-        description = "DEFAULT DESCRIPTION";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
     }
@@ -41,7 +38,9 @@ public class Room {
      * Return the description of the room (the one that was defined in the
      * constructor).
      */
-    public String shortDescription() {
+    public String roomDescription() {
+        int i = (int)(Math.random() * descriptions.size());
+        String description = descriptions.get(i);
         return "Room: " + roomName + "\n\n" + description;
     }
 // got rid of long description and use math.random to randomize the description to pick one 
@@ -98,11 +97,7 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
     public void setDescription(String description) {
-        this.description = description;
+        descriptions = new ArrayList<String>();
     }
 }
