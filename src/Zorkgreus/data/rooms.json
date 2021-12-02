@@ -181,29 +181,10 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 7th Attack Room"
-        },
-        {
-          "direction": "South",
-          "adjacentRoom": "F1 7th Attack Room"
-        }
-      ]
-    },
-    {
-      "id": "F1 7th Attack Room",
-      "name": "F1 7th Attack Room",
-      "descriptions": [
-        "You have entered a room with a couple of skeletons inside of it with some pots laying around on the ground with some coins on the ground. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
-        "You have entered a room with some skeletons inside of it with some pots scattered around the ground with some coins scattered around. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
-        "You have entered a room with a few skeletons inside of it with some pots around the room on the ground and coins. The room seems very creepy and old broken and worn down bricks and the room looks like its going to fall apart with only a few dimly lit torches lighting it up and two exits heading West and North."
-        ],
-      "exits": [
-        {
-          "direction": "West",
           "adjacentRoom": "F1 Shop Room"
         },
         {
-          "direction": "North",
+          "direction": "South",
           "adjacentRoom": "F1 Shop Room"
         }
       ]
