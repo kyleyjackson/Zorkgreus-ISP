@@ -8,10 +8,10 @@ public class Boon {
     private int level;
 
     public Boon() {
-        god = "Unknown";
-        boonName = "Invalid";
-        colour = null;
-        stats = null;
+        god = "???";
+        boonName = "???";
+        colour = "???";
+        stats = "???";
         level = 0;
     }
 

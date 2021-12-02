@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch testH",
+      "request": "launch",
+      "mainClass": "Zorkgreus.testH",
+      "projectName": "Zorkgreus-ISP_8d6a6358"
+    },
+    {
+      "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_8d6a6358"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",

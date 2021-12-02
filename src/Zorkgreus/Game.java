@@ -18,6 +18,8 @@ public class Game {
   private Parser parser;
   private Room currentRoom;
   private Boss currentBoss;
+
+  private JSONArray jsonBoons;
   
   private int bossCounter;
   /**
@@ -57,10 +59,7 @@ public class Game {
       for (Object exitObj : jsonExits) {
         String direction = (String) ((JSONObject) exitObj).get("direction");
         String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
-        String keyId = (String) ((JSONObject) exitObj).get("keyId");
-        Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
-        Boolean isOpen = (Boolean) ((JSONObject) exitObj).get("isOpen");
-        Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId, isOpen);
+        Exit exit = new Exit(direction, adjacentRoom);
         exits.add(exit);
       }
       room.setExits(exits);
@@ -79,7 +78,7 @@ public class Game {
     JSONParser parser = new JSONParser();
     JSONObject json = (JSONObject) parser.parse(jsonString);
 
-    JSONArray jsonBoons = (JSONArray) json.get("boons");
+    jsonBoons = (JSONArray) json.get("boons");
 
     for (Object boonObj : jsonBoons) {
       Boon boon = new Boon();
@@ -269,7 +268,8 @@ public class Game {
   }
 
   private void generateBoons() {
-    int num = (int)(Math.random() * 69420);
+    int num = (int)(Math.random() * jsonBoons.size());
+    System.out.println(jsonBoons.get(0));
   }
 
   /**
