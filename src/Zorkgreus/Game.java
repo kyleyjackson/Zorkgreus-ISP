@@ -49,10 +49,18 @@ public class Game {
       Room room = new Room();
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
-      String roomDescription = (String) ((JSONObject) roomObj).get("description");
-      room.setDescription(roomDescription);
+     // String roomDescription = (String) ((JSONObject) roomObj).get("description");
+      //room.setDescription(roomDescription);
       room.setRoomName(roomName);
       // make room description like exits using the array 
+
+      JSONArray jsonDescriptions = (JSONArray) ((JSONObject) roomObj).get("descriptions");
+      ArrayList<String> descriptions = new ArrayList<String>();
+      for (Object descObj : jsonDescriptions) {
+        String desc = (String) descObj;
+        descriptions.add(desc);
+      }
+      room.setDescriptions(descriptions);
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();

@@ -15,10 +15,15 @@ public class Room {
         this.exits = exits;
     }
 
+     public void setDescriptions(ArrayList<String> descriptions) {
+        this.descriptions = descriptions;
+    }
+
     /**
      * Create a room described "description". Initially, it has no exits.
      * "description" is something like "a kitchen" or "an open court yard".
      */
+
     public Room(String description) {
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
@@ -100,4 +105,5 @@ public class Room {
     public void setDescription(String description) {
         descriptions = new ArrayList<String>();
     }
+
 }
