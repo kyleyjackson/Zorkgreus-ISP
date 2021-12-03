@@ -230,7 +230,7 @@ public class Game {
         }
       }
       else{
-        System.out.println("There is no boon to select!");
+        System.out.println("You can't select a boon right now!");
       }
     }
     return false;
@@ -269,9 +269,38 @@ public class Game {
     }
   }
 
-  private void generateBoons() {
-    int num = (int)(Math.random() * boons.size());
-    System.out.println(boons.get(0));
+  /**
+   * Randomly choose 3 boons of the same god to choose (excluding Chaos).
+   */
+  public void generateBoons() {
+    Boon boon1, boon2, boon3;
+    int num = (int)(Math.random() * (boons.size() - 6));
+    if(num <= 2){ //Ares
+      boon1 = boons.get(0);
+      boon2 = boons.get(1);
+      boon3 = boons.get(2);
+    } else if(num > 2 && num <= 5){ //Artemis
+      boon1 = boons.get(3);
+      boon2 = boons.get(4);
+      boon3 = boons.get(5);
+    } else if(num > 5 && num <= 8){ //Aphrodite
+      boon1 = boons.get(6);
+      boon2 = boons.get(7);
+      boon3 = boons.get(8);
+    } else if(num > 8 && num <= 11){ //Zeus
+      boon1 = boons.get(9);
+      boon2 = boons.get(10);
+      boon3 = boons.get(11);
+    } else if(num > 11 && num <= 14){ //Poseidon
+      boon1 = boons.get(12);
+      boon2 = boons.get(13);
+      boon3 = boons.get(14);
+    } else { //Athena
+      boon1 = boons.get(15);
+      boon2 = boons.get(16);
+      boon3 = boons.get(17);
+    }
+    System.out.println(boon1.displayBoon() + boon2.displayBoon() + boon3.displayBoon());
   }
 
   /**

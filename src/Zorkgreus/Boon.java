@@ -17,7 +17,8 @@ public class Boon {
 
     /* displays the information of the boon to the player */
     public String displayBoon() {
-        return "Boon of " + god + " :" + boonName + "\n\n" + stats + "\n\n" + colour;
+        return "----------------------------------------------------------------------------------------------------------\n" + "Boon of " + god + ": " + boonName + "\n" + 
+        colour + "\n" + stats;
     }
 
     public String getGodName() {
