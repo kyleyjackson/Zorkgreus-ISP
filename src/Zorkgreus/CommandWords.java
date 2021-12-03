@@ -1,5 +1,7 @@
 package Zorkgreus;
 
+//import java.util.Scanner;
+
 public class CommandWords {
   // a constant array that holds all valid command words (the numbers "1 2 3"
   // represent the boons that they can select)
@@ -11,7 +13,7 @@ public class CommandWords {
    * Constructor - initialise the command words.
    */
   public CommandWords() {
-    // nothing to do at the moment...
+    //nothing to do at the moment...
   }
 
   /**
@@ -20,7 +22,7 @@ public class CommandWords {
    **/
   public boolean isCommand(String aString) {
     for (String c : validCommands) {
-      if (c.equals(aString.toUpperCase()))
+      if (c.equals(aString))
         return true;
     }
     // if we get here, the string was not found in the commands

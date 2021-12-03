@@ -34,6 +34,7 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
+
     parser = new Parser();
   }
 
@@ -146,7 +147,6 @@ public class Game {
       System.out.println("I don't know what you mean...");
       return false;
     }
-
     String commandWord = command.getCommandWord();
     if (commandWord.equals("help")) {
       printHelp();
@@ -358,6 +358,8 @@ public class Game {
    * otherwise print an error message.
    */
   private void goRoom(Command command) {
+    boolean twoWords = false;
+    //if the command doesn't have a second word AND it isn't a direction
     if (!command.hasSecondWord() && (command.getCommandWord() != "east" || command.getCommandWord() != "west"
         || command.getCommandWord() != "north" || command.getCommandWord() != "south")) {
       // if there is no second word, we don't know where to go...
@@ -365,7 +367,19 @@ public class Game {
       return;
     }
 
-    String direction = command.getSecondWord();
+    if(command.hasSecondWord()){
+      twoWords = true;
+    }
+
+    String direction;
+
+    //gets intended direction based on whether or not "go" was entered prior
+    if(twoWords){
+      direction = command.getSecondWord();
+    }
+    else{
+      direction = command.getCommandWord();
+    }
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
