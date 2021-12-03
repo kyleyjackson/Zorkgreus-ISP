@@ -18,8 +18,12 @@ public class testH {
             e.printStackTrace();
         }
         parser = new Parser();
-        Boon boon1 = boons.get(1);
-        System.out.println(boon1.displayBoon());
+        Boon boon1 = boons.get(3);
+        Boon boon2 = boons.get(4);
+        Boon boon3 = boons.get(5);
+
+        System.out.println(boon1.displayBoon() + boon2.displayBoon() + boon3.displayBoon());
+        System.out.println("----------------------------------------------------------------------------------------------------------");
     }
     public static void initBoons(String file) throws Exception {
         boons = new ArrayList<Boon>();

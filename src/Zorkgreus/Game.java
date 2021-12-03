@@ -301,6 +301,7 @@ public class Game {
       boon3 = boons.get(17);
     }
     System.out.println(boon1.displayBoon() + boon2.displayBoon() + boon3.displayBoon());
+    System.out.println("----------------------------------------------------------------------------------------------------------");
   }
 
   /**
