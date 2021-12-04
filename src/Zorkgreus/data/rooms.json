@@ -218,6 +218,612 @@
           "adjacentRoom": "F2 Starting Room"
         }
       ]
+    },
+    {
+      "id": "F2 Starting Room",
+      "name": "F2 Starting Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 1st Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 1st Attack Room",
+      "name": "F2 1st Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 2nd Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F2 2nd Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 2nd Attack Room",
+      "name": "F2 2nd Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 3rd Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F2 3rd Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 3rd Attack Room",
+      "name": "F2 3rd Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 4th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F2 4th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 4th Attack Room",
+      "name": "F2 4th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 5th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F2 5th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 5th Attack Room",
+      "name": "F2 5th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F2 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 NPC Room",
+      "name": "F2 NPC Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 MiniBoss Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 MiniBoss Room",
+      "name": "F2 MiniBoss Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 6th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 6th Attack Room",
+      "name": "F2 6th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 7th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F2 7th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 7th Attack Room",
+      "name": "F2 7th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 8th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F2 8th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 8th Attack Room",
+      "name": "F2 8th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 9th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F2 9th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 9th Attack Room",
+      "name": "F2 9th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 10th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F2 10th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 10th Attack Room",
+      "name": "F2 10th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 Shop Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F2 Shop Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 Shop Room",
+      "name": "F2 Shop Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "East",
+          "adjacentRoom": "F2 Boss Room"
+        }
+      ]
+    },
+    {
+      "id": "F2 Boss Room",
+      "name": "F2 Boss Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "F3 Starting Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 Starting Room",
+      "name": "F3 Starting Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 1st Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 1st Attack Room",
+      "name": "F3 1st Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 2nd Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 2nd Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 2nd Attack Room",
+      "name": "F3 2nd Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 3rd Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F3 3rd Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 3rd Attack Room",
+      "name": "F3 3rd Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 4th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 4th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 4th Attack Room",
+      "name": "F3 4th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 5th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F3 5th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 5th Attack Room",
+      "name": "F3 5th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 6th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 6th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 6th Attack Room",
+      "name": "F3 6th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 7th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F3 7th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 7th Attack Room",
+      "name": "F3 7th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 NPC Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 NPC Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 NPC Room",
+      "name": "F3 NPC Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 MiniBoss Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 MiniBoss Room",
+      "name": "F3 MiniBoss Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 8th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 8th Attack Room",
+      "name": "F3 8th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 9th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 9th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 9th Attack Room",
+      "name": "F3 9th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 10th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F3 10th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 10th Attack Room",
+      "name": "F3 10th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 11th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 11th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 11th Attack Room",
+      "name": "F3 11th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 12th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F3 12th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 12th Attack Room",
+      "name": "F3 12th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 13th Attack Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 13th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 13th Attack Room",
+      "name": "F3 13th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 14th Attack Room"
+        },
+        {
+          "direction": "North",
+          "adjacentRoom": "F3 14th Attack Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 14th Attack Room",
+      "name": "F3 14th Attack Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 Shop Room"
+        },
+        {
+          "direction": "South",
+          "adjacentRoom": "F3 Shop Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 Shop Room",
+      "name": "F3 Shop Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "F3 Boss Room"
+        }
+      ]
+    },
+    {
+      "id": "F3 Boss Room",
+      "name": "F3 Boss Room",
+      "descriptions": [
+      "",
+      "",
+      ""
+      ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "Ending"
+        }
+      ]
     }
   ]
 }

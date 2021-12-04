@@ -18,6 +18,8 @@ public class Game {
   private Parser parser;
   private Room currentRoom;
   private Boss currentBoss;
+
+  private ArrayList<Boon> boons;
   
   private int bossCounter;
   /**
@@ -32,6 +34,7 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
+
     parser = new Parser();
   }
 
@@ -47,20 +50,25 @@ public class Game {
       Room room = new Room();
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
-      String roomDescription = (String) ((JSONObject) roomObj).get("description");
-      room.setDescription(roomDescription);
+     // String roomDescription = (String) ((JSONObject) roomObj).get("description");
+      //room.setDescription(roomDescription);
       room.setRoomName(roomName);
       // make room description like exits using the array 
+
+      JSONArray jsonDescriptions = (JSONArray) ((JSONObject) roomObj).get("descriptions");
+      ArrayList<String> descriptions = new ArrayList<String>();
+      for (Object descObj : jsonDescriptions) {
+        String desc = (String) descObj;
+        descriptions.add(desc);
+      }
+      room.setDescriptions(descriptions);
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();
       for (Object exitObj : jsonExits) {
         String direction = (String) ((JSONObject) exitObj).get("direction");
         String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
-        String keyId = (String) ((JSONObject) exitObj).get("keyId");
-        Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
-        Boolean isOpen = (Boolean) ((JSONObject) exitObj).get("isOpen");
-        Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId, isOpen);
+        Exit exit = new Exit(direction, adjacentRoom);
         exits.add(exit);
       }
       room.setExits(exits);
@@ -74,6 +82,7 @@ public class Game {
    * @param file boons.json file
    */
   private void initBoons(String file) throws Exception {
+    boons = new ArrayList<Boon>();
     Path path = Path.of(file);
     String jsonString = Files.readString(path);
     JSONParser parser = new JSONParser();
@@ -93,6 +102,7 @@ public class Game {
       boon.setColour(decorativeText);
       boon.setStats(stat);
       boon.setLevel(level);
+      boons.add(boon);
     }
   }
 
@@ -125,7 +135,7 @@ public class Game {
     System.out.println("Zork is a new, incredibly boring adventure game.");
     System.out.println("Type 'help' if you need help.");
     System.out.println();
-    System.out.println(currentRoom.shortDescription());
+    System.out.println(currentRoom.roomDescription());
   }
 
   /**
@@ -137,7 +147,6 @@ public class Game {
       System.out.println("I don't know what you mean...");
       return false;
     }
-
     String commandWord = command.getCommandWord();
     if (commandWord.equals("help")) {
       printHelp();
@@ -165,7 +174,7 @@ public class Game {
     } else if (commandWord.equals("special")) {
       attackType(command);
     } else if (commandWord.equals("look")) {
-      currentRoom.shortDescription();
+      currentRoom.roomDescription();
     } else if (commandWord.equals("take")) {
       attemptToTake(command);
     } else if (commandWord.equals("takeall")) {
@@ -229,7 +238,7 @@ public class Game {
         }
       }
       else{
-        System.out.println("There is no boon to select!");
+        System.out.println("You can't select a boon right now!");
       }
     }
     return false;
@@ -268,8 +277,39 @@ public class Game {
     }
   }
 
-  private void generateBoons() {
-    int num = (int)(Math.random() * 69420);
+  /**
+   * Randomly choose 3 boons of the same god to choose (excluding Chaos).
+   */
+  public void generateBoons() {
+    Boon boon1, boon2, boon3;
+    int num = (int)(Math.random() * (boons.size() - 6));
+    if(num <= 2){ //Ares
+      boon1 = boons.get(0);
+      boon2 = boons.get(1);
+      boon3 = boons.get(2);
+    } else if(num > 2 && num <= 5){ //Artemis
+      boon1 = boons.get(3);
+      boon2 = boons.get(4);
+      boon3 = boons.get(5);
+    } else if(num > 5 && num <= 8){ //Aphrodite
+      boon1 = boons.get(6);
+      boon2 = boons.get(7);
+      boon3 = boons.get(8);
+    } else if(num > 8 && num <= 11){ //Zeus
+      boon1 = boons.get(9);
+      boon2 = boons.get(10);
+      boon3 = boons.get(11);
+    } else if(num > 11 && num <= 14){ //Poseidon
+      boon1 = boons.get(12);
+      boon2 = boons.get(13);
+      boon3 = boons.get(14);
+    } else { //Athena
+      boon1 = boons.get(15);
+      boon2 = boons.get(16);
+      boon3 = boons.get(17);
+    }
+    System.out.println(boon1.displayBoon() + boon2.displayBoon() + boon3.displayBoon());
+    System.out.println("----------------------------------------------------------------------------------------------------------");
   }
 
   /**
@@ -318,6 +358,8 @@ public class Game {
    * otherwise print an error message.
    */
   private void goRoom(Command command) {
+    boolean twoWords = false;
+    //if the command doesn't have a second word AND it isn't a direction
     if (!command.hasSecondWord() && (command.getCommandWord() != "east" || command.getCommandWord() != "west"
         || command.getCommandWord() != "north" || command.getCommandWord() != "south")) {
       // if there is no second word, we don't know where to go...
@@ -325,7 +367,19 @@ public class Game {
       return;
     }
 
-    String direction = command.getSecondWord();
+    if(command.hasSecondWord()){
+      twoWords = true;
+    }
+
+    String direction;
+
+    //gets intended direction based on whether or not "go" was entered prior
+    if(twoWords){
+      direction = command.getSecondWord();
+    }
+    else{
+      direction = command.getCommandWord();
+    }
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
@@ -334,7 +388,7 @@ public class Game {
       System.out.println("There is no door!");
     else {
       currentRoom = nextRoom;
-      System.out.println(currentRoom.shortDescription());
+      System.out.println(currentRoom.roomDescription());
     }
   }
 }
