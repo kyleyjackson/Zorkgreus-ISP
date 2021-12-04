@@ -2,6 +2,27 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch test",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Boss.test",
+      "projectName": "Zorkgreus-ISP_36258352"
+    },
+    {
+      "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_36258352"
+    },
+    {
+      "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "src.Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_36258352"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
