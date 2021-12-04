@@ -9,48 +9,67 @@ public class Boss {
     private int priority;
     private int def;
     private int hp;
+    private int dodge;
 
-    public Boss(int atk, int priority, int def, int hp) {
+    public Boss(int atk, int priority, int def, int hp, int dodge) {
         this.atk = atk;
         this.priority = priority;
         this.def = def;
         this.hp = hp;
+        this.dodge = dodge;
     }
 
-    public boolean activateSpecial() {
-        return hp <= (hp / 2);
+    public boolean activateRage() {
+        return hp <= (hp / 3);
     }
 
     public boolean isAlive() {
         return hp <= 0;
     }
 
-    public void changeBossAtk(int newAtk) {
-        atk = newAtk;
+    public int getHP(){
+        return hp;
     }
 
-    public void changeBossPriority(int newPriority) {
-        priority = newPriority;
+    public void looseHP(int h){
+        hp -= h;
     }
 
-    public void changeBossDefence(int newDef) {
-        def = newDef;
+    public void addBossAtk(int addAtk) {
+        atk += addAtk;
     }
 
-    public boolean isDefeated() {
-        return false;
+    public void addBossPriority(int addPriority) {
+        priority += addPriority;
     }
 
-    public void specialAttack() {
+    public void addBossDefence(int addDef) {
+        def += addDef;
     }
 
-    public void finalAttack() {
+    public void addBossDodge(int addDodge){
+        dodge += addDodge;
     }
 
-    public void displaySpecialAttack() {
+    public void bossRage(){
     }
 
-    public void displayFinalAttack() {
+    public void specialBossAttack() {
+    }
+
+    public void specialBossAttack(int h){
+    }
+
+    public void finalBossAttack() {
+    }
+
+    public void displayBossRage(){
+    }
+
+    public void displayBossSpecialAttack() {
+    }
+
+    public void displayBossFinalAttack() {
     }
 
     public void displayBossMessage() {
