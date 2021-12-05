@@ -159,6 +159,36 @@
             "dodge": 25,
             "description": "A spider that couldn't handle the tarantula's blood twtiches around, screaming in pain as its eyes turn black",
             "Floor and Room": "F2R12"
+        },
+        {
+            "Monster": "Ghost of the Labyrinth",
+            "attack": 13,
+            "priority": 5,
+            "defense": 15,
+            "health": 20,
+            "dodge": 5,
+            "description": "Spinning his hammer around, the fallen architect looks intensely at the blueprints in his other hand. ",
+            "Floor and Room": "F3R1"
+        },
+        {
+            "Monster": "Chimera Slayer",
+            "attack": 17,
+            "priority": 3,
+            "defense": 10,
+            "health": 15,
+            "dodge": 25,
+            "description": "Riding on the legendary and nimble Pegasus, the forgotten hero brandishes his spear at you. ",
+            "Floor and Room": "F3R2"
+        }, 
+        {
+            "Monster": "The Destroyer",
+            "attack": 13,
+            "priority": 7,
+            "defense": 20,
+            "health": 20,
+            "dodge": 20,
+            "description": "Wielding a sickle with dried blood on the curve in one hand and a sack in the other, the ghost takes up a battle stance. . ",
+            "Floor and Room": "F3R3"
         }
     ]
 }
