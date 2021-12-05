@@ -22,6 +22,8 @@ public class Game {
   private ArrayList<Boon> boons;
   
   private int bossCounter;
+  private int kB; //represents boon constant; used for boon selection after display
+
   /**
    * Create the game and initialise its internal map.
    */
@@ -34,7 +36,6 @@ public class Game {
     } catch (Exception e) {
       e.printStackTrace();
     }
-
     parser = new Parser();
   }
 
@@ -231,7 +232,21 @@ public class Game {
       if(onBoonScreen()){
         generateBoons();
         if(command.hasSecondWord()){
-
+          if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){
+            boons.get(0 + kB);
+            System.out.println("You have selected: " + boons.get(0 + kB).getBoonName());
+            currentRoom.forceRoom();
+          }
+          else if(command.getSecondWord().equals("two") || command.getSecondWord().equals("2")){
+            boons.get(1 + kB);
+            System.out.println("You have selected: " + boons.get(1 + kB).getBoonName());
+            currentRoom.forceRoom();
+          }
+          else if(command.getSecondWord().equals("three") || command.getSecondWord().equals("3")){
+            boons.get(2 + kB);
+            System.out.println("You have selected: " + boons.get(2 + kB).getBoonName());
+            currentRoom.forceRoom();
+          }
         }
         else{
           System.out.println("Which boon do you wish to receive?");
@@ -280,44 +295,55 @@ public class Game {
   /**
    * Randomly choose 3 boons of the same god to choose (excluding Chaos).
    */
-  public void generateBoons() {
+  public ArrayList<Boon> generateBoons() {
+    ArrayList<Boon> selection = new ArrayList<>();
     Boon boon1, boon2, boon3;
     int num = (int)(Math.random() * (boons.size() - 6));
     if(num <= 2){ //Ares
-      boon1 = boons.get(0);
+      boon1 = (boons.get(0));
       boon2 = boons.get(1);
       boon3 = boons.get(2);
+      kB = 0;
     } else if(num > 2 && num <= 5){ //Artemis
       boon1 = boons.get(3);
       boon2 = boons.get(4);
       boon3 = boons.get(5);
+      kB = 3;
     } else if(num > 5 && num <= 8){ //Aphrodite
       boon1 = boons.get(6);
       boon2 = boons.get(7);
       boon3 = boons.get(8);
+      kB = 6;
     } else if(num > 8 && num <= 11){ //Zeus
-      boon1 = boons.get(9);
+      add(boons.get(9));
       boon2 = boons.get(10);
       boon3 = boons.get(11);
+      kB = 9;
     } else if(num > 11 && num <= 14){ //Poseidon
       boon1 = boons.get(12);
       boon2 = boons.get(13);
       boon3 = boons.get(14);
+      kB = 12;
     } else { //Athena
       boon1 = boons.get(15);
       boon2 = boons.get(16);
       boon3 = boons.get(17);
+      kB = 15;
     }
+    System.out.println("Please select one of the boons:");
     System.out.println(boon1.displayBoon() + boon2.displayBoon() + boon3.displayBoon());
     System.out.println("----------------------------------------------------------------------------------------------------------");
+    return 
   }
+
+  
 
   /**
    * checks if the currentBoss has been defeated. Changes currentBoss to the next miniboss/boss.
    * @return T/F
    */
   private boolean currentBossDefeated(){
-    if(currentBoss.isDefeated()){
+    if(currentBoss.isAlive()){
       if(bossCounter == 0){
         currentBoss = new kingSkeleton();
       }
@@ -360,8 +386,8 @@ public class Game {
   private void goRoom(Command command) {
     boolean twoWords = false;
     //if the command doesn't have a second word AND it isn't a direction
-    if (!command.hasSecondWord() && (command.getCommandWord() != "east" || command.getCommandWord() != "west"
-        || command.getCommandWord() != "north" || command.getCommandWord() != "south")) {
+    if (!command.hasSecondWord() && !(command.getCommandWord().equals("east") || command.getCommandWord().equals("west")
+        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south"))) {
       // if there is no second word, we don't know where to go...
       System.out.println("Go where?");
       return;

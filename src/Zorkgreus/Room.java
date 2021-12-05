@@ -46,7 +46,7 @@ public class Room {
     public String roomDescription() {
         int i = (int)(Math.random() * descriptions.size());
         String description = descriptions.get(i);
-        return "Room: " + roomName + "\n\n" + description;
+        return "Room: " + roomName + "\n" + description;
     }
 // got rid of long description and use math.random to randomize the description to pick one 
 
@@ -85,6 +85,17 @@ public class Room {
 
         System.out.println(direction + " is not a valid direction.");
         return null;
+    }
+
+    /**
+    * Force the player to the next room.
+    */
+    public Room forceRoom(){
+        String adjacentRoom = "";
+        for(Exit exit : exits){
+            adjacentRoom = exit.getAdjacentRoom();
+        }
+        return Game.roomMap.get(adjacentRoom);
     }
 
     /*

@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_8d6a6358"
+    },
+    {
+      "type": "java",
       "name": "Launch test",
       "request": "launch",
       "mainClass": "Zorkgreus.Boss.test",
