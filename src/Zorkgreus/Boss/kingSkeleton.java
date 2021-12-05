@@ -13,14 +13,14 @@ public class kingSkeleton extends Boss {
             "Jumping from a ledge that you can't even see, the skeleton, much larger than the others makes a crater in the ground with the sheer impact form tha landing. He drags a club across the ground leaving scratches in it as he starts to run towards you.");
    }
 
-   // rage called when he falls below 33% hp, increased atk and defence
+   //rage called when he falls below 33% hp, increased atk and defence
    public void bossRage() {
       super.addBossAtk(15);
       super.addBossDefence(5);
       displayBossRage();
    }
 
-   // displays the details of the rage
+   //displays the details of the rage
    public void displayBossRage() {
       System.out.println("The boss skeleton has fallen into a state of rage.");
       System.out.println(
