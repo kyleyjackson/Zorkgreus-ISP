@@ -97,12 +97,12 @@ public class Game {
       Boon boon = new Boon();
       String godName = (String) ((JSONObject) boonObj).get("god");
       String boonName = (String) ((JSONObject) boonObj).get("name");
-      String decorativeText = (String) ((JSONObject) boonObj).get("colour");
+      String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
       String stat = (String) ((JSONObject) boonObj).get("stat");
       int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
-      boon.setColour(decorativeText);
+      boon.setFlavour(decorativeText);
       boon.setStats(stat);
       boon.setLevel(level);
       boons.add(boon);
@@ -346,22 +346,22 @@ public class Game {
         generatedBoons = false;
       }
       if(bossCounter == 1){
-        //miniboss Asphodel
+        currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 2){
-        //boss Asphodel
+        currentBoss = new queenSpider();
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 3){
-        //miniboss Elysium
+        //chained flesh
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 4){
-        //final boss
+        //sealed and unsealed thanatos
       }
       return true;
     }

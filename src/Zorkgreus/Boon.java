@@ -4,6 +4,7 @@ public class Boon {
     private String god;
     private String boonName;
     private String colour;
+    private String flavour;
     private String stats;
     private int level;
 
@@ -11,13 +12,14 @@ public class Boon {
         god = "???";
         boonName = "???";
         colour = "???";
+        flavour = "???";
         stats = "???";
         level = 0;
     }
 
     /* displays the information of the boon to the player */
     public String displayBoon() {
-        String desc = "\n" + "Boon of " + god + ": " + boonName + "\n" + colour + "\n" + stats;
+        String desc = "\n" + "Boon of " + god + ": " + boonName + "\n" + flavour + "\n" + stats;
         String sep = "\n" + "----------------------------------------------------------------------------------------------------------";
         return desc + sep;
     }
@@ -42,8 +44,8 @@ public class Boon {
         return colour;
     }
 
-    public void setColour(String colour) {
-        this.colour = colour;
+    public void setFlavour(String flavour) {
+        this.flavour = flavour;
     }
 
     public String getStats() {
