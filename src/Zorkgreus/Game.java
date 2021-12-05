@@ -19,10 +19,12 @@ public class Game {
   private Room currentRoom;
   private Boss currentBoss;
 
-  private ArrayList<Boon> boons;
+  private ArrayList<Boon> boons; //where all initialized boons are stored.
+  private ArrayList<Boon> temp; //stores boons temporarily for player selection.
   
   private int bossCounter;
-  private int kB; //represents boon constant; used for boon selection after display
+
+  private boolean generatedBoons; //global boolean to determine if boons have been generated. 
 
   /**
    * Create the game and initialise its internal map.
@@ -230,21 +232,24 @@ public class Game {
     }
     else if (commandWord.equals("boon")){
       if(onBoonScreen()){
-        generateBoons();
+        if(!generatedBoons){
+          temp = generateBoons();
+          generatedBoons = true;
+        }
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){
-            boons.get(0 + kB);
-            System.out.println("You have selected: " + boons.get(0 + kB).getBoonName());
+            temp.get(0);
+            System.out.println("You selected Boon: " + temp.get(0).getBoonName());
             currentRoom.forceRoom();
           }
           else if(command.getSecondWord().equals("two") || command.getSecondWord().equals("2")){
-            boons.get(1 + kB);
-            System.out.println("You have selected: " + boons.get(1 + kB).getBoonName());
+            temp.get(1);
+            System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             currentRoom.forceRoom();
           }
           else if(command.getSecondWord().equals("three") || command.getSecondWord().equals("3")){
-            boons.get(2 + kB);
-            System.out.println("You have selected: " + boons.get(2 + kB).getBoonName());
+            temp.get(2);
+            System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             currentRoom.forceRoom();
           }
         }
@@ -297,46 +302,37 @@ public class Game {
    */
   public ArrayList<Boon> generateBoons() {
     ArrayList<Boon> selection = new ArrayList<>();
-    Boon boon1, boon2, boon3;
     int num = (int)(Math.random() * (boons.size() - 6));
     if(num <= 2){ //Ares
-      boon1 = (boons.get(0));
-      boon2 = boons.get(1);
-      boon3 = boons.get(2);
-      kB = 0;
+      selection.add(boons.get(0));
+      selection.add(boons.get(1));
+      selection.add(boons.get(2));
     } else if(num > 2 && num <= 5){ //Artemis
-      boon1 = boons.get(3);
-      boon2 = boons.get(4);
-      boon3 = boons.get(5);
-      kB = 3;
+      selection.add(boons.get(3));
+      selection.add(boons.get(4));
+      selection.add(boons.get(5));
     } else if(num > 5 && num <= 8){ //Aphrodite
-      boon1 = boons.get(6);
-      boon2 = boons.get(7);
-      boon3 = boons.get(8);
-      kB = 6;
+      selection.add(boons.get(6));
+      selection.add(boons.get(7));
+      selection.add(boons.get(8));
     } else if(num > 8 && num <= 11){ //Zeus
-      add(boons.get(9));
-      boon2 = boons.get(10);
-      boon3 = boons.get(11);
-      kB = 9;
+      selection.add(boons.get(9));
+      selection.add(boons.get(10));
+      selection.add(boons.get(11));
     } else if(num > 11 && num <= 14){ //Poseidon
-      boon1 = boons.get(12);
-      boon2 = boons.get(13);
-      boon3 = boons.get(14);
-      kB = 12;
+      selection.add(boons.get(12));
+      selection.add(boons.get(13));
+      selection.add(boons.get(14));
     } else { //Athena
-      boon1 = boons.get(15);
-      boon2 = boons.get(16);
-      boon3 = boons.get(17);
-      kB = 15;
+      selection.add(boons.get(15));
+      selection.add(boons.get(16));
+      selection.add(boons.get(17));
     }
     System.out.println("Please select one of the boons:");
-    System.out.println(boon1.displayBoon() + boon2.displayBoon() + boon3.displayBoon());
-    System.out.println("----------------------------------------------------------------------------------------------------------");
-    return 
+    System.out.print("----------------------------------------------------------------------------------------------------------");
+    System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    return selection;
   }
-
-  
 
   /**
    * checks if the currentBoss has been defeated. Changes currentBoss to the next miniboss/boss.
@@ -346,15 +342,23 @@ public class Game {
     if(currentBoss.isAlive()){
       if(bossCounter == 0){
         currentBoss = new kingSkeleton();
+        bossCounter++;
+        generatedBoons = false;
       }
       if(bossCounter == 1){
         //miniboss Asphodel
+        bossCounter++;
+        generatedBoons = false;
       }
       if(bossCounter == 2){
         //boss Asphodel
+        bossCounter++;
+        generatedBoons = false;
       }
       if(bossCounter == 3){
         //miniboss Elysium
+        bossCounter++;
+        generatedBoons = false;
       }
       if(bossCounter == 4){
         //final boss
