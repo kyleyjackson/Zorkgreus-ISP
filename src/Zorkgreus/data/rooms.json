@@ -119,7 +119,7 @@
     },
     {
       "id": "F1 MiniBoss Room",
-      "name": "F1 MiniBoss Room",
+      "name": "MiniBoss Room",
       "descriptions": [
         "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
         "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
@@ -206,7 +206,7 @@
     },
     {
       "id": "F1 Boss Room",
-      "name": "F1 Boss Room",
+      "name": "Boss Room",
       "descriptions": [
       "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up which is a stair case leading up with a cliff up top with the room being lit up by a bunch of soul lanterns glowing red and screaming.",
       "You enter a room with a bunch of scratch marks and bones everywhere. the only way out you can see is up which is a stair case leading up with a cliff up top with the room being lit up by a bunch of soul lanterns glowing red and screaming.",
@@ -223,9 +223,9 @@
       "id": "F2 Starting Room",
       "name": "F2 Starting Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you go up the stairs you can see a nice room leading a bit higher to another room heading West. The room seems very well kept lit up by soul lanterns that are glowing green with a small fountain right beside the exit. The stone on the fountain spells out healing fountain.",
+      "As you go up the stairs you can see a nice room leading a bit higher to another room heading West. The room seems very well kept lit up by soul lanterns that are glowing green with a small fountain right beside the exit. The stone on the fountain spells out healing fountain.",
+      "As you go up the stairs you can see a nice room leading a bit higher to another room heading West. The room seems very well kept lit up by soul lanterns that are glowing green with a small fountain right beside the exit. The stone on the fountain spells out healing fountain."
       ],
       "exits": [
         {
@@ -238,9 +238,9 @@
       "id": "F2 1st Attack Room",
       "name": "F2 1st Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East and South. The room is dimly lit with soul lanterns lighting up the room in a green glow and a few coins scattered around the room.",
+      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East and South. The room is dimly with torches lighting up the room with a bunch of coins around the room.",
+      "As you enter the old room you see some cobwebs around the room with exits heading East and South. The rom is dimly lit with soul lanterns lighting up the room in a green glow and a bunch of coins scattered around the room."
       ],
       "exits": [
         {
@@ -346,7 +346,7 @@
     },
     {
       "id": "F2 MiniBoss Room",
-      "name": "F2 MiniBoss Room",
+      "name": "MiniBoss Room",
       "descriptions": [
       "",
       "",
@@ -471,7 +471,7 @@
     },
     {
       "id": "F2 Boss Room",
-      "name": "F2 Boss Room",
+      "name": "Boss Room",
       "descriptions": [
       "",
       "",
@@ -649,7 +649,7 @@
     },
     {
       "id": "F3 MiniBoss Room",
-      "name": "F3 MiniBoss Room",
+      "name": "MiniBoss Room",
       "descriptions": [
       "",
       "",
@@ -812,7 +812,7 @@
     },
     {
       "id": "F3 Boss Room",
-      "name": "F3 Boss Room",
+      "name": "Boss Room",
       "descriptions": [
       "",
       "",
