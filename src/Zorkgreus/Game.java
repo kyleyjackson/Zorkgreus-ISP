@@ -21,8 +21,9 @@ public class Game {
 
   private ArrayList<Boon> boons; //where all initialized boons are stored.
   private ArrayList<Boon> temp; //stores boons temporarily for player selection.
+  private ArrayList<Boon> myBoons; //active boons obtained by the player.
   
-  private int bossCounter;
+  private int bossCounter; //tracks # of bosses/minibosses beaten.
 
   private boolean generatedBoons; //global boolean to determine if boons have been generated. 
 
@@ -98,11 +99,15 @@ public class Game {
       String godName = (String) ((JSONObject) boonObj).get("god");
       String boonName = (String) ((JSONObject) boonObj).get("name");
       String decorativeText = (String) ((JSONObject) boonObj).get("colour");
+      String colour = (String) ((JSONObject) boonObj).get("colour");
+      String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
       String stat = (String) ((JSONObject) boonObj).get("stat");
       int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
       boon.setColour(decorativeText);
+      boon.setColour(colour);
+      boon.setFlavour(decorativeText);
       boon.setStats(stat);
       boon.setLevel(level);
       boons.add(boon);
@@ -119,6 +124,10 @@ public class Game {
     while (!finished) {
       Command command;
       try {
+        if(!generatedBoons && onBoonScreen()){
+          temp = generateBoons();
+          generatedBoons = true;
+        }
         command = parser.getCommand();
         finished = processCommand(command);
       } catch (IOException e) {
@@ -228,27 +237,26 @@ public class Game {
         System.out.println("Someone cutting onions?");
       }
     } else if(commandWord.equals("boonlist") || commandWord.equals("myboons")){
-      //display the boons you already have
+      formatMyBoons();
     }
     else if (commandWord.equals("boon")){
       if(onBoonScreen()){
-        if(!generatedBoons){
-          temp = generateBoons();
-          generatedBoons = true;
-        }
         if(command.hasSecondWord()){
-          if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){
-            temp.get(0);
+          if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){ 
+            temp.get(0); //gets value of first boon
+            myBoons.add(temp.get(0)); //adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
-            currentRoom.forceRoom();
+            currentRoom.forceRoom(); //forces the player to the next room
           }
           else if(command.getSecondWord().equals("two") || command.getSecondWord().equals("2")){
             temp.get(1);
+            myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             currentRoom.forceRoom();
           }
           else if(command.getSecondWord().equals("three") || command.getSecondWord().equals("3")){
             temp.get(2);
+            myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             currentRoom.forceRoom();
           }
@@ -298,7 +306,14 @@ public class Game {
   }
 
   /**
-   * Randomly choose 3 boons of the same god to choose (excluding Chaos).
+   * Formats the myBoons ArrayList and displays them.
+   */
+  private void formatMyBoons() {
+    
+  }
+
+  /**
+   * Randomly choose 3 boons of the same god for player to choose (excluding Chaos).
    */
   public ArrayList<Boon> generateBoons() {
     ArrayList<Boon> selection = new ArrayList<>();
@@ -328,7 +343,7 @@ public class Game {
       selection.add(boons.get(16));
       selection.add(boons.get(17));
     }
-    System.out.println("Please select one of the boons:");
+    System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
     System.out.print("----------------------------------------------------------------------------------------------------------");
     System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     return selection;
