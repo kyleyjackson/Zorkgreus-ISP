@@ -16,6 +16,11 @@ public class Game {
   private Parser parser;
   private Room currentRoom;
 
+  public static final String RED = "\033[1;91m";
+  public static final String RESET = "\033[0m";
+  public static final String WHITEBG = "\033[0;100m";
+  public static final String CYAN = "\033[1;96m";
+
   /**
    * Create the game and initialise its internal map.
    */
@@ -45,7 +50,7 @@ public class Game {
       String roomDescription = (String) ((JSONObject) roomObj).get("description");
       room.setDescription(roomDescription);
       room.setRoomName(roomName);
-      // make room description like exits using the array 
+      // make room description like exits using the array
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();
@@ -115,12 +120,79 @@ public class Game {
    * Print out the opening message for the player.
    */
   private void printWelcome() {
-    System.out.println();
-    System.out.println("Welcome to Zork!");
-    System.out.println("Zork is a new, incredibly boring adventure game.");
-    System.out.println("Type 'help' if you need help.");
-    System.out.println();
+    System.out.println("");
+    slowTextNoDelay(CYAN
+        + "\n--------------------------------------------------WELCOME TO--------------------------------------------------\n",
+        8);
+    System.out.println("");
+    slowTextNoDelay(RESET + RED
+        + " ▄███████▄   ▄██████▄     ▄████████    ▄█   ▄█▄    ▄██████▄     ▄████████    ▄████████ ███    █▄     ▄████████  ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + "██▀     ▄██ ███    ███   ███    ███   ███ ▄███▀   ███    ███   ███    ███   ███    ███ ███    ███   ███    ███ ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + "      ▄███▀ ███    ███   ███    ███   ███▐██▀     ███    █▀    ███    ███   ███    █▀  ███    ███   ███    █▀  ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + " ▀█▀▄███▀▄▄ ███    ███  ▄███▄▄▄▄██▀  ▄█████▀     ▄███         ▄███▄▄▄▄██▀  ▄███▄▄▄     ███    ███   ███        ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + "  ▄███▀   ▀ ███    ███ ▀▀███▀▀▀▀▀   ▀▀█████▄    ▀▀███ ████▄  ▀▀███▀▀▀▀▀   ▀▀███▀▀▀     ███    ███ ▀███████████ ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + "▄███▀       ███    ███ ▀███████████   ███▐██▄     ███    ███ ▀███████████   ███    █▄  ███    ███          ███ ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + "███▄     ▄█ ███    ███   ███    ███   ███ ▀███▄   ███    ███   ███    ███   ███    ███ ███    ███    ▄█    ███ ",
+        1);
+    System.out.println("");
+    slowTextNoDelay(RED
+        + " ▀████████▀  ▀██████▀    ███    ███   ███   ▀█▀   ████████▀    ███    ███   ██████████ ████████▀   ▄████████▀  ",
+        1);
+    System.out.println("");
+    System.out.println(
+        RESET + CYAN
+            + "\n--------------------------------------------------------------------------------------------------------------\n");
+    slowText(RESET + "Zorkgreus is a knockoff of Hades :D", 25);
+    System.out.println("");
+    slowText("Type \"help\" if you need help.", 25);
     System.out.println(currentRoom.shortDescription());
+  }
+
+  public static void slowText(String message, int textRate) {
+    // Print a char from the array, then sleep for 1/10 second
+    for (int i = 0; i < message.length(); i++) {
+      System.out.print(message.substring(i, i + 1));
+      try {
+        Thread.sleep(textRate);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
+    try {
+      Thread.sleep(500);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public static void slowTextNoDelay(String message, int textRate) {
+    // Print a char from the array, then sleep for 1/10 second
+    for (int i = 0; i < message.length(); i++) {
+      System.out.print(message.substring(i, i + 1));
+      try {
+        Thread.sleep(textRate);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
+    }
   }
 
   /**
@@ -205,39 +277,35 @@ public class Game {
       }
       if (msg == 1) {
         System.out.println(
-          "Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
+            "Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
       }
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
-    } else if (commandWord.equals("boon") || commandWord.equals("boonlist")){
-      if(command.hasSecondWord()){
-        if(!onBoonScreen()){
+    } else if (commandWord.equals("boon") || commandWord.equals("boonlist")) {
+      if (command.hasSecondWord()) {
+        if (!onBoonScreen()) {
           System.out.println("There is no boon to select!");
         }
-      }
-      else{
-        
+      } else {
+
       }
     } else if (commandWord.equals("1") || commandWord.equals("one")) {
-      if(!onBoonScreen()){
+      if (!onBoonScreen()) {
         System.out.println("There is no boon to select!");
-      }
-      else{
+      } else {
 
       }
     } else if (commandWord.equals("2") || commandWord.equals("two")) {
-      if(!onBoonScreen()){
+      if (!onBoonScreen()) {
         System.out.println("There is no boon to select!");
-      }
-      else{
+      } else {
 
       }
     } else if (commandWord.equals("3") || commandWord.equals("three")) {
-      if(!onBoonScreen()){
+      if (!onBoonScreen()) {
         System.out.println("There is no boon to select!");
-      }
-      else{
+      } else {
 
       }
     }
@@ -277,8 +345,8 @@ public class Game {
 
   }
 
-  private boolean onBoonScreen(){
-    if(currentRoom.getRoomName().equals("Boon Room")/* || boss/miniboss is defeated*/){
+  private boolean onBoonScreen() {
+    if (currentRoom.getRoomName().equals("Boon Room")/* || boss/miniboss is defeated */) {
       return true;
     }
     return false;
@@ -306,6 +374,18 @@ public class Game {
     else {
       currentRoom = nextRoom;
       System.out.println(currentRoom.shortDescription());
+    }
+  }
+
+  public void slowText(String message) {
+    // Print a char from the array, then sleep for 1/10 second
+    for (int i = 0; i < message.length(); i++) {
+      System.out.print(message.substring(i, i + 1));
+      try {
+        Thread.sleep(25);
+      } catch (InterruptedException e) {
+        e.printStackTrace();
+      }
     }
   }
 }
