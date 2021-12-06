@@ -59,10 +59,7 @@ public class Game {
       Room room = new Room();
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
-      // String roomDescription = (String) ((JSONObject) roomObj).get("description");
-      // room.setDescription(roomDescription);
       room.setRoomName(roomName);
-      // make room description like exits using the array
 
       JSONArray jsonDescriptions = (JSONArray) ((JSONObject) roomObj).get("descriptions");
       ArrayList<String> descriptions = new ArrayList<String>();
@@ -103,7 +100,6 @@ public class Game {
       Boon boon = new Boon();
       String godName = (String) ((JSONObject) boonObj).get("god");
       String boonName = (String) ((JSONObject) boonObj).get("name");
-      String decorativeText = (String) ((JSONObject) boonObj).get("colour");
       String colour = (String) ((JSONObject) boonObj).get("colour");
       String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
       String stat = (String) ((JSONObject) boonObj).get("stat");
@@ -190,7 +186,7 @@ public class Game {
     slowText(RESET + "Zorkgreus is a knockoff of Hades :D", 25);
     System.out.println("");
     slowText("Type \"help\" if you need help.", 25);
-    System.out.println(currentRoom.shortDescription());
+    System.out.println(currentRoom.roomDescription());
   }
 
   public static void slowText(String message, int textRate) {
@@ -308,33 +304,6 @@ public class Game {
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
-<<<<<<< HEAD
-    } else if (commandWord.equals("boon") || commandWord.equals("boonlist")) {
-      if (command.hasSecondWord()) {
-        if (!onBoonScreen()) {
-          System.out.println("There is no boon to select!");
-        }
-      } else {
-
-      }
-    } else if (commandWord.equals("1") || commandWord.equals("one")) {
-      if (!onBoonScreen()) {
-        System.out.println("There is no boon to select!");
-      } else {
-
-      }
-    } else if (commandWord.equals("2") || commandWord.equals("two")) {
-      if (!onBoonScreen()) {
-        System.out.println("There is no boon to select!");
-      } else {
-
-      }
-    } else if (commandWord.equals("3") || commandWord.equals("three")) {
-      if (!onBoonScreen()) {
-        System.out.println("There is no boon to select!");
-      } else {
-
-=======
     } else if(commandWord.equals("boonlist") || commandWord.equals("myboons")){
       formatMyBoons();
     }
@@ -366,7 +335,6 @@ public class Game {
       }
       else{
         System.out.println("You can't select a boon right now!");
->>>>>>> a483d29d33cffbea66c76c93f172fe4920722346
       }
     }
     return false;
@@ -446,10 +414,8 @@ public class Game {
       selection.add(boons.get(17));
     }
     System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
-    System.out.print(
-        "----------------------------------------------------------------------------------------------------------");
-    System.out
-        .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    System.out.print("----------------------------------------------------------------------------------------------------------");
+    System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     return selection;
   }
 
@@ -467,22 +433,22 @@ public class Game {
         generatedBoons = false;
       }
       if (bossCounter == 1) {
-        // miniboss Asphodel
+        currentBoss = new QueenSpider();
         bossCounter++;
         generatedBoons = false;
       }
       if (bossCounter == 2) {
-        // boss Asphodel
+        currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
       }
       if (bossCounter == 3) {
-        // miniboss Elysium
+        currentBoss = new TheAmalgamation();
         bossCounter++;
         generatedBoons = false;
       }
       if (bossCounter == 4) {
-        // final boss
+        currentBoss = new Thanatos();
       }
       return true;
     }
@@ -493,19 +459,12 @@ public class Game {
 
   }
 
-  <<<<<<<HEAD
-
-  private boolean onBoonScreen() {
-    if (currentRoom.getRoomName().equals("Boon Room")/* || boss/miniboss is defeated */) {
-=======
-
   /**
    * Check if you are able to receive a boon.
    * @return T/F
    */
   private boolean onBoonScreen(){
     if(currentRoom.getRoomName().equals("Boon Room") || currentBossDefeated()){
->>>>>>> a483d29d33cffbea66c76c93f172fe4920722346
       return true;
     }
     return false;
@@ -549,9 +508,7 @@ public class Game {
       System.out.println(currentRoom.roomDescription());
     }
   }
-
-  pub// Print a ch
-
+/*
     for (int i = 0; i < message.length(); i++) {
       System.out.print(message.substring(i, i + 1));
       try {
@@ -560,17 +517,9 @@ public class Game {
         e.printStackTrace();
       }
     }
+*/
   }
-}
- 
-   * 
-
-  
-   *                  
-        
-        
-   *  
-   *                  
+              
 
   
 
