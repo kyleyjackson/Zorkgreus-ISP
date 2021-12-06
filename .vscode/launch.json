@@ -2,6 +2,27 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Launch PrintWelcomeTest",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Test.PrintWelcomeTest",
+      "projectName": "Zorkgreus-ISP_377e565c"
+    },
+    {
+      "type": "java",
+      "name": "Launch SlowText",
+      "request": "launch",
+      "mainClass": "Zorkgreus.CombatTesting.SlowText",
+      "projectName": "Zorkgreus-ISP_377e565c"
+    },
+    {
+      "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_377e565c"
+    },
+    {
       "name": "C/C++ Runner: Debug Session",
       "type": "cppdbg",
       "request": "launch",
