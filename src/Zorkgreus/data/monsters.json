@@ -187,8 +187,118 @@
             "defense": 20,
             "health": 20,
             "dodge": 20,
-            "description": "Wielding a sickle with dried blood on the curve in one hand and a sack in the other, the ghost takes up a battle stance. . ",
+            "description": "Wielding a sickle with dried blood on the curve in one hand and a sack in the other, the clever hero takes up a battle stance. ",
             "Floor and Room": "F3R3"
+        },
+        {
+            "Monster": "The One Who Looked Back",
+            "attack": 15,
+            "priority": 5,
+            "defense": 15,
+            "health": 25,
+            "dodge": 15,
+            "description": "Playing a haunting tune on his lyre, the heartbroken muse looks at you with painful eyes. ",
+            "Floor and Room": "F3R4"
+        },
+        {
+            "Monster": "The Greedy King",
+            "attack": 20,
+            "priority": 3,
+            "defense": 10,
+            "health": 15,
+            "dodge": 10,
+            "description": "With a touch of gold, the cursed and famished king wishes only for food. ",
+            "Floor and Room": "F3R5"
+        },
+        {
+            "Monster": "Mankind's Creator",
+            "attack": 3,
+            "priority": 3,
+            "defense": 25,
+            "health": 35,
+            "dodge": 50,
+            "description": "The supreme trickster, and the firebringer; the champion of mankind seems to be lost in his thoughts.",
+            "Floor and Room": "F3R6"
+        },
+        {
+            "Monster": "Death Cheater",
+            "attack": 7,
+            "priority": 5,
+            "defense": 20,
+            "health": 20,
+            "dodge": 30,
+            "description": "Rolling a massive boulder with him, the one who tried to cheat death looks exhausted.",
+            "Floor and Room": "F3R7"
+        },
+        {
+            "Monster": "The Cursed Priestess",
+            "attack": 7,
+            "priority": 3,
+            "defense": 15,
+            "health": 20,
+            "dodge": 40,
+            "description": "Blessed by the gods with the power to the prophecy, but cursed to never be believed, the dejected priestess looks up .",
+            "Floor and Room": "F3R10"
+        },
+        {
+            "Monster": "King of Athens",
+            "attack": 15,
+            "priority": 5,
+            "defense": 20,
+            "health": 25,
+            "dodge": 20,
+            "description": "The perfect Athenian, venturing the labyrinth and killing the minotaur with his bare hands, stands proudly in the centre of the room.",
+            "Floor and Room": "F3R11"
+        },
+        {
+            "Monster": "The Invincible",
+            "attack": 23,
+            "priority": 3,
+            "defense": 20,
+            "health": 10,
+            "dodge": 80,
+            "description": "Enduring the pain of the styx, this great warrior, wielding a spear and shield is almost invulnerable.",
+            "Floor and Room": "F3R12"
+        },
+        {
+            "Monster": "The Journeyer",
+            "attack": 10,
+            "priority": 9,
+            "defense": 25,
+            "health": 25,
+            "dodge": 25,
+            "description": "The king of Icatha, journeying 10 years to return home, his cleverness and courage getting him past multiple dangers, notches an arrow into his bow.",
+            "Floor and Room": "F3R13"
+        },
+        {
+            "Monster": "Leader of the Argonauts",
+            "attack": 15,
+            "priority": 5,
+            "defense": 30,
+            "health": 25,
+            "dodge": 15,
+            "description": "The rightful king of Iolcos, claiming the impossible to obtain golden fleece now wears it around his shoulders.",
+            "Floor and Room": "F3R14"
+        },
+        {
+            "Monster": "The Strongest Trojan",
+            "attack": 15,
+            "priority": 5,
+            "defense": 25,
+            "health": 30,
+            "dodge": 20,
+            "description": "A noble and honorable warrior, the Trojan's greatest champion raises his fists up.",
+            "Floor and Room": "F3R15"
+        },
+        {
+            "Monster": "The Glory of Hera",
+            "attack": 25,
+            "priority": 3,
+            "defense": 25,
+            "health": 15,
+            "dodge": 20,
+            "description": "Standing above all the others around him, bearing the hide of the Nemean Lion, the greatest hero lets out a monstrous roar.",
+            "Floor and Room": "F3R12"
         }
     ]
 }
