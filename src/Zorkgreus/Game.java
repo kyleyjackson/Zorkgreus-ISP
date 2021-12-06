@@ -26,6 +26,7 @@ public class Game {
   private int bossCounter; // tracks # of bosses/minibosses beaten.
 
   private boolean generatedBoons; // global boolean to determine if boons have been generated.
+  private boolean boonSelected; //checks if the player has selected a boon.
 
   public static final String RED = "\033[1;91m";
   public static final String RESET = "\033[0m";
@@ -123,9 +124,16 @@ public class Game {
     while (!finished) {
       Command command;
       try {
-        if (!generatedBoons && onBoonScreen()) {
+        if(!generatedBoons && onBoonScreen()) {
           temp = generateBoons();
           generatedBoons = true;
+        }
+        if(!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("MiniBoss Room") 
+        || currentRoom.getRoomName().equals("Boss Room"))){
+          boonSelected = false;
+        }
+        if(boonSelected){
+          System.out.println("Please proceed to the next room.");
         }
         command = parser.getCommand();
         finished = processCommand(command);
@@ -306,22 +314,22 @@ public class Game {
       formatMyBoons();
     }
     else if (commandWord.equals("boon")){
-      if(onBoonScreen()){
+      if(onBoonScreen() && !boonSelected){
         if(command.hasSecondWord()){
-          if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){ 
+          if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){
             myBoons.add(temp.get(0)); //adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
-            currentRoom.forceRoom(); //forces the player to the next room
+            boonSelected = true; 
           }
           else if(command.getSecondWord().equals("two") || command.getSecondWord().equals("2")){
             myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
-            currentRoom.forceRoom();
+            boonSelected = true;
           }
           else if(command.getSecondWord().equals("three") || command.getSecondWord().equals("3")){
             myBoons.add(temp.get(2));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
-            currentRoom.forceRoom();
+            boonSelected = true;
           }
         }
         else{
@@ -426,21 +434,25 @@ public class Game {
         currentBoss = new KingSkeleton();
         bossCounter++;
         generatedBoons = false;
+        boonSelected = false;
       }
       if (bossCounter == 1) {
         currentBoss = new QueenSpider();
         bossCounter++;
         generatedBoons = false;
+        boonSelected = false;
       }
       if (bossCounter == 2) {
         currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
+        boonSelected = false;
       }
       if (bossCounter == 3) {
         currentBoss = new TheAmalgamation();
         bossCounter++;
         generatedBoons = false;
+        boonSelected = false;
       }
       if (bossCounter == 4) {
         currentBoss = new Thanatos();
