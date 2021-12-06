@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Room {
 
     private String roomName;
-    private String description;
     private ArrayList<Exit> exits;
 
     public ArrayList<Exit> getExits() {
@@ -16,18 +15,21 @@ public class Room {
         this.exits = exits;
     }
 
+    public void setDescriptions(ArrayList<String> descriptions) {
+        this.descriptions = descriptions;
+    }
+
     /**
      * Create a room described "description". Initially, it has no exits.
      * "description" is something like "a kitchen" or "an open court yard".
      */
+
     public Room(String description) {
-        this.description = description;
         exits = new ArrayList<Exit>();
     }
 
     public Room() {
         roomName = "DEFAULT ROOM";
-        description = "DEFAULT DESCRIPTION";
         exits = new ArrayList<Exit>();
     }
 
@@ -39,18 +41,13 @@ public class Room {
      * Return the description of the room (the one that was defined in the
      * constructor).
      */
-    public String shortDescription() {
-        return "Room: " + roomName + "\n\n" + description;
+    public String roomDescription() {
+        int i = (int) (Math.random() * descriptions.size());
+        String description = descriptions.get(i);
+        return "Room: " + roomName + "\n" + description;
     }
-
-    /**
-     * Return a long description of this room, on the form: You are in the kitchen.
-     * Exits: north west
-     */
-    public String longDescription() {
-
-        return "Room: " + roomName + "\n\n" + description + "\n" + exitString();
-    }
+    // got rid of long description and use math.random to randomize the description
+    // to pick one
 
     /**
      * Return a string describing the room's exits, for example "Exits: north west
@@ -89,6 +86,17 @@ public class Room {
         return null;
     }
 
+    /**
+     * Force the player to the next room.
+     */
+    public Room forceRoom() {
+        String adjacentRoom = "";
+        for (Exit exit : exits) {
+            adjacentRoom = exit.getAdjacentRoom();
+        }
+        return Game.roomMap.get(adjacentRoom);
+    }
+
     /*
      * private int getDirectionIndex(String direction) { int dirIndex = 0; for
      * (String dir : directions) { if (dir.equals(direction)) return dirIndex; else
@@ -104,11 +112,12 @@ public class Room {
         this.roomName = roomName;
     }
 
-    public String getDescription() {
-        return description;
+    public void setDescription(String description) {
+        descriptions = new ArrayList<String>();
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-}
+    
+
+    
+
+    

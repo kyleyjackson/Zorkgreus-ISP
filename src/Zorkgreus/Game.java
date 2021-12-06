@@ -9,12 +9,23 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import Zorkgreus.Boss.*;
+
 public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 
   private Parser parser;
   private Room currentRoom;
+  private Boss currentBoss;
+
+  private ArrayList<Boon> boons; // where all initialized boons are stored.
+  private ArrayList<Boon> temp; // stores boons temporarily for player selection.
+  private ArrayList<Boon> myBoons; // active boons obtained by the player.
+
+  private int bossCounter; // tracks # of bosses/minibosses beaten.
+
+  private boolean generatedBoons; // global boolean to determine if boons have been generated.
 
   public static final String RED = "\033[1;91m";
   public static final String RESET = "\033[0m";
@@ -27,8 +38,9 @@ public class Game {
   public Game() {
     try {
       initRooms("src\\Zorkgreus\\data\\rooms.json");
-      currentRoom = roomMap.get("Spawn Room");
       initBoons("src\\Zorkgreus\\data\\boons.json");
+      currentRoom = roomMap.get("Spawn Room");
+      currentBoss = new DemolisionistSkeletons();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -47,20 +59,25 @@ public class Game {
       Room room = new Room();
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
-      String roomDescription = (String) ((JSONObject) roomObj).get("description");
-      room.setDescription(roomDescription);
+      // String roomDescription = (String) ((JSONObject) roomObj).get("description");
+      // room.setDescription(roomDescription);
       room.setRoomName(roomName);
       // make room description like exits using the array
+
+      JSONArray jsonDescriptions = (JSONArray) ((JSONObject) roomObj).get("descriptions");
+      ArrayList<String> descriptions = new ArrayList<String>();
+      for (Object descObj : jsonDescriptions) {
+        String desc = (String) descObj;
+        descriptions.add(desc);
+      }
+      room.setDescriptions(descriptions);
 
       JSONArray jsonExits = (JSONArray) ((JSONObject) roomObj).get("exits");
       ArrayList<Exit> exits = new ArrayList<Exit>();
       for (Object exitObj : jsonExits) {
         String direction = (String) ((JSONObject) exitObj).get("direction");
         String adjacentRoom = (String) ((JSONObject) exitObj).get("adjacentRoom");
-        String keyId = (String) ((JSONObject) exitObj).get("keyId");
-        Boolean isLocked = (Boolean) ((JSONObject) exitObj).get("isLocked");
-        Boolean isOpen = (Boolean) ((JSONObject) exitObj).get("isOpen");
-        Exit exit = new Exit(direction, adjacentRoom, isLocked, keyId, isOpen);
+        Exit exit = new Exit(direction, adjacentRoom);
         exits.add(exit);
       }
       room.setExits(exits);
@@ -74,6 +91,7 @@ public class Game {
    * @param file boons.json file
    */
   private void initBoons(String file) throws Exception {
+    boons = new ArrayList<Boon>();
     Path path = Path.of(file);
     String jsonString = Files.readString(path);
     JSONParser parser = new JSONParser();
@@ -86,13 +104,18 @@ public class Game {
       String godName = (String) ((JSONObject) boonObj).get("god");
       String boonName = (String) ((JSONObject) boonObj).get("name");
       String decorativeText = (String) ((JSONObject) boonObj).get("colour");
+      String colour = (String) ((JSONObject) boonObj).get("colour");
+      String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
       String stat = (String) ((JSONObject) boonObj).get("stat");
       int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
       boon.setColour(decorativeText);
+      boon.setColour(colour);
+      boon.setFlavour(decorativeText);
       boon.setStats(stat);
       boon.setLevel(level);
+      boons.add(boon);
     }
   }
 
@@ -106,6 +129,10 @@ public class Game {
     while (!finished) {
       Command command;
       try {
+        if (!generatedBoons && onBoonScreen()) {
+          temp = generateBoons();
+          generatedBoons = true;
+        }
         command = parser.getCommand();
         finished = processCommand(command);
       } catch (IOException e) {
@@ -204,7 +231,6 @@ public class Game {
       System.out.println("I don't know what you mean...");
       return false;
     }
-
     String commandWord = command.getCommandWord();
     if (commandWord.equals("help")) {
       printHelp();
@@ -232,7 +258,7 @@ public class Game {
     } else if (commandWord.equals("special")) {
       attackType(command);
     } else if (commandWord.equals("look")) {
-      currentRoom.shortDescription();
+      currentRoom.roomDescription();
     } else if (commandWord.equals("take")) {
       attemptToTake(command);
     } else if (commandWord.equals("takeall")) {
@@ -265,7 +291,7 @@ public class Game {
         System.out.println("I think you just made it angrier.");
       }
       if (msg == 1) {
-        System.out.println("That did nothing...");
+        System.out.println("OMG YOU DISMEMBERED THE ENEMY...\n\njk lol");
       }
       if (msg == 2) {
         System.out.println("Why?");
@@ -282,6 +308,7 @@ public class Game {
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
+<<<<<<< HEAD
     } else if (commandWord.equals("boon") || commandWord.equals("boonlist")) {
       if (command.hasSecondWord()) {
         if (!onBoonScreen()) {
@@ -307,6 +334,39 @@ public class Game {
         System.out.println("There is no boon to select!");
       } else {
 
+=======
+    } else if(commandWord.equals("boonlist") || commandWord.equals("myboons")){
+      formatMyBoons();
+    }
+    else if (commandWord.equals("boon")){
+      if(onBoonScreen()){
+        if(command.hasSecondWord()){
+          if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){ 
+            temp.get(0); //gets value of first boon
+            myBoons.add(temp.get(0)); //adds to the end of the myBoons ArrayList
+            System.out.println("You selected Boon: " + temp.get(0).getBoonName());
+            currentRoom.forceRoom(); //forces the player to the next room
+          }
+          else if(command.getSecondWord().equals("two") || command.getSecondWord().equals("2")){
+            temp.get(1);
+            myBoons.add(temp.get(1));
+            System.out.println("You selected Boon: " + temp.get(1).getBoonName());
+            currentRoom.forceRoom();
+          }
+          else if(command.getSecondWord().equals("three") || command.getSecondWord().equals("3")){
+            temp.get(2);
+            myBoons.add(temp.get(1));
+            System.out.println("You selected Boon: " + temp.get(2).getBoonName());
+            currentRoom.forceRoom();
+          }
+        }
+        else{
+          System.out.println("Which boon do you wish to receive?");
+        }
+      }
+      else{
+        System.out.println("You can't select a boon right now!");
+>>>>>>> a483d29d33cffbea66c76c93f172fe4920722346
       }
     }
     return false;
@@ -328,6 +388,11 @@ public class Game {
     parser.showCommands();
   }
 
+  /**
+   * Sees what kind of attack the player will perform.
+   * 
+   * @param command
+   */
   private void attackType(Command command) {
     if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
       System.out.println("Are you doing a normal or special attack?");
@@ -341,12 +406,106 @@ public class Game {
     }
   }
 
+  /**
+   * Formats the myBoons ArrayList and displays them.
+   */
+  private void formatMyBoons() {
+
+  }
+
+  /**
+   * Randomly choose 3 boons of the same god for player to choose (excluding
+   * Chaos).
+   */
+  public ArrayList<Boon> generateBoons() {
+    ArrayList<Boon> selection = new ArrayList<>();
+    int num = (int) (Math.random() * (boons.size() - 6));
+    if (num <= 2) { // Ares
+      selection.add(boons.get(0));
+      selection.add(boons.get(1));
+      selection.add(boons.get(2));
+    } else if (num > 2 && num <= 5) { // Artemis
+      selection.add(boons.get(3));
+      selection.add(boons.get(4));
+      selection.add(boons.get(5));
+    } else if (num > 5 && num <= 8) { // Aphrodite
+      selection.add(boons.get(6));
+      selection.add(boons.get(7));
+      selection.add(boons.get(8));
+    } else if (num > 8 && num <= 11) { // Zeus
+      selection.add(boons.get(9));
+      selection.add(boons.get(10));
+      selection.add(boons.get(11));
+    } else if (num > 11 && num <= 14) { // Poseidon
+      selection.add(boons.get(12));
+      selection.add(boons.get(13));
+      selection.add(boons.get(14));
+    } else { // Athena
+      selection.add(boons.get(15));
+      selection.add(boons.get(16));
+      selection.add(boons.get(17));
+    }
+    System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
+    System.out.print(
+        "----------------------------------------------------------------------------------------------------------");
+    System.out
+        .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    return selection;
+  }
+
+  /**
+   * checks if the currentBoss has been defeated. Changes currentBoss to the next
+   * miniboss/boss.
+   * 
+   * @return T/F
+   */
+  private boolean currentBossDefeated() {
+    if (currentBoss.isAlive()) {
+      if (bossCounter == 0) {
+        currentBoss = new KingSkeleton();
+        bossCounter++;
+        generatedBoons = false;
+      }
+      if (bossCounter == 1) {
+        // miniboss Asphodel
+        bossCounter++;
+        generatedBoons = false;
+      }
+      if (bossCounter == 2) {
+        // boss Asphodel
+        bossCounter++;
+        generatedBoons = false;
+      }
+      if (bossCounter == 3) {
+        // miniboss Elysium
+        bossCounter++;
+        generatedBoons = false;
+      }
+      if (bossCounter == 4) {
+        // final boss
+      }
+      return true;
+    }
+    return false;
+  }
+
   private void attemptToTake(Command command) {
 
   }
 
+  <<<<<<<HEAD
+
   private boolean onBoonScreen() {
     if (currentRoom.getRoomName().equals("Boon Room")/* || boss/miniboss is defeated */) {
+=======
+
+  /**
+   * Check if you are able to receive a boon.
+   * @return T/F
+   */
+  private boolean onBoonScreen(){
+    if(currentRoom.getRoomName().equals("Boon Room") || currentBossDefeated()){
+>>>>>>> a483d29d33cffbea66c76c93f172fe4920722346
       return true;
     }
     return false;
@@ -357,14 +516,28 @@ public class Game {
    * otherwise print an error message.
    */
   private void goRoom(Command command) {
-    if (!command.hasSecondWord() && (command.getCommandWord() != "east" || command.getCommandWord() != "west"
-        || command.getCommandWord() != "north" || command.getCommandWord() != "south")) {
+    boolean twoWords = false;
+    //if the command doesn't have a second word AND it isn't a direction
+    if (!command.hasSecondWord() && !(command.getCommandWord().equals("east") || command.getCommandWord().equals("west")
+        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south"))) {
       // if there is no second word, we don't know where to go...
       System.out.println("Go where?");
       return;
     }
 
-    String direction = command.getSecondWord();
+    if(command.hasSecondWord()){
+      twoWords = true;
+    }
+
+    String direction;
+
+    //gets intended direction based on whether or not "go" was entered prior
+    if(twoWords){
+      direction = command.getSecondWord();
+    }
+    else{
+      direction = command.getCommandWord();
+    }
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
@@ -373,12 +546,12 @@ public class Game {
       System.out.println("There is no door!");
     else {
       currentRoom = nextRoom;
-      System.out.println(currentRoom.shortDescription());
+      System.out.println(currentRoom.roomDescription());
     }
   }
 
-  public void slowText(String message) {
-    // Print a char from the array, then sleep for 1/10 second
+  pub// Print a ch
+
     for (int i = 0; i < message.length(); i++) {
       System.out.print(message.substring(i, i + 1));
       try {
@@ -389,3 +562,18 @@ public class Game {
     }
   }
 }
+ 
+   * 
+
+  
+   *                  
+        
+        
+   *  
+   *                  
+
+  
+
+  
+
+          

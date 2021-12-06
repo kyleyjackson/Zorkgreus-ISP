@@ -3,168 +3,192 @@
         {
             "god": "Ares",
             "name": "Brutal Strength",
-            "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
+            "colour": "A crimson glow shadows the boons. ",
+            "flavour": "Bloodshed is one avenue to victory.",
             "stat": "Gain +10 damage on your normal attacks.",
             "level": 1
         },
         {
             "god": "Ares",
-            "name": "Bloodlust",
-            "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
-            "stat": "Gain +15 damage on your special attacks.",
+            "name": "Exposed",
+            "colour": "A crimson glow shadows the boons. ",
+            "flavour": "The best defence is a good offense.",
+            "stat": "Convert 100% of your defence into attack.",
             "level": 1
         },
         {
             "god": "Ares",
             "name": "Killing Blow",
-            "colour": "A crimson glow shadows the boon. You feel a heavy presence swelling around you.",
+            "colour": "A crimson glow shadows the boons. ",
+            "flavour": "As the end nears, you go for the kill.",
             "stat": "Enemies left below 5% hp after an attack are automatically executed.",
             "level": 1
         },
         {
             "god": "Artemis",
             "name": "Hunter's Eye",
-            "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
+            "colour": "A green light glimmers at the appearance of the boons. ",
+            "flavour": "You understand what to look for when searching for prey.",
             "stat": "Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 damage on your normal and special attacks.",
             "level": 1
         },
         {
             "god": "Artemis",
             "name": "Precision Strike",
-            "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
+            "colour": "A green light glimmers at the appearance of the boons. ",
+            "flavour": "When the vitals are exposed, you take your best shot.",
             "stat": "Gain a 10% chance to deal double damage on your normal and special attacks.",
             "level": 1
         },
         {
             "god": "Artemis",
             "name": "First Strike",
-            "colour": "A green light glimmers at the appearance of the boon. You feel as though someone is watching over you.",
+            "colour": "A green light glimmers at the appearance of the boons. ",
+            "flavour": "You take every advantage you can get.",
             "stat": "If you strike an enemy first, your attack will deal double damage.",
             "level": 1
         },
         {
             "god": "Aphrodite",
             "name": "Reciprocation",
-            "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
+            "colour": "A rosy ambience warms the room. ",
+            "flavour": "You're not the only one feeling this love.",
             "stat": "When attacked, there is a 44% chance to redirect 50% of damage taken to the attacker.",
             "level": 1
         },
         {
             "god": "Aphrodite",
             "name": "Charm",
-            "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
+            "colour": "A rosy ambience warms the room. ",
+            "flavour": "Your displays of talent knocks the enemies off their feet.",
             "stat": "After using your special attack, there is a 14% chance to stun the target for one turn.",
             "level": 1
         },
         {
             "god": "Aphrodite",
             "name": "Go Easy on Me",
-            "colour": "A rosy ambience warms the room. You can feel the love and passion from here.",
+            "colour": "A rosy ambience warms the room. ",
+            "flavour": "It doesn't take much convincing for an uneven fight.",
             "stat": "Enemies deal 10% less damage to you.",
             "level": 1
         },
         {
             "god": "Zeus",
             "name": "Smite",
-            "colour": "A golden glow fills the room. You hear the crackle of lighting followed by a thunderous shout.",
-            "stat": "If you were to take lethal damage, execute the enemy who delivered the attack. If the enemy is a boss (excluding minibosses), it deals 10% max hp damage instead.",
+            "colour": "A golden glow fills the room. ",
+            "flavour": "You're not going down without a fight.",
+            "stat": "If you were to take lethal damage, execute the enemy who delivered the attack. If the enemy is a boss or miniboss, it deals 10% max hp damage instead.",
             "level": 1
         },
         {
             "god": "Zeus",
             "name": "Thundering Fury",
-            "colour": "A golden glow fills the room. You hear the crackle of lighting followed by a thunderous shout.",
+            "colour": "A golden glow fills the room. ",
+            "flavour": "You're gonna make them remember your name.",
             "stat": "Once you lose attack priority, halve the defence of the target you just attacked.",
             "level": 1
         },
         {
             "god": "Zeus",
             "name": "Stormbreaker",
-            "colour": "A golden glow fills the room. You hear the crackle of lighting followed by a thunderous shout.",
+            "colour": "A golden glow fills the room. ",
+            "flavour": "One attack will not cut it.",
             "stat": "Your attacks bounce to one other target, dealing 75% of the initial attack's damage.",
             "level": 1
         },
         {
             "god": "Poseidon",
             "name": "Sucky Wucky",
-            "colour": "A calming blue is emitted from the boon. You feel at ease.",
+            "colour": "A calming blue is emitted from the boons. ",
+            "flavour": "The taking of life is such a waste.",
             "stat": "5% of all damage dealt is restored as health.",
             "level": 1
         },
         {
             "god": "Poseidon",
             "name": "Vitality",
-            "colour": "A calming blue is emitted from the boon. You feel at ease.",
-            "stat": "After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead.",
+            "colour": "A calming blue is emitted from the boons. ",
+            "flavour": "You feel a little bit better after that fight.",
+            "stat": "Restore +20hp now. After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead.",
             "level": 1
         },
         {
             "god": "Poseidon",
             "name": "High Tide",
-            "colour": "A calming blue is emitted from the boon. You feel at ease.",
+            "colour": "A calming blue is emitted from the boons. ",
+            "flavour": "I guess they do have food in the underworld.",
             "stat": "Recieve 3 fish that each heal 10hp.",
             "level": 0
         },
         {
             "god": "Athena",
             "name": "Fortify",
-            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. Your will to protect grows stronger.",
+            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
+            "flavour": "Your resolve is strengthened greatly.",
             "stat": "Gain +25 defence. If your weapon is a shield, this effect is doubled.",
             "level": 1
         },
         {
             "god": "Athena",
             "name": "Divine Protection",
-            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. Your will to protect grows stronger.",
+            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
+            "flavour": "You feel empowered by an unknown feeling.",
             "stat": "Gain a 4% chance to completely block the next instance of damage.",
             "level": 1
         },
         {
             "god": "Athena",
             "name": "Stand Your Ground",
-            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. Your will to protect grows stronger.",
+            "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
+            "flavour": "Pain is an afterthought.",
             "stat": "Damage that would otherwise be lethal reduces your hp to 1.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Berserker",
-            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "colour": "A cold aura swallows you. ",
+            "flavour": "It's time to test your skills...",
             "stat": "Reduce your max hp to 10, but you gain a 500% damage bonus.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Call to Arms",
-            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "colour": "A cold aura swallows you. ",
+            "flavour": "How about another go?",
             "stat": "You can switch your weapon.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Sheath",
-            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "colour": "A cold aura swallows you. ",
+            "flavour": "The word 'consequence' just became a lot clearer.",
             "stat": "You gain +25 attack priority but deal 75% reduced damage.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Playing with Fire",
-            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "colour": "A cold aura swallows you. ",
+            "flavour": "You feel the risk... but also the reward.",
             "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you don't use the bomb within 4 rooms, well... you don't want to find out.",
             "level": 1
         },
         {
             "god": "Chaos",
-            "name": "Exposed",
-            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
-            "stat": "Convert 100% of your defence into attack.",
+            "name": "Satanic Ritual",
+            "colour": "A cold aura swallows you. ",
+            "flavour": "It's hard to resist such a tempting offer.",
+            "stat": "Once per room, using your special attack begins a ritual. Immediately after casting, you lose attack priority for the next 4 turns. Once the ritual is complete, damage an enemy for 99% of their current hp.",
             "level": 1
         },
         {
             "god": "Chaos",
             "name": "Thou Knoweth Not Weakness",
-            "colour": "A cold aura swallows you. The boon seems to be a void of sorts.",
+            "colour": "A cold aura swallows you. ",
+            "flavour": "To gain strength, one must first know weakness.",
             "stat": "For the next 3 rooms, lose -50% of your attack. Afterwards, gain +25% of your original attack.",
             "level": 1
         }

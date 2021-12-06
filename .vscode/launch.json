@@ -3,24 +3,31 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch PrintWelcomeTest",
+      "name": "Launch Zorkgreus",
       "request": "launch",
-      "mainClass": "Zorkgreus.Test.PrintWelcomeTest",
-      "projectName": "Zorkgreus-ISP_377e565c"
+      "mainClass": "Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_8d6a6358"
     },
     {
       "type": "java",
-      "name": "Launch SlowText",
+      "name": "Launch test",
       "request": "launch",
-      "mainClass": "Zorkgreus.CombatTesting.SlowText",
-      "projectName": "Zorkgreus-ISP_377e565c"
+      "mainClass": "Zorkgreus.Boss.test",
+      "projectName": "Zorkgreus-ISP_36258352"
     },
     {
       "type": "java",
       "name": "Launch Zorkgreus",
       "request": "launch",
       "mainClass": "Zorkgreus.Zorkgreus",
-      "projectName": "Zorkgreus-ISP_377e565c"
+      "projectName": "Zorkgreus-ISP_36258352"
+    },
+    {
+      "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "src.Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_36258352"
     },
     {
       "name": "C/C++ Runner: Debug Session",

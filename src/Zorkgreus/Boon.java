@@ -4,20 +4,24 @@ public class Boon {
     private String god;
     private String boonName;
     private String colour;
+    private String flavour;
     private String stats;
     private int level;
 
     public Boon() {
-        god = "Unknown";
-        boonName = "Invalid";
-        colour = null;
-        stats = null;
+        god = "???";
+        boonName = "???";
+        colour = "???";
+        flavour = "???";
+        stats = "???";
         level = 0;
     }
 
     /* displays the information of the boon to the player */
     public String displayBoon() {
-        return "Boon of " + god + " :" + boonName + "\n\n" + stats + "\n\n" + colour;
+        String desc = "\n" + "Boon of " + god + ": " + boonName + "\n" + flavour + "\n" + stats;
+        String sep = "\n" + "----------------------------------------------------------------------------------------------------------";
+        return desc + sep;
     }
 
     public String getGodName() {
@@ -34,6 +38,14 @@ public class Boon {
 
     public void setBoonName(String boonName) {
         this.boonName = boonName;
+    }
+
+    public String getFlavour() {
+        return flavour;
+    }
+
+    public void setFlavour(String flavour) {
+        this.flavour = flavour;
     }
 
     public String getColour() {
@@ -60,7 +72,7 @@ public class Boon {
         this.level = level;
     }
 
-    public void displayBoons(String boons){
-        System.out.println("Your boons are: " + boons);
+    public void myBoons(String boons){
+        System.out.println("Your boons are: ");
     }
 }
