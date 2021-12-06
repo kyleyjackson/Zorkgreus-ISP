@@ -5,10 +5,11 @@ import java.util.Scanner;
 import Zorkgreus.Player;
 
 public class Tarantula extends Boss {
-    // subclass for Tarantula, found in the 14th room of floor 2 (boss)
+    // subclass for the Tarantula, found in the 14th room of floor 2 (boss)
 
     public Tarantula() {
-        super(15, 5, 7, 75, 10);
+        super(15, 5, 7, 75, 75, 10);
+        displayBossMessage();
     }
 
     public void displayBossMessage() {
@@ -33,19 +34,15 @@ public class Tarantula extends Boss {
         System.out.println("1GnOr@n7 f0ol! ");
     }
 
-    //special attack for the boss, deals DOT for one attack
-    public void specialBossAttack(int startHP) {
-        if (super.getHP() <= (startHP * 0.7)) {
-
-            // when the person gets attacked the first time the boss is under 70% hp, apply
-            // poison which ticks 10 hp away from the person for 2 turns
+    //special attack for the boss, shoots spider webs that stun you, interactive dodging
+    public void specialBossAttack() {
+        if(super.compareHP(0.75)){
+            Scanner in = new Scanner(System.in);
         }
-        displayBossSpecialAttack();
     }
 
     // displays the detail of the special attack
     public void displayBossSpecialAttack() {
-        System.out.println("The tarantulas fangs are now laced with deadly venom. ");
     }
 
     //final attack when the tarantula dies

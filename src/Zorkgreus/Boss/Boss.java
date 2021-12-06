@@ -10,13 +10,15 @@ public class Boss {
     private int def;
     private int hp;
     private int dodge;
+    private int maxHP;
 
-    public Boss(int atk, int priority, int def, int hp, int dodge) {
+    public Boss(int atk, int priority, int def, int hp, int maxHP, int dodge) {
         this.atk = atk;
         this.priority = priority;
         this.def = def;
         this.hp = hp;
         this.dodge = dodge;
+        this.maxHP = maxHP;
     }
 
     public boolean activateRage() {
@@ -31,8 +33,16 @@ public class Boss {
         return hp;
     }
 
-    public void looseHP(int h){
-        hp -= h;
+    public int getMaxHP(){
+        return maxHP;
+    }
+
+    public boolean compareHP(double percentage){
+        return getHP() <= getMaxHP()*percentage && getHP()>1;
+    }
+
+    public void adBossHP(int addHP){
+        hp += addHP;
     }
 
     public void addBossAtk(int addAtk) {

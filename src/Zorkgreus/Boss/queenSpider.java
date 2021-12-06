@@ -1,10 +1,11 @@
 package Zorkgreus.Boss;
 
-public class queenSpider extends Boss{
-    //subclass for queenSpider, found in the 7th room of floor 2 (miniboss)
+public class QueenSpider extends Boss{
+    //subclass for the Queen Spider, found in the 7th room of floor 2 (miniboss)
 
-    public queenSpider(){
-        super(20, 7, 15, 40, 5);
+    public QueenSpider(){
+        super(20, 7, 15, 40, 40, 5);
+        displayBossMessage();
     }
     public void displayBossMessage(){
         System.out.println("An eerie noise echos throughout the misty Queen's nest... ");
@@ -12,12 +13,11 @@ public class queenSpider extends Boss{
     }
 
     //special attack for the queenSpider, increases dodge change every 10% HP decrease
-    public void specialBossAttack(int oldHP){
-        int newHP = super.getHP();
-       if(newHP <= oldHP*0.9&&newHP>1){
-           super.addBossDodge(4);
-       }
-       displayBossSpecialAttack();
+    public void specialBossAttack(){
+        if(super.compareHP(0.9)){
+            super.addBossDodge(4);
+            displayBossSpecialAttack();
+        }
     }
 
     //displays the details of the special attack

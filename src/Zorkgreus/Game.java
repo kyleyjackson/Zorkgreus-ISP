@@ -34,7 +34,7 @@ public class Game {
       initRooms("src\\Zorkgreus\\data\\rooms.json");
       initBoons("src\\Zorkgreus\\data\\boons.json");
       currentRoom = roomMap.get("Spawn Room");
-      currentBoss = new demolisionistSkeletons();
+      currentBoss = new DemolisionistSkeletons();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -97,12 +97,12 @@ public class Game {
       Boon boon = new Boon();
       String godName = (String) ((JSONObject) boonObj).get("god");
       String boonName = (String) ((JSONObject) boonObj).get("name");
-      String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
+      String decorativeText = (String) ((JSONObject) boonObj).get("colour");
       String stat = (String) ((JSONObject) boonObj).get("stat");
       int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
-      boon.setFlavour(decorativeText);
+      boon.setColour(decorativeText);
       boon.setStats(stat);
       boon.setLevel(level);
       boons.add(boon);
@@ -341,27 +341,27 @@ public class Game {
   private boolean currentBossDefeated(){
     if(currentBoss.isAlive()){
       if(bossCounter == 0){
-        currentBoss = new kingSkeleton();
+        currentBoss = new KingSkeleton();
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 1){
-        currentBoss = new Tarantula();
+        //miniboss Asphodel
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 2){
-        currentBoss = new queenSpider();
+        //boss Asphodel
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 3){
-        //chained flesh
+        //miniboss Elysium
         bossCounter++;
         generatedBoons = false;
       }
       if(bossCounter == 4){
-        //sealed and unsealed thanatos
+        //final boss
       }
       return true;
     }
