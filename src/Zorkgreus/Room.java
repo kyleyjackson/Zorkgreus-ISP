@@ -106,4 +106,7 @@ public class Room {
         descriptions = new ArrayList<String>();
     }
 
+    public void forceRoom(){
+        
+    }
 }

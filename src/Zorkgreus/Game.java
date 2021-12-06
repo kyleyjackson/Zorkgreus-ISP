@@ -19,9 +19,9 @@ public class Game {
   private Room currentRoom;
   private Boss currentBoss;
 
-  private ArrayList<Boon> boons; // where all initialized boons are stored.
-  private ArrayList<Boon> temp; // stores boons temporarily for player selection.
-  private ArrayList<Boon> myBoons; // active boons obtained by the player.
+  private ArrayList<Boon> boons = new ArrayList<>(); // where all initialized boons are stored.
+  private ArrayList<Boon> temp = new ArrayList<>(); // stores boons temporarily for player selection.
+  private ArrayList<Boon> myBoons = new ArrayList<>(); // active boons obtained by the player.
 
   private int bossCounter; // tracks # of bosses/minibosses beaten.
 
@@ -88,7 +88,6 @@ public class Game {
    * @param file boons.json file
    */
   private void initBoons(String file) throws Exception {
-    boons = new ArrayList<Boon>();
     Path path = Path.of(file);
     String jsonString = Files.readString(path);
     JSONParser parser = new JSONParser();
@@ -106,7 +105,6 @@ public class Game {
       int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
-      boon.setColour(decorativeText);
       boon.setColour(colour);
       boon.setFlavour(decorativeText);
       boon.setStats(stat);
@@ -311,20 +309,17 @@ public class Game {
       if(onBoonScreen()){
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("one") || command.getSecondWord().equals("1")){ 
-            temp.get(0); //gets value of first boon
             myBoons.add(temp.get(0)); //adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
             currentRoom.forceRoom(); //forces the player to the next room
           }
           else if(command.getSecondWord().equals("two") || command.getSecondWord().equals("2")){
-            temp.get(1);
             myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             currentRoom.forceRoom();
           }
           else if(command.getSecondWord().equals("three") || command.getSecondWord().equals("3")){
-            temp.get(2);
-            myBoons.add(temp.get(1));
+            myBoons.add(temp.get(2));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             currentRoom.forceRoom();
           }
