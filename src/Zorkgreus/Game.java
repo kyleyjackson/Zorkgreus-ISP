@@ -381,7 +381,16 @@ public class Game {
    * Formats the myBoons ArrayList and displays them.
    */
   private void formatMyBoons() {
-
+    if(myBoons.size() != 0){
+      System.out.println("\n" + "Your current boons are:");
+      System.out.print("----------------------------------------------------------------------------------------------------------");
+      for(int i = 0; i < myBoons.size(); i++){
+        System.out.println(myBoons.get(0).displayBoon());
+      }
+    }
+    else{
+      System.out.println("You don't have any boons yet!");
+    }
   }
 
   /**
