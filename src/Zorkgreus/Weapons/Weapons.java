@@ -1,9 +1,11 @@
 package Zorkgreus.Weapons;
 
+import java.util.ArrayList;
+
 public class Weapons {
     /**
      * *Each weapon has it's own set priority (1-20)
-     * *Higher DMG = Lower prio
+     * *Higher DMG = Lower prio* (general rule of thumb*)
      */
 
     private int prio;
@@ -62,4 +64,15 @@ public class Weapons {
         }
         return dmg;
     }
+
+    //boon effects below
+
+    public void brutalStrength(ArrayList<Integer> levels){
+        if(levels.get(0) == 1){
+            
+        }
+    }
+
+
+
 }

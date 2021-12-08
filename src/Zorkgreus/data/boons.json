@@ -12,8 +12,10 @@
             "god": "Ares",
             "name": "Exposed",
             "colour": "A crimson glow shadows the boons. ",
-            "flavour": "The best defence is a good offense.",
-            "stats": ["Convert 50% of your defence into attack.", "Convert 75% of your defence into attack.", "Convert 100% of your defence into attack."],
+            "flavour": "If the king doesn't move, then his subjects won't follow.",
+            "stats": ["If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +5 damage.",
+                "If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +10 damage.",
+                "If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +15 damage."],
             "levels": [1, 2, 3]
         },
         {
@@ -102,7 +104,7 @@
             "god": "Zeus",
             "name": "Stormbreaker",
             "colour": "A golden glow fills the room. ",
-            "flavour": "One attack will not cut it.",
+            "flavour": "Justice will be served.",
             "stats": ["Your attacks bounce to one other target, dealing 60% of the initial attack's damage.",
                 "Your attacks bounce to one other target, dealing 75% of the initial attack's damage.",
                 "Your attacks bounce to one other target, dealing 90% of the initial attack's damage."],
@@ -129,7 +131,7 @@
             "name": "High Tide",
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "Last place you'd expect a second chance is hell, huh?",
-            "stat": "Replenish your extra life.",
+            "stats": ["Replenish your extra life."],
             "levels": [1]
         },
         {
@@ -137,7 +139,9 @@
             "name": "Fortify",
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
             "flavour": "Your resolve is strengthened greatly.",
-            "stat": "Gain +20 defence. If your weapon is a shield, this effect is doubled.",
+            "stats": ["Gain +20 defence. If your weapon is a shield, this effect is doubled.",
+                "Gain +25 defence. If your weapon is a shield, this effect is doubled.",
+                "Gain +30 defence. If your weapon is a shield, this effect is doubled."],
             "levels": [1, 2, 3]
         },
         {
@@ -145,31 +149,33 @@
             "name": "Divine Protection",
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
             "flavour": "You feel empowered by an unknown feeling.",
-            "stat": "Gain a 4% chance to completely block the next instance of damage.",
-            "levels": [1, 2, 3, 4, 5]
+            "stats": ["Gain a 4% chance to completely block the next instance of damage.",
+                "Gain a 8% chance to completely block the next instance of damage.",
+                "Gain a 12% chance to completely block the next instance of damage."],
+            "levels": [1, 2, 3]
         },
         {
             "god": "Athena",
-            "name": "Stand Your Ground",
+            "name": "Second Wind",
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
             "flavour": "Pain is an afterthought.",
-            "stat": "Damage that would otherwise be lethal reduces your hp to 1.",
-            "levels": [1, 2, 3, 4, 5]
+            "stats": ["Damage that would otherwise be lethal reduces your hp to 1."],
+            "levels": [1]
         },
         {
             "god": "Chaos",
             "name": "Berserker",
             "colour": "A cold aura swallows you. ",
             "flavour": "It's time to test your skills...",
-            "stat": "Reduce your max hp to 10, but you gain a 500% damage bonus.",
-            "levels": [1, 2, 3, 4, 5]
+            "stats": ["Reduce your max hp to 10, but you gain a 500% damage bonus."],
+            "levels": [1]
         },
         {
             "god": "Chaos",
             "name": "Call to Arms",
             "colour": "A cold aura swallows you. ",
             "flavour": "How about another go?",
-            "stat": "You can switch your weapon.",
+            "stats": ["You can switch your weapon."],
             "levels": [1]
         },
         {
@@ -177,15 +183,15 @@
             "name": "Sheath",
             "colour": "A cold aura swallows you. ",
             "flavour": "The word 'consequence' just became a lot clearer.",
-            "stat": "You gain +25 attack priority but deal 75% reduced damage.",
+            "stats": ["You gain +25 attack priority but deal 75% reduced damage."],
             "levels": [1]
         },
         {
             "god": "Chaos",
-            "name": "Playing with Fire",
+            "name": "Exposed",
             "colour": "A cold aura swallows you. ",
-            "flavour": "You feel the risk... but also the reward.",
-            "stat": "Switches your special attack to a bomb that deals 25% of an enemy's max hp. If you don't use the bomb within 4 rooms, well... you don't want to find out.",
+            "flavour": "Show your hand, and the enemies may come closer.",
+            "stats": ["You convert 75% of your current defence to attack."],
             "levels": [1]
         },
         {
@@ -193,7 +199,7 @@
             "name": "Satanic Ritual",
             "colour": "A cold aura swallows you. ",
             "flavour": "It's hard to resist such a tempting offer.",
-            "stat": "Once per room, using your special attack begins a ritual. Immediately after casting, you lose attack priority for the next 4 turns. Once the ritual is complete, damage an enemy for 99% of their current hp.",
+            "stats": ["Once per room, using your special attack begins a ritual. Immediately after casting, you lose attack priority for the next 5 turns. Once the ritual is complete, damage an enemy for 99% of their current hp."],
             "levels": [1]
         },
         {
@@ -201,7 +207,7 @@
             "name": "Thou Knoweth Not Weakness",
             "colour": "A cold aura swallows you. ",
             "flavour": "To gain strength, one must first know weakness.",
-            "stat": "For the next 3 rooms, lose -50% of your attack. Afterwards, gain an additional +25% of your original attack.",
+            "stats": ["For the next 3 rooms, lose -50% of your attack. Afterwards, gain an additional +25% of your original attack."],
             "levels": [1]
         }
     ]

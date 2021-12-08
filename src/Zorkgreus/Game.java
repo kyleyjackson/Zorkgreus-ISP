@@ -104,14 +104,24 @@ public class Game {
       String boonName = (String) ((JSONObject) boonObj).get("name");
       String colour = (String) ((JSONObject) boonObj).get("colour");
       String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
-      String stat = (String) ((JSONObject) boonObj).get("stat");
-      int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
+      JSONArray jsonStats = (JSONArray) ((JSONObject) boonObj).get("stats");
+      ArrayList<String> stats = new ArrayList<String>();
+      for(Object sObj : jsonStats){
+        String stat = (String) sObj;
+        stats.add(stat);
+      }
+      JSONArray jsonLevels = (JSONArray) ((JSONObject) boonObj).get("levels");
+      ArrayList<Integer> levels = new ArrayList<Integer>();
+      for(Object levObj : jsonLevels){
+        int level = (int) levObj;
+        levels.add(level);
+      }
       boon.setGod(godName);
       boon.setBoonName(boonName);
       boon.setColour(colour);
       boon.setFlavour(decorativeText);
-      boon.setStats(stat);
-      boon.setLevel(level);
+      boon.setStats(stats);
+      boon.setLevel(levels);
       boons.add(boon);
     }
   }
