@@ -37,6 +37,10 @@ public class Player {
         return dodge;
     }
 
+    public int getPlayerPrio() {
+        return prio;
+    }
+
     public void changePlayerHP(int n) {
         HP = n;
         System.out.println("Your HP changed to " + n + "!");
@@ -59,6 +63,11 @@ public class Player {
 
     public void changePlayerDodge(int n) {
         dodge = n;
-        System.out.println("Your dodge chance changed to" + n + "!");
+        System.out.println("Your dodge chance changed to " + n + "!");
+    }
+
+    public void changePlayerPrio(int n) {
+        prio = n;
+        System.out.println("Your priority has changed to " + n + "!");
     }
 }

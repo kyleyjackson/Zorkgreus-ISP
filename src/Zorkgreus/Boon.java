@@ -1,20 +1,22 @@
 package Zorkgreus;
 
+import java.util.ArrayList;
+
 public class Boon {
     private String god;
     private String boonName;
     private String colour;
     private String flavour;
-    private String stats;
-    private int level;
+    private ArrayList<String> stats;
+    private ArrayList<Integer> levels;
 
     public Boon() {
         god = "???";
         boonName = "???";
         colour = "???";
         flavour = "???";
-        stats = "???";
-        level = 0;
+        stats = new ArrayList<String>();
+        levels = new ArrayList<Integer>();
     }
 
     /* displays the information of the boon to the player */
@@ -56,20 +58,24 @@ public class Boon {
         this.colour = colour;
     }
 
-    public String getStats() {
+    public ArrayList<String> getStats() {
         return stats;
     }
 
-    public void setStats(String stats) {
+    public void setStats(ArrayList<String> stats) {
         this.stats = stats;
     }
 
-    public int level() {
-        return level;
+    public ArrayList<Integer> level() {
+        return levels;
     }
 
-    public void setLevel(int level) {
-        this.level = level;
+    public void setLevel(ArrayList<Integer> levels) {
+        this.levels = levels;
+    }
+
+    public int boonLevel(){
+        return 1; 
     }
 
     public void myBoons(String boons){
