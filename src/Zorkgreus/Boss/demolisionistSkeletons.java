@@ -14,7 +14,7 @@ public class DemolisionistSkeletons extends Boss {
     }
 
     //final attack for the miniboss, drops a bomb, interactive dodging
-    public void finalAttack() {
+    public void finalBossAttack() {
         int count = 0;
         boolean validInput = false;
         Scanner in = new Scanner(System.in);
@@ -27,13 +27,28 @@ public class DemolisionistSkeletons extends Boss {
             try {
                 int num = Integer.parseInt(in.nextLine().toUpperCase());
                 int bombNum = (int) (Math.random() * 10) + 1;
+                int responseNum = (int) (Math.random()*3) + 1;
                 if (num <= 10 && num >= 1) {
                     if ((num >= (bombNum - 2) && num <= (bombNum + 2))) {
-                        System.out.println("You were fast enough and dodged the dumb");
-                        // exit the room
+                        //exit the room at the end
+                        if(responseNum==1)
+                        System.out.println("Got out of there just in time. ");
+                        else if(responseNum==2)
+                        System.out.println("Faster than Usain Bolt.");
+                        else
+                        System.out.println("Impressive footwork. ");
                     } else {
-                        System.out.println("You weren't fast enough and took __ damage");
-                        // subtract hp
+                        //subtract hp at the end
+                        if(responseNum==1){
+                        System.out.println("A turtle's faster than you.");
+                        System.out.println("You took _ damage.");
+                        }else if(responseNum==2){
+                        System.out.println("Looked slow out there.");
+                        System.out.println("You took _ damage. ");
+                        }else{
+                        System.out.println("At least you tried.");
+                        System.out.println("You took _ damage");
+                        }
                     }
                     validInput = true;
                 } else {
