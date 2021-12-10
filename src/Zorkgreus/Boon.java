@@ -66,16 +66,63 @@ public class Boon {
         this.stats = stats;
     }
 
-    public ArrayList<Integer> level() {
+    /**
+     * Gets the levels of all boons
+     * @return the levels ArrayList
+     */
+    public ArrayList<Integer> getLevel() {
         return levels;
     }
 
+    /**
+     * Sets the levels of all boons
+     * @param levels ArrayList of all boon levels
+     */
     public void setLevel(ArrayList<Integer> levels) {
         this.levels = levels;
     }
 
-    public int boonLevel(){
-        return 1; 
+    /**
+     * Gets the level of an individual boon
+     * @param index in the levels ArrayList
+     * @return index in the levels ArrayList
+     */
+    public int getBoonLevel(int index){
+        return levels.get(index);
+    }
+
+    /**
+     * Sets the level of an individual boon
+     * @param level value to set level to
+     * @return param value
+     */
+    public int setBoonLevel(int level){
+        return 69420;
+    }
+
+    /**
+     * Levels up the selected boon if the player already has that boon
+     * @param myBoons array of player's boons
+     * @param tempBoons array of generated boons for player to pick
+     * @param selection boon which the player picked
+     */
+    public void levelUp(ArrayList<Boon> myBoons, ArrayList<Boon> tempBoons, int selection){
+        Boon b = new Boon();
+        for(int i = 0; i < myBoons.size(); i++){
+          if(tempBoons.get(selection).getBoonName().equals(b.getBoonName())){
+            if(b.getBoonLevel(i) < 3 && b.levels.size() > 1){
+              b.setBoonLevel(b.getBoonLevel(i) + 1);
+            }
+          }
+          else{
+              if(b.getBoonLevel(i) >= 3){
+                System.out.println("This boon can't be levelled up any further!");
+              }
+              else{
+                System.out.println("You can't level up this boon!");
+              }
+          }
+        }
     }
 
     public void myBoons(String boons){

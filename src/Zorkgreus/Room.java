@@ -48,8 +48,7 @@ public class Room {
         String description = descriptions.get(i);
         return "Room: " + roomName + "\n\n" + description;
     }
-// got rid of long description and use math.random to randomize the description to pick one 
-
+    
     /**
      * Return a string describing the room's exits, for example "Exits: north west
      * ".
