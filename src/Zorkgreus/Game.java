@@ -110,18 +110,13 @@ public class Game {
         String stat = (String) sObj;
         stats.add(stat);
       }
-      JSONArray jsonLevels = (JSONArray) ((JSONObject) boonObj).get("levels");
-      ArrayList<Integer> levels = new ArrayList<Integer>();
-      for(Object levObj : jsonLevels){
-        int level = (int) levObj;
-        levels.add(level);
-      }
+      int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
       boon.setColour(colour);
       boon.setFlavour(decorativeText);
       boon.setStats(stats);
-      boon.setLevel(levels);
+      boon.setLevel(level);
       boons.add(boon);
     }
   }
@@ -322,7 +317,7 @@ public class Game {
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
-    } else if (commandWord.equals("APCSP!")) {
+    } else if (commandWord.equals("APCSP!") || commandWord.equals("APSCP")) {
       System.out.println("You really wanna fail computer science again?");
     } else if (commandWord.equals("boonlist") || commandWord.equals("myboons")) {
       formatMyBoons();
@@ -535,19 +530,8 @@ public class Game {
       System.out.println(currentRoom.roomDescription());
     }
   }
-  /*
-   * for (int i = 0; i < message.length(); i++) {
-   * System.out.print(message.substring(i, i + 1));
-   * try {
-   * Thread.sleep(25);
-   * } catch (InterruptedException e) {
-   * e.printStackTrace();
-   * }
-   * }
-   */
 
   /* Making combat here */
-
   public void combat(Player player, Monsters monster) {
 
   }

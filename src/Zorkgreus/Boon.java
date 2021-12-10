@@ -8,7 +8,7 @@ public class Boon {
     private String colour;
     private String flavour;
     private ArrayList<String> stats;
-    private ArrayList<Integer> levels;
+    private int level;
 
     public Boon() {
         god = "???";
@@ -16,7 +16,7 @@ public class Boon {
         colour = "???";
         flavour = "???";
         stats = new ArrayList<String>();
-        levels = new ArrayList<Integer>();
+        level = 0;
     }
 
     /* displays the information of the boon to the player */
@@ -70,34 +70,21 @@ public class Boon {
      * Gets the levels of all boons
      * @return the levels ArrayList
      */
-    public ArrayList<Integer> getLevel() {
-        return levels;
+    public int getLevel() {
+        return level;
     }
 
     /**
      * Sets the levels of all boons
      * @param levels ArrayList of all boon levels
      */
-    public void setLevel(ArrayList<Integer> levels) {
-        this.levels = levels;
+    public void setLevel(int level) {
+        this.level = level;
     }
 
-    /**
-     * Gets the level of an individual boon
-     * @param index in the levels ArrayList
-     * @return index in the levels ArrayList
-     */
-    public int getBoonLevel(int index){
-        return levels.get(index);
-    }
-
-    /**
-     * Sets the level of an individual boon
-     * @param level value to set level to
-     * @return param value
-     */
-    public int setBoonLevel(int level){
-        return 69420;
+    public String boonDescription(int level){
+        String stat = stats.get(level);
+        return stat;
     }
 
     /**
@@ -107,16 +94,16 @@ public class Boon {
      * @param selection boon which the player picked
      */
     public void levelUp(ArrayList<Boon> myBoons, ArrayList<Boon> tempBoons, int selection){
-        Boon b = new Boon();
-        for(int i = 0; i < myBoons.size(); i++){
+        for(Boon b : myBoons){
           if(tempBoons.get(selection).getBoonName().equals(b.getBoonName())){
-            if(b.getBoonLevel(i) < 3 && b.levels.size() > 1){
-              b.setBoonLevel(b.getBoonLevel(i) + 1);
+            if(b.getLevel() < 3 && (b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
+            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
+              b.setLevel(b.getLevel() + 1);
             }
           }
           else{
-              if(b.getBoonLevel(i) >= 3){
-                System.out.println("This boon can't be levelled up any further!");
+              if(b.getLevel() >= 3){
+                System.out.println("This boon is max level.");
               }
               else{
                 System.out.println("You can't level up this boon!");
