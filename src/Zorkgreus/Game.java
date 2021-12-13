@@ -544,4 +544,92 @@ public class Game {
   public void combat(Player player, Monsters monster) {
 
   }
+
+  //boon functionality below
+
+  public void brutalStrength(){
+
+  }
+
+  public void exposed(){
+
+  }
+
+  public void killingBlow(){
+
+  }
+
+  public void huntersEye(){
+
+  }
+
+  public void precisionStrike(){
+
+  }
+
+  public void firstStrike(){
+
+  }
+
+  public void reciprocation(){
+
+  }
+
+  public void charm(){
+
+  }
+
+  public void goEasyOnMe(){
+
+  }
+
+  public void smite(){
+
+  }
+
+  public void thunderingFury(){
+
+  }
+
+  public void stormbreaker(){
+
+  }
+
+  public void suckyWucky(){
+
+  }
+
+  public void vitality(){
+
+  }
+
+  public void highTide(){
+
+  }
+
+  public void fortify(){
+
+  }
+
+  public void divineProtection(){
+
+  }
+
+  public void secondWind(){
+
+  }
+
+  public void berserker(){
+
+  }
+
+  public void callToArms(){
+
+  }
+
+  public void sheath(){
+
+  }
+
 }
+

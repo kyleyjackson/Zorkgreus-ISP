@@ -23,8 +23,8 @@
             "name": "Killing Blow",
             "colour": "A crimson glow shadows the boons. ",
             "flavour": "As the end nears, you go for the kill.",
-            "stats": ["Enemies left below 5% hp after an attack are automatically executed.", "Enemies left below 7% hp after an attack are automatically executed.", 
-                "Enemies left below 9% hp after an attack are automatically executed."],
+            "stats": ["Enemies left below 5% hp after an attack are automatically executed.", "Enemies left below 10% hp after an attack are automatically executed.", 
+                "Enemies left below 15% hp after an attack are automatically executed."],
             "level": 1
         },
         {
@@ -32,9 +32,9 @@
             "name": "Hunter's Eye",
             "colour": "A green light glimmers at the appearance of the boons. ",
             "flavour": "You understand what to look for when searching for prey.",
-            "stats": ["Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 damage on your normal and special attacks.",
-                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +8 damage on your normal and special attacks.",
-                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +11 damage on your normal and special attacks."],
+            "stats": ["Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 attack.",
+                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +8 attack.",
+                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +11 attack."],
             "level": 1
         },
         {
@@ -104,10 +104,10 @@
             "god": "Zeus",
             "name": "Stormbreaker",
             "colour": "A golden glow fills the room. ",
-            "flavour": "Justice will be served.",
-            "stats": ["Your attacks bounce to one other target, dealing 60% of the initial attack's damage.",
-                "Your attacks bounce to one other target, dealing 75% of the initial attack's damage.",
-                "Your attacks bounce to one other target, dealing 90% of the initial attack's damage."],
+            "flavour": "Pierce the clouds and strike through the heart.",
+            "stats": ["Your attacks deal an additional 1% of the enemy's max hp.", 
+                "Your attacks deal an additional 2% of the enemy's max hp.",
+                "Your attacks deal an additional 3% of the enemy's max hp."],
             "level": 1
         },
         {
