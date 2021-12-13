@@ -328,14 +328,23 @@ public class Game {
             myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
             boonSelected = true;
+            for(Boon b : myBoons){
+              b.levelUp(myBoons, temp, 0);
+            }
           } else if (command.getSecondWord().equals("two") || command.getSecondWord().equals("2")) {
             myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             boonSelected = true;
+            for(Boon b : myBoons){
+              b.levelUp(myBoons, temp, 1);
+            }
           } else if (command.getSecondWord().equals("three") || command.getSecondWord().equals("3")) {
             myBoons.add(temp.get(2));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             boonSelected = true;
+            for(Boon b : myBoons){
+              b.levelUp(myBoons, temp, 2);
+            }
           }
         } else {
           System.out.println("Which boon do you wish to receive?");

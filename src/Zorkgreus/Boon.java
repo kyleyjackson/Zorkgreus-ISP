@@ -99,6 +99,7 @@ public class Boon {
             if(b.getLevel() < 3 && (b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
             || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
               b.setLevel(b.getLevel() + 1);
+              System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
             }
           }
           else{
