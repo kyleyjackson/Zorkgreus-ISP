@@ -23,6 +23,26 @@ public class Monsters {
         this.desc = desc;
     }
 
+    public int getAtk(){
+        return atk;
+    }
+
+    public int getPrio(){
+        return priority;
+    }
+
+    public int getDef(){
+        return def;
+    }
+
+    public int getHp(){
+        return hp;
+    }
+
+    public int getDodgeChance(){
+        return dodge;
+    }
+
     public void displayMonsterMessage(){
         System.out.println(desc);
     }

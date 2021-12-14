@@ -24,6 +24,7 @@ public class Game {
   private ArrayList<Boon> boons = new ArrayList<>(); // where all initialized boons are stored.
   private ArrayList<Boon> temp = new ArrayList<>(); // stores boons temporarily for player selection.
   private ArrayList<Boon> myBoons = new ArrayList<>(); // active boons obtained by the player.
+  private ArrayList<Monsters> monsters = new ArrayList<>(); //where initialized monsters are stored.
 
   private int bossCounter; // tracks # of bosses/minibosses beaten.
 
@@ -147,6 +148,7 @@ public class Game {
       String desc = (String) ((JSONObject) monsterObj).get("description");
 
       Monsters monster = new Monsters(atk, prio, def, hp, dodge, desc); 
+      monsters.add(monster);
     }
   }
 
