@@ -7,6 +7,9 @@ public class Room {
     private String roomName;
     private ArrayList<Exit> exits;
     private ArrayList<String> descriptions;
+    private Inventory inventory;
+
+    
     public ArrayList<Exit> getExits() {
         return exits;
     }
@@ -33,6 +36,7 @@ public class Room {
         roomName = "DEFAULT ROOM";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
+        inventory = ;
     }
 
     public void addExit(Exit exit) throws Exception {
