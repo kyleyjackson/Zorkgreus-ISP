@@ -10,12 +10,12 @@
         },
         {
             "god": "Ares",
-            "name": "Exposed",
+            "name": "Death's Dance",
             "colour": "A crimson glow shadows the boons. ",
-            "flavour": "If the king doesn't move, then his subjects won't follow.",
-            "stats": ["If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +5 damage.",
-                "If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +10 damage.",
-                "If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +15 damage."],
+            "flavour": "You're not letting them get away unscathed.",
+            "stats": ["If your attack priority is equal to the enemy's attack priority, deal 4 damage.",
+                "If your attack priority is equal to the enemy's attack priority, deal 8 damage.",
+                "If your attack priority is equal to the enemy's attack priority, deal 12 damage."],
             "level": 1
         },
         {
@@ -198,7 +198,7 @@
             "god": "Chaos",
             "name": "Satanic Ritual",
             "colour": "A cold aura swallows you. ",
-            "flavour": "It's hard to resist such a tempting offer.",
+            "flavour": "Sacrifices must be made.",
             "stats": ["Once per room, using your special attack begins a ritual. Immediately after casting, you lose attack priority for the next 5 turns. Once the ritual is complete, damage an enemy for 99% of their current hp."],
             "level": 1
         },

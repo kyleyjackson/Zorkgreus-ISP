@@ -50,6 +50,10 @@ public class Game {
     parser = new Parser();
   }
 
+  /**
+   * 
+   * @param fileName rooms.json file
+   */
   private void initRooms(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -118,6 +122,31 @@ public class Game {
       boon.setStats(stats);
       boon.setLevel(level);
       boons.add(boon);
+    }
+  }
+
+  /**
+   * Initiates the monsters.
+   * 
+   * @param file monsters.json file
+   */
+  private void initMonsters(String file) throws Exception{
+    Path path = Path.of(file);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonMonsters = (JSONArray) json.get("monsters");
+
+    for(Object monsterObj : jsonMonsters){
+      int atk = Math.toIntExact((Long) ((JSONObject) monsterObj).get("attack"));
+      int prio = Math.toIntExact((Long) ((JSONObject) monsterObj).get("priority"));
+      int def = Math.toIntExact((Long) ((JSONObject) monsterObj).get("defense"));
+      int hp = Math.toIntExact((Long) ((JSONObject) monsterObj).get("health"));
+      int dodge = Math.toIntExact((Long) ((JSONObject) monsterObj).get("dodge"));
+      String desc = (String) ((JSONObject) monsterObj).get("description");
+
+      Monsters monster = new Monsters(atk, prio, def, hp, dodge, desc); 
     }
   }
 
@@ -551,7 +580,7 @@ public class Game {
 
   }
 
-  public void exposed(){
+  public void deathsDance(){
 
   }
 
@@ -628,6 +657,18 @@ public class Game {
   }
 
   public void sheath(){
+
+  }
+
+  public void exposed(){
+
+  }
+
+  public void satanicRitual(){
+
+  }
+
+  public void thouKnowethNotWeakness(){
 
   }
 
