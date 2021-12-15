@@ -1,37 +1,18 @@
 {
     "items": [
         {
-            "id": "leg1",
-            "name": "Spider's Leg",
+            "id": "Spider",
+            "name": "Spider's leg",
             "description": "A spider's leg, torn from a fully grown adult spider. Something about it still makes you feel uneasy...",
-            "weight": 5
+            "weight": 5,
+            "startingRoom" : ""
         },
         {
-            "id": "arm1",
-            "name": "Skeleton's arm",
-            "description": "A tattered arm torn from a skeleton. The bones are on the verge of snapping.",
-            "weight": 7
-        },
-        {
-            "id": "potion1",
-            "name": "Potion of Vitality",
-            "description": "A potion containing a bright yellow substance. It doesn't look so great - Restores 25HP.",
-            "weight": 2
-        },
-        {
-            "id": "arm2",
-            "name": "Bulky Skeleton's Arm",
-            "description": "An arm torn from an exceptionally strong skeleton. The bones are harder than steel.",
-            "weight": 12
-        },
-        {
-            "id": "leg2",
-            "name": "Mutated Spider's Leg",
-            "description": "A spider's leg covered in cysts and tumors. What could've possibly made it this way?",
-            "weight": 10
-        },
-        {
-            
+            "id": "Skeleton",
+            "name": "Skeleton's bone",
+            "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
+            "weight": 5,
+            "startingRoom" : ""
         }
     ]
 }

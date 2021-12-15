@@ -11,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 
 import Zorkgreus.Boss.*;
 import Zorkgreus.Monsters.Monsters;
+import Zorkgreus.Weapons.Weapons;
 
 public class Game {
 
@@ -19,16 +20,20 @@ public class Game {
   private Parser parser;
   private Room currentRoom;
   private Boss currentBoss;
+  private Weapons currentWeapon;
   private Player fred;
 
-  private ArrayList<Boon> boons = new ArrayList<>(); // where all initialized boons are stored.
+  private ArrayList<Boon> boons = new ArrayList<>(); // where initialized boons are stored.
   private ArrayList<Boon> temp = new ArrayList<>(); // stores boons temporarily for player selection.
   private ArrayList<Boon> myBoons = new ArrayList<>(); // active boons obtained by the player.
+  private ArrayList<Monsters> monsters = new ArrayList<>(); // where initialized monsters are stored.
+  private ArrayList<Weapons> weapons = new ArrayList<>(); // where initialized weapons are stored.
 
   private int bossCounter; // tracks # of bosses/minibosses beaten.
 
   private boolean generatedBoons; // global boolean to determine if boons have been generated.
   private boolean boonSelected; // checks if the player has selected a boon.
+  private boolean weaponSelected; //checks if a weapon has been selected.
 
   public static final String RED = "\033[1;91m";
   public static final String RESET = "\033[0m";
@@ -42,6 +47,8 @@ public class Game {
     try {
       initRooms("src\\Zorkgreus\\data\\rooms.json");
       initBoons("src\\Zorkgreus\\data\\boons.json");
+      initMonsters("src\\Zorkgreus\\data\\monsters.json");
+      initWeapons("src\\Zorkgreus\\data\\weapons.json");
       currentRoom = roomMap.get("Spawn Room");
       currentBoss = new DemolisionistSkeletons();
     } catch (Exception e) {
@@ -50,6 +57,10 @@ public class Game {
     parser = new Parser();
   }
 
+  /**
+   * 
+   * @param fileName rooms.json file
+   */
   private void initRooms(String fileName) throws Exception {
     Path path = Path.of(fileName);
     String jsonString = Files.readString(path);
@@ -106,23 +117,66 @@ public class Game {
       String decorativeText = (String) ((JSONObject) boonObj).get("flavour");
       JSONArray jsonStats = (JSONArray) ((JSONObject) boonObj).get("stats");
       ArrayList<String> stats = new ArrayList<String>();
-      for(Object sObj : jsonStats){
+      for (Object sObj : jsonStats) {
         String stat = (String) sObj;
         stats.add(stat);
       }
-      JSONArray jsonLevels = (JSONArray) ((JSONObject) boonObj).get("levels");
-      ArrayList<Integer> levels = new ArrayList<Integer>();
-      for(Object levObj : jsonLevels){
-        int level = (int) levObj;
-        levels.add(level);
-      }
+      int level = Math.toIntExact((Long) ((JSONObject) boonObj).get("level"));
       boon.setGod(godName);
       boon.setBoonName(boonName);
       boon.setColour(colour);
       boon.setFlavour(decorativeText);
       boon.setStats(stats);
-      boon.setLevel(levels);
+      boon.setLevel(level);
       boons.add(boon);
+    }
+  }
+
+  /**
+   * Initiates the monsters.
+   * 
+   * @param file monsters.json file
+   */
+  private void initMonsters(String file) throws Exception {
+    Path path = Path.of(file);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonMonsters = (JSONArray) json.get("monsters");
+
+    for (Object monsterObj : jsonMonsters) {
+      int atk = Math.toIntExact((Long) ((JSONObject) monsterObj).get("attack"));
+      int prio = Math.toIntExact((Long) ((JSONObject) monsterObj).get("priority"));
+      int def = Math.toIntExact((Long) ((JSONObject) monsterObj).get("defense"));
+      int hp = Math.toIntExact((Long) ((JSONObject) monsterObj).get("health"));
+      int dodge = Math.toIntExact((Long) ((JSONObject) monsterObj).get("dodge"));
+      String desc = (String) ((JSONObject) monsterObj).get("description");
+
+      Monsters monster = new Monsters(atk, prio, def, hp, dodge, desc);
+      monsters.add(monster);
+    }
+  }
+
+  private void initWeapons(String file) throws Exception {
+    Path path = Path.of(file);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonWeapons = (JSONArray) json.get("weapons");
+
+    for (Object weaponObj : jsonWeapons) {
+      String weaponName = (String) ((JSONObject) weaponObj).get("Weapon");
+      int atk = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Attack"));
+      int prio = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Priority"));
+      int def = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Defense"));
+      int speAtkDmg = Math.toIntExact((Long) ((JSONObject) weaponObj).get("SpecialAttackDamage"));
+      String speAtkName = (String) ((JSONObject) weaponObj).get("SpecialAttackName");
+      String desc = (String) ((JSONObject) weaponObj).get("Description");
+
+      Weapons weapon = new Weapons(weaponName, atk, prio, def, speAtkDmg, speAtkName, desc);
+      weapons.add(weapon);
     }
   }
 
@@ -131,6 +185,8 @@ public class Game {
    */
   public void play() {
     printWelcome();
+
+    weaponSelection(null, true);
 
     boolean finished = false;
     while (!finished) {
@@ -160,7 +216,7 @@ public class Game {
   /**
    * Print out the opening message for the player.
    */
-  private void printWelcome() {
+  public void printWelcome() {
     System.out.println("");
     slowTextNoDelay(CYAN
         + "\n--------------------------------------------------WELCOME TO--------------------------------------------------\n",
@@ -322,7 +378,7 @@ public class Game {
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
       }
-    } else if (commandWord.equals("APCSP!")) {
+    } else if (commandWord.equals("APCSP!") || commandWord.equals("APSCP")) {
       System.out.println("You really wanna fail computer science again?");
     } else if (commandWord.equals("boonlist") || commandWord.equals("myboons")) {
       formatMyBoons();
@@ -333,20 +389,61 @@ public class Game {
             myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
             boonSelected = true;
+            for (Boon b : myBoons) {
+              b.levelUp(myBoons, temp, 0);
+            }
           } else if (command.getSecondWord().equals("two") || command.getSecondWord().equals("2")) {
             myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             boonSelected = true;
+            for (Boon b : myBoons) {
+              b.levelUp(myBoons, temp, 1);
+            }
           } else if (command.getSecondWord().equals("three") || command.getSecondWord().equals("3")) {
             myBoons.add(temp.get(2));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             boonSelected = true;
+            for (Boon b : myBoons) {
+              b.levelUp(myBoons, temp, 2);
+            }
           }
         } else {
           System.out.println("Which boon do you wish to receive?");
         }
       } else {
         System.out.println("You can't select a boon right now!");
+      }
+    } else if (commandWord.equals("bow")) {
+      if(weaponSelected){
+        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      }
+      else{
+        currentWeapon = weaponSelection("bow", false);
+        weaponSelected = true;
+      }
+    } else if (commandWord.equals("spear")) {
+      if(weaponSelected){
+        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      }
+      else{
+        currentWeapon = weaponSelection("spear", false);
+        weaponSelected = true;
+      }
+    } else if (commandWord.equals("sword")) {
+      if(weaponSelected){
+        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      }
+      else{
+        currentWeapon = weaponSelection("sword", false);
+        weaponSelected = true;
+      }
+    } else if (commandWord.equals("shield")) {
+      if(weaponSelected){
+        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      }
+      else{
+        currentWeapon = weaponSelection("shield", false);
+        weaponSelected = true;
       }
     }
     return false;
@@ -358,7 +455,7 @@ public class Game {
    * Print out some help information. Here we print some stupid, cryptic message
    * and a list of the command words.
    */
-  private void printHelp() {
+  public void printHelp() {
     System.out.println("Get out of hell: a daunting dask. Many have tried, none have succeeded.");
     System.out.println("You need to use all the tools at your disposal in order to escape.");
     System.out.println("In front of you are four weapons, the sword, bow, spear, and shield.");
@@ -373,7 +470,7 @@ public class Game {
    * 
    * @param command
    */
-  private void attackType(Command command) {
+  public void attackType(Command command) {
     if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
       System.out.println("Are you doing a normal or special attack?");
       return;
@@ -389,7 +486,7 @@ public class Game {
   /**
    * Formats the myBoons ArrayList and displays them.
    */
-  private void formatMyBoons() {
+  public void formatMyBoons() {
     if (myBoons.size() != 0) {
       System.out.println("\n" + "Your current boons are:");
       System.out.print(
@@ -435,10 +532,8 @@ public class Game {
       selection.add(boons.get(17));
     }
     System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
-    System.out.print(
-        "----------------------------------------------------------------------------------------------------------");
-    System.out
-        .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    System.out.print("----------------------------------------------------------------------------------------------------------");
+    System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     return selection;
   }
 
@@ -448,7 +543,7 @@ public class Game {
    * 
    * @return T/F
    */
-  private boolean currentBossDefeated() {
+  public boolean currentBossDefeated() {
     if (currentBoss.isAlive()) {
       if (bossCounter == 0) {
         currentBoss = new KingSkeleton();
@@ -482,7 +577,7 @@ public class Game {
     return false;
   }
 
-  private void attemptToTake(Command command) {
+  public void attemptToTake(Command command) {
 
   }
 
@@ -491,7 +586,7 @@ public class Game {
    * 
    * @return T/F
    */
-  private boolean onBoonScreen() {
+  public boolean onBoonScreen() {
     if (currentRoom.getRoomName().equals("Boon Room") || currentBossDefeated()) {
       return true;
     }
@@ -502,7 +597,7 @@ public class Game {
    * Try to go to one direction. If there is an exit, enter the new room,
    * otherwise print an error message.
    */
-  private void goRoom(Command command) {
+  public void goRoom(Command command) {
     boolean twoWords = false;
     // if the command doesn't have a second word AND it isn't a direction
     if (!command.hasSecondWord() && !(command.getCommandWord().equals("east") || command.getCommandWord().equals("west")
@@ -535,20 +630,127 @@ public class Game {
       System.out.println(currentRoom.roomDescription());
     }
   }
-  /*
-   * for (int i = 0; i < message.length(); i++) {
-   * System.out.print(message.substring(i, i + 1));
-   * try {
-   * Thread.sleep(25);
-   * } catch (InterruptedException e) {
-   * e.printStackTrace();
-   * }
-   * }
-   */
+
+  public Weapons weaponSelection(String weapon, boolean playIntro) {
+    if (playIntro) {
+      System.out.println("There are 4 weapons you may pick from: Bow, Spear, Sword, and Shield.");
+      System.out.print("Each weapon has its own unique stats and special attack.");
+      System.out.println(" Enter the name of the weapon to learn more about it." + "\n");
+      System.out.println("Please select a weapon for your escape...");
+    }
+    if (weapon.equals("bow")) {
+      return weapons.get(0);
+    } else if (weapon.equals("spear")) {
+      return weapons.get(1);
+    } else if (weapon.equals("sword")) {
+      return weapons.get(2);
+    } else if (weapon.equals("shield")) {
+      return weapons.get(3);
+    }
+    return null;
+  }
 
   /* Making combat here */
-
   public void combat(Player player, Monsters monster) {
 
   }
+
+  // boon functionality below
+
+  public void brutalStrength() {
+
+  }
+
+  public void deathsDance() {
+
+  }
+
+  public void killingBlow() {
+
+  }
+
+  public void huntersEye() {
+
+  }
+
+  public void precisionStrike() {
+
+  }
+
+  public void firstStrike() {
+
+  }
+
+  public void reciprocation() {
+
+  }
+
+  public void charm() {
+
+  }
+
+  public void goEasyOnMe() {
+
+  }
+
+  public void smite() {
+
+  }
+
+  public void thunderingFury() {
+
+  }
+
+  public void stormbreaker() {
+
+  }
+
+  public void suckyWucky() {
+
+  }
+
+  public void vitality() {
+
+  }
+
+  public void highTide() {
+
+  }
+
+  public void fortify() {
+
+  }
+
+  public void divineProtection() {
+
+  }
+
+  public void secondWind() {
+
+  }
+
+  public void berserker() {
+
+  }
+
+  public void callToArms() {
+
+  }
+
+  public void sheath() {
+
+  }
+
+  public void exposed() {
+
+  }
+
+  public void satanicRitual() {
+
+  }
+
+  public void thouKnowethNotWeakness() {
+
+  }
+
 }

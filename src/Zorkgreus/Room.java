@@ -7,6 +7,9 @@ public class Room {
     private String roomName;
     private ArrayList<Exit> exits;
     private ArrayList<String> descriptions;
+    private Inventory inventory;
+
+    
     public ArrayList<Exit> getExits() {
         return exits;
     }
@@ -33,6 +36,7 @@ public class Room {
         roomName = "DEFAULT ROOM";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
+        //inventory = ;
     }
 
     public void addExit(Exit exit) throws Exception {
@@ -48,8 +52,7 @@ public class Room {
         String description = descriptions.get(i);
         return "Room: " + roomName + "\n\n" + description;
     }
-// got rid of long description and use math.random to randomize the description to pick one 
-
+    
     /**
      * Return a string describing the room's exits, for example "Exits: north west
      * ".
@@ -105,5 +108,6 @@ public class Room {
     public void setDescription(String description) {
         descriptions = new ArrayList<String>();
     }
+// methods for items/inventory so it works for room 
 
 }

@@ -6,36 +6,36 @@
             "colour": "A crimson glow shadows the boons. ",
             "flavour": "Bloodshed is one avenue to victory.",
             "stats": ["Gain +5 attack.", "Gain +10 attack", "Gain +15 attack"],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Ares",
-            "name": "Exposed",
+            "name": "Death's Dance",
             "colour": "A crimson glow shadows the boons. ",
-            "flavour": "If the king doesn't move, then his subjects won't follow.",
-            "stats": ["If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +5 damage.",
-                "If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +10 damage.",
-                "If your attack priority is equal to the enemy's attack priority, strike quickly for an additional +15 damage."],
-            "levels": [1, 2, 3]
+            "flavour": "You're not letting them get away unscathed.",
+            "stats": ["If your attack priority is equal to the enemy's attack priority, deal 4 damage.",
+                "If your attack priority is equal to the enemy's attack priority, deal 8 damage.",
+                "If your attack priority is equal to the enemy's attack priority, deal 12 damage."],
+            "level": 1
         },
         {
             "god": "Ares",
             "name": "Killing Blow",
             "colour": "A crimson glow shadows the boons. ",
             "flavour": "As the end nears, you go for the kill.",
-            "stats": ["Enemies left below 5% hp after an attack are automatically executed.", "Enemies left below 7% hp after an attack are automatically executed.", 
-                "Enemies left below 9% hp after an attack are automatically executed."],
-            "levels": [1, 2, 3]
+            "stats": ["Enemies left below 5% hp after an attack are automatically executed.", "Enemies left below 10% hp after an attack are automatically executed.", 
+                "Enemies left below 15% hp after an attack are automatically executed."],
+            "level": 1
         },
         {
             "god": "Artemis",
             "name": "Hunter's Eye",
             "colour": "A green light glimmers at the appearance of the boons. ",
             "flavour": "You understand what to look for when searching for prey.",
-            "stats": ["Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 damage on your normal and special attacks.",
-                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +8 damage on your normal and special attacks.",
-                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +11 damage on your normal and special attacks."],
-            "levels": [1, 2, 3]
+            "stats": ["Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 attack.",
+                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +8 attack.",
+                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +11 attack."],
+            "level": 1
         },
         {
             "god": "Artemis",
@@ -44,7 +44,7 @@
             "flavour": "When the vitals are exposed, you take your best shot.",
             "stats": ["Gain a 10% chance to deal double damage on your normal attacks.", "Gain a 15% chance to deal double damage on your normal attacks.",
                 "Gain a 20% chance to deal double damage on your normal attacks."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Artemis",
@@ -52,7 +52,7 @@
             "colour": "A green light glimmers at the appearance of the boons. ",
             "flavour": "You take every advantage you can get.",
             "stats": ["If you strike an enemy first, your attack will deal double damage."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Aphrodite",
@@ -62,7 +62,7 @@
             "stats": ["When attacked, there is a 10% chance to redirect 50% of damage taken to the attacker.", 
                 "When attacked, there is a 20% chance to redirect 50% of damage taken to the attacker.", 
                 "When attacked, there is a 30% chance to redirect 50% of damage taken to the attacker."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Aphrodite",
@@ -72,7 +72,7 @@
             "stats": ["After using your special attack, there is a 20% chance to stun the target for one turn.", 
                 "After using your special attack, there is a 30% chance to stun the target for one turn.",
                 "After using your special attack, there is a 40% chance to stun the target for one turn."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Aphrodite",
@@ -80,7 +80,7 @@
             "colour": "A rosy ambience warms the room. ",
             "flavour": "It doesn't take much convincing for an uneven fight.",
             "stats": ["Enemies deal 10% less damage to you.", "Enemies deal 14% less damage to you.", "Enemies deal 18% less damage to you."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Zeus",
@@ -88,7 +88,7 @@
             "colour": "A golden glow fills the room. ",
             "flavour": "You're not going down without a fight.",
             "stats": ["If you were to take lethal damage, execute the enemy who delivered the attack. If the enemy is a boss or miniboss, it deals 10% max hp damage instead."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Zeus",
@@ -98,17 +98,17 @@
             "stats": ["Once you lose attack priority, remove 40% defence of the target you just attacked.",
                 "Once you lose attack priority, remove 50% defence of the target you just attacked.",
                 "Once you lose attack priority, remove 60% defence of the target you just attacked."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Zeus",
             "name": "Stormbreaker",
             "colour": "A golden glow fills the room. ",
-            "flavour": "Justice will be served.",
-            "stats": ["Your attacks bounce to one other target, dealing 60% of the initial attack's damage.",
-                "Your attacks bounce to one other target, dealing 75% of the initial attack's damage.",
-                "Your attacks bounce to one other target, dealing 90% of the initial attack's damage."],
-            "levels": [1, 2, 3]
+            "flavour": "Pierce the clouds and strike through the heart.",
+            "stats": ["Your attacks deal an additional 1% of the enemy's max hp.", 
+                "Your attacks deal an additional 2% of the enemy's max hp.",
+                "Your attacks deal an additional 3% of the enemy's max hp."],
+            "level": 1
         },
         {
             "god": "Poseidon",
@@ -116,7 +116,7 @@
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "The taking of life is such a waste.",
             "stats": ["4% of all damage dealt is restored as health.", "5% of all damage dealt is restored as health.", "6% of all damage dealt is restored as health."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Poseidon",
@@ -124,7 +124,7 @@
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "You feel a little bit better after that fight.",
             "stats": ["Restore +20hp now. After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Poseidon",
@@ -132,7 +132,7 @@
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "Last place you'd expect a second chance is hell, huh?",
             "stats": ["Replenish your extra life."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Athena",
@@ -142,7 +142,7 @@
             "stats": ["Gain +20 defence. If your weapon is a shield, this effect is doubled.",
                 "Gain +25 defence. If your weapon is a shield, this effect is doubled.",
                 "Gain +30 defence. If your weapon is a shield, this effect is doubled."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Athena",
@@ -152,7 +152,7 @@
             "stats": ["Gain a 4% chance to completely block the next instance of damage.",
                 "Gain a 8% chance to completely block the next instance of damage.",
                 "Gain a 12% chance to completely block the next instance of damage."],
-            "levels": [1, 2, 3]
+            "level": 1
         },
         {
             "god": "Athena",
@@ -160,7 +160,7 @@
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
             "flavour": "Pain is an afterthought.",
             "stats": ["Damage that would otherwise be lethal reduces your hp to 1."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Chaos",
@@ -168,7 +168,7 @@
             "colour": "A cold aura swallows you. ",
             "flavour": "It's time to test your skills...",
             "stats": ["Reduce your max hp to 10, but you gain a 500% damage bonus."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Chaos",
@@ -176,7 +176,7 @@
             "colour": "A cold aura swallows you. ",
             "flavour": "How about another go?",
             "stats": ["You can switch your weapon."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Chaos",
@@ -184,7 +184,7 @@
             "colour": "A cold aura swallows you. ",
             "flavour": "The word 'consequence' just became a lot clearer.",
             "stats": ["You gain +25 attack priority but deal 75% reduced damage."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Chaos",
@@ -192,15 +192,15 @@
             "colour": "A cold aura swallows you. ",
             "flavour": "Show your hand, and the enemies may come closer.",
             "stats": ["You convert 75% of your current defence to attack."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Chaos",
             "name": "Satanic Ritual",
             "colour": "A cold aura swallows you. ",
-            "flavour": "It's hard to resist such a tempting offer.",
+            "flavour": "Sacrifices must be made.",
             "stats": ["Once per room, using your special attack begins a ritual. Immediately after casting, you lose attack priority for the next 5 turns. Once the ritual is complete, damage an enemy for 99% of their current hp."],
-            "levels": [1]
+            "level": 1
         },
         {
             "god": "Chaos",
@@ -208,7 +208,7 @@
             "colour": "A cold aura swallows you. ",
             "flavour": "To gain strength, one must first know weakness.",
             "stats": ["For the next 3 rooms, lose -50% of your attack. Afterwards, gain an additional +25% of your original attack."],
-            "levels": [1]
+            "level": 1
         }
     ]
 }
