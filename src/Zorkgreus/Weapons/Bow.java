@@ -1,3 +1,4 @@
+/*
 package Zorkgreus.Weapons;
 
 public class Bow extends Weapons {
@@ -13,3 +14,4 @@ public class Bow extends Weapons {
         return dmg;
     }
 }
+*/

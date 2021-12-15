@@ -5,16 +5,34 @@ public class Weapons {
      * *Each weapon has it's own set priority (1-20)
      * *Higher DMG = Lower prio* (general rule of thumb*)
      */
-
+    private String weaponName;
     private int prio;
     private int atk;
     private int def;
     private int speAtkDmg;
+    private String speAtkName;
+    private String desc;
 
-    public Weapons(int prio, int atk, int def, int speAtkDmg) {
+    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, String speAtkName, String desc) {
+        this.weaponName = weaponName;
         this.prio = prio;
         this.atk = atk;
         this.def = def;
+        this.speAtkDmg = speAtkDmg;
+        this.speAtkName = speAtkName;
+        this.desc = desc;
+    }
+
+    public String getWeaponName() {
+        return weaponName;
+    }
+
+    public String getWeaponSpeAtkName() {
+        return speAtkName;
+    }
+
+    public String getDescription() {
+        return desc;
     }
 
     public int getWeaponAtk() {
