@@ -36,7 +36,7 @@ public class Room {
         roomName = "DEFAULT ROOM";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
-        inventory = ;
+        //inventory = ;
     }
 
     public void addExit(Exit exit) throws Exception {
@@ -108,5 +108,6 @@ public class Room {
     public void setDescription(String description) {
         descriptions = new ArrayList<String>();
     }
+// methods for items/inventory so it works for room 
 
 }
