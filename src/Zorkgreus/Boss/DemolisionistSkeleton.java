@@ -2,11 +2,11 @@ package Zorkgreus.Boss;
 
 import java.util.Scanner;
 
-public class DemolisionistSkeletons extends Boss {
+public class DemolisionistSkeleton extends Boss {
     // subclass for the Demolisionist Skeletons, found in the 5th room of floor 1
     // (miniBoss)
 
-    public DemolisionistSkeletons() {
+    public DemolisionistSkeleton() {
         super(5, 12, 15, 40, 40, 0);
         displayBossMessage();
     }
