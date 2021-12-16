@@ -6,6 +6,13 @@
       "name": "Launch Zorkgreus",
       "request": "launch",
       "mainClass": "Zorkgreus.Zorkgreus",
+      "projectName": "Zorkgreus-ISP_6d1b581e"
+    },
+    {
+      "type": "java",
+      "name": "Launch Zorkgreus",
+      "request": "launch",
+      "mainClass": "Zorkgreus.Zorkgreus",
       "projectName": "Zorkgreus-ISP_377e565c"
     },
     {

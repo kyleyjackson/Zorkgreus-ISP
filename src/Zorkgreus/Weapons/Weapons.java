@@ -23,11 +23,11 @@ public class Weapons {
         this.desc = desc;
     }
 
-    public String getWeaponName() {
+    public String getName() {
         return weaponName;
     }
 
-    public String getWeaponSpeAtkName() {
+    public String getSpeAtkName() {
         return speAtkName;
     }
 
@@ -35,33 +35,33 @@ public class Weapons {
         return desc;
     }
 
-    public int getWeaponAtk() {
+    public int getAtk() {
         return atk;
     }
 
-    public int getWeaponPriority() {
+    public int getPriority() {
         return prio;
     }
 
-    public int getWeaponDef() {
+    public int getDef() {
         return def;
     }
 
-    public int getWeaponSpeAtkDmg() {
+    public int getSpeAtkDmg() {
         return speAtkDmg;
     }
 
-    public void changeWeaponAtk(int n) {
+    public void changeAtk(int n) {
         atk = n;
         System.out.println("Your attack changed to " + n + "!");
     }
 
-    public void changeWeaponDef(int n) {
+    public void changeDef(int n) {
         def = n;
         System.out.println("Your defense changed to " + n + "!");
     }
 
-    public void changeWeaponPrio(int n) {
+    public void changePrio(int n) {
         prio = n;
         System.out.println("Your priority changed to " + n + "!");
     }
