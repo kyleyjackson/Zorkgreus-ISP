@@ -21,46 +21,64 @@ public class Boss {
         this.maxHP = maxHP;
     }
 
+    //checks to see if hp is below 33%
     public boolean activateRage() {
         return hp <= (hp / 3);
     }
 
+    //checks to see if the boss is alive
+    //returns a boolean
     public boolean isAlive() {
-        return hp <= 0;
+        return hp >= 0;
     }
 
+    //accessor method for HP
     public int getHP(){
         return hp;
     }
 
+    //accessor method for maxHP
     public int getMaxHP(){
         return maxHP;
     }
 
-    public boolean compareHP(double percentage){
-        return getHP() <= getMaxHP()*percentage && getHP()>1;
+    //compares the maxHP, to the new HP
+    //param: percentage (how much % you want to compare it by), dmgDone (how much damage is done)
+    public boolean compareHP(double percentage, int dmgDone){
+        int decrement = (int)(getMaxHP()*percentage);
+        int temp = hp;
+        if (getMaxHP() == hp)
+            temp -= 0.1;
+        hp -= dmgDone;
+        return (hp/decrement != temp/decrement);
     }
 
-    public void adBossHP(int addHP){
+    //mutator method for HP
+    public void addBossHP(int addHP){
         hp += addHP;
     }
 
+   //mutator method for attack
     public void addBossAtk(int addAtk) {
         atk += addAtk;
     }
 
+    //mutator method for priority
     public void addBossPriority(int addPriority) {
         priority += addPriority;
     }
-
+ 
+    //mutator method for defence
     public void addBossDefence(int addDef) {
         def += addDef;
     }
 
+    //mutator method for dodge chance
     public void addBossDodge(int addDodge){
         dodge += addDodge;
     }
 
+    //all methods below exist just for polymorphism - allowing subclasses to override
     public void bossRage(){
     }
 
