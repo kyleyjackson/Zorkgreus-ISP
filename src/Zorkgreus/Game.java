@@ -631,6 +631,12 @@ public class Game {
     }
   }
 
+  /**
+   * Plays a weapon selection intro for the first time, and allows the player to select a weapon.
+   * @param weapon weapon that is selected through player commands.
+   * @param playIntro boolean to determine if intro has been played.
+   * @return weapon in weapons ArrayList, null if weapon does not equal a valid weapon.
+   */
   public Weapons weaponSelection(String weapon, boolean playIntro) {
     if (playIntro) {
       System.out.println("There are 4 weapons you may pick from: Bow, Spear, Sword, and Shield.");
@@ -655,14 +661,14 @@ public class Game {
 
   }
 
-  // boon functionality below
+  // boon functionality below -- add changes based on level NEEDED
 
   public void brutalStrength() {
 
   }
 
   public void deathsDance() {
-
+    
   }
 
   public void killingBlow() {
