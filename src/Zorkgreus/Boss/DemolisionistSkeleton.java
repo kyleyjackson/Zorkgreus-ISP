@@ -41,7 +41,6 @@ public class DemolisionistSkeleton extends Boss {
                         else
                         System.out.println("Impressive footwork. ");
                     } else {
-                        //subtract hp at the end
                         if(responseNum==1){
                         System.out.println("A turtle's faster than you. ");
                         System.out.println("You took _ damage. ");
@@ -51,8 +50,8 @@ public class DemolisionistSkeleton extends Boss {
                         }else{
                         System.out.println("At least you tried. ");
                         System.out.println("You took _ damage. ");
-                        //subtract hp from the player
                         }
+                     //subtract hp from the player
                     }
                     validInput = true;
                 } else {
