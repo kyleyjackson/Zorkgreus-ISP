@@ -544,7 +544,7 @@ public class Game {
    * @return T/F
    */
   public boolean currentBossDefeated() {
-    if (currentBoss.isAlive()) {
+    if (!currentBoss.isAlive()) {
       if (bossCounter == 0) {
         currentBoss = new KingSkeleton();
         bossCounter++;
