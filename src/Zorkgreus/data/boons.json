@@ -95,9 +95,9 @@
             "name": "Thundering Fury",
             "colour": "A golden glow fills the room. ",
             "flavour": "You're gonna make them remember your name.",
-            "stats": ["Once you lose attack priority, remove 40% defence of the target you just attacked.",
-                "Once you lose attack priority, remove 50% defence of the target you just attacked.",
-                "Once you lose attack priority, remove 60% defence of the target you just attacked."],
+            "stats": ["Once you lose attack priority, remove 30% defence of the target you just attacked. This bonus cannot go above 100% defence.",
+                "Once you lose attack priority, remove 40% defence of the target you just attacked. This bonus cannot go above 100% defence.",
+                "Once you lose attack priority, remove 50% defence of the target you just attacked. This bonus cannot go above 100% defence."],
             "level": 1
         },
         {
@@ -115,7 +115,7 @@
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "The taking of life is such a waste.",
-            "stats": ["4% of all damage dealt is restored as health.", "5% of all damage dealt is restored as health.", "6% of all damage dealt is restored as health."],
+            "stats": ["12.5% of all damage dealt is restored as health.", "25% of all damage dealt is restored as health.", "50% of all damage dealt is restored as health."],
             "level": 1
         },
         {
@@ -159,7 +159,7 @@
             "name": "Second Wind",
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
             "flavour": "Pain is an afterthought.",
-            "stats": ["Damage that would otherwise be lethal reduces your hp to 1."],
+            "stats": ["Damage that would otherwise be lethal reduces your hp to 1. This boon deactivates for the rest of the floor."],
             "level": 1
         },
         {

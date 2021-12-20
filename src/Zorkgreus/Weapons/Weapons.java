@@ -66,7 +66,7 @@ public class Weapons {
         System.out.println("Your priority changed to " + n + "!");
     }
 
-    public int weaponNormalAtk() {
+    public int normalAtk() {
         int rand = (int) (Math.random() * 3) + 1;
         int randDmg = (int) (Math.random() * (atk / 10)) + 1;
         int dmg = atk;

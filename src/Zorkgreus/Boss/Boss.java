@@ -21,6 +21,26 @@ public class Boss {
         this.maxHP = maxHP;
     }
 
+    //accessor method for attack
+    public int getAtk(){
+        return atk;
+    }
+
+    //accessor method for priority
+    public int getPrio(){
+        return priority;
+    }
+
+    //accessor method for defence
+    public int getDef(){
+        return def;
+    }
+
+    //accessor method for dodge
+    public int getDodgeChance(){
+        return dodge;
+    }
+
     //checks to see if hp is below 33%
     public boolean activateRage() {
         return hp <= (hp / 3);
@@ -30,6 +50,11 @@ public class Boss {
     //returns a boolean
     public boolean isAlive() {
         return hp >= 0;
+    }
+
+    //mutator method for hp
+    public void setHP(int health){
+        hp = health;
     }
 
     //accessor method for HP
@@ -63,9 +88,18 @@ public class Boss {
         atk += addAtk;
     }
 
+    public void setBossPriority(int prioritySet){
+        priority = prioritySet;
+    }
+
     //mutator method for priority
     public void addBossPriority(int addPriority) {
         priority += addPriority;
+    }
+
+    //mutator method for defence
+    public void setBossDef(int setDef){
+        def = setDef;
     }
  
     //mutator method for defence
