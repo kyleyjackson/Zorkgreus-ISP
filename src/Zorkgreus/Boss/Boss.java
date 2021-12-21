@@ -1,5 +1,7 @@
 package Zorkgreus.Boss;
 
+import Zorkgreus.Player;
+
 public class Boss {
     /*
      * Boss Superclass
@@ -21,111 +23,133 @@ public class Boss {
         this.maxHP = maxHP;
     }
 
-    //accessor method for attack
-    public int getAtk(){
-        return atk;
+    /**
+     * 
+     * @param dmgDealt the amount of supposed damage
+     * @return the new damage, either decreased, increased or the same
+     */
+    public int attack(int dmgDealt) {
+        int dmg = dmgDealt;
+        int rand = (int) (Math.random() * 3) + 1;
+        int randDmg = (int) (Math.random() * (dmgDealt / 10)) + 1;
+
+        if (rand == 1) {
+            dmg -= randDmg;
+        } else if (rand == 2) {
+            dmg += randDmg;
+        } else {
+            dmg += 0;
+        }
+        return dmg;
     }
 
-    //accessor method for priority
-    public int getPrio(){
-        return priority;
-    }
-
-    //accessor method for defence
-    public int getDef(){
-        return def;
-    }
-
-    //accessor method for dodge
-    public int getDodgeChance(){
-        return dodge;
-    }
-
-    //checks to see if hp is below 33%
-    public boolean activateRage() {
-        return hp <= (hp / 3);
-    }
-
-    //checks to see if the boss is alive
-    //returns a boolean
-    public boolean isAlive() {
-        return hp >= 0;
-    }
-
-    //mutator method for hp
-    public void setHP(int health){
-        hp = health;
-    }
-
-    //accessor method for HP
-    public int getHP(){
-        return hp;
-    }
-
-    //accessor method for maxHP
-    public int getMaxHP(){
-        return maxHP;
-    }
-
-    //compares the maxHP, to the new HP
-    //param: percentage (how much % you want to compare it by), dmgDone (how much damage is done)
-    public boolean compareHP(double percentage, int dmgDone){
-        int decrement = (int)(getMaxHP()*percentage);
+    /**
+     * compares the maxHP, to the new HP
+     * 
+     * @param percentage percentage to compare the old and new hp
+     * @param dmgDone    damage dealt
+     * @return if newHP is smaller than the percentage of maxHP
+     */
+    public boolean compareHP(double percentage, int dmgDone) {
+        int decrement = (int) (getMaxHP() * percentage);
         int temp = hp;
         if (getMaxHP() == hp)
             temp -= 0.1;
         hp -= dmgDone;
-        return (hp/decrement != temp/decrement);
+        return (hp / decrement != temp / decrement);
     }
 
-    //mutator method for HP
-    public void addBossHP(int addHP){
-        hp += addHP;
+    /**
+     * Checks if rage should be activated - for bosses only
+     * 
+     * @return if the current hp is lower than 33% of the original
+     */
+    public boolean activateRage() {
+        return hp <= (maxHP / 3);
     }
 
-   //mutator method for attack
+    public boolean isAlive() {
+        return hp >= 0;
+    }
+
+    // accessor and mutator method for attack
+    public int getAtk() {
+        return atk;
+    }
+
     public void addBossAtk(int addAtk) {
         atk += addAtk;
     }
 
-    public void setBossPriority(int prioritySet){
+    // accessor and mutator methods for priority
+    public int getPrio() {
+        return priority;
+    }
+
+    public void setBossPriority(int prioritySet) {
         priority = prioritySet;
     }
 
-    //mutator method for priority
     public void addBossPriority(int addPriority) {
         priority += addPriority;
     }
 
-    //mutator method for defence
-    public void setBossDef(int setDef){
+    // accessor and mutator methods for defence
+    public int getDef() {
+        return def;
+    }
+
+    public void setBossDef(int setDef) {
         def = setDef;
     }
- 
-    //mutator method for defence
+
     public void addBossDefence(int addDef) {
         def += addDef;
     }
 
-    //mutator method for dodge chance
-    public void addBossDodge(int addDodge){
+    // accessor and mutator method for dodge
+    public int getDodge() {
+        return dodge;
+    }
+
+    public void addBossDodge(int addDodge) {
         dodge += addDodge;
     }
 
-    //all methods below exist just for polymorphism - allowing subclasses to override
-    public void bossRage(){
+    // accessor and mutator methods for HP
+    public int getHP() {
+        return hp;
     }
 
-    public void specialBossAttack() {
+    public int getMaxHP() {
+        return maxHP;
     }
 
-    public void specialBossAttack(int h){
+    public void setHP(int health) {
+        hp = health;
+    }
+
+    public void addBossHP(int addHP) {
+        hp += addHP;
+    }
+
+    // all methods below exist just for polymorphism - allowing subclasses to override
+    public void bossRage() {
+    }
+
+    public void specialBossAttack(int dmg) {
+    }
+
+    public void specialBossAttack(int dmg, Player player) {
     }
 
     public void finalBossAttack() {
     }
 
-    public void displayBossRage(){
+    public void finalBossAttack(Player player) {
+    }
+
+    public void displayBossRage() {
     }
 
     public void displayBossSpecialAttack() {

@@ -2,63 +2,66 @@ package Zorkgreus.Boss;
 
 import java.util.Scanner;
 
+import Zorkgreus.Player;
+
 public class DemolisionistSkeleton extends Boss {
-    //subclass for the Demolisionist Skeletons, found in the 5th room of floor 1 (miniBoss)
+    // subclass for the Demolisionist Skeletons, found in the 5th room of floor 1 (Mini Boss)
 
     public DemolisionistSkeleton() {
         super(5, 12, 15, 40, 40, 0);
         displayBossMessage();
     }
 
-    //displays the intro message
     public void displayBossMessage() {
-        System.out.println(
-                "Two skeletons carrying a bagful of bombs on their back look at you with glee in their eyes as they start to laugh maniacally. As they juggle those bombs around, they gesture for you to come");
+        System.out.println("A skeleton carrying a bagful of bombs on its back look at you with glee in its eye as it start to laugh maniacally. As it juggles those bombs around, it gesture for you to come");
     }
 
-    //final attack for the miniboss, drops a bomb, interactive dodging
-    public void finalBossAttack() {
+    /**
+     * final atack for the Demolisionist Skeleton, interactive dodging, if not dodged: subtract HP
+     * 
+     * @param player player object to subtract HP if not dodged
+     */
+    public void finalBossAttack(Player player) {
         int count = 0;
         boolean validInput = false;
         Scanner in = new Scanner(System.in);
-        while (!validInput) {
-            if (count == 0)
-                System.out.print(
-                        "A skeleton demolisionist has died, its dropped a bomb, if you are fast enough you can dodge the bomb, please input a number to see [1-10]: ");
-            else
-                System.out.print("Invalid Input - Number Between [1-10]: ");
-            try {
-                int num = Integer.parseInt(in.nextLine().toUpperCase());
-                int bombNum = (int) (Math.random() * 10) + 1;
-                int responseNum = (int) (Math.random()*3) + 1;
-                if (num <= 10 && num >= 1) {
-                    if ((num >= (bombNum - 2) && num <= (bombNum + 2))) {
-                        //exit the room at the end
-                        if(responseNum==1)
-                        System.out.println("Got out of there just in time. ");
-                        else if(responseNum==2)
-                        System.out.println("Faster than Usain Bolt .");
-                        else
-                        System.out.println("Impressive footwork. ");
-                    } else {
-                        if(responseNum==1){
-                        System.out.println("A turtle's faster than you. ");
-                        System.out.println("You took _ damage. ");
-                        }else if(responseNum==2){
-                        System.out.println("Looked slow out there. ");
-                        System.out.println("You took _ damage. ");
-                        }else{
-                        System.out.println("At least you tried. ");
-                        System.out.println("You took _ damage. ");
+        if (!super.isAlive()) {
+            while (!validInput) {
+                if (count == 0)
+                    System.out.print("A skeleton demolisionist has died, its dropped a bomb, if you are fast enough you can dodge the bomb, please input a number to see [1-10]: ");
+                else
+                    System.out.print("Invalid Input - Number Between [1-10]: ");
+                try {
+                    int num = Integer.parseInt(in.nextLine().toUpperCase());
+                    int bombNum = (int) (Math.random() * 10) + 1;
+                    int responseNum = (int) (Math.random() * 3) + 1;
+                    if (num <= 10 && num >= 1) {
+                        if ((num >= (bombNum - 2) && num <= (bombNum + 2))) {
+                            // exit the room at the end
+                            if (responseNum == 1)
+                                System.out.println("Got out of there just in time. ");
+                            else if (responseNum == 2)
+                                System.out.println("Faster than Usain Bolt .");
+                            else
+                                System.out.println("Impressive footwork. ");
+                        } else {
+                            if (responseNum == 1) {
+                                System.out.println("A turtle's faster than you. ");
+                            } else if (responseNum == 2) {
+                                System.out.println("Looked slow out there. ");
+                            } else {
+                                System.out.println("At least you tried. ");
+                            }
+                            System.out.println("You took " + super.attack(12) + " damage.");
+
                         }
-                     //subtract hp from the player
+                        validInput = true;
+                    } else {
+                        count++;
                     }
-                    validInput = true;
-                } else {
+                } catch (Exception ex) {
                     count++;
                 }
-            } catch (Exception ex) {
-                count++;
             }
         }
     }
