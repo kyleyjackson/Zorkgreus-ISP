@@ -17,25 +17,31 @@ public class Game {
 
   public static HashMap<String, Room> roomMap = new HashMap<String, Room>();
 
+  /*------------------------------------Objects------------------------------------*/
   private Parser parser;
   private Room currentRoom;
   private Boss currentBoss;
   private Weapons currentWeapon;
+  private Monsters currentMonster;
   private Player fred; //player to execute commands that deal with player
 
+  /*------------------------------------ArrayLists------------------------------------*/
   private ArrayList<Boon> boons = new ArrayList<>(); // where initialized boons are stored.
   private ArrayList<Boon> temp = new ArrayList<>(); // stores boons temporarily for player selection.
   private ArrayList<Boon> myBoons = new ArrayList<>(); // active boons obtained by the player.
   private ArrayList<Monsters> monsters = new ArrayList<>(); // where initialized monsters are stored.
   private ArrayList<Weapons> weapons = new ArrayList<>(); // where initialized weapons are stored.
 
+  /*------------------------------------global ints------------------------------------*/
   private int bossCounter; // tracks # of bosses/minibosses beaten.
 
-  private boolean generatedBoons; // global boolean to determine if boons have been generated.
-  private boolean boonSelected; // checks if the player has selected a boon.
+  /*------------------------------------global booleans------------------------------------*/
+  private boolean generatedBoons; //determine if boons have been generated.
+  private boolean boonSelected; //checks if the player has selected a boon.
   private boolean weaponSelected; //checks if a weapon has been selected.
   private boolean canProceed; //determines if player can move on to the next room
 
+  /*------------------------------------coloured font------------------------------------*/
   public static final String RED = "\033[1;91m";
   public static final String RESET = "\033[0m";
   public static final String WHITEBG = "\033[0;100m";
@@ -415,36 +421,88 @@ public class Game {
         System.out.println("You can't select a boon right now!");
       }
     } else if (commandWord.equals("bow")) {
-      if(weaponSelected){
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      if(command.hasSecondWord()){
+        if(command.getSecondWord().equals("help")){
+          System.out.println(weapons.get(0).getDescription() + "\n");
+          System.out.println("Attack: " + weapons.get(0).getAtk() + "\n" + "Priority: " + weapons.get(0).getPriority() + "\n" + "Defense: " + weapons.get(0).getDef()
+          + "\n" + "Special Attack: " + weapons.get(0).getSpeAtkName());
+        }
+        else{
+          System.out.println("Type \"help\" after the weapon to learn more about it.");
+        }
       }
       else{
-        currentWeapon = weaponSelection("bow", false);
-        weaponSelected = true;
+        if(weaponSelected){
+          System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        }
+        else{
+          currentWeapon = weaponSelection("bow", false);
+          weaponSelected = true;
+          System.out.println("You have selected the bow.");
+        }
       }
     } else if (commandWord.equals("spear")) {
-      if(weaponSelected){
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      if(command.hasSecondWord()){
+        if(command.getSecondWord().equals("help")){
+          System.out.println(weapons.get(1).getDescription() + "\n");
+          System.out.println("Attack: " + weapons.get(1).getAtk() + "\n" + "Priority: " + weapons.get(1).getPriority() + "\n" + "Defense: " + weapons.get(1).getDef()
+          + "\n" + "Special Attack: " + weapons.get(1).getSpeAtkName());
+        }
+        else{
+          System.out.println("Type \"help\" after the weapon to learn more about it.");
+        }
       }
       else{
-        currentWeapon = weaponSelection("spear", false);
-        weaponSelected = true;
+        if(weaponSelected){
+          System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        }
+        else{
+          currentWeapon = weaponSelection("spear", false);
+          weaponSelected = true;
+          System.out.println("You have selected the spear.");
+        }
       }
     } else if (commandWord.equals("sword")) {
-      if(weaponSelected){
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      if(command.hasSecondWord()){
+        if(command.getSecondWord().equals("help")){
+          System.out.println(weapons.get(2).getDescription() + "\n");
+          System.out.println("Attack: " + weapons.get(2).getAtk() + "\n" + "Priority: " + weapons.get(2).getPriority() + "\n" + "Defense: " + weapons.get(2).getDef()
+          + "\n" + "Special Attack: " + weapons.get(2).getSpeAtkName());
+        }
+        else{
+          System.out.println("Type \"help\" after the weapon to learn more about it.");
+        }
       }
       else{
-        currentWeapon = weaponSelection("sword", false);
-        weaponSelected = true;
+        if(weaponSelected){
+          System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        }
+        else{
+          currentWeapon = weaponSelection("sword", false);
+          weaponSelected = true;
+          System.out.println("You have selected the sword.");
+        }
       }
     } else if (commandWord.equals("shield")) {
-      if(weaponSelected){
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+      if(command.hasSecondWord()){
+        if(command.getSecondWord().equals("help")){
+          System.out.println(weapons.get(3).getDescription() + "\n");
+          System.out.println("Attack: " + weapons.get(3).getAtk() + "\n" + "Priority: " + weapons.get(3).getPriority() + "\n" + "Defense: " + weapons.get(3).getDef()
+          + "\n" + "Special Attack: " + weapons.get(3).getSpeAtkName());
+        }
+        else{
+          System.out.println("Type \"help\" after the weapon to learn more about it.");
+        }
       }
       else{
-        currentWeapon = weaponSelection("shield", false);
-        weaponSelected = true;
+        if(weaponSelected){
+          System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        }
+        else{
+          currentWeapon = weaponSelection("shield", false);
+          weaponSelected = true;
+          System.out.println("You have selected the shield.");
+        }
       }
     }
     return false;
@@ -642,7 +700,7 @@ public class Game {
     if (playIntro) {
       System.out.println("There are 4 weapons you may pick from: Bow, Spear, Sword, and Shield.");
       System.out.print("Each weapon has its own unique stats and special attack.");
-      System.out.println(" Enter the name of the weapon to learn more about it." + "\n");
+      System.out.println(" Enter the name of the weapon followed by \"help\" to learn more about it." + "\n");
       System.out.println("Please select a weapon for your escape...");
     }
     if (weapon.equals("bow")) {
