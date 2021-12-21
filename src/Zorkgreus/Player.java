@@ -46,32 +46,63 @@ public class Player {
     }
 
     public void changePlayerHP(int n) {
+        if(n < getPlayerHP()){
+            System.out.println("Your HP decreased to " + n + "!");
+        } 
+        else{
+            System.out.println("Your HP increased to " + n + "!");
+        }
         HP = n;
-        System.out.println("Your HP changed to " + n + "!");
     }
 
     public void changePlayerMaxHP(int n) {
+        if(n < getPlayerMaxHP()){
+            System.out.println("Your maximum HP decreased to " + n + "!");
+        }
+        else{
+            System.out.println("Your maximum HP increased to " + n + "!");
+        }
         maxHP = n;
-        System.out.println("Your maximum HP changed to " + n + "!");
     }
 
     public void changePlayerDef(int n) {
-        def = n;
-        System.out.println("Your defense changed to " + n + "!");
+        if(n < getPlayerDef()){
+            System.out.println("Your defense decreased to " + n + "!");
+        }
+        else{
+            System.out.println("Your defense increased to " + n + "!");
+        }
+        def = n;  
     }
 
     public void changePlayerAtk(int n) {
+        if(n < getPlayerAtk()){
+            System.out.println("Your attack decreased to " + n + "!");
+        }
+        else{
+            System.out.println("Your attack increased to " + n + "!");
+        }
         atk = n;
-        System.out.println("Your attack changed to " + n + "!");
     }
 
     public void changePlayerDodge(int n) {
-        dodge = n;
-        System.out.println("Your dodge chance changed to " + n + "!");
+        if(n < getPlayerDodgeChange()){
+            System.out.println("Your dodge chance decreased to " + n + "!");
+        }
+        else{
+            System.out.println("Your dodge chance increased to " + n + "!");
+        }
+        dodge = n; 
     }
 
     public void changePlayerPrio(int n) {
+        if(n < getPlayerPrio()){
+            System.out.println("Your priority has decreased to " + n + "!");
+        }
+        else{
+            System.out.println("Your priority has increased to " + n + "!");
+        }
         prio = n;
-        System.out.println("Your priority has changed to " + n + "!");
+        
     }
 }
