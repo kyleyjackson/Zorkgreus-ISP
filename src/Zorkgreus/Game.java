@@ -856,27 +856,31 @@ public class Game {
   }
 
   public void berserker() {
-
+    fred.changePlayerMaxHP(10);
+    fred.changePlayerHP(10);
+    fred.changePlayerAtk(fred.getPlayerAtk() * 5);
   }
 
   public void callToArms() {
-
+    //switch weapon
   }
 
   public void sheath() {
-
+    fred.changePlayerPrio(fred.getPlayerPrio() + 25);
+    fred.changePlayerAtk((int)(fred.getPlayerAtk() * 0.25));
   }
 
   public void exposed() {
-
+    fred.changePlayerAtk(fred.getPlayerAtk() + (int)(fred.getPlayerDef() * 0.75));
+    fred.changePlayerDef((int)(fred.getPlayerDef() * 0.25));
   }
 
   public void satanicRitual() {
-
+    //gonna have to do something outside related to the turn-based combat system
   }
 
   public void thouKnowethNotWeakness() {
-
+    //call in chaos
   }
 
 }
