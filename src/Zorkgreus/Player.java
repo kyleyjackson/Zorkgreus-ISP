@@ -118,4 +118,8 @@ public class Player {
     public void addPlayerMaxHP(int n){
         maxHP += n;
     }
+
+    public void addPlayerPriority(int n){
+        prio += n;
+    }
 }
