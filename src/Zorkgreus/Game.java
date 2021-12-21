@@ -21,7 +21,7 @@ public class Game {
   private Room currentRoom;
   private Boss currentBoss;
   private Weapons currentWeapon;
-  private Player fred;
+  private Player fred; //player to execute commands that deal with player
 
   private ArrayList<Boon> boons = new ArrayList<>(); // where initialized boons are stored.
   private ArrayList<Boon> temp = new ArrayList<>(); // stores boons temporarily for player selection.
@@ -34,6 +34,7 @@ public class Game {
   private boolean generatedBoons; // global boolean to determine if boons have been generated.
   private boolean boonSelected; // checks if the player has selected a boon.
   private boolean weaponSelected; //checks if a weapon has been selected.
+  private boolean canProceed; //determines if player can move on to the next room
 
   public static final String RED = "\033[1;91m";
   public static final String RESET = "\033[0m";
@@ -50,7 +51,7 @@ public class Game {
       initMonsters("src\\Zorkgreus\\data\\monsters.json");
       initWeapons("src\\Zorkgreus\\data\\weapons.json");
       currentRoom = roomMap.get("Spawn Room");
-      currentBoss = new DemolisionistSkeletons();
+      currentBoss = new DemolisionistSkeleton();
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -153,7 +154,7 @@ public class Game {
       int dodge = Math.toIntExact((Long) ((JSONObject) monsterObj).get("dodge"));
       String desc = (String) ((JSONObject) monsterObj).get("description");
 
-      Monsters monster = new Monsters(atk, prio, def, hp, dodge, desc);
+      Monsters monster = new Monsters(atk, prio, def, hp, hp, dodge, desc);
       monsters.add(monster);
     }
   }
@@ -544,7 +545,7 @@ public class Game {
    * @return T/F
    */
   public boolean currentBossDefeated() {
-    if (currentBoss.isAlive()) {
+    if (!currentBoss.isAlive()) {
       if (bossCounter == 0) {
         currentBoss = new KingSkeleton();
         bossCounter++;
@@ -663,100 +664,223 @@ public class Game {
 
   // boon functionality below -- add changes based on level NEEDED
 
+  /**
+   * Adds 5, 10, 15 attack
+   */
   public void brutalStrength() {
-
+    currentWeapon.changeAtk(currentWeapon.getAtk() + 5);
   }
 
   public void deathsDance() {
-    
+    //check if current weapon prio is equal to monster prio/boss prio
   }
 
+  /**
+   * Execute enemies below 5, 10, 15% hp.
+   */
   public void killingBlow() {
-
+    if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+      if(currentBoss.getHP() < currentBoss.getHP() * 0.05){
+        currentBoss.setHP(0);
+      }
+    }
   }
 
+  /**
+   * Gain 5, 6, 7 priority. If the bow is equipped, gain 5, 8, 11 attack.
+   */
   public void huntersEye() {
-
+    currentWeapon.changePrio(currentWeapon.getPriority() + 5);
+    if(currentWeapon.getName().equals("Bow")){
+      currentWeapon.changeAtk(currentWeapon.getAtk() + 5);
+    }
   }
 
-  public void precisionStrike() {
-
+  /**
+   * Determine if player's next attack will critically strike with Precision Strike.
+   * @return T/F
+   */
+  public boolean precisionStrike() {
+    int random = (int)(Math.random() * 10) + 1;
+    if(random <= 1){
+      return true;
+    }
+    return false;
   }
 
   public void firstStrike() {
-
+    
   }
 
-  public void reciprocation() {
-
+  /**
+   * Randomly selects a value to see if enemy takes 50% of damage dealt by their own attack.
+   * @return damage taken
+   */
+  public int reciprocation() {
+    boolean willCharm = false;
+    int random = (int)(Math.random() * 10) + 1;
+    if(random <= 1){
+      willCharm = true;
+    }
+    if(willCharm){
+      //return 50% of monster's damaging attack
+    }
+    return 0;
   }
 
   public void charm() {
+    int random = (int)(Math.random() * 10) + 1;
+    if(random <= 2){
+      if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
 
+      }
+      else{
+
+      }
+    }
   }
 
   public void goEasyOnMe() {
-
+    
   }
 
+  /**
+   * Executes the enemy that deals lethal damage to the player. Deals less damage to bosses.
+   */
   public void smite() {
-
+    if(!(fred.isAlive())){
+      if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+        currentBoss.setHP((int)(currentBoss.getHP() - (currentBoss.getMaxHP() * 0.1))); //subtracts 10% max hp from current hp
+      }
+      else{
+        //set monster's HP to 0 and clear the room
+      }
+    }
   }
 
+  /**
+   * Remove 30, 40, 50% of the enemy's current defence just attacked after losing priority. 
+   */
   public void thunderingFury() {
-
+    if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+      currentBoss.setBossDef((int)(currentBoss.getDef() - (currentBoss.getDef() * 0.3)));
+    }
   }
 
-  public void stormbreaker() {
-
+  /**
+   * Deal additional 1, 2, 3% max hp dmg to enemies.
+   * @return bonus damage dealt
+   */
+  public int stormbreaker() {
+    return (int)(currentBoss.getMaxHP() * 0.01);
   }
 
+  /**
+   * Restore 12.5, 25, 50% of all damage dealt as hp. 
+   */
   public void suckyWucky() {
-
+    int dmgToHp = 69420; //get damage done from weapon normal/special attack and multiply
+    if((int)(fred.getPlayerHP() + dmgToHp) >= fred.getPlayerMaxHP()){
+      fred.changePlayerHP(fred.getPlayerMaxHP()); 
+    }
+    else{
+      fred.changePlayerHP((int)(fred.getPlayerHP() + dmgToHp));
+    }
   }
 
-  public void vitality() {
-
+  /**
+   * Heal player instantly +20, after every room +5, and increase max hp +2 if room is cleared at full health.
+   * @param situation determines whether we call the instant heal(true) or small heal/max hp increase(false).
+   */
+  public void vitality(boolean situation) {
+    if(situation){
+      if(fred.getPlayerHP() + 20 >= fred.getPlayerMaxHP()){
+        fred.changePlayerHP(fred.getPlayerMaxHP());
+      } 
+      else{
+        fred.changePlayerHP(fred.getPlayerHP() + 20);
+      }
+    }
+    else{
+      if(canProceed){
+        if(fred.getPlayerHP() == fred.getPlayerMaxHP()){
+          fred.changePlayerMaxHP(fred.getPlayerMaxHP() + 2);
+          fred.changePlayerHP(fred.getPlayerMaxHP());
+        }
+        else if(fred.getPlayerHP() + 5 >= fred.getPlayerMaxHP()){
+          fred.changePlayerHP(fred.getPlayerMaxHP());
+        }
+        else{
+          fred.changePlayerHP(fred.getPlayerHP() + 5);
+        }
+      }
+    }
   }
 
+  /**
+   * Replenish the extra life.
+   */
   public void highTide() {
 
   }
 
+  /**
+   * Gain 20, 25, 30 defence, doubled to 40, 50, 60 if you have a shield equipped.
+   */
   public void fortify() {
-
+    if(currentWeapon.getName().equals("shield")){
+      fred.changePlayerDef(fred.getPlayerDef() + 40);
+    }
+    else{
+      fred.changePlayerDef(fred.getPlayerDef() + 20);
+    }
   }
 
+  /**
+   * Gain a 4, 8, 12% chance to mitigate attack from monster.
+   */
   public void divineProtection() {
-
+    int random = (int)(Math.random() * 100) + 1;
+    if(random <= 4){
+      //take monster's last attack and add it back to hp
+    }
   }
 
+  /**
+   * If player hp goes below 0, bring it back to 1.
+   */
   public void secondWind() {
-
+    if(fred.getPlayerHP() <= 0){
+      fred.changePlayerHP(1);
+    }
   }
 
   public void berserker() {
-
+    fred.changePlayerMaxHP(10);
+    fred.changePlayerHP(10);
+    fred.changePlayerAtk(fred.getPlayerAtk() * 5);
   }
 
   public void callToArms() {
-
+    //switch weapon
   }
 
   public void sheath() {
-
+    fred.changePlayerPrio(fred.getPlayerPrio() + 25);
+    fred.changePlayerAtk((int)(fred.getPlayerAtk() * 0.25));
   }
 
   public void exposed() {
-
+    fred.changePlayerAtk(fred.getPlayerAtk() + (int)(fred.getPlayerDef() * 0.75));
+    fred.changePlayerDef((int)(fred.getPlayerDef() * 0.25));
   }
 
   public void satanicRitual() {
-
+    //gonna have to do something outside related to the turn-based combat system
   }
 
   public void thouKnowethNotWeakness() {
-
+    //call in chaos
   }
 
 }

@@ -112,8 +112,4 @@ public class Boon {
           }
         }
     }
-
-    public void myBoons(String boons){
-        System.out.println("Your boons are: ");
-    }
 }

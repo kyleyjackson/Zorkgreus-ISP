@@ -2,15 +2,15 @@ package Zorkgreus.Boss;
 
 import java.util.Scanner;
 
-public class DemolisionistSkeletons extends Boss {
-    // subclass for the Demolisionist Skeletons, found in the 5th room of floor 1
-    // (miniBoss)
+public class DemolisionistSkeleton extends Boss {
+    //subclass for the Demolisionist Skeletons, found in the 5th room of floor 1 (miniBoss)
 
-    public DemolisionistSkeletons() {
+    public DemolisionistSkeleton() {
         super(5, 12, 15, 40, 40, 0);
         displayBossMessage();
     }
 
+    //displays the intro message
     public void displayBossMessage() {
         System.out.println(
                 "Two skeletons carrying a bagful of bombs on their back look at you with glee in their eyes as they start to laugh maniacally. As they juggle those bombs around, they gesture for you to come");
@@ -37,21 +37,21 @@ public class DemolisionistSkeletons extends Boss {
                         if(responseNum==1)
                         System.out.println("Got out of there just in time. ");
                         else if(responseNum==2)
-                        System.out.println("Faster than Usain Bolt.");
+                        System.out.println("Faster than Usain Bolt .");
                         else
                         System.out.println("Impressive footwork. ");
                     } else {
-                        //subtract hp at the end
                         if(responseNum==1){
-                        System.out.println("A turtle's faster than you.");
-                        System.out.println("You took _ damage.");
+                        System.out.println("A turtle's faster than you. ");
+                        System.out.println("You took _ damage. ");
                         }else if(responseNum==2){
-                        System.out.println("Looked slow out there.");
+                        System.out.println("Looked slow out there. ");
                         System.out.println("You took _ damage. ");
                         }else{
-                        System.out.println("At least you tried.");
-                        System.out.println("You took _ damage");
+                        System.out.println("At least you tried. ");
+                        System.out.println("You took _ damage. ");
                         }
+                     //subtract hp from the player
                     }
                     validInput = true;
                 } else {

@@ -41,6 +41,10 @@ public class Player {
         return prio;
     }
 
+    public boolean isAlive() {
+        return HP >= 0;
+    }
+
     public void changePlayerHP(int n) {
         HP = n;
         System.out.println("Your HP changed to " + n + "!");

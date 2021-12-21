@@ -9,16 +9,18 @@ public class Monsters {
     private int priority;
     private int def;
     private int hp;
+    private int maxHP;
     private int dodge;
 
     private String desc;
     private String monsterType;
     
-    public Monsters(int atk, int priority, int def, int hp, int dodge, String desc){
+    public Monsters(int atk, int priority, int def, int hp, int maxHP, int dodge, String desc){
         this.atk = atk;
         this.priority = priority;
         this.def = def;
         this.hp = hp;
+        this.maxHP = hp;
         this.dodge = dodge;
         this.desc = desc;
     }
@@ -31,6 +33,10 @@ public class Monsters {
         return priority;
     }
 
+    public void setPrio(int prio){
+        priority = prio;
+    }
+
     public int getDef(){
         return def;
     }
@@ -39,8 +45,16 @@ public class Monsters {
         return hp;
     }
 
+    public int getMaxHP(){
+        return maxHP;
+    }
+
     public int getDodgeChance(){
         return dodge;
+    }
+
+    public boolean isAlive() {
+        return hp >= 0;
     }
 
     public void displayMonsterMessage(){
