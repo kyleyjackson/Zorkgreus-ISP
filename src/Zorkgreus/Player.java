@@ -105,4 +105,9 @@ public class Player {
         prio = n;
         
     }
+
+    public void incrimentPlayerHP(int n) {
+        maxHP += n;
+        HP += n;
+    }
 }
