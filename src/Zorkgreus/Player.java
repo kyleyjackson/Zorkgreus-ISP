@@ -70,4 +70,9 @@ public class Player {
         prio = n;
         System.out.println("Your priority has changed to " + n + "!");
     }
+
+    public void incrimentPlayerHP(int n) {
+        maxHP += n;
+        HP += n;
+    }
 }
