@@ -45,7 +45,7 @@ public class Player {
         return HP >= 0;
     }
 
-    public void changePlayerHP(int n) {
+    public void setPlayerHP(int n) {
         if(n < getPlayerHP()){
             System.out.println("Your HP decreased to " + n + "!");
         } 
@@ -55,7 +55,7 @@ public class Player {
         HP = n;
     }
 
-    public void changePlayerMaxHP(int n) {
+    public void setPlayerMaxHP(int n) {
         if(n < getPlayerMaxHP()){
             System.out.println("Your maximum HP decreased to " + n + "!");
         }
@@ -65,7 +65,7 @@ public class Player {
         maxHP = n;
     }
 
-    public void changePlayerDef(int n) {
+    public void setPlayerDef(int n) {
         if(n < getPlayerDef()){
             System.out.println("Your defense decreased to " + n + "!");
         }
@@ -75,7 +75,7 @@ public class Player {
         def = n;  
     }
 
-    public void changePlayerAtk(int n) {
+    public void setPlayerAtk(int n) {
         if(n < getPlayerAtk()){
             System.out.println("Your attack decreased to " + n + "!");
         }
@@ -85,7 +85,7 @@ public class Player {
         atk = n;
     }
 
-    public void changePlayerDodge(int n) {
+    public void setPlayerDodge(int n) {
         if(n < getPlayerDodgeChange()){
             System.out.println("Your dodge chance decreased to " + n + "!");
         }
@@ -95,7 +95,7 @@ public class Player {
         dodge = n; 
     }
 
-    public void changePlayerPrio(int n) {
+    public void setPlayerPrio(int n) {
         if(n < getPlayerPrio()){
             System.out.println("Your priority has decreased to " + n + "!");
         }
@@ -109,5 +109,13 @@ public class Player {
     public void incrimentPlayerHP(int n) {
         maxHP += n;
         HP += n;
+    }
+
+    public void addPlayerHP(int n){
+        HP += n;
+    }
+
+    public void addPlayerMaxHP(int n){
+        maxHP += n;
     }
 }
