@@ -33,10 +33,6 @@ public class Monsters {
         return priority;
     }
 
-    public void setPrio(int prio){
-        priority = prio;
-    }
-
     public int getDef(){
         return def;
     }
@@ -51,6 +47,26 @@ public class Monsters {
 
     public int getDodgeChance(){
         return dodge;
+    }
+
+    public void setAtk(int value){
+        atk = value;
+    }
+
+    public void setPrio(int value){
+        priority = value;
+    }
+
+    public void setDef(int value){
+        def = value;
+    }
+
+    public void setHp(int value){
+        hp = value;
+    }
+
+    public void setMaxHp(int value){
+        maxHP = value;
     }
 
     public boolean isAlive() {

@@ -40,6 +40,7 @@ public class Game {
   private boolean boonSelected; //checks if the player has selected a boon.
   private boolean weaponSelected; //checks if a weapon has been selected.
   private boolean canProceed; //determines if player can move on to the next room
+  private boolean extraLife = true; //enabling the extra life
 
   /*------------------------------------coloured font------------------------------------*/
   public static final String RED = "\033[1;91m";
@@ -715,6 +716,21 @@ public class Game {
     return null;
   }
 
+  /**
+   * finds the index in myBoons that shares the same boon name and returns the index.
+   * @param name of boon being matched.
+   * @return the index in myBoons, -1 if not found
+   */
+  private int getIndexByBoonName(String name) {
+    for (int i = 0; i < myBoons.size(); i++) {
+        Boon b = myBoons.get(i);
+        if (boons != null && b.getBoonName().equals(name)) {
+            return i;
+        }
+    }
+    return -1; //this should never be returned; this function will only be called when we know a boon is in myBoons
+  }
+
   /* Making combat here */
   public void combat(Player player, Monsters monster) {
 
@@ -723,10 +739,16 @@ public class Game {
   // boon functionality below -- add changes based on level NEEDED
 
   /**
-   * Adds 5, 10, 15 attack
+   * Adds 5, 10, 15 attack to base attack
    */
   public void brutalStrength() {
-    currentWeapon.changeAtk(currentWeapon.getAtk() + 5);
+    int level = myBoons.get(getIndexByBoonName("Brutal Strength")).getLevel();
+    if(level == 1)
+      fred.setPlayerAtk(fred.getBaseAtk() + 5);
+    else if(level == 2)
+      fred.setPlayerAtk(fred.getBaseAtk() + 10);
+    else 
+      fred.setPlayerAtk(fred.getBaseAtk() + 15);
   }
 
   public void deathsDance() {
@@ -738,8 +760,16 @@ public class Game {
    */
   public void killingBlow() {
     if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
-      if(currentBoss.getHP() < currentBoss.getHP() * 0.05){
-        currentBoss.setHP(0);
+      int level = myBoons.get(getIndexByBoonName("Killing Blow")).getLevel();
+      if(level == 1){
+        if(currentBoss.getHP() < currentBoss.getHP() * 0.05)
+          currentBoss.setHP(0);
+      } else if(level == 2){
+        if(currentBoss.getHP() < currentBoss.getHP() * 0.1)
+          currentBoss.setHP(0);
+      } else {
+        if(currentBoss.getHP() < currentBoss.getHP() * 0.15)
+          currentBoss.setHP(0); 
       }
     }
   }
@@ -748,9 +778,21 @@ public class Game {
    * Gain 5, 6, 7 priority. If the bow is equipped, gain 5, 8, 11 attack.
    */
   public void huntersEye() {
-    currentWeapon.changePrio(currentWeapon.getPriority() + 5);
+    int level = myBoons.get(getIndexByBoonName("Hunter's Eye")).getLevel();
+    if(level == 1)
+      fred.setPlayerPrio(fred.getBasePrio() + 5);
+    else if(level == 2)
+      fred.setPlayerPrio(fred.getBasePrio() + 6);
+    else
+      fred.setPlayerPrio(fred.getBasePrio() + 7); 
+
     if(currentWeapon.getName().equals("Bow")){
-      currentWeapon.changeAtk(currentWeapon.getAtk() + 5);
+      if(level == 1)
+        fred.setPlayerAtk(fred.getBaseAtk() + 5);
+      else if(level == 2)
+        fred.setPlayerAtk(fred.getBaseAtk() + 8);
+      else 
+        fred.setPlayerAtk(fred.getBaseAtk() + 11);
     }
   }
 
@@ -759,9 +801,17 @@ public class Game {
    * @return T/F
    */
   public boolean precisionStrike() {
+    int level = myBoons.get(getIndexByBoonName("Precision Strike")).getLevel();
     int random = (int)(Math.random() * 10) + 1;
-    if(random <= 1){
-      return true;
+    if(level == 1){
+      if(random <= 1)
+        return true;
+    } else if(level == 2){
+      if(random <= 2)
+        return true;
+    } else {
+      if(random <= 3)
+        return true;
     }
     return false;
   }
@@ -777,9 +827,9 @@ public class Game {
   public int reciprocation() {
     boolean willCharm = false;
     int random = (int)(Math.random() * 10) + 1;
-    if(random <= 1){
+    if(random <= 1 * myBoons.get(getIndexByBoonName("Reciprocation")).getLevel())
       willCharm = true;
-    }
+    
     if(willCharm){
       //return 50% of monster's damaging attack
     }
@@ -787,12 +837,20 @@ public class Game {
   }
 
   public void charm() {
+    int level = myBoons.get(getIndexByBoonName("Charm")).getLevel();
     int random = (int)(Math.random() * 10) + 1;
-    if(random <= 2){
-      if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+    if(level == 1){
+      if(random <= 2){
+        if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+
+        }
+      }
+    } else if(level == 2){
+      if(random <= 3){
 
       }
-      else{
+    } else {
+      if(random <= 4){
 
       }
     }
@@ -820,8 +878,26 @@ public class Game {
    * Remove 30, 40, 50% of the enemy's current defence just attacked after losing priority. 
    */
   public void thunderingFury() {
-    if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
-      currentBoss.setBossDef((int)(currentBoss.getDef() - (currentBoss.getDef() * 0.3)));
+    int level = myBoons.get(getIndexByBoonName("Thundering Fury")).getLevel();
+    boolean bossRoom = false;
+    if(currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room"))
+      bossRoom = true;
+
+    if(bossRoom){
+      if(level == 1)
+        currentBoss.setBossDef((int)(currentBoss.getDef() * 0.3));
+      else if(level == 2)
+        currentBoss.setBossDef((int)(currentBoss.getDef() * 0.4));
+      else
+        currentBoss.setBossDef((int)(currentBoss.getDef() * 0.5));
+    }
+    else{
+      if(level == 1)
+        currentMonster.setDef((int)(currentMonster.getDef() * 0.3));
+      else if(level == 2)
+        currentMonster.setDef((int)(currentMonster.getDef() * 0.4));
+      else
+        currentMonster.setDef((int)(currentMonster.getDef() * 0.5));
     }
   }
 
@@ -830,7 +906,7 @@ public class Game {
    * @return bonus damage dealt
    */
   public int stormbreaker() {
-    return (int)(currentBoss.getMaxHP() * 0.01);
+    return (int)(currentBoss.getMaxHP() * (myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel() * 0.01));
   }
 
   /**
@@ -839,10 +915,10 @@ public class Game {
   public void suckyWucky() {
     int dmgToHp = 69420; //get damage done from weapon normal/special attack and multiply
     if((int)(fred.getPlayerHP() + dmgToHp) >= fred.getPlayerMaxHP()){
-      fred.changePlayerHP(fred.getPlayerMaxHP()); 
+      fred.setPlayerHP(fred.getPlayerMaxHP()); 
     }
     else{
-      fred.changePlayerHP((int)(fred.getPlayerHP() + dmgToHp));
+      fred.setPlayerHP((int)(fred.getPlayerHP() + dmgToHp));
     }
   }
 
@@ -853,23 +929,23 @@ public class Game {
   public void vitality(boolean situation) {
     if(situation){
       if(fred.getPlayerHP() + 20 >= fred.getPlayerMaxHP()){
-        fred.changePlayerHP(fred.getPlayerMaxHP());
+        fred.setPlayerHP(fred.getPlayerMaxHP());
       } 
       else{
-        fred.changePlayerHP(fred.getPlayerHP() + 20);
+        fred.setPlayerHP(fred.getPlayerHP() + 20);
       }
     }
     else{
       if(canProceed){
         if(fred.getPlayerHP() == fred.getPlayerMaxHP()){
-          fred.changePlayerMaxHP(fred.getPlayerMaxHP() + 2);
-          fred.changePlayerHP(fred.getPlayerMaxHP());
+          fred.setPlayerMaxHP(fred.getPlayerMaxHP() + 2);
+          fred.setPlayerHP(fred.getPlayerMaxHP());
         }
         else if(fred.getPlayerHP() + 5 >= fred.getPlayerMaxHP()){
-          fred.changePlayerHP(fred.getPlayerMaxHP());
+          fred.setPlayerHP(fred.getPlayerMaxHP());
         }
         else{
-          fred.changePlayerHP(fred.getPlayerHP() + 5);
+          fred.setPlayerHP(fred.getPlayerHP() + 5);
         }
       }
     }
@@ -879,18 +955,32 @@ public class Game {
    * Replenish the extra life.
    */
   public void highTide() {
-
+    if(!extraLife)
+      extraLife = true;
   }
 
   /**
    * Gain 20, 25, 30 defence, doubled to 40, 50, 60 if you have a shield equipped.
    */
   public void fortify() {
+    int level = myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel();
     if(currentWeapon.getName().equals("shield")){
-      fred.changePlayerDef(fred.getPlayerDef() + 40);
+      if(level == 1){
+        fred.setPlayerDef(fred.getPlayerDef() + 40);
+      } else if(level == 2){
+        fred.setPlayerDef(fred.getPlayerDef() + 50);
+      } else {
+        fred.setPlayerDef(fred.getPlayerDef() + 60);
+      }
     }
     else{
-      fred.changePlayerDef(fred.getPlayerDef() + 20);
+      if(level == 1){
+        fred.setPlayerDef(fred.getPlayerDef() + 20);
+      } else if(level == 2){
+        fred.setPlayerDef(fred.getPlayerDef() + 25);
+      } else {
+        fred.setPlayerDef(fred.getPlayerDef() + 30);
+      }
     }
   }
 
@@ -908,15 +998,14 @@ public class Game {
    * If player hp goes below 0, bring it back to 1.
    */
   public void secondWind() {
-    if(fred.getPlayerHP() <= 0){
-      fred.changePlayerHP(1);
-    }
+    if(fred.getPlayerHP() <= 0)
+      fred.setPlayerHP(1);
   }
 
   public void berserker() {
-    fred.changePlayerMaxHP(10);
-    fred.changePlayerHP(10);
-    fred.changePlayerAtk(fred.getPlayerAtk() * 5);
+    fred.setPlayerMaxHP(10);
+    fred.setPlayerHP(10);
+    fred.setPlayerAtk(fred.getPlayerAtk() * 5);
   }
 
   public void callToArms() {
@@ -924,13 +1013,13 @@ public class Game {
   }
 
   public void sheath() {
-    fred.changePlayerPrio(fred.getPlayerPrio() + 25);
-    fred.changePlayerAtk((int)(fred.getPlayerAtk() * 0.25));
+    fred.setPlayerPrio(fred.getPlayerPrio() + 25);
+    fred.setPlayerAtk((int)(fred.getPlayerAtk() * 0.25));
   }
 
   public void exposed() {
-    fred.changePlayerAtk(fred.getPlayerAtk() + (int)(fred.getPlayerDef() * 0.75));
-    fred.changePlayerDef((int)(fred.getPlayerDef() * 0.25));
+    fred.setPlayerAtk(fred.getPlayerAtk() + (int)(fred.getPlayerDef() * 0.75));
+    fred.setPlayerDef((int)(fred.getPlayerDef() * 0.25));
   }
 
   public void satanicRitual() {

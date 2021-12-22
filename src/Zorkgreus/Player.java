@@ -8,13 +8,22 @@ public class Player {
     private int dodge;
     private int prio;
 
-    public Player(int def, int atk, int prio) {
+    private int basePrio; //priority at the start of the game
+    private int baseAtk; //attack at the start of the game
+    private int baseDef; //defense at the start of the game
+
+    public Player(int prio, int atk, int def) {
         this.maxHP = 50;
         this.HP = 50;
         this.def = 10 + def;
         this.atk = atk;
         this.prio = prio;
         this.dodge = 0;
+        
+        basePrio = prio;
+        baseAtk = atk;
+        baseDef = def;
+
     }
 
     public int getPlayerHP() {
@@ -39,6 +48,18 @@ public class Player {
 
     public int getPlayerPrio() {
         return prio;
+    }
+
+    public int getBasePrio(){
+        return basePrio;
+    }
+
+    public int getBaseAtk(){
+        return baseAtk;
+    }
+
+    public int getBaseDef(){
+        return baseDef;
     }
 
     public boolean isAlive() {

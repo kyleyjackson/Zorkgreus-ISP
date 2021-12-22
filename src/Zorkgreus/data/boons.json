@@ -5,7 +5,7 @@
             "name": "Brutal Strength",
             "colour": "A crimson glow shadows the boons. ",
             "flavour": "Bloodshed is one avenue to victory.",
-            "stats": ["Gain +5 attack.", "Gain +10 attack", "Gain +15 attack"],
+            "stats": ["Gain +5 attack.", "Gain +10 attack.", "Gain +15 attack."],
             "level": 1
         },
         {
@@ -33,8 +33,8 @@
             "colour": "A green light glimmers at the appearance of the boons. ",
             "flavour": "You understand what to look for when searching for prey.",
             "stats": ["Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 attack.",
-                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +8 attack.",
-                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +11 attack."],
+                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +7 attack.",
+                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +9 attack."],
             "level": 1
         },
         {
@@ -95,9 +95,9 @@
             "name": "Thundering Fury",
             "colour": "A golden glow fills the room. ",
             "flavour": "You're gonna make them remember your name.",
-            "stats": ["Once you lose attack priority, remove 30% defence of the target you just attacked. This bonus cannot go above 100% defence.",
-                "Once you lose attack priority, remove 40% defence of the target you just attacked. This bonus cannot go above 100% defence.",
-                "Once you lose attack priority, remove 50% defence of the target you just attacked. This bonus cannot go above 100% defence."],
+            "stats": ["Once you lose attack priority, remove 30% current defence of the target you just attacked.",
+                "Once you lose attack priority, remove 40% current defence of the target you just attacked.",
+                "Once you lose attack priority, remove 50% current defence of the target you just attacked."],
             "level": 1
         },
         {
