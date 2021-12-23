@@ -143,4 +143,8 @@ public class Player {
     public void addPlayerPriority(int n){
         prio += n;
     }
+
+    public void addPlayerAttack(int n){
+        atk += n;
+    }
 }
