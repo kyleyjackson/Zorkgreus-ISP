@@ -1,5 +1,5 @@
 {
-    "Weapons": [
+    "weapons": [
         {
             "Weapon": "Bow",
             "Attack": 10,

@@ -1,5 +1,5 @@
 {
-    "Monsters": [
+    "monsters": [
         {
             "Monster": "Weak Skeleton",
             "attack": 0,
@@ -8,7 +8,7 @@
             "health": 15,
             "dodge": 0,
             "description": "The skeleton cowers in fear, with a small chipped dagger in his right hand. ",
-            "Floor and Room": "F1R1"
+            "location": "F1R1"
         },
         {
             "Monster": "Skeleton Fighter",
@@ -18,7 +18,7 @@
             "health": 15,
             "dodge": 0,
             "description": "The skeleton stares at you, grasping his sword and pulling it from the ground. ",
-            "Floor and Room": "F1R2"
+            "location": "F1R2"
         },
         {
             "Monster": "Skeleton Archer",
@@ -28,7 +28,7 @@
             "health": 10,
             "dodge": 0,
             "description": "Wielding a bow with its bowstrings covered in cobwebs, the skeleton nothces in an arrow.  ",
-            "Floor and Room": "F1R3"
+            "location": "F1R3"
         },
         {
             "Monster": "Skeleton Batter",
@@ -38,7 +38,7 @@
             "health": 15,
             "dodge": 0,
             "description": "The skeleton wields a long rotten baseball bat swings it around, taking practice swings. ",
-            "Floor and Room": "F1R6"
+            "location": "F1R6"
         },
         {
             "Monster": "Skeleton Protector",
@@ -48,7 +48,7 @@
             "health": 20,
             "dodge": 0,
             "description": "A skeleton with a towering shield that has scratch and burn marks all over it slams it into a ground, sending rubble everywhere and creating a heavy impact. ",
-            "Floor and Room": "F1R7"
+            "location": "F1R7"
         },
         {
             "Monster": "Skeleton Manic",
@@ -58,7 +58,7 @@
             "health": 15,
             "dodge": 0,
             "description": "A skeleton slowly lumbers towards you, tugging on a bone in his body. As the bone pops out with a snap, he looks at it approvingly as he snarls at you. ",
-            "Floor and Room": "F1R8"
+            "location": "F1R8"
         },
         {
             "Monster": "Spider Hatchling",
@@ -68,7 +68,7 @@
             "health": 10,
             "dodge": 10,
             "description": "Crawling along the wall, a small spider gets ready to lunge at you. ",
-            "Floor and Room": "F2R1"
+            "location": "F2R1"
         },
         {
             "Monster": "Adult Spider",
@@ -78,7 +78,7 @@
             "health": 15,
             "dodge": 5,
             "description": "A full grown spider, much bigger and bulkier than a hatchling. ",
-            "Floor and Room": "F2R2"
+            "location": "F2R2"
         },
         {
             "Monster": "Evasive Spider",
@@ -88,7 +88,7 @@
             "health": 15,
             "dodge": 25,
             "description": "Jumping from wall to wall, the spider's movements are nearly untraceable. ",
-            "Floor and Room": "F2R3"
+            "location": "F2R3"
         },
         {
             "Monster": "Spider Brute",
@@ -98,7 +98,7 @@
             "health": 20,
             "dodge": 5,
             "description": "An abnormally large spider, with pulsating tumors on its abdomen. ",
-            "Floor and Room": "F2R4"
+            "location": "F2R4"
         },
         {
             "Monster": "Nest Guardians",
@@ -108,7 +108,7 @@
             "health": 25,
             "dodge": 25,
             "description": "The queen's personal guardians, larger than an adult, and as agile as a hatchling",
-            "Floor and Room": "F2R5"
+            "location": "F2R5"
         },
         {
             "Monster": "Agile Spider",
@@ -118,7 +118,7 @@
             "health": 15,
             "dodge": 10, 
             "description": "The spider's speed allows him to dip in and out of attacks",
-            "Floor and Room": "F2R8"
+            "location": "F2R8"
         },
         {
             "Monster": "Webshooter", 
@@ -128,7 +128,7 @@
             "health": 15,
             "dodge": 15,
             "description": "Spinning webs with immense speed and skill, the spider looks at you with curious eyes. ",
-            "Floor and Room": "F2R9"
+            "location": "F2R9"
         },
         {
             "Monster": "Venemous Spider",
@@ -138,7 +138,7 @@
             "health": 20,
             "dodge": 15,
             "description": "Dripping venom from it's fangs, the spider leaves a trail of corrosion everywhere it goes ",
-            "Floor and Room": "F2R10"
+            "location": "F2R10"
         },
         {
             "Monster": "Spider Mutation",
@@ -148,7 +148,7 @@
             "health": 20,
             "dodge": 20,
             "description": "Spinning much more rough and powerful webs than the webshooter, this spider managed to handle a drop of the tarantula's blood.  ",
-            "Floor and Room": "F2R11"
+            "location": "F2R11"
         },
         {
             "Monster": "Failed Mutation",
@@ -158,7 +158,7 @@
             "health": 25,
             "dodge": 25,
             "description": "A spider that couldn't handle the tarantula's blood twtiches around, screaming in pain as its eyes turn black",
-            "Floor and Room": "F2R12"
+            "location": "F2R12"
         },
         {
             "Monster": "Ghost of the Labyrinth",
@@ -168,7 +168,7 @@
             "health": 20,
             "dodge": 5,
             "description": "Spinning his hammer around, the fallen architect looks intensely at the blueprints in his other hand. ",
-            "Floor and Room": "F3R1"
+            "location": "F3R1"
         },
         {
             "Monster": "Chimera Slayer",
@@ -178,7 +178,7 @@
             "health": 15,
             "dodge": 25,
             "description": "Riding on the legendary and nimble Pegasus, the forgotten hero brandishes his spear at you. ",
-            "Floor and Room": "F3R2"
+            "location": "F3R2"
         }, 
         {
             "Monster": "The Destroyer",
@@ -188,7 +188,7 @@
             "health": 20,
             "dodge": 20,
             "description": "Wielding a sickle with dried blood on the curve in one hand and a sack in the other, the clever hero takes up a battle stance. ",
-            "Floor and Room": "F3R3"
+            "location": "F3R3"
         },
         {
             "Monster": "The One Who Looked Back",
@@ -198,7 +198,7 @@
             "health": 25,
             "dodge": 15,
             "description": "Playing a haunting tune on his lyre, the heartbroken muse looks at you with painful eyes. ",
-            "Floor and Room": "F3R4"
+            "location": "F3R4"
         },
         {
             "Monster": "The Greedy King",
@@ -208,7 +208,7 @@
             "health": 15,
             "dodge": 10,
             "description": "With a touch of gold, the cursed and famished king wishes only for food. ",
-            "Floor and Room": "F3R5"
+            "location": "F3R5"
         },
         {
             "Monster": "Mankind's Creator",
@@ -218,7 +218,7 @@
             "health": 35,
             "dodge": 50,
             "description": "The supreme trickster, and the firebringer; the champion of mankind seems to be lost in his thoughts.",
-            "Floor and Room": "F3R6"
+            "location": "F3R6"
         },
         {
             "Monster": "Death Cheater",
@@ -228,7 +228,7 @@
             "health": 20,
             "dodge": 30,
             "description": "Rolling a massive boulder with him, the one who tried to cheat death looks exhausted.",
-            "Floor and Room": "F3R7"
+            "location": "F3R7"
         },
         {
             "Monster": "The Cursed Priestess",
@@ -238,7 +238,7 @@
             "health": 20,
             "dodge": 40,
             "description": "Blessed by the gods with the power to the prophecy, but cursed to never be believed, the dejected priestess looks up .",
-            "Floor and Room": "F3R10"
+            "location": "F3R10"
         },
         {
             "Monster": "King of Athens",
@@ -248,7 +248,7 @@
             "health": 25,
             "dodge": 20,
             "description": "The perfect Athenian, venturing the labyrinth and killing the minotaur with his bare hands, stands proudly in the centre of the room.",
-            "Floor and Room": "F3R11"
+            "location": "F3R11"
         },
         {
             "Monster": "The Invincible",
@@ -258,7 +258,7 @@
             "health": 10,
             "dodge": 80,
             "description": "Enduring the pain of the styx, this great warrior, wielding a spear and shield is almost invulnerable.",
-            "Floor and Room": "F3R12"
+            "location": "F3R12"
         },
         {
             "Monster": "The Journeyer",
@@ -268,7 +268,7 @@
             "health": 25,
             "dodge": 25,
             "description": "The king of Icatha, journeying 10 years to return home, his cleverness and courage getting him past multiple dangers, notches an arrow into his bow.",
-            "Floor and Room": "F3R13"
+            "location": "F3R13"
         },
         {
             "Monster": "Leader of the Argonauts",
@@ -278,7 +278,7 @@
             "health": 25,
             "dodge": 15,
             "description": "The rightful king of Iolcos, claiming the impossible to obtain golden fleece now wears it around his shoulders.",
-            "Floor and Room": "F3R14"
+            "location": "F3R14"
         },
         {
             "Monster": "The Strongest Trojan",
@@ -288,7 +288,7 @@
             "health": 30,
             "dodge": 20,
             "description": "A noble and honorable warrior, the Trojan's greatest champion raises his fists up.",
-            "Floor and Room": "F3R15"
+            "location": "F3R15"
         },
         {
             "Monster": "The Glory of Hera",
@@ -298,7 +298,7 @@
             "health": 15,
             "dodge": 20,
             "description": "Standing above all the others around him, bearing the hide of the Nemean Lion, the greatest hero lets out a monstrous roar.",
-            "Floor and Room": "F3R12"
+            "location": "F3R12"
         }
     ]
 }

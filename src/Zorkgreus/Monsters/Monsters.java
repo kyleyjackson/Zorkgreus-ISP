@@ -13,9 +13,11 @@ public class Monsters {
     private int dodge;
 
     private String desc;
-    private String monsterType;
+    private String name;
+    private String location;
     
-    public Monsters(int atk, int priority, int def, int hp, int maxHP, int dodge, String desc){
+    public Monsters(String name, int atk, int priority, int def, int hp, int maxHP, int dodge, String desc, String location){
+        this.name = name;
         this.atk = atk;
         this.priority = priority;
         this.def = def;
@@ -23,10 +25,19 @@ public class Monsters {
         this.maxHP = hp;
         this.dodge = dodge;
         this.desc = desc;
+        this.location = location;
+    }
+
+    public String getName(){
+        return name;
     }
 
     public int getAtk(){
         return atk;
+    }
+
+    public String getLocation(){
+        return location;
     }
 
     public int getPrio(){
