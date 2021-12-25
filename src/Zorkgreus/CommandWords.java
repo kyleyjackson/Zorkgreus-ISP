@@ -1,5 +1,7 @@
 package Zorkgreus;
 
+import java.util.ArrayList;
+
 //import java.util.Scanner;
 
 public class CommandWords {
@@ -38,4 +40,9 @@ public class CommandWords {
     }
     System.out.println();
   }
+  
+  public String[] getValidCommands(){
+    return validCommands;
+  }
+
 }
