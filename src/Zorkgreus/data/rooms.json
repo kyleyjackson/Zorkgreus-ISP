@@ -193,9 +193,9 @@
       "id": "F1 Shop Room",
       "name": "F1 Shop Room",
       "descriptions": [
-      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
-      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
-      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west."
+      "You are in a room with a big tall who looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "You are in a room with a big tall who looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "You are in a room with a big tall who looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west."
       ],
       "exits": [
         {
@@ -276,9 +276,9 @@
       "id": "F2R3",
       "name": "F2 3rd Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room has some spider parts around the room with some coins the room is dimly lit with lanterns",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room has a few spider parts around the room with coins the room is being lit up by soul torches glowing green.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room has a couple of spider parts scattered around and coins the room is being lit up by soul lanterns glowing blue."
       ],
       "exits": [
         {
@@ -295,9 +295,9 @@
       "id": "F2R4",
       "name": "F2 4th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "You enter a room filled with some spiders with exits heading East and North. The room has some spider parts around the room with some coins the room is dimly lit with lanterns.",
+      "You enter a room with a few monsters with exits heading East and North. The room has a few spider parts around the room with coins the room is being lit up by soul torches glowing red.",
+      "You enter a room with a couple spiders with exits heading East and North. The room has a couple of spider parts scattered around and coins the room is being lit up by soul lanterns glowing green."
       ],
       "exits": [
         {
@@ -314,9 +314,9 @@
       "id": "F2R5",
       "name": "F2 5th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room has some spider parts around the room with some coins the room is dimly lit with torches",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room has a few spider parts around the room with coins the room is being lit up by soul lanterns glowing blue.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room has a couple of spider parts scattered around and coins the room is being lit up by soul torches glowing green."
       ],
       "exits": [
         {
