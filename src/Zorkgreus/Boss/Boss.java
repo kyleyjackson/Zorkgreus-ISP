@@ -1,5 +1,7 @@
 package Zorkgreus.Boss;
 
+import java.util.ArrayList;
+
 import Zorkgreus.Player;
 
 public class Boss {
@@ -7,20 +9,27 @@ public class Boss {
      * Boss Superclass
      * Boss has overall increased stats
      */
+    
+    //attributes for the boss
     private int atk;
     private int priority;
     private int def;
     private int hp;
     private int dodge;
     private int maxHP;
+    private String bossName;
+    //attributes for the special attack methods
+    private boolean makeArray = true;
+    private ArrayList<Integer> decrements = new ArrayList<>();
 
-    public Boss(int atk, int priority, int def, int hp, int maxHP, int dodge) {
+    public Boss(int atk, int priority, int def, int hp, int maxHP, int dodge, String bossName) {
         this.atk = atk;
         this.priority = priority;
         this.def = def;
         this.hp = hp;
         this.dodge = dodge;
         this.maxHP = maxHP;
+        this.bossName = bossName;
     }
 
     /**
@@ -44,19 +53,18 @@ public class Boss {
     }
 
     /**
-     * compares the maxHP, to the new HP
+     * Checks to see if the hp is smaller than the last index of decrements, if so, removes it
      * 
-     * @param percentage percentage to compare the old and new hp
-     * @param dmgDone    damage dealt
-     * @return if newHP is smaller than the percentage of maxHP
+     * @param decrements arraylist of integers based of the percentage of decrements
+     * @param dmgDone the damage dealt
+     * @return decrements
      */
-    public boolean compareHP(double percentage, int dmgDone) {
-        int decrement = (int) (getMaxHP() * percentage);
-        int temp = hp;
-        if (getMaxHP() == hp)
-            temp -= 0.1;
-        hp -= dmgDone;
-        return (hp / decrement != temp / decrement);
+    public ArrayList<Integer> compareHP(ArrayList<Integer> decrements, int dmgDone) {
+        int last = decrements.get(decrements.size()-1);
+        if((hp-=dmgDone)<=last){
+            decrements.remove(decrements.size()-1);
+        }
+        return decrements;
     }
 
     /**
@@ -66,6 +74,20 @@ public class Boss {
      */
     public boolean activateRage() {
         return hp <= (maxHP / 3);
+    }
+
+    /**
+     * displays info about the boss
+     */
+    public void bossInfo(){
+        System.out.println(bossName);
+        System.out.println("-----------------------");
+        System.out.println("Attack: " + getAtk());
+        System.out.println("Priority: " + getPrio());
+        System.out.println("Defence: " + getDef());
+        System.out.println("HP: " + getHP());
+        System.out.println("Max HP: " + getMaxHP());
+        System.out.println("Dodge Chance: " + getDodge());
     }
 
     public boolean isAlive() {
@@ -133,8 +155,33 @@ public class Boss {
         hp += addHP;
     }
 
+    //accessor and mutator methods for makeArray
+    public boolean getMakeArray(){
+        return makeArray;
+    }
+
+    public void setMakeArray(boolean setArray){
+        makeArray = setArray;
+    }
+
+    //accessor and mutator methods for decrements
+    public ArrayList<Integer> getDecrements(){
+        return decrements;
+    }
+    
+    public void addToDecrements(int index, int num){
+        decrements.add(index, num);
+    }
+
+    public int decrementsSize(){
+        return decrements.size();
+    }
+
     // all methods below exist just for polymorphism - allowing subclasses to override
     public void bossRage() {
+    }
+
+    public void bossRage(Player player){
     }
 
     public void specialBossAttack(int dmg) {

@@ -1,11 +1,12 @@
 package Zorkgreus.Boss;
 
+import java.util.ArrayList;
+
 public class QueenSpider extends Boss {
     // subclass for the Queen Spider, found in the 7th room of floor 2 (Mini Boss)
 
     public QueenSpider() {
-        super(20, 7, 15, 40, 40, 5);
-        displayBossMessage();
+        super(20, 7, 15, 40, 40, 5, "Queen Spider");
     }
 
     public void displayBossMessage() {
@@ -19,11 +20,21 @@ public class QueenSpider extends Boss {
      * @param dmgDone damage done for compareHP method
      */
     public void specialBossAttack(int dmgDone) {
-        if (super.compareHP(0.1, dmgDone)) {
+    int decrement = (int) (getMaxHP() * 0.1);
+        if(getMakeArray()){
+            for(int i = 1; i<=getMaxHP()/decrement; i++){
+                super.addToDecrements(0, getMaxHP()-decrement*i);
+            }
+    }
+    super.setMakeArray(false);
+    ArrayList<Integer> decrements = super.getDecrements();
+    int temp = decrements.size();
+    decrements = super.compareHP(decrements, dmgDone);
+        if (temp!=super.decrementsSize()) {
             super.addBossDodge(4);
             displayBossSpecialAttack();
-        }
     }
+}
 
     public void displayBossSpecialAttack() {
         System.out.println("The spider queen grows more evasive...");
