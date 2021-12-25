@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class Room {
 
     private String roomName;
+    private String id;
     private ArrayList<Exit> exits;
     private ArrayList<String> descriptions;
     private Inventory inventory;
@@ -34,6 +35,7 @@ public class Room {
 
     public Room() {
         roomName = "DEFAULT ROOM";
+        id = "F6R9";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
         //inventory = ;
@@ -103,6 +105,14 @@ public class Room {
 
     public void setRoomName(String roomName) {
         this.roomName = roomName;
+    }
+
+    public String getRoomId() {
+        return id;
+    }
+
+    public void setRoomId(String id) {
+        this.id = id;
     }
 
     public void setDescription(String description) {

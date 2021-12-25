@@ -46,7 +46,7 @@
       ]
     },
     {
-      "id": "F1 1st Attack Room",
+      "id": "F1R1",
       "name": "F1 1st Attack Room",
       "descriptions": [
       "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "id": "F1 2nd Attack Room",
+      "id": "F1R2",
       "name": "F1 2nd Attack Room",
       "descriptions": [
         "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
@@ -84,7 +84,7 @@
       ]
     },
     {
-      "id": "F1 3rd Attack Room",
+      "id": "F1R3",
       "name": "F1 3rd Attack Room",
       "descriptions": [
         "You enter a room with some monsters inside of it with a few gold coins scattered about the room. The room seems old and creepy very dimly lit with lanterns with what looks to be screaming souls inside of it and a stony and dusty floor with two exits heading West and South.",
@@ -133,7 +133,7 @@
       ]
     },
     {
-      "id": "F1 4th Attack Room",
+      "id": "F1R6",
       "name": "F1 4th Attack Room",
       "descriptions": [
         "You enter a room with a couple of skeletons looking at you with bones around the room and some gold coins with a few dimly lit torches. The only exits out of the room are heading West and South.",
@@ -152,7 +152,7 @@
       ]
     },
     {
-      "id": "F1 5th Attack Room",
+      "id": "F1R7",
       "name": "F1 5th Attack Room",
       "descriptions": [
         "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing green with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
@@ -171,7 +171,7 @@
       ]
     },
     {
-      "id": "F1 6th Attack Room",
+      "id": "F1R8",
       "name": "F1 6th Attack Room",
       "descriptions": [
       "You enter a room with some skeletons inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
@@ -193,9 +193,9 @@
       "id": "F1 Shop Room",
       "name": "F1 Shop Room",
       "descriptions": [
-      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
-      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
-      "You are in a room with a big tall what looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west."
+      "You are in a room with a big tall who looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "You are in a room with a big tall who looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west.",
+      "You are in a room with a big tall who looks to be a man in a cloak with bright purple eyes holding a staff. He gestures to you with his bony hand to come to him with a bunch of items beside him. The only exit out of the room is behind him heading west."
       ],
       "exits": [
         {
@@ -235,7 +235,7 @@
       ]
     },
     {
-      "id": "F2 1st Attack Room",
+      "id": "F2R1",
       "name": "F2 1st Attack Room",
       "descriptions": [
       "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East and South. The room is dimly lit with soul lanterns lighting up the room in a green glow and a few coins scattered around the room.",
@@ -254,7 +254,7 @@
       ]
     },
     {
-      "id": "F2 2nd Attack Room",
+      "id": "F2R2",
       "name": "F2 2nd Attack Room",
       "descriptions": [
       "You enter a room filled with some spiders with exits heading East and North. The room has some spider parts around the room with some coins the room is dimly lit with torches.",
@@ -273,12 +273,12 @@
       ]
     },
     {
-      "id": "F2 3rd Attack Room",
+      "id": "F2R3",
       "name": "F2 3rd Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room has some spider parts around the room with some coins the room is dimly lit with lanterns",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room has a few spider parts around the room with coins the room is being lit up by soul torches glowing green.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room has a couple of spider parts scattered around and coins the room is being lit up by soul lanterns glowing blue."
       ],
       "exits": [
         {
@@ -292,12 +292,12 @@
       ]
     },
     {
-      "id": "F2 4th Attack Room",
+      "id": "F2R4",
       "name": "F2 4th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "You enter a room filled with some spiders with exits heading East and North. The room has some spider parts around the room with some coins the room is dimly lit with lanterns.",
+      "You enter a room with a few monsters with exits heading East and North. The room has a few spider parts around the room with coins the room is being lit up by soul torches glowing red.",
+      "You enter a room with a couple spiders with exits heading East and North. The room has a couple of spider parts scattered around and coins the room is being lit up by soul lanterns glowing green."
       ],
       "exits": [
         {
@@ -311,12 +311,12 @@
       ]
     },
     {
-      "id": "F2 5th Attack Room",
+      "id": "F2R5",
       "name": "F2 5th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room has some spider parts around the room with some coins the room is dimly lit with torches",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room has a few spider parts around the room with coins the room is being lit up by soul lanterns glowing blue.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room has a couple of spider parts scattered around and coins the room is being lit up by soul torches glowing green."
       ],
       "exits": [
         {
@@ -360,7 +360,7 @@
       ]
     },
     {
-      "id": "F2 6th Attack Room",
+      "id": "F2R8",
       "name": "F2 6th Attack Room",
       "descriptions": [
       "",
@@ -379,7 +379,7 @@
       ]
     },
     {
-      "id": "F2 7th Attack Room",
+      "id": "F2R9",
       "name": "F2 7th Attack Room",
       "descriptions": [
       "",
@@ -398,7 +398,7 @@
       ]
     },
     {
-      "id": "F2 8th Attack Room",
+      "id": "F2R10",
       "name": "F2 8th Attack Room",
       "descriptions": [
       "",
@@ -417,7 +417,7 @@
       ]
     },
     {
-      "id": "F2 9th Attack Room",
+      "id": "F2R11",
       "name": "F2 9th Attack Room",
       "descriptions": [
       "",
@@ -436,7 +436,7 @@
       ]
     },
     {
-      "id": "F2 10th Attack Room",
+      "id": "F2R12",
       "name": "F2 10th Attack Room",
       "descriptions": [
       "",
@@ -500,7 +500,7 @@
       ]
     },
     {
-      "id": "F3 1st Attack Room",
+      "id": "F3R1",
       "name": "F3 1st Attack Room",
       "descriptions": [
       "",
@@ -519,7 +519,7 @@
       ]
     },
     {
-      "id": "F3 2nd Attack Room",
+      "id": "F3R2",
       "name": "F3 2nd Attack Room",
       "descriptions": [
       "",
@@ -538,7 +538,7 @@
       ]
     },
     {
-      "id": "F3 3rd Attack Room",
+      "id": "F3R3",
       "name": "F3 3rd Attack Room",
       "descriptions": [
       "",
@@ -557,7 +557,7 @@
       ]
     },
     {
-      "id": "F3 4th Attack Room",
+      "id": "F3R4",
       "name": "F3 4th Attack Room",
       "descriptions": [
       "",
@@ -576,7 +576,7 @@
       ]
     },
     {
-      "id": "F3 5th Attack Room",
+      "id": "F3R5",
       "name": "F3 5th Attack Room",
       "descriptions": [
       "",
@@ -595,7 +595,7 @@
       ]
     },
     {
-      "id": "F3 6th Attack Room",
+      "id": "F3R6",
       "name": "F3 6th Attack Room",
       "descriptions": [
       "",
@@ -614,7 +614,7 @@
       ]
     },
     {
-      "id": "F3 7th Attack Room",
+      "id": "F3R7",
       "name": "F3 7th Attack Room",
       "descriptions": [
       "",
@@ -663,7 +663,7 @@
       ]
     },
     {
-      "id": "F3 8th Attack Room",
+      "id": "F3R10",
       "name": "F3 8th Attack Room",
       "descriptions": [
       "",
@@ -682,7 +682,7 @@
       ]
     },
     {
-      "id": "F3 9th Attack Room",
+      "id": "F3R11",
       "name": "F3 9th Attack Room",
       "descriptions": [
       "",
@@ -701,7 +701,7 @@
       ]
     },
     {
-      "id": "F3 10th Attack Room",
+      "id": "F3R12",
       "name": "F3 10th Attack Room",
       "descriptions": [
       "",
@@ -720,7 +720,7 @@
       ]
     },
     {
-      "id": "F3 11th Attack Room",
+      "id": "F3R13",
       "name": "F3 11th Attack Room",
       "descriptions": [
       "",
@@ -739,7 +739,7 @@
       ]
     },
     {
-      "id": "F3 12th Attack Room",
+      "id": "F3R14",
       "name": "F3 12th Attack Room",
       "descriptions": [
       "",
@@ -758,7 +758,7 @@
       ]
     },
     {
-      "id": "F3 13th Attack Room",
+      "id": "F3R15",
       "name": "F3 13th Attack Room",
       "descriptions": [
       "",
@@ -777,7 +777,7 @@
       ]
     },
     {
-      "id": "F3 14th Attack Room",
+      "id": "F3R16",
       "name": "F3 14th Attack Room",
       "descriptions": [
       "",

@@ -82,6 +82,7 @@ public class Game {
       String roomName = (String) ((JSONObject) roomObj).get("name");
       String roomId = (String) ((JSONObject) roomObj).get("id");
       room.setRoomName(roomName);
+      room.setRoomId(roomId);
 
       JSONArray jsonDescriptions = (JSONArray) ((JSONObject) roomObj).get("descriptions");
       ArrayList<String> descriptions = new ArrayList<String>();
@@ -154,14 +155,16 @@ public class Game {
     JSONArray jsonMonsters = (JSONArray) json.get("monsters");
 
     for (Object monsterObj : jsonMonsters) {
+      String name = (String) ((JSONObject) monsterObj).get("Monster");
       int atk = Math.toIntExact((Long) ((JSONObject) monsterObj).get("attack"));
       int prio = Math.toIntExact((Long) ((JSONObject) monsterObj).get("priority"));
       int def = Math.toIntExact((Long) ((JSONObject) monsterObj).get("defense"));
       int hp = Math.toIntExact((Long) ((JSONObject) monsterObj).get("health"));
       int dodge = Math.toIntExact((Long) ((JSONObject) monsterObj).get("dodge"));
       String desc = (String) ((JSONObject) monsterObj).get("description");
+      String location = (String) ((JSONObject) monsterObj).get("location"); //the room this monster is located in, matched with room id
 
-      Monsters monster = new Monsters(atk, prio, def, hp, hp, dodge, desc);
+      Monsters monster = new Monsters(name, atk, prio, def, hp, hp, dodge, desc, location);
       monsters.add(monster);
     }
   }
@@ -200,6 +203,12 @@ public class Game {
     while (!finished) {
       Command command;
       try {
+        for(int i = 0; i < monsters.size(); i++){
+          if(monsters.get(i).getLocation().equals(currentRoom.getRoomId())){
+            currentMonster = monsters.get(i);
+            break;
+          }
+        }
         if (!generatedBoons && onBoonScreen()) {
           temp = generateBoons();
           generatedBoons = true;
@@ -964,7 +973,7 @@ public class Game {
    */
   public void fortify() {
     int level = myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel();
-    if(currentWeapon.getName().equals("shield")){
+    if(currentWeapon.getName().equals("Shield")){
       if(level == 1){
         fred.setPlayerDef(fred.getPlayerDef() + 40);
       } else if(level == 2){
