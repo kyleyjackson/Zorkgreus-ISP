@@ -31,6 +31,7 @@ public class Game {
   private ArrayList<Boon> myBoons = new ArrayList<>(); // active boons obtained by the player.
   private ArrayList<Monsters> monsters = new ArrayList<>(); // where initialized monsters are stored.
   private ArrayList<Weapons> weapons = new ArrayList<>(); // where initialized weapons are stored.
+  private ArrayList<Item> items = new ArrayList<>(); //where initialized items are stored.
 
   /*------------------------------------global ints------------------------------------*/
   private int bossCounter; // tracks # of bosses/minibosses beaten.
@@ -57,6 +58,7 @@ public class Game {
       initBoons("src\\Zorkgreus\\data\\boons.json");
       initMonsters("src\\Zorkgreus\\data\\monsters.json");
       initWeapons("src\\Zorkgreus\\data\\weapons.json");
+      initItems("src\\Zorkgreus\\data\\items.json");
       currentRoom = roomMap.get("Spawn Room");
       currentBoss = new DemolisionistSkeleton();
     } catch (Exception e) {
@@ -66,6 +68,7 @@ public class Game {
   }
 
   /**
+   * Initializes the rooms.
    * 
    * @param fileName rooms.json file
    */
@@ -106,7 +109,7 @@ public class Game {
   }
 
   /**
-   * Initiates the boons.
+   * Initalizes the boons.
    * 
    * @param file boons.json file
    */
@@ -142,7 +145,7 @@ public class Game {
   }
 
   /**
-   * Initiates the monsters.
+   * Initalizes the monsters.
    * 
    * @param file monsters.json file
    */
@@ -169,6 +172,11 @@ public class Game {
     }
   }
 
+  /**
+   * Initializes the weapons.
+   * 
+   * @param file weapons.json file
+   */
   private void initWeapons(String file) throws Exception {
     Path path = Path.of(file);
     String jsonString = Files.readString(path);
@@ -191,6 +199,30 @@ public class Game {
     }
   }
 
+  /**
+   * Intializes the items.
+   * 
+   * @param file items.json file
+   */
+  private void initItems(String file) throws Exception {
+    Path path = Path.of(file);
+    String jsonString = Files.readString(path);
+    JSONParser parser = new JSONParser();
+    JSONObject json = (JSONObject) parser.parse(jsonString);
+
+    JSONArray jsonItems = (JSONArray) json.get("items");
+
+    for(Object itemObj : jsonItems){
+      String id = (String) ((JSONObject) itemObj).get("id");
+      String name = (String) ((JSONObject) itemObj).get("name");
+      String desc = (String) ((JSONObject) itemObj).get("description");
+      int weight = Math.toIntExact((Long) ((JSONObject) itemObj).get("weight"));
+      String startRoom = (String) ((JSONObject) itemObj).get("startingRoom");
+
+      Item item = new Item(id, name, desc, weight, startRoom);
+      items.add(item);
+    } 
+  }
   /**
    * Main play routine. Loops until end of play.
    */
