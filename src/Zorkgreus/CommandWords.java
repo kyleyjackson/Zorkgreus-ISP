@@ -45,4 +45,8 @@ public class CommandWords {
     return validCommands;
   }
 
+  public int getCommandsLength(){
+    return validCommands.length;
+  }
+
 }
