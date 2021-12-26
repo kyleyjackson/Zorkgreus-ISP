@@ -213,13 +213,12 @@ public class Game {
     JSONArray jsonItems = (JSONArray) json.get("items");
 
     for(Object itemObj : jsonItems){
-      String id = (String) ((JSONObject) itemObj).get("id");
       String name = (String) ((JSONObject) itemObj).get("name");
       String desc = (String) ((JSONObject) itemObj).get("description");
       int weight = Math.toIntExact((Long) ((JSONObject) itemObj).get("weight"));
       String startRoom = (String) ((JSONObject) itemObj).get("startingRoom");
 
-      Item item = new Item(id, name, desc, weight, startRoom);
+      Item item = new Item(name, desc, weight, startRoom);
       items.add(item);
     } 
   }

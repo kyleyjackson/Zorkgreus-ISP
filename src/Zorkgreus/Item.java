@@ -9,8 +9,7 @@ public class Item extends OpenableObject {
 
   private boolean isOpenable; //debating usage
 
-  public Item(String id, String name, String desc, int weight, String startRoom) {
-    this.id = id;
+  public Item(String name, String desc, int weight, String startRoom) {
     this.name = name;
     this.desc = desc;
     this.weight = weight;
@@ -22,14 +21,6 @@ public class Item extends OpenableObject {
       System.out.println("The " + name + " cannot be opened.");
   }
 
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
   public String getName() {
     return name;
   }
@@ -37,7 +28,6 @@ public class Item extends OpenableObject {
   public void setName(String name) {
     this.name = name;
   }
-
 
   public String getDescription() {
     return desc;
