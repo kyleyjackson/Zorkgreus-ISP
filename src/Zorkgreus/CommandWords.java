@@ -1,15 +1,13 @@
 package Zorkgreus;
 
-import java.util.ArrayList;
-
 //import java.util.Scanner;
 
 public class CommandWords {
   // a constant array that holds all valid command words (the numbers "1 2 3")
   // represent the boons that they can select)
   private static final String validCommands[] = { "go", "quit", "help", "eat", "east", "west", "north", "south",
-      "attack", "normal", "special", "look", "take", "takeall", "jump", "run", "slap", "cry", "boon", "boonlist",
-      "myboons", "APCSP!", "APSCP", "fight", "bow", "spear", "sword", "shield" };
+      "attack", "normal", "special", "look", "take", "takeall", "drop", "jump", "run", "slap", "cry", "boon", "boonlist",
+      "myboons", "APCSP!", "APSCP", "fight", "bow", "spear", "sword", "shield", "select", "one", "two", "three", "1", "2", "3" };
 
   /**
    * Constructor - initialise the command words.

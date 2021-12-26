@@ -13,11 +13,6 @@ public class Weapons {
     private String speAtkName;
     private String desc;
 
-    private int basePrio; //priority at the start of the game
-    private int baseAtk; //attack at the start of the game
-    private int baseDef; //defense at the start of the game
-    
-
     public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, String speAtkName, String desc) {
         this.weaponName = weaponName;
         this.prio = prio;
@@ -26,10 +21,6 @@ public class Weapons {
         this.speAtkDmg = speAtkDmg;
         this.speAtkName = speAtkName;
         this.desc = desc;
-
-        basePrio = prio;
-        baseAtk = atk;
-        baseDef = def;
     }
 
     public String getName() {

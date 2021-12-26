@@ -5,7 +5,7 @@
             "name": "Brutal Strength",
             "colour": "A crimson glow shadows the boons. ",
             "flavour": "Bloodshed is one avenue to victory.",
-            "stats": ["Gain +5 attack.", "Gain +10 attack.", "Gain +15 attack."],
+            "stats": ["Gain +5 attack.", "Gain an additional +5 attack.", "Gain an additional +5 attack."],
             "level": 1
         },
         {
@@ -33,8 +33,8 @@
             "colour": "A green light glimmers at the appearance of the boons. ",
             "flavour": "You understand what to look for when searching for prey.",
             "stats": ["Gain +5 attack priority on all weapons. If your weapon is a bow, gain +5 attack.",
-                "Gain +6 attack priority on all weapons. If your weapon is a bow, gain +7 attack.",
-                "Gain +7 attack priority on all weapons. If your weapon is a bow, gain +9 attack."],
+                "Gain an additional +1 attack. If your weapon is a bow, gain an additional +2 attack.",
+                "Gain an additional +2 attacck. If your weapon is a bow, gain +4 attack."],
             "level": 1
         },
         {
@@ -95,9 +95,9 @@
             "name": "Thundering Fury",
             "colour": "A golden glow fills the room. ",
             "flavour": "You're gonna make them remember your name.",
-            "stats": ["Once you lose attack priority, remove 30% current defence of the target you just attacked.",
-                "Once you lose attack priority, remove 40% current defence of the target you just attacked.",
-                "Once you lose attack priority, remove 50% current defence of the target you just attacked."],
+            "stats": ["Once you lose attack priority, remove 30% of the enemy's current defence.",
+                "Once you lose attack priority, remove 40% of the enemy's current defence.",
+                "Once you lose attack priority, remove 50% of the enemy's current defence."],
             "level": 1
         },
         {
@@ -140,8 +140,8 @@
             "colour": "A lustrous yellow clashes with the darkened shadow of a navy blue. ",
             "flavour": "Your resolve is strengthened greatly.",
             "stats": ["Gain +20 defence. If your weapon is a shield, this effect is doubled.",
-                "Gain +25 defence. If your weapon is a shield, this effect is doubled.",
-                "Gain +30 defence. If your weapon is a shield, this effect is doubled."],
+                "Gain an additional +5 defence. If your weapon is a shield, this effect is doubled.",
+                "Gain an additional +5 defence. If your weapon is a shield, this effect is doubled."],
             "level": 1
         },
         {
