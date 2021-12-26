@@ -3,6 +3,7 @@ package Zorkgreus.Boss;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Zorkgreus.CommandWords;
 import Zorkgreus.Player;
 
 public class Thanatos extends Boss {
@@ -29,6 +30,7 @@ public class Thanatos extends Boss {
         Scanner in = new Scanner(System.in);
         boolean validInput = false;
         boolean displayFirstMessage = true;
+        boolean displayCommandMessage = false;
         int decrement = (int) (getMaxHP() * 0.25);
         if (getMakeArray()) {
             getDecrements().clear();
@@ -42,7 +44,11 @@ public class Thanatos extends Boss {
         decrements = super.compareHP(decrements, dmgDone);
         if (temp != decrements.size()) {
             while (!validInput) {
-                if (displayFirstMessage == true)
+                if(displayCommandMessage){
+                    System.out.print("Can't do that here. [R]ight, [L]eft, or [D]eflect: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
                     System.out.print("Thanatos hurls his scythe at you, your blood dripping of it as it pierces through the air, would you like to dodge [R]eft, [L]ight, or [D]eflect it: ");
                 else
                     System.out.print("Invalid Input - [R]ight, [L]eft, or [D]eflect: ");
@@ -111,6 +117,11 @@ public class Thanatos extends Boss {
                         }
 
                     } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(ans.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
                         displayFirstMessage = false;
                     }
                     displayFirstMessage = false;

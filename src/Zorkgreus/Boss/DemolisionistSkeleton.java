@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import Zorkgreus.Player;
 
+import Zorkgreus.CommandWords;
+
 public class DemolisionistSkeleton extends Boss {
     // subclass for the Demolisionist Skeletons, found in the 5th room of floor 1 (Mini Boss)
 
@@ -21,12 +23,12 @@ public class DemolisionistSkeleton extends Boss {
      * @param player player object to subtract HP if not dodged
      */
     public void finalBossAttack(Player player) {
-        int count = 0;
         boolean validInput = false;
+        boolean displayFirstMessage = true;
         Scanner in = new Scanner(System.in);
         if (!super.isAlive()) {
             while (!validInput) {
-                if (count == 0)
+                if (displayFirstMessage)
                     System.out.print("A skeleton demolisionist has died, its dropped a bomb, if you are fast enough you can dodge the bomb, please input a number to see [1-10]: ");
                 else
                     System.out.print("Invalid Input - Number Between [1-10]: ");
@@ -57,10 +59,10 @@ public class DemolisionistSkeleton extends Boss {
                         }
                         validInput = true;
                     } else {
-                        count++;
+                        displayFirstMessage = false;
                     }
                 } catch (Exception ex) {
-                    count++;
+                    displayFirstMessage = false;
                 }
             }
         }

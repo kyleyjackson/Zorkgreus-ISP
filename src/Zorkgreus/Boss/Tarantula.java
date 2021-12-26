@@ -2,6 +2,8 @@ package Zorkgreus.Boss;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import Zorkgreus.CommandWords;
 import Zorkgreus.Player;
 
 public class Tarantula extends Boss {
@@ -44,6 +46,7 @@ public class Tarantula extends Boss {
         Scanner in = new Scanner(System.in);
         boolean validInput = false;
         boolean displayFirstMessage = true;
+        boolean displayCommandMessage = false;
         int decrement = (int) (getMaxHP() * 0.25);
         if (getMakeArray()) {
             getDecrements().clear();
@@ -57,7 +60,11 @@ public class Tarantula extends Boss {
         decrements = super.compareHP(decrements, dmgDone);
         if (temp != super.decrementsSize()) {
             while (!validInput) {
-                if (displayFirstMessage == true)
+                if(displayCommandMessage){
+                    System.out.print("Can't do that here. [R]ight, [L]eft, [U]p, or [D]own: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
                     System.out.print("The tarantula fires a flurry of webs at you. Would you like to dodge [R]ight, [L]eft, [U]p, or [D]own: ");
                 else
                     System.out.print("Invalid Input - [R]ight, [L]eft, [U]p, or [D]own: ");
@@ -101,6 +108,11 @@ public class Tarantula extends Boss {
                         validInput = true;
                         displayFirstMessage = true;
                     } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(ans.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
                         displayFirstMessage = false;
                     }
                 } catch (Exception ex) {
@@ -122,10 +134,15 @@ public class Tarantula extends Boss {
             int poison = 0;
             boolean validInput = false;
             boolean displayFirstMessage = true;
+            boolean displayCommandMessage = false;
             System.out.println("Wtih its final breath, the tarantula lets out a screech as it plummets into the ground, causing the room to fall apart. ");
             System.out.println("Its poisonous and radioactive blood starts to leak out as you desperately look for somewhere to run to. ");
             while (!validInput) {
-                if (displayFirstMessage == true)
+                if(displayCommandMessage){
+                    System.out.print("Just a thought, but shouldn't you focus on the stones in front of you? [F]irst, [S]econd, or [T]hird: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
                     System.out.print("You spot three chunks of stone falling, which one would you like to jump to? [F]irst, [S]econd, or [T]hird: ");
                 else
                     System.out.print("Invalid Input - [F]irst, [S]econd, or [T]hird: ");
@@ -179,6 +196,11 @@ public class Tarantula extends Boss {
                             validInput = true;
                         // exit the room
                     } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(ans.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
                         displayFirstMessage = false;
                     }
                 } catch (Exception ex) {

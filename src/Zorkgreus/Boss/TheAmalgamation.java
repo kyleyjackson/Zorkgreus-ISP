@@ -3,6 +3,7 @@ package Zorkgreus.Boss;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Zorkgreus.CommandWords;
 import Zorkgreus.Player;
 
 public class TheAmalgamation extends Boss {
@@ -56,6 +57,7 @@ public class TheAmalgamation extends Boss {
         if (!super.isAlive()) {
             boolean validInput = false;
             boolean displayFirstMessage = true;
+            boolean displayCommandMessage = false;
             boolean msg = true;
             int count = 0;
             String bone;
@@ -82,7 +84,11 @@ public class TheAmalgamation extends Boss {
                     else
                         System.out.println("A bone comes " + bone + " you. ");
                 }
-                if (displayFirstMessage == true)
+                if(displayCommandMessage){
+                    System.out.print("There are bones breaking the sound barrier flying right at you. [R]ight, [L]eft, [U]p, or [D]own: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
                     System.out.print("Would you like to dodge [R]ight, [L]eft, [U]p, or [D]own: ");
                 else
                     System.out.print("Invalid Input - [R]ight, [L]eft, [U]p, or [D]own: ");
@@ -122,6 +128,11 @@ public class TheAmalgamation extends Boss {
                             // exit the room
                         }
                     } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(playerAns.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
                         displayFirstMessage = false;
                         msg = false;
                     }
