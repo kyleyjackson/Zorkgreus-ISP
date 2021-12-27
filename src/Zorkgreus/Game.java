@@ -1228,4 +1228,8 @@ public class Game {
     //call in chaos
   }
 
+  public boolean getExtraLife(){
+    return extraLife;
+  }
+
 }
