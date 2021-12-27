@@ -221,13 +221,13 @@
             "location": "F3R6"
         },
         {
-            "Monster": "Death Cheater",
-            "attack": 7,
-            "priority": 5,
+            "Monster": "The Greater One",
+            "attack": 15,
+            "priority": 3,
             "defense": 20,
             "health": 20,
-            "dodge": 30,
-            "description": "Rolling a massive boulder with him, the one who tried to cheat death looks exhausted.",
+            "dodge": 20,
+            "description": "A being of great stature and collosal frame, the Greek hero unsheathes the sword he killed himself with.",
             "location": "F3R7"
         },
         {
