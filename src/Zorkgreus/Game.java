@@ -369,11 +369,9 @@ public class Game {
     } 
     else if (commandWord.equals("attack")) {
       attackType(command);
-    } else if (commandWord.equals("normal")) {
-      attackType(command);
-    } else if (commandWord.equals("special")) {
-      attackType(command);
-    } else if (commandWord.equals("look")) {
+    } else if (commandWord.equals("special")) { 
+      attackType(command); */
+    } else if (commandWord.equals("look")) { 
       currentRoom.roomDescription();
     } else if (commandWord.equals("take")) {
       attemptToTake(command);
@@ -689,23 +687,7 @@ public class Game {
     parser.showCommands();
   }
 
-  /**
-   * Sees what kind of attack the player will perform.
-   * 
-   * @param command
-   */
-  public void attackType(Command command) {
-    if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
-      System.out.println("Are you doing a normal or special attack?");
-      return;
-    }
-
-    if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
-      // normalAttack();
-    } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
-      // specialAttack();
-    }
-  }
+  
 
   /**
    * Formats the myBoons ArrayList and displays them.
@@ -897,9 +879,33 @@ public class Game {
   }
 
   /* Making combat here */
-  public void combat(Player player, Monsters monster) {
+  //* Make 
+  public void fight(Player player, Weapons weapon, Monsters monster, Command command) {
+    while(player.getPlayerHP() > 0 || monster.getHp() > 0) {
+      if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
+        System.out.println("Are you doing a normal or special attack?");
+        return;
+      }
 
+      if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
+        weapon.normalAttack();
+      } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
+        weapon.specialAttack();
+      }
+    }
   }
+
+  /**
+   * Sees what kind of attack the player will perform.
+   * 
+   * @param command
+   */
+  /* public void attackType(Command command) {
+    
+
+    
+  }
+  */
 
   // boon functionality below -- add changes based on level NEEDED
 
