@@ -4,7 +4,7 @@ public class Key extends Item {
   private String keyId;
 
   public Key(String keyId, String keyName, int weight) {
-    super(weight, keyName, false);
+    super(keyName, keyName, weight, keyName);
     this.keyId = keyId;
   }
 

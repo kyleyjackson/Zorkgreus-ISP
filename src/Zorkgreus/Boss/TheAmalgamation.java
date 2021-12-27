@@ -1,14 +1,15 @@
 package Zorkgreus.Boss;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import Zorkgreus.CommandWords;
 import Zorkgreus.Player;
 
 public class TheAmalgamation extends Boss {
     // subclass for The Amalgamation, found in the 9th room of floor 3 (Mini Boss)
     public TheAmalgamation() {
-        super(15, 3, 15, 60, 60, 10);
-        displayBossMessage();
+        super(15, 3, 15, 60, 60, 10, "The Amalgamation");
     }
 
     public void displayBossMessage() {
@@ -17,27 +18,37 @@ public class TheAmalgamation extends Boss {
     }
 
     /**
-     * special attack for The Amalgamation, every 10% hp decrease: decrease attack,
-     * increase priority and dodge
+     * special attack for The Amalgamation, every 10% hp decrease: decrease attack, increase priority and dodge
      * 
      * @param dmgDone damage done for the compareHP method
      */
     public void specialBossAttack(int dmgDone) {
-        if (super.compareHP(0.1, dmgDone)) {
+        int decrement = (int) (getMaxHP() * 0.1);
+        if(getMakeArray()){
+            getDecrements().clear();
+            for(int i = 1; i<=getMaxHP()/decrement; i++){
+                super.addToDecrements(0, getMaxHP()-decrement*i);
+            }
+    }
+    super.setMakeArray(false);
+    ArrayList<Integer> decrements = super.getDecrements();
+    int temp = decrements.size();
+    decrements = super.compareHP(decrements, dmgDone);
+        if (temp!=super.decrementsSize()) {
             super.addBossAtk(-2);
             super.addBossPriority(2);
             super.addBossDodge(2);
             displayBossSpecialAttack();
-        }
     }
+    }
+
 
     public void displayBossSpecialAttack() {
         System.out.println("The Amalgamation feels lighter...");
     }
 
     /**
-     * final attack for the Tarantula, interactive dodging, if not dodged: subtract
-     * maxHP, if maxHP is smaller than HP, subract HP instead
+     * final attack for the Tarantula, interactive dodging, if not dodged: subtract maxHP, if maxHP is smaller than HP, subract HP instead
      * 
      * @param player player object to subtract maxHP or HP if not dodged
      */
@@ -46,6 +57,7 @@ public class TheAmalgamation extends Boss {
         if (!super.isAlive()) {
             boolean validInput = false;
             boolean displayFirstMessage = true;
+            boolean displayCommandMessage = false;
             boolean msg = true;
             int count = 0;
             String bone;
@@ -72,7 +84,11 @@ public class TheAmalgamation extends Boss {
                     else
                         System.out.println("A bone comes " + bone + " you. ");
                 }
-                if (displayFirstMessage == true)
+                if(displayCommandMessage){
+                    System.out.print("There are bones breaking the sound barrier flying right at you. [R]ight, [L]eft, [U]p, or [D]own: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
                     System.out.print("Would you like to dodge [R]ight, [L]eft, [U]p, or [D]own: ");
                 else
                     System.out.print("Invalid Input - [R]ight, [L]eft, [U]p, or [D]own: ");
@@ -82,7 +98,7 @@ public class TheAmalgamation extends Boss {
                         int dash = ans.indexOf("-");
                         String firstWord = ans.substring(0, dash);
                         String secondWord = ans.substring(dash + 1);
-                        int responseNum = (int) (Math.random() * 3) + 1;
+                        int responseNum = (int) (Math.random() * 3 + 1);
                         if (!(playerAns.equals(firstWord) || playerAns.equals(secondWord))) {
                             if (responseNum == 1)
                                 System.out.println("You're getting better. ");
@@ -101,8 +117,9 @@ public class TheAmalgamation extends Boss {
                             } else {
                                 System.out.println("Dodged right into it. ");
                             }
-                            System.out.println("You took " + super.attack(5) + " damage.");
-                            // subtract hp from the player
+                            int dmgDealt = super.attack(7);
+                            System.out.println("You took " + dmgDealt + " damage.");
+                            player.addPlayerHP(-dmgDealt);
                         }
                         msg = true;
                         displayFirstMessage = true;
@@ -111,6 +128,11 @@ public class TheAmalgamation extends Boss {
                             // exit the room
                         }
                     } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(playerAns.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
                         displayFirstMessage = false;
                         msg = false;
                     }

@@ -1,28 +1,24 @@
 package Zorkgreus;
 
 public class Item extends OpenableObject {
-  private int weight;
+  private String id;
   private String name;
-  private boolean isOpenable;
+  private String desc;
+  private int weight;
+  private String startRoom;
 
-  public Item(int weight, String name, boolean isOpenable) {
-    this.weight = weight;
+  private boolean isOpenable; //debating usage
+
+  public Item(String name, String desc, int weight, String startRoom) {
     this.name = name;
-    this.isOpenable = isOpenable;
+    this.desc = desc;
+    this.weight = weight;
+    this.startRoom = startRoom;
   }
 
   public void open() {
     if (!isOpenable)
       System.out.println("The " + name + " cannot be opened.");
-
-  }
-
-  public int getWeight() {
-    return weight;
-  }
-
-  public void setWeight(int weight) {
-    this.weight = weight;
   }
 
   public String getName() {
@@ -33,6 +29,31 @@ public class Item extends OpenableObject {
     this.name = name;
   }
 
+  public String getDescription() {
+    return desc;
+  }
+
+  public void setDescription(String desc) {
+    this.desc = desc;
+  }
+
+  public int getWeight() {
+    return weight;
+  }
+
+  public void setWeight(int weight) {
+    this.weight = weight;
+  }
+
+  public String getStartingRoom() {
+    return startRoom;
+  }
+
+  public void setStartingRoom(String startRoom) {
+    this.startRoom = startRoom;
+  }
+
+/*
   public boolean isOpenable() {
     return isOpenable;
   }
@@ -40,5 +61,5 @@ public class Item extends OpenableObject {
   public void setOpenable(boolean isOpenable) {
     this.isOpenable = isOpenable;
   }
-
+*/
 }

@@ -1,17 +1,39 @@
 {
     "items": [
         {
-            "id": "Spider",
             "name": "Spider's leg",
             "description": "A spider's leg, torn from a fully grown adult spider. Something about it still makes you feel uneasy...",
             "weight": 5,
             "startingRoom" : ""
         },
         {
-            "id": "Skeleton",
             "name": "Skeleton's bone",
             "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
-            "weight": 5,
+            "weight": 10,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Centaur Heart",
+            "description": "A Centaur Heart, Torn right out of a Centaur brimming with vitality.",
+            "weight": 0,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Pom Of Power",
+            "description": "A Pom Of Power, Picked off of the tree of life. Capable of strengthening the power of the gods.",
+            "weight": 0,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Charon's Obol's",
+            "description": "The currency of the underworld.",
+            "weight": 1,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Hero's Urn's",
+            "description": "A Hero's Urn, Earned as a reward for defeating them. Something about it still makes you feel uneasy...",
+            "weight": 10,
             "startingRoom" : ""
         }
     ]
