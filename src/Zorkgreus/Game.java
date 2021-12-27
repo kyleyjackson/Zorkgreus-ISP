@@ -41,7 +41,6 @@ public class Game {
   private boolean boonSelected; //checks if the player has selected a boon.
   private boolean weaponSelected; //checks if a weapon has been selected.
   private boolean canProceed; //determines if player can move on to the next room
-  private boolean extraLife = true; //enabling the extra life
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand; //stores the previous command inputted by player
@@ -1156,10 +1155,10 @@ public class Game {
    * Replenish the extra life.
    */
   public void highTide() {
-    if(extraLife)
+    if(fred.getExtraLife())
       System.out.println("You already had one. But here, I guess?");
-    if(!extraLife)
-      extraLife = true;
+    if(!fred.getExtraLife())
+      fred.setExtraLife(true);
       System.out.println("Your extra life has been replenished.");
   }
 
@@ -1232,14 +1231,6 @@ public class Game {
 
   public void thouKnowethNotWeakness() {
     //call in chaos
-  }
-
-  public boolean getExtraLife(){
-    return extraLife;
-  }
-
-  public void setExtraLife(boolean n){
-    extraLife = n;
   }
 
 }

@@ -53,7 +53,6 @@ public class Thanatos extends Boss {
                 else
                     System.out.print("Invalid Input - [R]ight, [L]eft, or [D]eflect: ");
                 try {
-                } catch (Exception ex) {
                     String ans = in.nextLine().toUpperCase();
                     int responseNum = (int) (Math.random() * 3 + 1);
                     if (ans.equals("DEFLECT") || ans.equals("D")) {
@@ -124,6 +123,7 @@ public class Thanatos extends Boss {
                         }
                         displayFirstMessage = false;
                     }
+                } catch (Exception ex) {
                     displayFirstMessage = false;
                 }
             }
@@ -140,9 +140,21 @@ public class Thanatos extends Boss {
             System.out.println("Thanatos slams his scythe into the ground, causing a tremor to ripple through the room. ");
             System.out.println("If I'm going to die, you're coming with me. ");
             System.out.println("A black mist trickles from his scythe and connects to your body as you feel your soul being ripped out. ");
-            //if you have a death defiane, survive - if not, you die
+            if(player.getExtraLife()){
+                System.out.println("You fall to your knees as you take unbearable damage, yet your soul returns to you. ");
+                System.out.println("Thanatos falls to the ground with a thump. ");
+                System.out.println("I will see you again... ");
+                player.setExtraLife(false);
+                player.setPlayerHP(player.getPlayerMaxHP()/2);
+            }else{
+                System.out.println("You writhe in pain as your soul is ripped out and crushed between Thanatos's bare hands, your energy and life force diminishing. ");
+                System.out.println("Thanatos takes a kneel on the ground. ");
+                System.out.println("I guess I got the last laugh... ");
+                player.setPlayerHP(0);
+            }
+            }
+            
         }
-    }
 
     /**
      * rage called when Thanatos falls below 33% hp: increased attack and decrease priority
