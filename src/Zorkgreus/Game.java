@@ -880,17 +880,22 @@ public class Game {
   /* Making combat here */
   //* Make 
   public void fight(Player player, Weapons weapon, Monsters monster, Command command) {
-    while(player.getPlayerHP() > 0 || monster.getHp() > 0) {
+    int monsterHP = monster.getHp();
+    int playerHP = player.getPlayerHP();
+
+    while(playerHP > 0 || monsterHP > 0) {
       if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
         System.out.println("Are you doing a normal or special attack?");
         return;
       }
 
       if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
-        weapon.normalAttack();
+        monsterHP -= weapon.normalAttack();
       } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
-        weapon.specialAttack();
+        monsterHP -= weapon.specialAttack();
       }
+
+      
     }
   }
 
