@@ -39,7 +39,7 @@ public class Boss {
      */
     public int attack(int dmgDealt) {
         int dmg = dmgDealt;
-        int rand = (int) (Math.random() * 3) + 1;
+        int rand = (int) (Math.random() * 3 + 1);
         int randDmg = (int) (Math.random() * (dmgDealt / 10)) + 1;
 
         if (rand == 1) {

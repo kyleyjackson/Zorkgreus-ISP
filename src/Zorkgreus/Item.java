@@ -15,11 +15,12 @@ public class Item extends OpenableObject {
     this.weight = weight;
     this.startRoom = startRoom;
   }
-
+  /**
   public void open() {
     if (!isOpenable)
       System.out.println("The " + name + " cannot be opened.");
   }
+  */
 
   public String getName() {
     return name;

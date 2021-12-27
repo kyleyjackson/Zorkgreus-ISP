@@ -30,4 +30,31 @@ public class Inventory {
     }
   }
 
+  /**
+   * Checks to see if the parameter matches any of the item names
+   * @param item name of the item
+   * @return true if matches
+   */
+  public boolean inInvetory(String item) {
+    for (Item c : items) {
+      if (c.getName().equals(item))
+        return true;
+    }
+    return false;
+  }
+
+  public boolean dropItem(String item) {
+    if (inInvetory(item)) {
+      for (int i = 0; i < items.size(); i++) {
+        Item toRemove = items.get(i);
+        if (toRemove.getName().equals(item)) {
+          items.remove(i);
+          System.out.println(item + " has been removed from your inventory. ");
+          return true;
+        }
+      }
+    }
+    System.out.println("Can't drop something you dont have. ");
+    return false;
+  }
 }
