@@ -1238,4 +1238,8 @@ public class Game {
     return extraLife;
   }
 
+  public void setExtraLife(boolean n){
+    extraLife = n;
+  }
+
 }
