@@ -10,7 +10,6 @@ public class Room {
     private ArrayList<String> descriptions;
     private Inventory inventory;
 
-    
     public ArrayList<Exit> getExits() {
         return exits;
     }
@@ -19,7 +18,7 @@ public class Room {
         this.exits = exits;
     }
 
-     public void setDescriptions(ArrayList<String> descriptions) {
+    public void setDescriptions(ArrayList<String> descriptions) {
         this.descriptions = descriptions;
     }
 
@@ -38,7 +37,7 @@ public class Room {
         id = "F6R9";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
-        //inventory = ;
+        // inventory = ;
     }
 
     public void addExit(Exit exit) throws Exception {
@@ -50,11 +49,11 @@ public class Room {
      * constructor).
      */
     public String roomDescription() {
-        int i = (int)(Math.random() * descriptions.size());
+        int i = (int) (Math.random() * descriptions.size());
         String description = descriptions.get(i);
         return "Room: " + roomName + "\n\n" + description;
     }
-    
+
     /**
      * Return a string describing the room's exits, for example "Exits: north west
      * ".
@@ -96,7 +95,7 @@ public class Room {
      * private int getDirectionIndex(String direction) { int dirIndex = 0; for
      * (String dir : directions) { if (dir.equals(direction)) return dirIndex; else
      * dirIndex++; }
-     * 
+     *
      * throw new IllegalArgumentException("Invalid Direction"); }
      */
     public String getRoomName() {
@@ -118,6 +117,14 @@ public class Room {
     public void setDescription(String description) {
         descriptions = new ArrayList<String>();
     }
-// methods for items/inventory so it works for room 
 
+    // creates the rooms max weight and makes a inventory for the items to be put
+    // inside the specific room
+    public void setRoomWeight() {
+
+    }
+
+    public void setInventory() {
+
+    }
 }

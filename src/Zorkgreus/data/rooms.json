@@ -41,7 +41,7 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 1st Attack Room"
+          "adjacentRoom": "F1R1"
         }
       ]
     },
@@ -49,18 +49,37 @@
       "id": "F1R1",
       "name": "F1 1st Attack Room",
       "descriptions": [
-      "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
-      "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
-      "You enter a room with a couple monsters inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
+      "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West, South and Down.",
+      "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits West, South and Down.",
+      "You enter a room with a couple monsters inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West, South and Down."
       ],
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 2nd Attack Room"
+          "adjacentRoom": "F1R2"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F1 2nd Attack Room"
+          "adjacentRoom": "F1R2"
+        },
+        {
+          "direction": "Down",
+          "adjacentRoom": "F1C1"
+        }
+      ]
+    },
+    {
+      "id": "F1C1",
+      "name": "F1 Chaos Room",
+      "descriptions": [
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up."
+        ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "F1R3"
         }
       ]
     },
@@ -75,11 +94,11 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 3rd Attack Room"
+          "adjacentRoom": "F1R3"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F1 3rd Attack Room"
+          "adjacentRoom": "F1R3"
         }
       ]
     },
@@ -128,12 +147,12 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 4th Attack Room"
+          "adjacentRoom": "F1R4"
         }
       ]
     },
     {
-      "id": "F1R6",
+      "id": "F1R4",
       "name": "F1 4th Attack Room",
       "descriptions": [
         "You enter a room with a couple of skeletons looking at you with bones around the room and some gold coins with a few dimly lit torches. The only exits out of the room are heading West and South.",
@@ -143,16 +162,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 5th Attack Room"
+          "adjacentRoom": "F1R5"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F1 5th Attack Room"
+          "adjacentRoom": "F1R5"
         }
       ]
     },
     {
-      "id": "F1R7",
+      "id": "F1R5",
       "name": "F1 5th Attack Room",
       "descriptions": [
         "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing green with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
@@ -162,16 +181,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 6th Attack Room"
+          "adjacentRoom": "F1R6"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F1 6th Attack Room"
+          "adjacentRoom": "F1R6"
         }
       ]
     },
     {
-      "id": "F1R8",
+      "id": "F1R6",
       "name": "F1 6th Attack Room",
       "descriptions": [
       "You enter a room with some skeletons inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
@@ -230,7 +249,7 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 1st Attack Room"
+          "adjacentRoom": "F2R1"
         }
       ]
     },
@@ -238,18 +257,37 @@
       "id": "F2R1",
       "name": "F2 1st Attack Room",
       "descriptions": [
-      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East and South. The room is dimly lit with soul lanterns lighting up the room in a green glow and a few coins scattered around the room.",
-      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East and South. The room is dimly with torches lighting up the room with a bunch of coins around the room.",
-      "As you enter the old room you see some cobwebs around the room with exits heading East and South. The rom is dimly lit with soul lanterns lighting up the room in a green glow and a bunch of coins scattered around the room."
+      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow and a few coins scattered around the room.",
+      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East, South and Down. The room is dimly with torches lighting up the room with a bunch of coins around the room.",
+      "As you enter the old room you see some cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow and a bunch of coins scattered around the room."
       ],
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 2nd Attack Room"
+          "adjacentRoom": "F2R2"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F2 2nd Attack Room"
+          "adjacentRoom": "F2R2"
+        },
+        {
+          "direction": "Down",
+          "adjacentRoom": "F2C2"
+        }
+      ]
+    },
+    {
+      "id": "F2C2",
+      "name": "F2 Chaos Room",
+      "descriptions": [
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up."
+        ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "F2R3"
         }
       ]
     },
@@ -264,11 +302,11 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 3rd Attack Room"
+          "adjacentRoom": "F2R3"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F2 3rd Attack Room"
+          "adjacentRoom": "F2R3"
         }
       ]
     },
@@ -283,11 +321,11 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 4th Attack Room"
+          "adjacentRoom": "F2R4"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F2 4th Attack Room"
+          "adjacentRoom": "F2R4"
         }
       ]
     },
@@ -302,11 +340,11 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 5th Attack Room"
+          "adjacentRoom": "F2R5"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F2 5th Attack Room"
+          "adjacentRoom": "F2R5"
         }
       ]
     },
@@ -355,12 +393,12 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 6th Attack Room"
+          "adjacentRoom": "F2R6"
         }
       ]
     },
     {
-      "id": "F2R8",
+      "id": "F2R6",
       "name": "F2 6th Attack Room",
       "descriptions": [
       "",
@@ -370,16 +408,16 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 7th Attack Room"
+          "adjacentRoom": "F2R7"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F2 7th Attack Room"
+          "adjacentRoom": "F2R7"
         }
       ]
     },
     {
-      "id": "F2R9",
+      "id": "F2R7",
       "name": "F2 7th Attack Room",
       "descriptions": [
       "",
@@ -389,16 +427,16 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 8th Attack Room"
+          "adjacentRoom": "F2R8"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F2 8th Attack Room"
+          "adjacentRoom": "F2R8"
         }
       ]
     },
     {
-      "id": "F2R10",
+      "id": "F2R8",
       "name": "F2 8th Attack Room",
       "descriptions": [
       "",
@@ -408,16 +446,16 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 9th Attack Room"
+          "adjacentRoom": "F2R9"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F2 9th Attack Room"
+          "adjacentRoom": "F2R9"
         }
       ]
     },
     {
-      "id": "F2R11",
+      "id": "F2R9",
       "name": "F2 9th Attack Room",
       "descriptions": [
       "",
@@ -427,16 +465,16 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 10th Attack Room"
+          "adjacentRoom": "F2R10"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F2 10th Attack Room"
+          "adjacentRoom": "F2R10"
         }
       ]
     },
     {
-      "id": "F2R12",
+      "id": "F2R10",
       "name": "F2 10th Attack Room",
       "descriptions": [
       "",
@@ -495,7 +533,7 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 1st Attack Room"
+          "adjacentRoom": "F3R1"
         }
       ]
     },
@@ -510,11 +548,30 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 2nd Attack Room"
+          "adjacentRoom": "F3R2"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F3 2nd Attack Room"
+          "adjacentRoom": "F3R2"
+        },
+        {
+          "direction": "Down",
+          "adjacentRoom": "F3C3"
+        }
+      ]
+    },
+    {
+      "id": "F3C3",
+      "name": "F3 Chaos Room",
+      "descriptions": [
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
+        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up."
+        ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "F3R3"
         }
       ]
     },
@@ -529,11 +586,11 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 3rd Attack Room"
+          "adjacentRoom": "F3R3"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F3 3rd Attack Room"
+          "adjacentRoom": "F3R3"
         }
       ]
     },
@@ -548,11 +605,11 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 4th Attack Room"
+          "adjacentRoom": "F3R4"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F3 4th Attack Room"
+          "adjacentRoom": "F3R4"
         }
       ]
     },
@@ -567,11 +624,11 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 5th Attack Room"
+          "adjacentRoom": "F3R5"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F3 5th Attack Room"
+          "adjacentRoom": "F3R5"
         }
       ]
     },
@@ -586,11 +643,11 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 6th Attack Room"
+          "adjacentRoom": "F3R6"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F3 6th Attack Room"
+          "adjacentRoom": "F3R6"
         }
       ]
     },
@@ -605,11 +662,11 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 7th Attack Room"
+          "adjacentRoom": "F3R7"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F3 7th Attack Room"
+          "adjacentRoom": "F3R7"
         }
       ]
     },
@@ -658,12 +715,12 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 8th Attack Room"
+          "adjacentRoom": "F3R8"
         }
       ]
     },
     {
-      "id": "F3R10",
+      "id": "F3R8",
       "name": "F3 8th Attack Room",
       "descriptions": [
       "",
@@ -673,16 +730,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 9th Attack Room"
+          "adjacentRoom": "F3R9"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F3 9th Attack Room"
+          "adjacentRoom": "F3R9"
         }
       ]
     },
     {
-      "id": "F3R11",
+      "id": "F3R9",
       "name": "F3 9th Attack Room",
       "descriptions": [
       "",
@@ -692,16 +749,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 10th Attack Room"
+          "adjacentRoom": "F3R10"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F3 10th Attack Room"
+          "adjacentRoom": "F3R10"
         }
       ]
     },
     {
-      "id": "F3R12",
+      "id": "F3R10",
       "name": "F3 10th Attack Room",
       "descriptions": [
       "",
@@ -711,16 +768,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 11th Attack Room"
+          "adjacentRoom": "F3R11"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F3 11th Attack Room"
+          "adjacentRoom": "F3R11"
         }
       ]
     },
     {
-      "id": "F3R13",
+      "id": "F3R11",
       "name": "F3 11th Attack Room",
       "descriptions": [
       "",
@@ -730,16 +787,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 12th Attack Room"
+          "adjacentRoom": "F3R12"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F3 12th Attack Room"
+          "adjacentRoom": "F3R12"
         }
       ]
     },
     {
-      "id": "F3R14",
+      "id": "F3R12",
       "name": "F3 12th Attack Room",
       "descriptions": [
       "",
@@ -749,16 +806,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 13th Attack Room"
+          "adjacentRoom": "F3R13"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F3 13th Attack Room"
+          "adjacentRoom": "F3R13"
         }
       ]
     },
     {
-      "id": "F3R15",
+      "id": "F3R13",
       "name": "F3 13th Attack Room",
       "descriptions": [
       "",
@@ -768,16 +825,16 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 14th Attack Room"
+          "adjacentRoom": "F3R14"
         },
         {
           "direction": "North",
-          "adjacentRoom": "F3 14th Attack Room"
+          "adjacentRoom": "F3R14"
         }
       ]
     },
     {
-      "id": "F3R16",
+      "id": "F3R14",
       "name": "F3 14th Attack Room",
       "descriptions": [
       "",
