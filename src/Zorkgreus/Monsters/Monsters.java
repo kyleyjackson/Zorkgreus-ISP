@@ -87,4 +87,19 @@ public class Monsters {
     public void displayMonsterMessage(){
         System.out.println(desc);
     }
+
+    public int monsterNormalAttack() {
+        int rand = (int) (Math.random() * 3) + 1;
+        int randDmg = (int) (Math.random() * (atk / 10)) + 1;
+        int dmg = atk;
+
+        if (rand == 1) {
+            dmg -= randDmg;
+        } else if (rand == 2) {
+            dmg += randDmg;
+        } else {
+            dmg += 0;
+        }
+        return dmg;
+    }
 }
