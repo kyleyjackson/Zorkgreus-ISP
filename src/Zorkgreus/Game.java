@@ -366,10 +366,8 @@ public class Game {
     } else if (commandWord.equals("east") || commandWord.equals("west") || commandWord.equals("north") || commandWord.equals("south")) {
       goRoom(command);
     } 
-    else if (commandWord.equals("attack")) {
-      attackType(command);
-    } else if (commandWord.equals("special")) { 
-      attackType(command); */
+    else if (commandWord.equals("attack") || commandWord.equals("fight")) {
+      fight(fred, currentWeapon, currentMonster, command);
     } else if (commandWord.equals("look")) { 
       currentRoom.roomDescription();
     } else if (commandWord.equals("take")) {
@@ -634,8 +632,7 @@ public class Game {
             System.out.println("You have selected the shield.");
           }
         }
-      } 
-      else if(prevCommand.equals("boon")){
+      } else if(prevCommand.equals("boon")){
         if(onBoonScreen() && !boonSelected){
           if(commandWord.equals("1") || commandWord.equals("one")){
             myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
@@ -664,7 +661,10 @@ public class Game {
         }
         else
           System.out.println("You can't select a boon right now!");
+      } else if(prevCommand.equals("attack")){
+        fight(fred, currentWeapon, currentMonster, command);
       }
+
     }
     prevCommand = command.getCommandWord();
     return false;
