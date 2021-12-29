@@ -12,6 +12,7 @@ public class Player {
     private int baseAtk; // attack at the start of the game
     private int baseDef; // defense at the start of the game
     private boolean extraLife = true;
+    private boolean hyradliteGold = false;
 
     public Player(int prio, int atk, int def) {
         this.maxHP = 50;
@@ -149,5 +150,13 @@ public class Player {
 
     public void setExtraLife(boolean n) {
         extraLife = n;
+    }
+
+    public boolean getHydraliteGold(){
+        return hyradliteGold;
+    }
+
+    public void setHydraliteGold(boolean n){
+        hyradliteGold = n;
     }
 }
