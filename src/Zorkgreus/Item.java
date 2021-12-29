@@ -6,14 +6,16 @@ public class Item extends OpenableObject {
   private String desc;
   private int weight;
   private String startRoom;
+  private int gold;
 
   private boolean isOpenable; //debating usage
 
-  public Item(String name, String desc, int weight, String startRoom) {
+  public Item(String name, String desc, int weight, String startRoom, int gold) {
     this.name = name;
     this.desc = desc;
     this.weight = weight;
     this.startRoom = startRoom;
+    this.gold = gold;
   }
   /**
   public void open() {
@@ -52,6 +54,10 @@ public class Item extends OpenableObject {
 
   public void setStartingRoom(String startRoom) {
     this.startRoom = startRoom;
+  }
+
+  public int getGold(){
+    return gold;
   }
 
 /*

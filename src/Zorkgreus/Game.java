@@ -219,8 +219,9 @@ public class Game {
       String desc = (String) ((JSONObject) itemObj).get("description");
       int weight = Math.toIntExact((Long) ((JSONObject) itemObj).get("weight"));
       String startRoom = (String) ((JSONObject) itemObj).get("startingRoom");
+      int gold = Math.toIntExact((Long)((JSONObject))itemObj).get("gold"));
 
-      Item item = new Item(name, desc, weight, startRoom);
+      Item item = new Item(name, desc, weight, startRoom, gold);
       items.add(item);
     } 
   }
