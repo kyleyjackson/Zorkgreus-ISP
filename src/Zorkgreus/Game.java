@@ -11,6 +11,11 @@ import org.json.simple.parser.JSONParser;
 
 import Zorkgreus.Boss.*;
 import Zorkgreus.Monsters.Monsters;
+import Zorkgreus.NPC.Charon;
+import Zorkgreus.NPC.Eurydice;
+import Zorkgreus.NPC.NPC;
+import Zorkgreus.NPC.Patroclus;
+import Zorkgreus.NPC.Sisyphus;
 import Zorkgreus.Weapons.Weapons;
 
 public class Game {
@@ -23,6 +28,7 @@ public class Game {
   private Boss currentBoss;
   private Weapons currentWeapon;
   private Monsters currentMonster;
+  private NPC currentNPC;
   private Player fred; //player to execute commands that deal with player
 
   /*------------------------------------ArrayLists------------------------------------*/
@@ -41,9 +47,11 @@ public class Game {
   private boolean boonSelected; //checks if the player has selected a boon.
   private boolean weaponSelected; //checks if a weapon has been selected.
   private boolean canProceed; //determines if player can move on to the next room
+  private boolean getCurrentRoom;
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand; //stores the previous command inputted by player
+  private String prevRoom;
 
   /*------------------------------------coloured font------------------------------------*/
   public static final String RED = "\033[1;91m";
@@ -63,6 +71,7 @@ public class Game {
       initItems("src\\Zorkgreus\\data\\items.json");
       currentRoom = roomMap.get("Spawn Room");
       currentBoss = new DemolisionistSkeleton();
+      getCurrentRoom = true;
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -219,7 +228,7 @@ public class Game {
       String desc = (String) ((JSONObject) itemObj).get("description");
       int weight = Math.toIntExact((Long) ((JSONObject) itemObj).get("weight"));
       String startRoom = (String) ((JSONObject) itemObj).get("startingRoom");
-      int gold = Math.toIntExact((Long)((JSONObject))itemObj).get("gold"));
+      int gold = Math.toIntExact((Long)((JSONObject)itemObj).get("gold"));
 
       Item item = new Item(name, desc, weight, startRoom, gold);
       items.add(item);
@@ -256,6 +265,17 @@ public class Game {
         }
         command = parser.getCommand();
         finished = processCommand(command);
+        setCurrentNPC();
+        if(fred.getHydraliteGold()){
+          if(getCurrentRoom){
+          prevRoom = currentRoom.getRoomName();
+          }
+          getCurrentRoom = false;
+          if(!(prevRoom.equals(currentRoom.getRoomName()))){
+            fred.addPlayerHP((int)(fred.getPlayerMaxHP()*0.3));
+            prevRoom = currentRoom.getRoomName();
+          }
+        }
       } catch (IOException e) {
         e.printStackTrace();
       }
@@ -782,6 +802,18 @@ public class Game {
     }
     return false;
   }
+
+  public void setCurrentNPC(){
+    if(currentRoom.getRoomName().equals("F1 NPC Room"))
+      currentNPC = new Sisyphus(fred);
+    if(currentRoom.getRoomName().equals("F2 NPC Room"))
+      currentNPC = new Eurydice();
+    if(currentRoom.getRoomName().equals("F3 NPC Room"))
+      currentNPC = new Patroclus(fred);
+    if(currentRoom.getRoomId().equals("F1 Shop Room")||currentRoom.getRoomId().equals("F2 Shop Room")||currentRoom.getRoomId().equals("F3 Shop Room"))
+      currentNPC = new Charon();
+  }
+
 
   public void attemptToTake(Command command) {
 
