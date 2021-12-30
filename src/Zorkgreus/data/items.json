@@ -18,18 +18,21 @@
             "name": "Centaur Heart",
             "description": "A Centaur Heart, torn right out of a Centaur brimming with vitality.",
             "weight": 0,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Pom Of Power",
             "description": "A Pom Of Power, picked off of the tree of life. Capable of strengthening the power of the gods.",
             "weight": 0,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Charon's Obol's",
             "description": "The currency of the underworld.",
             "weight": 1,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
