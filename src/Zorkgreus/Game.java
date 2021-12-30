@@ -11,11 +11,7 @@ import org.json.simple.parser.JSONParser;
 
 import Zorkgreus.Boss.*;
 import Zorkgreus.Monsters.Monsters;
-import Zorkgreus.NPC.Charon;
-import Zorkgreus.NPC.Eurydice;
-import Zorkgreus.NPC.NPC;
-import Zorkgreus.NPC.Patroclus;
-import Zorkgreus.NPC.Sisyphus;
+import Zorkgreus.NPC.*;
 import Zorkgreus.Weapons.Weapons;
 
 public class Game {
@@ -228,12 +224,13 @@ public class Game {
       String desc = (String) ((JSONObject) itemObj).get("description");
       int weight = Math.toIntExact((Long) ((JSONObject) itemObj).get("weight"));
       String startRoom = (String) ((JSONObject) itemObj).get("startingRoom");
-      int gold = Math.toIntExact((Long)((JSONObject)itemObj).get("gold"));
+      int gold = Math.toIntExact((Long) ((JSONObject) itemObj).get("gold"));
 
       Item item = new Item(name, desc, weight, startRoom, gold);
       items.add(item);
     } 
   }
+
   /**
    * Main play routine. Loops until end of play.
    */
@@ -253,7 +250,7 @@ public class Game {
           }
         }
         if (!generatedBoons && onBoonScreen()) {
-          temp = generateBoons();
+          temp = generateBoons(false);
           generatedBoons = true;
         }
         if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("MiniBoss Room")
@@ -728,8 +725,9 @@ public class Game {
   /**
    * Randomly choose 3 boons of the same god for player to choose (excluding
    * Chaos).
+   * @param atShop boolean that determines whether player is in a shop or not.
    */
-  public ArrayList<Boon> generateBoons() {
+  public ArrayList<Boon> generateBoons(boolean atShop) {
     ArrayList<Boon> selection = new ArrayList<>();
     int num = (int) (Math.random() * (boons.size() - 6));
     if (num <= 2) { // Ares
@@ -757,9 +755,11 @@ public class Game {
       selection.add(boons.get(16));
       selection.add(boons.get(17));
     }
-    System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\", or \"boon [number]\"");
-    System.out.print("----------------------------------------------------------------------------------------------------------");
-    System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    if(!atShop){
+      System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\", or \"boon [number]\"");
+      System.out.print("----------------------------------------------------------------------------------------------------------");
+      System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    }
     return selection;
   }
 
@@ -811,7 +811,8 @@ public class Game {
     if(currentRoom.getRoomName().equals("F3 NPC Room"))
       currentNPC = new Patroclus(fred);
     if(currentRoom.getRoomId().equals("F1 Shop Room")||currentRoom.getRoomId().equals("F2 Shop Room")||currentRoom.getRoomId().equals("F3 Shop Room"))
-      currentNPC = new Charon();
+      temp = generateBoons(true); //special case to generate boon for selection in the shop.
+      currentNPC = new Charon(fred, temp); //passes in player and 3 randomly generated boons.
   }
 
 
@@ -952,11 +953,11 @@ public class Game {
   public void brutalStrength() {
     int level = myBoons.get(getIndexByBoonName("Brutal Strength")).getLevel();
     if(level == 1)
-      fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+      fred.addPlayerAttack(5);
     else if(level == 2)
-      fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+      fred.addPlayerAttack(5);
     else 
-      fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+      fred.addPlayerAttack(5);
   }
 
   public void deathsDance() {
@@ -995,24 +996,24 @@ public class Game {
   }
 
   /**
-   * Gain 5, 6, 7 priority. If the bow is equipped, gain 5, 8, 11 attack.
+   * Gain 5, 6, 7 priority. If the bow is equipped, gain 5, 7, 9 attack.
    */
   public void huntersEye() {
     int level = myBoons.get(getIndexByBoonName("Hunter's Eye")).getLevel();
     if(level == 1)
-      fred.setPlayerPrio(fred.getPlayerPrio() + 5);
+      fred.addPlayerPriority(5);
     else if(level == 2)
-      fred.setPlayerPrio(fred.getPlayerPrio() + 1);
+      fred.addPlayerPriority(1);
     else
-      fred.setPlayerPrio(fred.getPlayerPrio() + 1); 
+      fred.addPlayerPriority(1);
 
     if(currentWeapon.getName().equals("Bow")){
       if(level == 1)
-        fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+        fred.addPlayerAttack(5);
       else if(level == 2)
-        fred.setPlayerAtk(fred.getPlayerAtk() + 3);
+        fred.addPlayerAttack(2);  
       else 
-        fred.setPlayerAtk(fred.getPlayerAtk() + 3);
+        fred.addPlayerAttack(2);
     }
   }
 
@@ -1165,26 +1166,16 @@ public class Game {
    * @param situation determines whether we call the instant heal(true) or small heal/max hp increase(false).
    */
   public void vitality(boolean situation) {
-    if(situation){
-      if(fred.getPlayerHP() + 20 >= fred.getPlayerMaxHP()){
-        fred.setPlayerHP(fred.getPlayerMaxHP());
-      } 
-      else{
-        fred.setPlayerHP(fred.getPlayerHP() + 20);
-      }
-    }
+    if(situation)
+      fred.addPlayerHP(20);
     else{
       if(canProceed){
         if(fred.getPlayerHP() == fred.getPlayerMaxHP()){
-          fred.setPlayerMaxHP(fred.getPlayerMaxHP() + 2);
+          fred.addPlayerMaxHP(2);
           fred.setPlayerHP(fred.getPlayerMaxHP());
         }
-        else if(fred.getPlayerHP() + 5 >= fred.getPlayerMaxHP()){
-          fred.setPlayerHP(fred.getPlayerMaxHP());
-        }
-        else{
-          fred.setPlayerHP(fred.getPlayerHP() + 5);
-        }
+        else
+          fred.addPlayerHP(5);
       }
     }
   }
@@ -1226,7 +1217,7 @@ public class Game {
   }
 
   /**
-   * Gain a 4, 8, 12% chance to mitigate attack from monster.
+   * Gain a 4, 8, 12% chance to mitigate attack from monsters and bosses.
    */
   public void divineProtection() {
     int random = (int)(Math.random() * 100) + 1;
@@ -1253,11 +1244,17 @@ public class Game {
     //switch weapon
   }
 
+  /**
+   * 25 attack priority, 75% reduced damage.
+   */
   public void sheath() {
     fred.setPlayerPrio(fred.getPlayerPrio() + 25);
     fred.setPlayerAtk((int)(fred.getPlayerAtk() * 0.25));
   }
 
+  /**
+   * Convert 75% of defence to attack.
+   */
   public void exposed() {
     fred.setPlayerAtk(fred.getPlayerAtk() + (int)(fred.getPlayerDef() * 0.75));
     fred.setPlayerDef((int)(fred.getPlayerDef() * 0.25));

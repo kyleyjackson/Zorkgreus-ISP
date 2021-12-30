@@ -132,7 +132,7 @@ public class Player {
         
     }
 
-    public void incrimentPlayerHP(int n) {
+    public void incrementPlayerHP(int n) {
         maxHP += n;
         HP += n;
     }
