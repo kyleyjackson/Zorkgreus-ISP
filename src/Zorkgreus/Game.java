@@ -269,7 +269,9 @@ public class Game {
           }
           getCurrentRoom = false;
           if(!(prevRoom.equals(currentRoom.getRoomName()))){
-            fred.addPlayerHP((int)(fred.getPlayerMaxHP()*0.3));
+            int addHP = (int)(fred.getPlayerMaxHP()*0.3);
+            fred.addPlayerHP(addHP);
+            System.out.println("You have gained " + addHP + " HP");
             prevRoom = currentRoom.getRoomName();
           }
         }
