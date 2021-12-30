@@ -219,7 +219,7 @@ public class Game {
       String desc = (String) ((JSONObject) itemObj).get("description");
       int weight = Math.toIntExact((Long) ((JSONObject) itemObj).get("weight"));
       String startRoom = (String) ((JSONObject) itemObj).get("startingRoom");
-      int gold = Math.toIntExact((Long)((JSONObject))itemObj).get("gold"));
+      int gold = Math.toIntExact((Long)((JSONObject)itemObj).get("gold"));
 
       Item item = new Item(name, desc, weight, startRoom, gold);
       items.add(item);
@@ -426,24 +426,24 @@ public class Game {
       System.out.println("You really wanna fail computer science again?");
     } else if (commandWord.equals("boonlist") || commandWord.equals("myboons")) {
       formatMyBoons();
-    } else if (commandWord.equals("boon")) {
+    } else if (commandWord.equals("boon") || commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
       if (onBoonScreen() && !boonSelected) {
-        if (command.hasSecondWord()) {
-          if (command.getSecondWord().equals("one") || command.getSecondWord().equals("1")) {
+        if (command.hasSecondWord() || commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
+          if (command.getSecondWord().equals("one") || command.getSecondWord().equals("1") || commandWord.equals("b1")) {
             myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
             boonSelected = true;
             for (Boon b : myBoons) {
               b.levelUp(myBoons, temp, 0);
             }
-          } else if (command.getSecondWord().equals("two") || command.getSecondWord().equals("2")) {
+          } else if (command.getSecondWord().equals("two") || command.getSecondWord().equals("2") || commandWord.equals("b2")) {
             myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             boonSelected = true;
             for (Boon b : myBoons) {
               b.levelUp(myBoons, temp, 1);
             }
-          } else if (command.getSecondWord().equals("three") || command.getSecondWord().equals("3")) {
+          } else if (command.getSecondWord().equals("three") || command.getSecondWord().equals("3") || commandWord.equals("b3")) {
             myBoons.add(temp.get(2));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             boonSelected = true;
@@ -737,7 +737,7 @@ public class Game {
       selection.add(boons.get(16));
       selection.add(boons.get(17));
     }
-    System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
+    System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\", or \"boon [number]\"");
     System.out.print("----------------------------------------------------------------------------------------------------------");
     System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     return selection;
