@@ -5,7 +5,6 @@ import Zorkgreus.Player;
 
 
 public class Patroclus extends NPC {
-    private String pastRoom = "F3 NPC Room";
 
     public Patroclus(Player player) {
         displayIntroMessage();
@@ -74,13 +73,4 @@ public class Patroclus extends NPC {
             }
         }
     }
-
-    public String getPastRoom(){
-        return pastRoom;
-    }
-
-    public void setPastRoom(String newRoom){
-        pastRoom = newRoom;
-    }
-
 }
