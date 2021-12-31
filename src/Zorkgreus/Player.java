@@ -7,27 +7,26 @@ public class Player {
     private int atk;
     private int dodge;
     private int prio;
+    private int gold;
 
     private int basePrio; //priority at the start of the game
     private int baseAtk; //attack at the start of the game
     private int baseDef; //defense at the start of the game
-    private boolean extraLife;
-    private boolean hyradliteGold;
-    private int gold;
+    private boolean extraLife = true;
+    private boolean hyradliteGold = false;
 
-    public Player(int prio, int atk, int def) {
+    public Player(int prio, int atk, int def, int gold) {
         this.maxHP = 50;
         this.HP = 50;
         this.def = 10 + def;
         this.atk = atk;
         this.prio = prio;
         this.dodge = 0;
-        this.gold = 0;
+        this.gold = 100;
+        
         basePrio = prio;
         baseAtk = atk;
         baseDef = def;
-        extraLife = true;
-        hyradliteGold = false;
 
     }
 
@@ -156,7 +155,7 @@ public class Player {
     public void addPlayerAttack(int n){
         atk += n;
     }
-
+    
     public boolean getExtraLife() {
         return extraLife;
     }

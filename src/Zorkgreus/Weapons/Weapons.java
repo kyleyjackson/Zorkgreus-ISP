@@ -10,6 +10,7 @@ public class Weapons {
     private int atk;
     private int def;
     private int speAtkDmg;
+    private int id;
     private String speAtkName;
     private String desc;
 
@@ -18,7 +19,7 @@ public class Weapons {
     private int baseDef; //defense at the start of the game
     
 
-    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, String speAtkName, String desc) {
+    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName, String desc) {
         this.weaponName = weaponName;
         this.prio = prio;
         this.atk = atk;
@@ -60,6 +61,10 @@ public class Weapons {
         return speAtkDmg;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public void changeAtk(int n) {
         atk = n;
         System.out.println("Your attack changed to " + n + "!");
@@ -90,38 +95,30 @@ public class Weapons {
         return dmg;
     }
 
-    public int bowSpeAtk() {
-        int dmg = getSpeAtkDmg();
+    public int specialAttack(int id) {
+        int dmg = 0;
 
-        changePrio(30);
+        if(id == 1) {
+            dmg = 25;
 
-        return dmg;
-    }
-    
-    public int shieldSpeAtk() {
-        int dmg = getSpeAtkDmg();
+            changeDef(10);
+            changeAtk(15);
+            changePrio(6);
+        }else if (id == 2) {
+            dmg = getSpeAtkDmg();
 
-        changeDef(5);
-        changeAtk(20);
-        changePrio(10);
+            changePrio(8);
+        }else if (id == 3) {
+            dmg = getSpeAtkDmg();
 
-        return dmg;
-    }
+            changePrio(30);
+        }else {
+            dmg = getSpeAtkDmg();
 
-    public int swordSpeAtk() {
-        int dmg = getSpeAtkDmg();
-
-        changePrio(8);
-
-        return dmg;
-    }
-
-    public int spearSpeAtk() {
-        int dmg = getSpeAtkDmg();
-
-        changeDef(10);
-        changeAtk(15);
-        changePrio(6);
+            changeDef(5);
+            changeAtk(20);
+            changePrio(10);
+        }
 
         return dmg;
     }
