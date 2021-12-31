@@ -329,7 +329,7 @@ public class Game {
             + "\n--------------------------------------------------------------------------------------------------------------\n");
     slowText(RESET + "Zorkgreus is a knockoff of Hades :D", 25);
     System.out.println("");
-    slowText("Type \"help\" if you need help.", 25);
+    slowText("Type \"help\" if you need help." + "\n", 25);
     System.out.println(currentRoom.roomDescription());
   }
 
