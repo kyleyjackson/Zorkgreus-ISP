@@ -262,7 +262,9 @@ public class Game {
         }
         command = parser.getCommand();
         finished = processCommand(command);
-        setCurrentNPC();
+        if(currentRoom.getRoomName().equals("F1 NPC Room") || currentRoom.getRoomName().equals("F2 NPC Room") || currentRoom.getRoomName().equals("F3 NPC Room")
+        || currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room") || currentRoom.getRoomName().equals("F3 Shop Room"))
+          setCurrentNPC();
         if(fred.getHydraliteGold()){
           if(getCurrentRoom){
           prevRoom = currentRoom.getRoomName();
@@ -812,7 +814,7 @@ public class Game {
       currentNPC = new Eurydice();
     if(currentRoom.getRoomName().equals("F3 NPC Room"))
       currentNPC = new Patroclus(fred);
-    if(currentRoom.getRoomId().equals("F1 Shop Room")||currentRoom.getRoomId().equals("F2 Shop Room")||currentRoom.getRoomId().equals("F3 Shop Room"))
+    if(currentRoom.getRoomName().equals("F1 Shop Room")||currentRoom.getRoomName().equals("F2 Shop Room")||currentRoom.getRoomName().equals("F3 Shop Room"))
       temp = generateBoons(true); //special case to generate boon for selection in the shop.
       currentNPC = new Charon(fred, temp); //passes in player and 3 randomly generated boons.
   }
