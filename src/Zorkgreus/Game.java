@@ -67,6 +67,7 @@ public class Game {
       initItems("src\\Zorkgreus\\data\\items.json");
       currentRoom = roomMap.get("Spawn Room");
       currentBoss = new DemolisionistSkeleton();
+      fred = new Player(6, 9, 420);
       getCurrentRoom = true;
     } catch (Exception e) {
       e.printStackTrace();
