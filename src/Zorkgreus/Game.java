@@ -5,6 +5,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import javax.lang.model.util.ElementScanner14;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -46,7 +49,7 @@ public class Game {
   private boolean getCurrentRoom;
 
   /*------------------------------------global strings------------------------------------*/
-  private String prevCommand; //stores the previous command inputted by player
+  private String prevCommand = ""; //stores the previous command inputted by player
   private String prevRoom;
 
   /*------------------------------------coloured font------------------------------------*/
@@ -375,7 +378,7 @@ public class Game {
       return false;
     }
     String commandWord = command.getCommandWord();
-    if (commandWord.equals("help")) {
+    if (commandWord.equals("help") && !(prevCommand.equals("bow") || prevCommand.equals("spear") || prevCommand.equals("sword") || prevCommand.equals("shield"))) {
       printHelp();
     } else if (commandWord.equals("go")) {
       goRoom(command);
@@ -450,22 +453,22 @@ public class Game {
       formatMyBoons();
     } else if (commandWord.equals("boon") || commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
       if (onBoonScreen() && !boonSelected) {
-        if (command.hasSecondWord() || commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
-          if (command.getSecondWord().equals("one") || command.getSecondWord().equals("1") || commandWord.equals("b1")) {
+        if (command.hasSecondWord()) {
+          if (command.getSecondWord().equals("one") || command.getSecondWord().equals("1")) {
             myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
             System.out.println("You selected Boon: " + temp.get(0).getBoonName());
             boonSelected = true;
             for (Boon b : myBoons) {
               b.levelUp(myBoons, temp, 0);
             }
-          } else if (command.getSecondWord().equals("two") || command.getSecondWord().equals("2") || commandWord.equals("b2")) {
+          } else if (command.getSecondWord().equals("two") || command.getSecondWord().equals("2")) {
             myBoons.add(temp.get(1));
             System.out.println("You selected Boon: " + temp.get(1).getBoonName());
             boonSelected = true;
             for (Boon b : myBoons) {
               b.levelUp(myBoons, temp, 1);
             }
-          } else if (command.getSecondWord().equals("three") || command.getSecondWord().equals("3") || commandWord.equals("b3")) {
+          } else if (command.getSecondWord().equals("three") || command.getSecondWord().equals("3")) {
             myBoons.add(temp.get(2));
             System.out.println("You selected Boon: " + temp.get(2).getBoonName());
             boonSelected = true;
@@ -473,39 +476,50 @@ public class Game {
               b.levelUp(myBoons, temp, 2);
             }
           }
+        } else if(commandWord.equals("b1")) {
+          myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
+          System.out.println("You selected Boon: " + temp.get(0).getBoonName());
+          boonSelected = true;
+          for (Boon b : myBoons) {
+            b.levelUp(myBoons, temp, 0);
+          }
+        } else if(commandWord.equals("b2")) {
+          myBoons.add(temp.get(1));
+          System.out.println("You selected Boon: " + temp.get(1).getBoonName());
+          boonSelected = true;
+          for (Boon b : myBoons) {
+            b.levelUp(myBoons, temp, 1);
+          }
+        } else if(commandWord.equals("b3")){
+          myBoons.add(temp.get(2));
+          System.out.println("You selected Boon: " + temp.get(2).getBoonName());
+          boonSelected = true;
+          for (Boon b : myBoons) {
+            b.levelUp(myBoons, temp, 2);
+          }
         } else {
           System.out.println("Which boon do you wish to receive?");
         }
       } else {
         System.out.println("You can't select a boon right now!");
       }
-    } else if (commandWord.equals("bow") || (commandWord.equals("select") && command.getSecondWord().equals("bow"))) {
+    } else if (commandWord.equals("bow")) {
       if(weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else{
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("help")){
-            System.out.println(weapons.get(0).getDescription() + "\n");
+            System.out.println("\n" + weapons.get(0).getDescription() + "\n");
             System.out.println("Attack: " + weapons.get(0).getAtk() + "\n" + "Priority: " + weapons.get(0).getPriority() + "\n" + "Defense: " + weapons.get(0).getDef()
             + "\n" + "Special Attack: " + weapons.get(0).getSpeAtkName());
           }
-          else if(command.getSecondWord().equals("select") || command.getSecondWord().equals("confirm")){
+          else if(command.getSecondWord().equals("confirm")){
             currentWeapon = weaponSelection("bow", false);
             weaponSelected = true;
-            System.out.println("You have selected the bow.");
+            System.out.println("You have selected the bow. Please proceed to the next room.");
           }
           else{
             System.out.println("Type \"help\" after the weapon to learn more about it.");
-          }
-        }
-        else if(commandWord.equals("select")){
-          if(command.getSecondWord().equals("bow")){
-            currentWeapon = weaponSelection("bow", false);
-            weaponSelected = true;
-            System.out.println("You have selected the bow.");
-          }
-          else{
-            System.out.println("What are you trying to select?");
           }
         }
         else{
@@ -515,31 +529,21 @@ public class Game {
       }
     } else if (commandWord.equals("spear")) {
       if(weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else{
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("help")){
-            System.out.println(weapons.get(1).getDescription() + "\n");
+            System.out.println("\n" + weapons.get(1).getDescription() + "\n");
             System.out.println("Attack: " + weapons.get(1).getAtk() + "\n" + "Priority: " + weapons.get(1).getPriority() + "\n" + "Defense: " + weapons.get(1).getDef()
             + "\n" + "Special Attack: " + weapons.get(1).getSpeAtkName());
           }
-          else if(command.getSecondWord().equals("select") || command.getSecondWord().equals("confirm")){
+          else if(command.getSecondWord().equals("confirm")){
             currentWeapon = weaponSelection("spear", false);
             weaponSelected = true;
-            System.out.println("You have selected the spear.");
+            System.out.println("You have selected the spear. Please proceed to the next room.");
           }
           else{
             System.out.println("Type \"help\" after the weapon to learn more about it.");
-          }
-        }
-        else if(commandWord.equals("select")){
-          if(command.getSecondWord().equals("spear")){
-            currentWeapon = weaponSelection("spear", false);
-            weaponSelected = true;
-            System.out.println("You have selected the spear.");
-          }
-          else{
-            System.out.println("What are you trying to select?");
           }
         }
         else{
@@ -549,31 +553,21 @@ public class Game {
       }
     } else if (commandWord.equals("sword")) {
       if(weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else{
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("help")){
-            System.out.println(weapons.get(2).getDescription() + "\n");
+            System.out.println("\n" + weapons.get(2).getDescription() + "\n");
             System.out.println("Attack: " + weapons.get(2).getAtk() + "\n" + "Priority: " + weapons.get(2).getPriority() + "\n" + "Defense: " + weapons.get(2).getDef()
             + "\n" + "Special Attack: " + weapons.get(2).getSpeAtkName());
           }
-          else if(command.getSecondWord().equals("select") || command.getSecondWord().equals("confirm")){
+          else if(command.getSecondWord().equals("confirm")){
             currentWeapon = weaponSelection("sword", false);
             weaponSelected = true;
-            System.out.println("You have selected the sword.");
+            System.out.println("You have selected the sword. Please proceed to the next room.");
           }
           else{
             System.out.println("Type \"help\" after the weapon to learn more about it.");
-          }
-        }
-        else if(commandWord.equals("select")){
-          if(command.getSecondWord().equals("sword")){
-            currentWeapon = weaponSelection("sword", false);
-            weaponSelected = true;
-            System.out.println("You have selected the sword.");
-          }
-          else{
-            System.out.println("What are you trying to select?");
           }
         }
         else{
@@ -583,31 +577,21 @@ public class Game {
       }
     } else if (commandWord.equals("shield")) {
       if(weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else{
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("help")){
-            System.out.println(weapons.get(3).getDescription() + "\n");
+            System.out.println("\n" + weapons.get(3).getDescription() + "\n");
             System.out.println("Attack: " + weapons.get(3).getAtk() + "\n" + "Priority: " + weapons.get(3).getPriority() + "\n" + "Defense: " + weapons.get(3).getDef()
             + "\n" + "Special Attack: " + weapons.get(3).getSpeAtkName());
           }
-          else if(command.getSecondWord().equals("select") || command.getSecondWord().equals("confirm")){
+          else if(command.getSecondWord().equals("confirm")){
             currentWeapon = weaponSelection("shield", false);
             weaponSelected = true;
-            System.out.println("You have selected the shield.");
+            System.out.println("You have selected the shield. Please proceed to the next room.");
           }
           else{
             System.out.println("Type \"help\" after the weapon to learn more about it.");
-          }
-        }
-        else if(commandWord.equals("select")){
-          if(command.getSecondWord().equals("shield")){
-            currentWeapon = weaponSelection("shield", false);
-            weaponSelected = true;
-            System.out.println("You have selected the shield..");
-          }
-          else{
-            System.out.println("What are you trying to select?");
           }
         }
         else{
@@ -615,44 +599,62 @@ public class Game {
           System.out.println("Type \"confirm\" to confirm your selection.");
         }
       }
-    } else if(commandWord.equals("select")) {
-      System.out.println("What are you trying to select?");
     } else if(prevCommand != null){ //commands for the word entered the line before (i.e. instead of bow confirm, it'd be bow *break* confirm)
-      if(prevCommand.equals("select")){
-        if(commandWord.equals("bow")){
+      if(prevCommand.equals("select") || prevCommand.equals("bow") || prevCommand.equals("spear") || prevCommand.equals("sword") || prevCommand.equals("shield")){
+        if(commandWord.equals("bow") || (commandWord.equals("confirm") && prevCommand.equals("bow")) || (commandWord.equals("help") && prevCommand.equals("bow"))){
           if(weaponSelected)
-            System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+            System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+          else if(commandWord.equals("help")){
+            System.out.println("\n" + weapons.get(0).getDescription() + "\n");
+            System.out.println("Attack: " + weapons.get(0).getAtk() + "\n" + "Priority: " + weapons.get(0).getPriority() + "\n" + "Defense: " + weapons.get(0).getDef()
+            + "\n" + "Special Attack: " + weapons.get(0).getSpeAtkName());
+          }
           else{
             currentWeapon = weaponSelection("bow", false);
             weaponSelected = true;
-            System.out.println("You have selected the bow.");
+            System.out.println("You have selected the bow. Please proceed to the next room.");
           }
         }
-        else if(commandWord.equals("spear")){
+        else if(commandWord.equals("spear") || (commandWord.equals("confirm") && prevCommand.equals("spear")) || (commandWord.equals("help") && prevCommand.equals("spear"))){
           if(weaponSelected)
-            System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+            System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+          else if(commandWord.equals("help")){
+            System.out.println("\n" + weapons.get(1).getDescription() + "\n");
+            System.out.println("Attack: " + weapons.get(1).getAtk() + "\n" + "Priority: " + weapons.get(1).getPriority() + "\n" + "Defense: " + weapons.get(1).getDef()
+            + "\n" + "Special Attack: " + weapons.get(1).getSpeAtkName());
+          }
           else{
             currentWeapon = weaponSelection("spear", false);
             weaponSelected = true;
-            System.out.println("You have selected the spear.");
+            System.out.println("You have selected the spear. Please proceed to the next room.");
           }
         }
-        else if(commandWord.equals("sword")){
+        else if(commandWord.equals("sword") || (commandWord.equals("confirm") && prevCommand.equals("sword")) || (commandWord.equals("help") && prevCommand.equals("sword"))){
           if(weaponSelected)
-            System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+            System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+          else if(commandWord.equals("help")){
+            System.out.println("\n" + weapons.get(2).getDescription() + "\n");
+            System.out.println("Attack: " + weapons.get(2).getAtk() + "\n" + "Priority: " + weapons.get(2).getPriority() + "\n" + "Defense: " + weapons.get(2).getDef()
+            + "\n" + "Special Attack: " + weapons.get(2).getSpeAtkName());
+          }
           else{
             currentWeapon = weaponSelection("sword", false);
             weaponSelected = true;
-            System.out.println("You have selected the sword.");
+            System.out.println("You have selected the sword. Please proceed to the next room.");
           }
         } 
-        else if(commandWord.equals("shield")){
+        else if(commandWord.equals("shield") || (commandWord.equals("confirm") && prevCommand.equals("shield")) || (commandWord.equals("help") && prevCommand.equals("shield"))){
           if(weaponSelected)
-            System.out.println("You've already selected a weapon. There might be a way to change that, though.");
+            System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+          else if(commandWord.equals("help")){
+            System.out.println("\n" + weapons.get(3).getDescription() + "\n");
+            System.out.println("Attack: " + weapons.get(3).getAtk() + "\n" + "Priority: " + weapons.get(3).getPriority() + "\n" + "Defense: " + weapons.get(3).getDef()
+            + "\n" + "Special Attack: " + weapons.get(3).getSpeAtkName());
+          }
           else{
             currentWeapon = weaponSelection("shield", false);
             weaponSelected = true;
-            System.out.println("You have selected the shield.");
+            System.out.println("You have selected the shield. Please proceed to the next room.");
           }
         }
       } else if(prevCommand.equals("boon")){
@@ -687,8 +689,12 @@ public class Game {
       } else if(prevCommand.equals("attack")){
         fight(fred, currentWeapon, currentMonster, command);
       }
+      else
+        System.out.println("That command doesn't work right now!");
+    } 
+    else
+      System.out.println("That command doesn't work right now!");
 
-    }
     prevCommand = command.getCommandWord();
     return false;
   }
@@ -700,7 +706,7 @@ public class Game {
    * and a list of the command words.
    */
   public void printHelp() {
-    System.out.println("Get out of hell: a daunting dask. Many have tried, none have succeeded.");
+    System.out.println("\n" + "Get out of hell: a daunting dask. Many have tried, none have succeeded.");
     System.out.println("You need to use all the tools at your disposal in order to escape.");
     System.out.println("In front of you are four weapons, the sword, bow, spear, and shield.");
     System.out.println("Good luck. May the gods be on your side.");
@@ -708,8 +714,6 @@ public class Game {
     System.out.println("Your command words are:");
     parser.showCommands();
   }
-
-  
 
   /**
    * Formats the myBoons ArrayList and displays them.
@@ -1197,7 +1201,7 @@ public class Game {
   }
 
   /**
-   * Gain 20, 25, 30 defence, doubled to 40, 50, 60 if you have a shield equipped.
+   * Gain 20, 25, 30 defence, doubled to 40, 50, 60 if you have the shield equipped.
    */
   public void fortify() {
     int level = myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel();

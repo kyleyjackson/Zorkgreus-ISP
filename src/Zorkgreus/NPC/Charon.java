@@ -2,8 +2,6 @@ package Zorkgreus.NPC;
 
 import java.util.Scanner;
 
-import javax.lang.model.util.ElementScanner14;
-
 import java.util.ArrayList;
 import Zorkgreus.Boon;
 import Zorkgreus.Player;
