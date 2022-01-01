@@ -11,6 +11,7 @@ import org.json.simple.parser.JSONParser;
 
 import Zorkgreus.Boss.*;
 import Zorkgreus.Monsters.Monsters;
+import Zorkgreus.NPC.*;
 import Zorkgreus.Weapons.Weapons;
 
 public class Game {
@@ -247,11 +248,11 @@ public class Game {
           }
         }
         if (!generatedBoons && onBoonScreen()) {
-          temp = generateBoons();
+          temp = generateBoons(false);
           generatedBoons = true;
         }
         if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("MiniBoss Room")
-            || currentRoom.getRoomName().equals("Boss Room"))) {
+        || currentRoom.getRoomName().equals("Boss Room"))) {
           boonSelected = false;
         }
         if (boonSelected) {
@@ -729,40 +730,47 @@ public class Game {
   }
 
   /**
-   * Randomly choose 3 boons of the same god for player to choose (excluding
-   * Chaos).
+   * Randomly choose 3 boons of the same god for player to choose (excluding Chaos).
+   * @param atShop determines if we are in a shop room or not when generating.
    */
-  public ArrayList<Boon> generateBoons() {
+  public ArrayList<Boon> generateBoons(boolean atShop) {
     ArrayList<Boon> selection = new ArrayList<>();
-    int num = (int) (Math.random() * (boons.size() - 6));
-    if (num <= 2) { // Ares
-      selection.add(boons.get(0));
-      selection.add(boons.get(1));
-      selection.add(boons.get(2));
-    } else if (num > 2 && num <= 5) { // Artemis
-      selection.add(boons.get(3));
-      selection.add(boons.get(4));
-      selection.add(boons.get(5));
-    } else if (num > 5 && num <= 8) { // Aphrodite
-      selection.add(boons.get(6));
-      selection.add(boons.get(7));
-      selection.add(boons.get(8));
-    } else if (num > 8 && num <= 11) { // Zeus
-      selection.add(boons.get(9));
-      selection.add(boons.get(10));
-      selection.add(boons.get(11));
-    } else if (num > 11 && num <= 14) { // Poseidon
-      selection.add(boons.get(12));
-      selection.add(boons.get(13));
-      selection.add(boons.get(14));
-    } else { // Athena
-      selection.add(boons.get(15));
-      selection.add(boons.get(16));
-      selection.add(boons.get(17));
+    int num = (int)(Math.random() * (boons.size() - 6));
+    if(!atShop){
+      if (num <= 2) { // Ares
+        selection.add(boons.get(0));
+        selection.add(boons.get(1));
+        selection.add(boons.get(2));
+      } else if (num > 2 && num <= 5) { // Artemis
+        selection.add(boons.get(3));
+        selection.add(boons.get(4));
+        selection.add(boons.get(5));
+      } else if (num > 5 && num <= 8) { // Aphrodite
+        selection.add(boons.get(6));
+        selection.add(boons.get(7));
+        selection.add(boons.get(8));
+      } else if (num > 8 && num <= 11) { // Zeus
+        selection.add(boons.get(9));
+        selection.add(boons.get(10));
+        selection.add(boons.get(11));
+      } else if (num > 11 && num <= 14) { // Poseidon
+        selection.add(boons.get(12));
+        selection.add(boons.get(13));
+        selection.add(boons.get(14));
+      } else { // Athena
+        selection.add(boons.get(15));
+        selection.add(boons.get(16));
+        selection.add(boons.get(17));
+      }
+      System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
+      System.out.print("----------------------------------------------------------------------------------------------------------");
+      System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     }
-    System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons:");
-    System.out.print("----------------------------------------------------------------------------------------------------------");
-    System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    else{
+      selection.add(boons.get(num)); //uses num from beginning of function
+      selection.add(boons.get((int)(Math.random() * (boons.size() - 6)))); //different random value
+      selection.add(boons.get((int)(Math.random() * (boons.size() - 6))));
+    }
     return selection;
   }
 
@@ -815,7 +823,8 @@ public class Game {
       currentNPC = new Patroclus(fred);
     if(currentRoom.getRoomName().equals("F1 Shop Room")||currentRoom.getRoomName().equals("F2 Shop Room")||currentRoom.getRoomName().equals("F3 Shop Room"))
       temp = generateBoons(true); //special case to generate boon for selection in the shop.
-      currentNPC = new Charon(fred, temp); //passes in player and 3 randomly generated boons.
+      currentNPC = new Charon(); //passes in player and 3 randomly generated boons.
+      currentNPC.displayChoices(fred, temp, myBoons);
   }
 
   public void attemptToTake(Command command) {

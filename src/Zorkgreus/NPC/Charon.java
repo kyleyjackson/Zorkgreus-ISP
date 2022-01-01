@@ -7,10 +7,9 @@ import Zorkgreus.Boon;
 import Zorkgreus.Player;
 
 public class Charon extends NPC{
-    public Charon(Player player, ArrayList<Boon> generatedBoons){
+    public Charon(){
         displayIntroMessage();
         System.out.print("\n\n");
-        displayChoices(player, generatedBoons);
     }
 
     public void displayIntroMessage(){
@@ -20,7 +19,7 @@ public class Charon extends NPC{
         System.out.println("As he mumbles unintelligbly, it is clear that this is Charon, The Stygian Boatman, responsible for escorting dead souls into the Underworld.");
     }
 
-    public void displayChoices(Player player, ArrayList<Boon> generatedBoons){
+    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons){
         Scanner in = new Scanner(System.in);
         boolean displayFirstMessage = true;
         boolean displaySellMessage = true;
@@ -87,10 +86,19 @@ public class Charon extends NPC{
                     player.addPlayerHP((int)(player.getPlayerHP() * 0.4));
                     System.out.println("Nhrrrrrrrgh. (Anything else?)");
                 } else if(msg.equals("p") || msg.equals("pom of power")) {
-                    player.addPlayerAttack(69420); //code later
+                    int random = (int)(Math.random() * playerBoons.size());
+                    for(int i=0; i < playerBoons.size(); i++){
+                        if(i == random){
+                            Boon b = playerBoons.get(i);
+                            b.levelUpPom(playerBoons, i);
+                            break;
+                        }
+                    }
                     System.out.println("Grrrrhhhah. (Anything else?)");
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
-                    player.addPlayerAttack(69420); //display generated boons here
+                    System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons:");
+                    System.out.print("----------------------------------------------------------------------------------------------------------");
+                    System.out.println(generatedBoons.get(0).displayBoon() + generatedBoons.get(1).displayBoon() + generatedBoons.get(2).displayBoon());
                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                 } else if(msg.equals("exit")) {
                     System.out.println("Ghhhhehh. (Pleasure doing business.)");
@@ -135,5 +143,6 @@ public class Charon extends NPC{
                 displayFirstMessage = false;
             }
         }
+        return playerBoons;
     }
 }

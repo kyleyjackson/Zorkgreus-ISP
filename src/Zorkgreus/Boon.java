@@ -88,15 +88,15 @@ public class Boon {
     }
 
     /**
-     * Levels up the selected boon if the player already has that boon
+     * Levels up the selected boon if the player already has that boon.
      * @param myBoons array of player's boons
      * @param tempBoons array of generated boons for player to pick
-     * @param selection boon which the player picked
+     * @param selection boon picked by the player
      */
     public void levelUp(ArrayList<Boon> myBoons, ArrayList<Boon> tempBoons, int selection){
         for(Boon b : myBoons){
           if(tempBoons.get(selection).getBoonName().equals(b.getBoonName())){
-            if(b.getLevel() < 3 && (b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
+            if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
             || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
               b.setLevel(b.getLevel() + 1);
               System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
@@ -112,4 +112,23 @@ public class Boon {
           }
         }
     }
+
+    /**
+     * Levels up a boon from the player's current boons.
+     * @param myBoons array of player's boons
+     * @param num index of the boon being levelled.
+     */
+    public void levelUpPom(ArrayList<Boon> myBoons, int num){
+        boolean validNum = false;
+        while(!validNum){
+            Boon b = myBoons.get(num);
+            if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
+            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
+                b.setLevel(b.getLevel() + 1);
+                System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
+                break;
+            }
+        }
+    }
 }
+

@@ -1,5 +1,9 @@
 package Zorkgreus.NPC;
 
+import java.util.Scanner;
+
+import java.util.ArrayList;
+import Zorkgreus.Boon;
 import Zorkgreus.Player;
 
 public class NPC {
@@ -9,6 +13,10 @@ public class NPC {
     }
 
     public void displayChoices(Player player){
+    }
+
+    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons){
+        return playerBoons;
     }
 
 }
