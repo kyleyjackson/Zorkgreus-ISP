@@ -11,6 +11,11 @@ import org.json.simple.parser.JSONParser;
 
 import Zorkgreus.Boss.*;
 import Zorkgreus.Monsters.Monsters;
+import Zorkgreus.NPC.Charon;
+import Zorkgreus.NPC.Eurydice;
+import Zorkgreus.NPC.NPC;
+import Zorkgreus.NPC.Patroclus;
+import Zorkgreus.NPC.Sisyphus;
 import Zorkgreus.Weapons.Weapons;
 
 public class Game {
