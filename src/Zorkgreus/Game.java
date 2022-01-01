@@ -824,7 +824,7 @@ public class Game {
     if(currentRoom.getRoomName().equals("F1 Shop Room")||currentRoom.getRoomName().equals("F2 Shop Room")||currentRoom.getRoomName().equals("F3 Shop Room"))
       temp = generateBoons(true); //special case to generate boon for selection in the shop.
       currentNPC = new Charon(); //passes in player and 3 randomly generated boons.
-      currentNPC.displayChoices(fred, temp, myBoons);
+      myBoons = currentNPC.displayChoices(fred, temp, myBoons);
   }
 
   public void attemptToTake(Command command) {

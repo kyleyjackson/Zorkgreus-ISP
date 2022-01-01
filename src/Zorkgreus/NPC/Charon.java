@@ -24,7 +24,6 @@ public class Charon extends NPC{
         boolean displayFirstMessage = true;
         boolean displaySellMessage = true;
         boolean validInput = false;
-        boolean validSellInput = false;
 
         int random1 = (int)(Math.random() * 3);
         int random2 = (int)(Math.random() * 3);
@@ -45,11 +44,11 @@ public class Charon extends NPC{
         System.out.println("Random Blessing - You can select one of 3 boons provided from ANY god (excluding Chaos). | 150 gold");
 
         if(random2 == 0)
-            System.out.println("Centaur Heart - Gain +25 max HP (without healing).");
+            System.out.println("Centaur Heart - Gain +25 max HP (without healing). | 75 Gold");
         else if(random2 == 1)
-            System.out.println("Bowl of Noodles - Heal for 40% of your max HP.");
+            System.out.println("Bowl of Noodles - Heal for 40% of your max HP. | 50 gold");
         else
-            System.out.println("Pom of Power - One of your boons will gain +1 level.");
+            System.out.println("Pom of Power - One of your boons will gain +1 level. | 100 gold");
         
         System.out.println("----------------------------------------------------------------------------------------------------------");
         System.out.println("It seems Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
@@ -80,30 +79,46 @@ public class Charon extends NPC{
             try {
                 String msg = in.nextLine().toLowerCase();
                 if(msg.equals("c") || msg.equals("centaur heart")){
-                    player.addPlayerMaxHP(25);
-                    System.out.println("Hrrrrraughhhh. (Anything else?)");
-                } else if(msg.equals("b") || msg.equals("bowl of noodles")) {
-                    player.addPlayerHP((int)(player.getPlayerHP() * 0.4));
-                    System.out.println("Nhrrrrrrrgh. (Anything else?)");
-                } else if(msg.equals("p") || msg.equals("pom of power")) {
-                    int random = (int)(Math.random() * playerBoons.size());
-                    for(int i=0; i < playerBoons.size(); i++){
-                        if(i == random){
-                            Boon b = playerBoons.get(i);
-                            b.levelUpPom(playerBoons, i);
-                            break;
-                        }
+                    if(player.getPlayerGold() < 75)
+                        System.out.println("Ngggghhh. (You can't afford that.)");
+                    else{
+                        player.addPlayerMaxHP(25);
+                        System.out.println("Hrrrrraughhhh. (Anything else?)");
                     }
-                    System.out.println("Grrrrhhhah. (Anything else?)");
+                } else if(msg.equals("b") || msg.equals("bowl of noodles")) {
+                    if(player.getPlayerGold() < 50)
+                        System.out.println("Ngggghhh. (You can't afford that.)");
+                    else{
+                        player.addPlayerHP((int)(player.getPlayerHP() * 0.4));
+                        System.out.println("Nhrrrrrrrgh. (Anything else?)");
+                    }
+                } else if(msg.equals("p") || msg.equals("pom of power")) {
+                    if(player.getPlayerGold() < 100)
+                        System.out.println("Ngggghhh. (You can't afford that.)");
+                    else{
+                        int random = (int)(Math.random() * playerBoons.size());
+                        for(int i=0; i < playerBoons.size(); i++){
+                            if(i == random){
+                                Boon b = playerBoons.get(i);
+                                b.levelUpPom(playerBoons, i);
+                            }
+                        }
+                        System.out.println("Grrrrhhhah. (Anything else?)");
+                    }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
-                    System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons:");
-                    System.out.print("----------------------------------------------------------------------------------------------------------");
-                    System.out.println(generatedBoons.get(0).displayBoon() + generatedBoons.get(1).displayBoon() + generatedBoons.get(2).displayBoon());
-                    System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                    if(player.getPlayerGold() < 150)
+                        System.out.println("Ngggghhh. (You can't afford that.)");
+                    else{
+                        System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons:");
+                        System.out.print("----------------------------------------------------------------------------------------------------------");
+                        System.out.println(generatedBoons.get(0).displayBoon() + generatedBoons.get(1).displayBoon() + generatedBoons.get(2).displayBoon());
+                        System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                    }
                 } else if(msg.equals("exit")) {
                     System.out.println("Ghhhhehh. (Pleasure doing business.)");
                     validInput = true;
                 } else if(msg.equals("sell")) {
+                    boolean validSellInput = false;
                     while(!validSellInput){
                         if(displaySellMessage){
                             System.out.println("Charon will trade the following items for gold: " + "\n");
@@ -126,17 +141,17 @@ public class Charon extends NPC{
                                 //prompt for count and give appropriate gold, also check maxWeight.
                             }
                             else if(sellMsg.equals("back") || sellMsg.equals("buy")){
-                                break;
+                                validSellInput = true;
                             }
                             else{
-                                System.out.println("Gguhhhhhhh. (Invalid Selection!)");
+                                System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                             }
                         } catch (Exception ex){
                             displaySellMessage = false;
                         }
                     }
                 } else {
-                    System.out.println("Gguhhhhhhh. (Invalid Selection!)");
+                    System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                     displayFirstMessage = false;
                 }
             } catch (Exception ex){

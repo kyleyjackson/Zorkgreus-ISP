@@ -1,7 +1,5 @@
 package Zorkgreus.NPC;
 
-import java.util.Scanner;
-
 import java.util.ArrayList;
 import Zorkgreus.Boon;
 import Zorkgreus.Player;
@@ -15,7 +13,24 @@ public class NPC {
     public void displayChoices(Player player){
     }
 
-    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons){
+    /**
+     * displayChoices function for Charon.
+     * @param player the player of the game
+     * @param generatedBoons randomly generated boons for the player to select
+     * @param playerBoons the boons in the player's inventory
+     * @return potentially altered boons in the player's inventory
+     */
+    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons){ 
+        return playerBoons;
+    }
+
+    /**
+     * displayChoices function for Eurydice.
+     * @param player the player of the game
+     * @param playerBoons the boons in the player's inventory
+     * @return altered boons in the player's inventory
+     */
+    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> playerBoons){
         return playerBoons;
     }
 
