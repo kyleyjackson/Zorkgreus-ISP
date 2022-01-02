@@ -1,4 +1,5 @@
 package Zorkgreus;
+import Zorkgreus.Inventory;
 
 public class Player {
     private int maxHP;
@@ -14,8 +15,9 @@ public class Player {
     private int baseDef; //defense at the start of the game
     private boolean extraLife = true;
     private boolean hyradliteGold = false;
+    private Inventory inventory;
 
-    public Player(int prio, int atk, int def, int gold) {
+    public Player(int prio, int atk, int def) {
         this.maxHP = 50;
         this.HP = 50;
         this.def = 10 + def;
@@ -27,7 +29,12 @@ public class Player {
         basePrio = prio;
         baseAtk = atk;
         baseDef = def;
+        inventory = new Inventory(100);
 
+    }
+
+    public Inventory getInventory(){
+        return inventory;
     }
 
     public int getPlayerHP() {

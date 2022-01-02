@@ -1,6 +1,7 @@
 package Zorkgreus;
 
 import java.util.ArrayList;
+import Zorkgreus.Inventory;
 
 public class Room {
 
@@ -37,7 +38,11 @@ public class Room {
         id = "F6R9";
         exits = new ArrayList<Exit>();
         descriptions = new ArrayList<String>();
-        // inventory = ;
+        inventory = new Inventory(69420);
+    }
+
+    public Inventory getInventory(){
+        return inventory;
     }
 
     public void addExit(Exit exit) throws Exception {

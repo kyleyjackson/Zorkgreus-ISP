@@ -31,7 +31,7 @@ public class Inventory {
   }
 
   /**
-   * Checks to see if the parameter matches any of the item names
+   * checks to see if the parameter matches any of the item names
    * @param item name of the item
    * @return true if matches
    */
@@ -43,6 +43,11 @@ public class Inventory {
     return false;
   }
 
+  /**
+   * attempts to drop an item
+   * @param item name of the item dropped
+   * @return true if you drop the item
+   */
   public boolean dropItem(String item) {
     if (inInvetory(item)) {
       for (int i = 0; i < items.size(); i++) {
@@ -57,4 +62,14 @@ public class Inventory {
     System.out.println("Can't drop something you dont have. ");
     return false;
   }
+
+  /**
+   * displays the name of all items in inventory
+   */
+  public void displayInventory(){
+    for(Item item : items){
+      System.out.println(item.getName());
+    }
+  }
+
 }
