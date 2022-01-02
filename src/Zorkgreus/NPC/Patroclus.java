@@ -54,7 +54,6 @@ public class Patroclus extends NPC {
                             player.setExtraLife(true);
                        }else if(msg.equals("H")||msg.equals("HYDRALITE GOLD")){
                             player.setHydraliteGold(true);
-                            //code rest of feature later
                        }else{
                             player.addPlayerAttack((int)(player.getPlayerAtk()*0.3));
                        }

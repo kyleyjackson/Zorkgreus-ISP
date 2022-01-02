@@ -10,6 +10,10 @@ public class NPC {
     public void displayIntroMessage(){
     }
 
+    /**
+     * displayChoices function for Sisyohus and Patroculus
+     * @param player the player of the game
+     */
     public void displayChoices(Player player){
     }
 
