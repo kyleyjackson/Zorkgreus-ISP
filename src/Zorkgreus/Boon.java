@@ -7,16 +7,25 @@ public class Boon {
     private String boonName;
     private String colour;
     private String flavour;
-    private ArrayList<String> stats;
+    private String stats;
     private int level;
 
-    public Boon() {
+    public Boon(){
         god = "???";
         boonName = "???";
         colour = "???";
         flavour = "???";
-        stats = new ArrayList<String>();
+        stats = "???";
         level = 0;
+    }
+
+    public Boon(String god, String boonName, String colour, String flavour, String stats, int level) {
+        this.god = god;
+        this.boonName = boonName;
+        this.colour = colour;
+        this.flavour = flavour;
+        this.stats = stats;
+        this.level = level;
     }
 
     /* displays the information of the boon to the player */
@@ -58,11 +67,11 @@ public class Boon {
         this.colour = colour;
     }
 
-    public ArrayList<String> getStats() {
+    public String getStats() {
         return stats;
     }
 
-    public void setStats(ArrayList<String> stats) {
+    public void setStats(String stats) {
         this.stats = stats;
     }
 
@@ -82,15 +91,10 @@ public class Boon {
         this.level = level;
     }
 
-    public String boonDescription(int level){
-        String stat = stats.get(level);
-        return stat;
-    }
-
     /**
      * Levels up the selected boon if the player already has that boon.
-     * @param myBoons array of player's boons
-     * @param tempBoons array of generated boons for player to pick
+     * @param myBoons ArrayList of player's boons
+     * @param tempBoons ArrayList of generated boons for player to pick
      * @param selection boon picked by the player
      */
     public void levelUp(ArrayList<Boon> myBoons, ArrayList<Boon> tempBoons, int selection){
@@ -100,6 +104,7 @@ public class Boon {
             || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
               b.setLevel(b.getLevel() + 1);
               System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
+              System.out.println(b.getStats());
             }
           }
           else{
@@ -115,20 +120,36 @@ public class Boon {
 
     /**
      * Levels up a boon from the player's current boons.
-     * @param myBoons array of player's boons
-     * @param num index of the boon being levelled.
+     * @param myBoons ArrayList of player's boons
+     * @param index index of the boon being levelled
      */
-    public void levelUpPom(ArrayList<Boon> myBoons, int num){
+    public void levelUpPom(ArrayList<Boon> myBoons, int index){
         boolean validNum = false;
         while(!validNum){
-            Boon b = myBoons.get(num);
-            if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
-            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
-                b.setLevel(b.getLevel() + 1);
-                System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
-                break;
-            }
+            Boon b = myBoons.get(index);
+            if(!canLevelAtIndex(myBoons, index))
+                return;
+            b.setLevel(b.getLevel() + 1);
+            System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
+            System.out.println(b.getStats());
+            validNum = true;
         }
     }
+
+    /**
+     * Checks if a specific boon can be levelled in player's boons.
+     * @param myBoons ArrayList of player's boons
+     * @param index index of the boon being levelled
+     * @return T/F
+     */
+    public boolean canLevelAtIndex(ArrayList<Boon> myBoons, int index){
+        Boon b = myBoons.get(index);
+        if((b.getLevel() < 3 && (b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
+        || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")) || b.getLevel() >= 3)
+            return false;
+        else
+            return true;
+    }
+
 }
 

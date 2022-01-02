@@ -97,19 +97,21 @@ public class Charon extends NPC{
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         int random = (int)(Math.random() * playerBoons.size());
-                        for(int i=0; i < playerBoons.size(); i++){
-                            if(i == random){
-                                Boon b = playerBoons.get(i);
-                                b.levelUpPom(playerBoons, i);
+                        Boon b = playerBoons.get(random);
+                        if(!b.canLevelAtIndex(playerBoons, random)){
+                            while(!b.canLevelAtIndex(playerBoons, random)){
+                                random = (int)(Math.random() * playerBoons.size());
                             }
+                            b = playerBoons.get(random);
                         }
+                        b.levelUpPom(playerBoons, random);
                         System.out.println("Grrrrhhhah. (Anything else?)");
                     }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
                     if(player.getPlayerGold() < 150)
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
-                        System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons:");
+                        System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
                         System.out.print("----------------------------------------------------------------------------------------------------------");
                         System.out.println(generatedBoons.get(0).displayBoon() + generatedBoons.get(1).displayBoon() + generatedBoons.get(2).displayBoon());
                         System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
