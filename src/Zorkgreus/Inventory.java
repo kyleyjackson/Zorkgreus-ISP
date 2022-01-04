@@ -32,6 +32,7 @@ public class Inventory {
 
   /**
    * checks to see if the parameter matches any of the item names
+   *
    * @param item name of the item
    * @return true if matches
    */
@@ -45,6 +46,7 @@ public class Inventory {
 
   /**
    * attempts to drop an item
+   *
    * @param item name of the item dropped
    * @return true if you drop the item
    */
@@ -66,10 +68,13 @@ public class Inventory {
   /**
    * displays the name of all items in inventory
    */
-  public void displayInventory(){
-    for(Item item : items){
+  public void displayInventory() {
+    for (Item item : items) {
       System.out.println(item.getName());
     }
   }
 
+  public void setInventory(ArrayList<Item> items) {
+    this.items = items;
+  }
 }
