@@ -14,12 +14,12 @@ public class Weapons {
     private String speAtkName;
     private String desc;
 
-    private int basePrio; //priority at the start of the game
-    private int baseAtk; //attack at the start of the game
-    private int baseDef; //defense at the start of the game
-    
+    private int basePrio; // priority at the start of the game
+    private int baseAtk; // attack at the start of the game
+    private int baseDef; // defense at the start of the game
 
-    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName, String desc) {
+    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName,
+            String desc) {
         this.weaponName = weaponName;
         this.prio = prio;
         this.atk = atk;
@@ -98,22 +98,22 @@ public class Weapons {
     public int specialAttack(int id) {
         int dmg = 0;
 
-        if(id == 1) {
+        if (id == 1) {
             dmg = 25;
 
             changeDef(10);
             changeAtk(15);
             changePrio(6);
-        }else if (id == 2) {
-            dmg = getSpeAtkDmg();
+        } else if (id == 2) {
+            dmg = 20;
 
             changePrio(8);
-        }else if (id == 3) {
-            dmg = getSpeAtkDmg();
+        } else if (id == 3) {
+            dmg = 8;
 
             changePrio(30);
-        }else {
-            dmg = getSpeAtkDmg();
+        } else {
+            dmg = 20;
 
             changeDef(5);
             changeAtk(20);
