@@ -823,11 +823,6 @@ public class Game {
       System.out.println("There is no door!");
     else {
       currentRoom = nextRoom;
-      for (Item i : items) {
-        if (i.getStartingRoom().equals(currentRoom.getRoomName())) {
-          currentRoom.addItem(i);
-        }
-      }
       System.out.println(currentRoom.roomDescription());
     }
   }

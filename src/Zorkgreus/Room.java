@@ -125,9 +125,6 @@ public class Room {
 
     // creates the rooms max weight and makes a inventory for the items to be put
     // inside the specific room
-    public boolean addItem(Item item) {
-        return inventory.addItem(item);
-    }
 
     public void setInventory(ArrayList<Item> items) {
 
