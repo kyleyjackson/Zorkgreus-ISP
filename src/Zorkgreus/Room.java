@@ -41,7 +41,7 @@ public class Room {
         inventory = new Inventory(69420);
     }
 
-    public Inventory getInventory(){
+    public Inventory getInventory() {
         return inventory;
     }
 
@@ -125,11 +125,11 @@ public class Room {
 
     // creates the rooms max weight and makes a inventory for the items to be put
     // inside the specific room
-    public void setRoomWeight() {
-
+    public boolean addItem(Item item) {
+        return inventory.addItem(item);
     }
 
-    public void setInventory() {
+    public void setInventory(ArrayList<Item> items) {
 
     }
 }
