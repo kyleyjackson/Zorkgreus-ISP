@@ -42,12 +42,12 @@ public class Game {
   private boolean generatedBoons; // determine if boons have been generated.
   private boolean boonSelected; // checks if the player has selected a boon.
   private boolean weaponSelected; // checks if a weapon has been selected.
-  private boolean canProceed; // determines if player can move on to the next room
-  private boolean getCurrentRoom;
+  private boolean canProceed; // determines if player can move on to the next room.
+  private boolean getCurrentRoom; //used for setting the healing from hydralite gold.
 
   /*------------------------------------global strings------------------------------------*/
-  private String prevCommand; // stores the previous command inputted by player
-  private String prevRoom;
+  private String prevCommand; // stores the previous command inputted by player.
+  private String prevRoom; //stores the previous room.
 
   /*------------------------------------coloured font------------------------------------*/
   public static final String RED = "\033[1;91m";
@@ -238,6 +238,12 @@ public class Game {
     while (!finished) {
       Command command;
       try {
+        for (int i = 0; i < monsters.size(); i++) {
+          if (monsters.get(i).getLocation().equals(currentRoom.getRoomId())) {
+            currentMonster = monsters.get(i);
+            break;
+          }
+        }
         setCurrentNPC();
         if (fred.getHydraliteGold()) {
           if (getCurrentRoom) {
@@ -251,23 +257,17 @@ public class Game {
             prevRoom = currentRoom.getRoomName();
           }
         }
-        for (int i = 0; i < monsters.size(); i++) {
-          if (monsters.get(i).getLocation().equals(currentRoom.getRoomId())) {
-            currentMonster = monsters.get(i);
-            break;
-          }
-        }
+
         if (!generatedBoons && onBoonScreen()) {
           temp = generateBoons(false);
           generatedBoons = true;
         }
         if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("MiniBoss Room")
-            || currentRoom.getRoomName().equals("Boss Room"))) {
+        || currentRoom.getRoomName().equals("Boss Room")))
           boonSelected = false;
-        }
-        if (boonSelected) {
+        if (boonSelected)
           System.out.println("Please proceed to the next room.");
-        }
+
         command = parser.getCommand();
         finished = processCommand(command);
       } catch (IOException e) {
@@ -325,7 +325,7 @@ public class Game {
     slowText(RESET + "Zorkgreus is a knockoff of Hades :D", 25);
     System.out.println("");
     slowText("Type \"help\" if you need help.", 25);
-    System.out.println(currentRoom.roomDescription());
+    System.out.println("\n" + currentRoom.roomDescription());
   }
 
   public static void slowText(String message, int textRate) {
@@ -393,6 +393,8 @@ public class Game {
       attemptToTake(command);
     } else if (commandWord.equals("drop")) {
 
+    } else if(commandWord.equals("gold")){
+      System.out.println("You have " + fred.getPlayerGold() + " gold!");
     } else if (commandWord.equals("jump")) {
       int msg = (int) (Math.random() * 3);
       if (msg == 0) {
@@ -563,8 +565,7 @@ public class Game {
           System.out.println("Type \"confirm\" to confirm your selection.");
         }
       }
-    } else if (prevCommand != null) { // commands for the word entered the line before (i.e. instead of bow confirm,
-                                      // it'd be bow *break* confirm)
+    } else if (prevCommand != null) { // commands for the word entered the line before (i.e. instead of bow confirm, it'd be bow *break* confirm)
       if (prevCommand.equals("bow")) {
         if (commandWord.equals("help")) {
           System.out.println(weapons.get(0).getDescription() + "\n");
@@ -762,15 +763,18 @@ public class Game {
   public void setCurrentNPC() {
     if (currentRoom.getRoomName().equals("F1 NPC Room"))
       currentNPC = new Sisyphus(fred);
-    if (currentRoom.getRoomName().equals("F2 NPC Room"))
+    else if (currentRoom.getRoomName().equals("F2 NPC Room")){
       currentNPC = new Eurydice();
-    if (currentRoom.getRoomName().equals("F3 NPC Room"))
+      myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Eurydice
+    }
+    else if (currentRoom.getRoomName().equals("F3 NPC Room"))
       currentNPC = new Patroclus(fred);
-    if (currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room")
-        || currentRoom.getRoomName().equals("F3 Shop Room"))
+    else if (currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room")
+    || currentRoom.getRoomName().equals("F3 Shop Room")){
       temp = generateBoons(true); // special case to generate boon for selection in the shop.
-    currentNPC = new Charon(); // passes in player and 3 randomly generated boons.
-    myBoons = currentNPC.displayChoices(fred, temp, myBoons);
+      currentNPC = new Charon();
+      myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Charon
+    }
   }
 
   public void attemptToTake(Command command) {
@@ -803,18 +807,30 @@ public class Game {
       return;
     }
 
-    if (command.hasSecondWord()) {
-      twoWords = true;
+    if(currentRoom.getRoomName().equals("Spawn Room")){
+      if(weaponSelected)
+        canProceed = true;
+    } 
+    else if(currentRoom.getRoomName().equals("Test Dummy Room"))
+      canProceed = true;
+    else if(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")){
+      if(boonSelected)
+        canProceed = true; 
+    } else {
+      if(!currentMonster.isAlive())
+        canProceed = true;
     }
+
+    if (command.hasSecondWord())
+      twoWords = true;
 
     String direction;
 
     // gets intended direction based on whether or not "go" was entered prior
-    if (twoWords) {
+    if (twoWords)
       direction = command.getSecondWord();
-    } else {
+    else 
       direction = command.getCommandWord();
-    }
 
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
@@ -822,8 +838,13 @@ public class Game {
     if (nextRoom == null)
       System.out.println("There is no door!");
     else {
-      currentRoom = nextRoom;
-      System.out.println(currentRoom.roomDescription());
+      if(canProceed){
+        currentRoom = nextRoom;
+        System.out.println(currentRoom.roomDescription());
+        canProceed = false;
+      }
+      else
+        System.out.println(("The doors won't open just yet..."));
     }
   }
 

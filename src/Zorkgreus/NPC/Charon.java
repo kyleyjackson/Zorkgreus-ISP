@@ -48,7 +48,7 @@ public class Charon extends NPC{
         else if(random2 == 1)
             System.out.println("Bowl of Noodles - Heal for 40% of your max HP. | 50 gold");
         else
-            System.out.println("Pom of Power - One of your boons will gain +1 level. | 100 gold");
+            System.out.println("Pom of Power - One of your boons will randomly gain +1 level. | 100 gold");
         
         System.out.println("----------------------------------------------------------------------------------------------------------");
         System.out.println("It seems Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
@@ -57,6 +57,7 @@ public class Charon extends NPC{
         while (!validInput) {
 
             if(displayFirstMessage) {
+                System.out.println("\n" + "To exit the shop interface, type \"exit\"." + "\n");
                 System.out.print("Which one would you like to select: ");
                 if(random1 == 0)
                     System.out.print("[C]entaur Heart, ");
@@ -68,13 +69,11 @@ public class Charon extends NPC{
                 System.out.print("[R]andom Blessing, or ");
 
                 if(random2 == 0)
-                    System.out.print("[C]entaur Heart, ");
+                    System.out.println("[C]entaur Heart");
                 else if(random2 == 1)
-                    System.out.print("[B]owl of Noodles, ");
+                    System.out.println("[B]owl of Noodles");
                 else 
-                    System.out.print("[P]om of Power, ");
-
-                System.out.println("\n" + "To exit the shop interface, type \"exit\".");
+                    System.out.println("[P]om of Power");
             }
             try {
                 String msg = in.nextLine().toLowerCase();
@@ -114,6 +113,38 @@ public class Charon extends NPC{
                         System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
                         System.out.print("----------------------------------------------------------------------------------------------------------");
                         System.out.println(generatedBoons.get(0).displayBoon() + generatedBoons.get(1).displayBoon() + generatedBoons.get(2).displayBoon());
+                        boolean validBoonInput = false;
+                        while(!validBoonInput){
+                            try {
+                                String boonMsg = in.nextLine().toLowerCase();
+                                if(boonMsg.equals("b1")){
+                                    playerBoons.add(generatedBoons.get(0)); 
+                                    System.out.println("You selected Boon: " + generatedBoons.get(0).getBoonName());
+                                    for (Boon b : playerBoons) {
+                                        b.levelUp(playerBoons, generatedBoons, 0);
+                                    }
+                                }
+                                else if(boonMsg.equals("b2")){
+                                    playerBoons.add(generatedBoons.get(1)); 
+                                    System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName());
+                                    for (Boon b : playerBoons) {
+                                        b.levelUp(playerBoons, generatedBoons, 1);
+                                    }
+                                }
+                                else if(boonMsg.equals("b3")){
+                                    playerBoons.add(generatedBoons.get(1)); 
+                                    System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName());
+                                    for (Boon b : playerBoons) {
+                                        b.levelUp(playerBoons, generatedBoons, 1);
+                                    }
+                                }
+                                else
+                                    System.out.println("Gguhhhhhhh. (Invalid Selection.)");
+                                
+                            } catch (Exception ex){
+                                System.out.println("Gguhhhhhhh. (Invalid Selection.)");
+                            }
+                        }
                         System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                     }
                 } else if(msg.equals("exit")) {
