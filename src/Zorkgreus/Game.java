@@ -894,6 +894,10 @@ public class Game {
         monsterHP -= dmg;
         System.out.println("You hit the " + monster.getName() + " for " + dmg + " damage!");
       }
+
+      int dmg = currentMonster.monsterNormalAttack();
+      playerHP -= dmg;
+      System.out.println("The " + currentMonster.getName() + " hit you for " + dmg + " damage!");
     }
   }
 
