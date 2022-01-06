@@ -13,6 +13,7 @@ public class Player {
     private int basePrio; //priority at the start of the game
     private int baseAtk; //attack at the start of the game
     private int baseDef; //defense at the start of the game
+
     private boolean extraLife = true;
     private boolean hyradliteGold = false;
     private Inventory inventory;
@@ -78,62 +79,26 @@ public class Player {
     }
 
     public void setPlayerHP(int n) {
-        if(n < getPlayerHP()){
-            System.out.println("Your HP decreased to " + n + "!");
-        } 
-        else{
-            System.out.println("Your HP increased to " + n + "!");
-        }
         HP = n;
     }
 
     public void setPlayerMaxHP(int n) {
-        if(n < getPlayerMaxHP()){
-            System.out.println("Your maximum HP decreased to " + n + "!");
-        }
-        else{
-            System.out.println("Your maximum HP increased to " + n + "!");
-        }
         maxHP = n;
     }
 
     public void setPlayerDef(int n) {
-        if(n < getPlayerDef()){
-            System.out.println("Your defense decreased to " + n + "!");
-        }
-        else{
-            System.out.println("Your defense increased to " + n + "!");
-        }
         def = n;  
     }
 
     public void setPlayerAtk(int n) {
-        if(n < getPlayerAtk()){
-            System.out.println("Your attack decreased to " + n + "!");
-        }
-        else{
-            System.out.println("Your attack increased to " + n + "!");
-        }
         atk = n;
     }
 
     public void setPlayerDodge(int n) {
-        if(n < getPlayerDodgeChange()){
-            System.out.println("Your dodge chance decreased to " + n + "!");
-        }
-        else{
-            System.out.println("Your dodge chance increased to " + n + "!");
-        }
         dodge = n; 
     }
 
     public void setPlayerPrio(int n) {
-        if(n < getPlayerPrio()){
-            System.out.println("Your priority has decreased to " + n + "!");
-        }
-        else{
-            System.out.println("Your priority has increased to " + n + "!");
-        }
         prio = n;
         
     }
@@ -144,33 +109,63 @@ public class Player {
     }
 
     public void addPlayerHP(int n){
-        if((HP + n) > maxHP) {
-            HP = maxHP;
-            System.out.println("Your HP was maxed out!");
-        }else {
-            HP += n;
-            System.out.println("You gained " + n + " HP!");
+        if(n < 0){
+            HP -= n;
+            System.out.println("You lost" + n + " HP!");
+        }
+        else{
+            if((HP + n) > maxHP) {
+                HP = maxHP;
+                System.out.println("Your HP was maxed out!");
+            } else {
+                HP += n;
+                System.out.println("You gained " + n + " HP!");
+            }
         }
     }
 
     public void addPlayerMaxHP(int n){
-        maxHP += n;
-        System.out.println("Your max HP was increased by " + n + "!");
+        if(n < 0){
+            maxHP -= n;
+            System.out.println("You lost " + n + " max HP!");
+        }
+        else{
+            maxHP += n;
+            System.out.println("You gained " + n + " max HP!");
+        }
     }
 
     public void addPlayerPriority(int n){
-        prio += n;
-        System.out.println("Your priority was increased by " + n + "!");
+        if(n < 0){
+            prio -= n;
+            System.out.println("You lost " + n + " priority!");
+        }
+        else{
+            prio += n;
+            System.out.println("Your gained " + n + " priority!");
+        }
     }
 
     public void addPlayerAttack(int n){
-        atk += n;
-        System.out.println("Your attack was increased by " + n + "!");
+        if(n < 0){
+            atk -= n;
+            System.out.println("You lost " + n + " attack!");
+        }
+        else{
+            atk += n;
+            System.out.println("Your gained " + n + " attack!");
+        }
     }
 
     public void addPlayerDefence(int n){
-        def += n;
-        System.out.println("Your defence was increased by " + n + "!");
+        if(n < 0){
+            def -= n;
+            System.out.println("You lost " + n + " defence!");
+        }
+        else{
+            def += n;
+            System.out.println("You gained " + n + " defence!");
+        }
     }
     
     public boolean getExtraLife() {
