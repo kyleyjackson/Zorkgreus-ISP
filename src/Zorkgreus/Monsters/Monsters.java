@@ -79,6 +79,66 @@ public class Monsters {
     public void setMaxHP(int value){
         maxHP = value;
     }
+    
+    public void addPlayerHP(int n){
+        if(n < 0){
+            hp -= n;
+            System.out.println("The monster lost" + n + " HP!");
+        }
+        else{
+            if((hp + n) > maxHP) {
+                hp = maxHP;
+                System.out.println("The monster's HP was maxed out!");
+            } else {
+                hp += n;
+                System.out.println("The monster gained " + n + " HP!");
+            }
+        }
+    }
+
+    public void addPlayerMaxHP(int n){
+        if(n < 0){
+            maxHP -= n;
+            System.out.println("The monster lost " + n + " max HP!");
+        }
+        else{
+            maxHP += n;
+            System.out.println("The monster gained " + n + " max HP!");
+        }
+    }
+
+    public void addPlayerPriority(int n){
+        if(n < 0){
+            priority -= n;
+            System.out.println("The monster lost " + n + " priority!");
+        }
+        else{
+            priority += n;
+            System.out.println("The monster gained " + n + " priority!");
+        }
+    }
+
+    public void addPlayerAttack(int n){
+        if(n < 0){
+            atk -= n;
+            System.out.println("The monster lost " + n + " attack!");
+        }
+        else{
+            atk += n;
+            System.out.println("The monster gained " + n + " attack!");
+        }
+    }
+
+    public void addPlayerDefence(int n){
+        if(n < 0){
+            def -= n;
+            System.out.println("The monster lost " + n + " defence!");
+        }
+        else{
+            def += n;
+            System.out.println("The monster gained " + n + " defence!");
+        }
+    }
 
     public boolean isAlive() {
         return hp >= 0;
