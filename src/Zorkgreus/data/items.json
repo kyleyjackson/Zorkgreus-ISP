@@ -15,8 +15,141 @@
             "startingRoom" : ""
         },
         {
+            "name": "Centaur Heart",
+            "description": "A Centaur Heart, torn right out of a Centaur brimming with vitality.",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Pom Of Power",
+            "description": "A Pom Of Power, picked off of the tree of life. Capable of strengthening the power of the gods.",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
+        },
+        {
             "name": "Hero's Urn's",
             "description": "A Hero's Urn, earned as a reward for defeating them. Something about it still makes you feel uneasy...",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Pot",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Grand Piano",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Family Photo",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Vase",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Chair",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Table",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Plate",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Fork",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Knife",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Spoon",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Stool",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Metal Rod",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Chain",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Pile of Dust",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Anvil",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Stone Statue of Hades",
+            "description": "",
+            "weight": 10,
+            "gold": 15,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Rotten Corpse",
+            "description": "",
             "weight": 10,
             "gold": 15,
             "startingRoom" : ""
