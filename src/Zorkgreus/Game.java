@@ -46,7 +46,7 @@ public class Game {
   private boolean getCurrentRoom; //used for setting the healing from hydralite gold.
 
   /*------------------------------------global strings------------------------------------*/
-  private String prevCommand; // stores the previous command inputted by player.
+  private String prevCommand = ""; // stores the previous command inputted by player.
   private String prevRoom; //stores the previous room.
 
   /*------------------------------------coloured font------------------------------------*/
@@ -164,8 +164,7 @@ public class Game {
       int hp = Math.toIntExact((Long) ((JSONObject) monsterObj).get("health"));
       int dodge = Math.toIntExact((Long) ((JSONObject) monsterObj).get("dodge"));
       String desc = (String) ((JSONObject) monsterObj).get("description");
-      String location = (String) ((JSONObject) monsterObj).get("location"); // the room this monster is located in,
-                                                                            // matched with room id
+      String location = (String) ((JSONObject) monsterObj).get("location"); // the room this monster is located in, matched with room id
 
       Monsters monster = new Monsters(name, atk, prio, def, hp, hp, dodge, desc, location);
       monsters.add(monster);
@@ -367,7 +366,8 @@ public class Game {
       return false;
     }
     String commandWord = command.getCommandWord();
-    if (commandWord.equals("help")) {
+    if (commandWord.equals("help") && !(prevCommand.equals("bow") || prevCommand.equals("spear") 
+    || prevCommand.equals("sword") || prevCommand.equals("shield"))) {
       printHelp();
     } else if (commandWord.equals("go")) {
       goRoom(command);
@@ -648,7 +648,6 @@ public class Game {
   public void printHelp() {
     System.out.println("\n" + "Get out of hell: a daunting dask. Many have tried, none have succeeded.");
     System.out.println("You need to use all the tools at your disposal in order to escape.");
-    System.out.println("In front of you are four weapons, the sword, bow, spear, and shield.");
     System.out.println("Good luck. May the gods be on your side.");
     System.out.println();
     System.out.println("Your command words are:");
@@ -852,7 +851,7 @@ public class Game {
    * Plays a weapon selection intro for the first time, and allows the player to
    * select a weapon.
    *
-   * @param weapon    weapon that is selected through player commands.
+   * @param weapon weapon that is selected through player commands.
    * @param playIntro boolean to determine if intro has been played.
    * @return weapon in weapons ArrayList, null if weapon does not equal a valid
    *         weapon.
@@ -951,7 +950,12 @@ public class Game {
   }
 
   public void deathsDance() {
-    // check if current weapon prio is equal to monster prio/boss prio
+    int level = myBoons.get(getIndexByBoonName("Death's Dance")).getLevel();
+    if(fred.getPlayerPrio() == currentMonster.getPrio()){
+      if(level == 1)
+        currentMonster.setHp(currentMonster.getHp() - 4);
+        
+    }
   }
 
   /**

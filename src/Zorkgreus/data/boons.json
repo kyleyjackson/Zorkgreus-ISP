@@ -28,7 +28,7 @@
             "god": "Artemis",
             "name": "Hunter's Eye",
             "colour": "A green light glimmers at the appearance of the boons. ",
-            "flavour": "You understand what to look for when searching for prey.",
+            "flavour": "A keen eye is a hunter's best friend.",
             "stats": "Gain 5/6/7 attack priority on all weapons at levels 1/2/3. If your weapon is a bow, gain 5/7/9 attack at levels 1/2/3.",
             "level": 1
         },
@@ -44,7 +44,7 @@
             "god": "Artemis",
             "name": "First Strike",
             "colour": "A green light glimmers at the appearance of the boons. ",
-            "flavour": "You take every advantage you can get.",
+            "flavour": "The first shot is always the deadliest.",
             "stats": "If you strike an enemy first, your attack will deal double damage.",
             "level": 1
         },
@@ -100,7 +100,7 @@
             "god": "Poseidon",
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boons. ",
-            "flavour": "The taking of life is such a waste.",
+            "flavour": "The taking of life is such a waste... except when it's you.",
             "stats": "12.5/25/50% of all damage dealt is restored as hp at levels 1/2/3.",
             "level": 1
         },
