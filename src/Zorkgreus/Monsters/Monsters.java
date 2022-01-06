@@ -48,7 +48,7 @@ public class Monsters {
         return def;
     }
 
-    public int getHp(){
+    public int getHP(){
         return hp;
     }
 
@@ -72,11 +72,11 @@ public class Monsters {
         def = value;
     }
 
-    public void setHp(int value){
+    public void setHP(int value){
         hp = value;
     }
 
-    public void setMaxHp(int value){
+    public void setMaxHP(int value){
         maxHP = value;
     }
 

@@ -17,19 +17,19 @@ public class Boss {
     private int hp;
     private int dodge;
     private int maxHP;
-    private String bossName;
+    private String name;
     //attributes for the special attack methods
     private boolean makeArray = true;
     private ArrayList<Integer> decrements = new ArrayList<>();
 
-    public Boss(int atk, int priority, int def, int hp, int maxHP, int dodge, String bossName) {
+    public Boss(int atk, int priority, int def, int hp, int maxHP, int dodge, String name) {
         this.atk = atk;
         this.priority = priority;
         this.def = def;
         this.hp = hp;
         this.dodge = dodge;
         this.maxHP = maxHP;
-        this.bossName = bossName;
+        this.name = name;
     }
 
     /**
@@ -80,7 +80,7 @@ public class Boss {
      * displays info about the boss
      */
     public void bossInfo(){
-        System.out.println(bossName);
+        System.out.println(name);
         System.out.println("-----------------------");
         System.out.println("Attack: " + getAtk());
         System.out.println("Priority: " + getPrio());
@@ -92,6 +92,10 @@ public class Boss {
 
     public boolean isAlive() {
         return hp >= 0;
+    }
+
+    public String getName(){
+        return name;
     }
 
     // accessor and mutator method for attack

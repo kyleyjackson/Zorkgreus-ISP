@@ -146,21 +146,31 @@ public class Player {
     public void addPlayerHP(int n){
         if((HP + n) > maxHP) {
             HP = maxHP;
+            System.out.println("Your HP was maxed out!");
         }else {
             HP += n;
+            System.out.println("You gained " + n + " HP!");
         }
     }
 
     public void addPlayerMaxHP(int n){
         maxHP += n;
+        System.out.println("Your max HP was increased by " + n + "!");
     }
 
     public void addPlayerPriority(int n){
         prio += n;
+        System.out.println("Your priority was increased by " + n + "!");
     }
 
     public void addPlayerAttack(int n){
         atk += n;
+        System.out.println("Your attack was increased by " + n + "!");
+    }
+
+    public void addPlayerDefence(int n){
+        def += n;
+        System.out.println("Your defence was increased by " + n + "!");
     }
     
     public boolean getExtraLife() {

@@ -897,7 +897,7 @@ public class Game {
   /* Making combat here */
   // * Make
   public void fight(Player player, Weapons weapon, Monsters monster, Command command) {
-    int monsterHP = monster.getHp();
+    int monsterHP = monster.getHP();
     int playerHP = player.getPlayerHP();
 
     while (playerHP > 0 || monsterHP > 0) {
@@ -934,27 +934,53 @@ public class Game {
    * }
    */
 
-  // boon functionality below -- add changes based on level NEEDED
+
+  /*------------------------------------Boon Functionality------------------------------------*/
 
   /**
-   * Adds 5, 10, 15 attack to base attack
+   * Gain 5, 10, 15 (5, 5, 5) attack.
    */
   public void brutalStrength() {
     int level = myBoons.get(getIndexByBoonName("Brutal Strength")).getLevel();
     if (level == 1)
-      fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+      fred.addPlayerAttack(5);
     else if (level == 2)
-      fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+      fred.addPlayerAttack(5);
     else
-      fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+      fred.addPlayerAttack(5);
   }
 
+  /**
+   * If player prio is equal to monster/boss prio, deal 4, 8, 12 damage.
+   */
   public void deathsDance() {
     int level = myBoons.get(getIndexByBoonName("Death's Dance")).getLevel();
-    if(fred.getPlayerPrio() == currentMonster.getPrio()){
-      if(level == 1)
-        currentMonster.setHp(currentMonster.getHp() - 4);
-        
+    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+      if(fred.getPlayerPrio() == currentBoss.getPrio()){
+        if(level == 1){
+          currentBoss.setHP(currentBoss.getHP() - 4);
+          System.out.println("The " + currentBoss.getName() + " lost 4 HP.");
+        } else if(level == 2){
+          currentBoss.setHP(currentBoss.getHP() - 8);
+          System.out.println("The " + currentBoss.getName() + " lost 8 HP.");
+        } else {
+          currentBoss.setHP(currentBoss.getHP() - 12);
+          System.out.println("The " + currentBoss.getName() + " lost 12 HP.");
+        }
+      }
+    } else {
+      if(fred.getPlayerPrio() == currentMonster.getPrio()){
+        if(level == 1){
+          currentMonster.setHP(currentMonster.getHP() - 4);
+          System.out.println("The " + currentMonster.getName() + " lost 4 HP.");
+        } else if(level == 2){
+          currentMonster.setHP(currentMonster.getHP() - 8);
+          System.out.println("The " + currentMonster.getName() + " lost 8 HP.");
+        } else {
+          currentMonster.setHP(currentMonster.getHP() - 12);
+          System.out.println("The " + currentMonster.getName() + " lost 12 HP.");
+        }      
+      }
     }
   }
 
@@ -976,14 +1002,14 @@ public class Game {
       }
     } else {
       if (level == 1) {
-        if (currentMonster.getHp() < currentMonster.getHp() * 0.05)
-          currentMonster.setHp(0);
+        if (currentMonster.getHP() < currentMonster.getHP() * 0.05)
+          currentMonster.setHP(0);
       } else if (level == 2) {
-        if (currentMonster.getHp() < currentMonster.getHp() * 0.1)
-          currentMonster.setHp(0);
+        if (currentMonster.getHP() < currentMonster.getHP() * 0.1)
+          currentMonster.setHP(0);
       } else {
-        if (currentMonster.getHp() < currentMonster.getHp() * 0.15)
-          currentMonster.setHp(0);
+        if (currentMonster.getHP() < currentMonster.getHP() * 0.15)
+          currentMonster.setHP(0);
       }
     }
   }
@@ -1091,7 +1117,7 @@ public class Game {
         currentBoss.setHP((int) (currentBoss.getHP() - (currentBoss.getMaxHP() * 0.1))); // subtracts 10% max hp from
                                                                                          // current hp
       } else {
-        currentMonster.setHp(0);
+        currentMonster.setHP(0);
       }
     }
   }
@@ -1150,11 +1176,11 @@ public class Game {
    * Restore 12.5, 25, 50% of all damage dealt as hp.
    */
   public void suckyWucky() {
-    int dmgToHp = 69420; // get damage done from weapon normal/special attack and multiply
-    if ((int) (fred.getPlayerHP() + dmgToHp) >= fred.getPlayerMaxHP()) {
+    int dmgToHP = 69420; // get damage done from weapon normal/special attack and multiply
+    if ((int) (fred.getPlayerHP() + dmgToHP) >= fred.getPlayerMaxHP()) {
       fred.setPlayerHP(fred.getPlayerMaxHP());
     } else {
-      fred.setPlayerHP((int) (fred.getPlayerHP() + dmgToHp));
+      fred.setPlayerHP((int) (fred.getPlayerHP() + dmgToHP));
     }
   }
 
@@ -1267,6 +1293,8 @@ public class Game {
     // call in chaos
   }
 
+  /*------------------------------------End of Boon Functionality------------------------------------*/
+  
   public void sell() {
 
   }
