@@ -890,12 +890,11 @@ public class Game {
         return i;
       }
     }
-    return -1; // this should never be returned; this function will only be called when we know
-               // a boon is in myBoons
+    return -1; // this should never be returned; this function will only be called when we know a boon is in myBoons
   }
 
   /* Making combat here */
-  // * Make
+
   public void fight(Player player, Weapons weapon, Monsters monster, Command command) {
     int monsterHP = monster.getHP();
     int playerHP = player.getPlayerHP();
@@ -958,14 +957,14 @@ public class Game {
     if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if(fred.getPlayerPrio() == currentBoss.getPrio()){
         if(level == 1){
-          currentBoss.setHP(currentBoss.getHP() - 4);
-          System.out.println("The " + currentBoss.getName() + " lost 4 HP.");
+          currentBoss.addBossHP(-4);
+          System.out.println(currentBoss.getName() + " lost 4 HP.");
         } else if(level == 2){
-          currentBoss.setHP(currentBoss.getHP() - 8);
-          System.out.println("The " + currentBoss.getName() + " lost 8 HP.");
+          currentBoss.addBossHP(-8);
+          System.out.println(currentBoss.getName() + " lost 8 HP.");
         } else {
-          currentBoss.setHP(currentBoss.getHP() - 12);
-          System.out.println("The " + currentBoss.getName() + " lost 12 HP.");
+          currentBoss.addBossHP(-12);
+          System.out.println(currentBoss.getName() + " lost 12 HP.");
         }
       }
     } else {

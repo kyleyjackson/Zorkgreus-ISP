@@ -110,7 +110,7 @@ public class Player {
 
     public void addPlayerHP(int n){
         if(n < 0){
-            HP -= n;
+            HP += n;
             System.out.println("You lost" + n + " HP!");
         }
         else{
@@ -125,47 +125,36 @@ public class Player {
     }
 
     public void addPlayerMaxHP(int n){
-        if(n < 0){
-            maxHP -= n;
+        maxHP += n;
+        if(n < 0)
             System.out.println("You lost " + n + " max HP!");
-        }
-        else{
-            maxHP += n;
+        else
             System.out.println("You gained " + n + " max HP!");
-        }
     }
 
     public void addPlayerPriority(int n){
-        if(n < 0){
-            prio -= n;
+        prio += n;
+        if(n < 0)
             System.out.println("You lost " + n + " priority!");
-        }
-        else{
-            prio += n;
+        else
             System.out.println("Your gained " + n + " priority!");
-        }
     }
 
     public void addPlayerAttack(int n){
-        if(n < 0){
-            atk -= n;
+        atk += n;
+        if(n < 0)
             System.out.println("You lost " + n + " attack!");
-        }
-        else{
-            atk += n;
+        else
             System.out.println("Your gained " + n + " attack!");
-        }
     }
 
     public void addPlayerDefence(int n){
-        if(n < 0){
-            def -= n;
+        def += n;
+        if(n < 0)
             System.out.println("You lost " + n + " defence!");
-        }
-        else{
-            def += n;
+        else
             System.out.println("You gained " + n + " defence!");
-        }
+        
     }
     
     public boolean getExtraLife() {

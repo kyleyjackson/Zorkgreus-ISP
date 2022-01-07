@@ -80,64 +80,28 @@ public class Monsters {
         maxHP = value;
     }
     
-    public void addPlayerHP(int n){
-        if(n < 0){
-            hp -= n;
-            System.out.println("The monster lost" + n + " HP!");
-        }
-        else{
-            if((hp + n) > maxHP) {
-                hp = maxHP;
-                System.out.println("The monster's HP was maxed out!");
-            } else {
-                hp += n;
-                System.out.println("The monster gained " + n + " HP!");
-            }
-        }
+    public void addMonsterHP(int n){
+        if((hp + n) > maxHP)
+            hp = maxHP;
+        else
+            hp += n;
     }
 
-    public void addPlayerMaxHP(int n){
-        if(n < 0){
-            maxHP -= n;
-            System.out.println("The monster lost " + n + " max HP!");
-        }
-        else{
-            maxHP += n;
-            System.out.println("The monster gained " + n + " max HP!");
-        }
+    public void addMonsterMaxHP(int n){
+        maxHP += n;
     }
 
-    public void addPlayerPriority(int n){
-        if(n < 0){
-            priority -= n;
-            System.out.println("The monster lost " + n + " priority!");
-        }
-        else{
-            priority += n;
-            System.out.println("The monster gained " + n + " priority!");
-        }
+    public void addMonsterPriority(int n){
+        priority += n;
     }
 
-    public void addPlayerAttack(int n){
-        if(n < 0){
-            atk -= n;
-            System.out.println("The monster lost " + n + " attack!");
-        }
-        else{
-            atk += n;
-            System.out.println("The monster gained " + n + " attack!");
-        }
+    public void addMonsterAttack(int n){
+        atk += n;
+
     }
 
-    public void addPlayerDefence(int n){
-        if(n < 0){
-            def -= n;
-            System.out.println("The monster lost " + n + " defence!");
-        }
-        else{
-            def += n;
-            System.out.println("The monster gained " + n + " defence!");
-        }
+    public void addMonsterDefence(int n){
+        def += n;
     }
 
     public boolean isAlive() {
@@ -154,7 +118,7 @@ public class Monsters {
         int dmg = atk;
 
         if (rand == 1) {
-            dmg -= randDmg;
+            dmg += randDmg;
         } else if (rand == 2) {
             dmg += randDmg;
         } else {
