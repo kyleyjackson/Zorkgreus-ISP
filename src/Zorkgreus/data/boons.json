@@ -50,9 +50,9 @@
         },
         {
             "god": "Aphrodite",
-            "name": "Reciprocation",
+            "name": "Heartbreaker",
             "colour": "A rosy ambience warms the room. ",
-            "flavour": "You're not the only one feeling this love.",
+            "flavour": "It's a single-sided love.",
             "stats": "When attacked, there is a 10/20/30% chance to redirect 50% of damage taken to the attacker at levels 1/2/3.", 
             "level": 1
         },
@@ -66,10 +66,10 @@
         },
         {
             "god": "Aphrodite",
-            "name": "Go Easy on Me",
+            "name": "False Weakness",
             "colour": "A rosy ambience warms the room. ",
-            "flavour": "It doesn't take much convincing for an uneven fight.",
-            "stats": "Enemies deal 10/15/20% less damage to you at levels 1/2/3.", 
+            "flavour": "Almost feels a little too easy.",
+            "stats": "Reduces enemies' attack by 10/15/20% at levels 1/2/3.", 
             "level": 1
         },
         {
@@ -93,7 +93,7 @@
             "name": "Stormbreaker",
             "colour": "A golden glow fills the room. ",
             "flavour": "Pierce the clouds and strike through the heart.",
-            "stats": "Your attacks deal an additional 1/2/3% of the enemy's max hp at levels 1/2/3.", 
+            "stats": "Your attacks deal an additional 2/4/6% of the enemy's max hp at levels 1/2/3.", 
             "level": 1
         },
         {

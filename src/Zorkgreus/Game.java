@@ -37,6 +37,8 @@ public class Game {
 
   /*------------------------------------global ints------------------------------------*/
   private int bossCounter; // tracks # of bosses/minibosses beaten.
+  private int recEnemyHit; //value of damage done by monster/boss most recent hit.
+  private int recPlayerHit; //value of damage done by player's most recent hit.
 
   /*------------------------------------global booleans------------------------------------*/
   private boolean generatedBoons; // determine if boons have been generated.
@@ -906,6 +908,7 @@ public class Game {
 
       if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
         int dmg = weapon.normalAttack();
+        recPlayerHit = dmg;
         monsterHP -= dmg;
         System.out.println("You hit the " + monster.getName() + " for " + dmg + " damage!");
       } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
@@ -915,6 +918,7 @@ public class Game {
       }
 
       int dmg = currentMonster.monsterNormalAttack();
+      recEnemyHit = dmg; //assigns damage done to global recEnemyHit for other functions
       playerHP -= dmg;
       System.out.println("The " + currentMonster.getName() + " hit you for " + dmg + " damage!");
     }
@@ -970,13 +974,13 @@ public class Game {
     } else {
       if(fred.getPlayerPrio() == currentMonster.getPrio()){
         if(level == 1){
-          currentMonster.setHP(currentMonster.getHP() - 4);
+          currentMonster.addMonsterHP(-4);
           System.out.println("The " + currentMonster.getName() + " lost 4 HP.");
         } else if(level == 2){
-          currentMonster.setHP(currentMonster.getHP() - 8);
+          currentMonster.addMonsterHP(-8);
           System.out.println("The " + currentMonster.getName() + " lost 8 HP.");
         } else {
-          currentMonster.setHP(currentMonster.getHP() - 12);
+          currentMonster.addMonsterHP(-12);
           System.out.println("The " + currentMonster.getName() + " lost 12 HP.");
         }      
       }
@@ -992,93 +996,110 @@ public class Game {
       if (level == 1) {
         if (currentBoss.getHP() < currentBoss.getHP() * 0.05)
           currentBoss.setHP(0);
+          System.out.println(currentBoss.getName() + " was executed.");
       } else if (level == 2) {
         if (currentBoss.getHP() < currentBoss.getHP() * 0.1)
           currentBoss.setHP(0);
+          System.out.println(currentBoss.getName() + " was executed.");
       } else {
         if (currentBoss.getHP() < currentBoss.getHP() * 0.15)
           currentBoss.setHP(0);
+          System.out.println(currentBoss.getName() + " was executed.");
       }
     } else {
       if (level == 1) {
         if (currentMonster.getHP() < currentMonster.getHP() * 0.05)
           currentMonster.setHP(0);
+          System.out.println(currentMonster.getName() + " was executed.");
       } else if (level == 2) {
         if (currentMonster.getHP() < currentMonster.getHP() * 0.1)
           currentMonster.setHP(0);
+          System.out.println(currentMonster.getName() + " was executed.");
       } else {
         if (currentMonster.getHP() < currentMonster.getHP() * 0.15)
           currentMonster.setHP(0);
+          System.out.println(currentMonster.getName() + " was executed.");
       }
     }
   }
 
   /**
-   * Gain 5, 6, 7 priority. If the bow is equipped, gain 5, 8, 11 attack.
+   * Gain 5, 6, 7 priority. If the bow is equipped, gain 5, 7, 9 (5, 2, 2) attack.
    */
   public void huntersEye() {
     int level = myBoons.get(getIndexByBoonName("Hunter's Eye")).getLevel();
     if (level == 1)
-      fred.setPlayerPrio(fred.getPlayerPrio() + 5);
+      fred.addPlayerPriority(5);
     else if (level == 2)
-      fred.setPlayerPrio(fred.getPlayerPrio() + 1);
+      fred.addPlayerPriority(1);
     else
-      fred.setPlayerPrio(fred.getPlayerPrio() + 1);
+      fred.addPlayerPriority(1);
 
     if (currentWeapon.getName().equals("Bow")) {
       if (level == 1)
-        fred.setPlayerAtk(fred.getPlayerAtk() + 5);
+        fred.addPlayerAttack(5);
       else if (level == 2)
-        fred.setPlayerAtk(fred.getPlayerAtk() + 3);
+        fred.addPlayerAttack(2);
       else
-        fred.setPlayerAtk(fred.getPlayerAtk() + 3);
+        fred.addPlayerAttack(2);
     }
   }
 
   /**
-   * Determine if player's next attack will critically strike with Precision
-   * Strike.
+   * Determine if player's next attack will deal double dmg with Precision Strike.
    *
    * @return T/F
    */
   public boolean precisionStrike() {
     int level = myBoons.get(getIndexByBoonName("Precision Strike")).getLevel();
-    int random = (int) (Math.random() * 10) + 1;
+    int random = (int) (Math.random() * 100) + 1;
     if (level == 1) {
-      if (random <= 1)
+      if (random <= 10)
         return true;
     } else if (level == 2) {
-      if (random <= 2)
+      if (random <= 15)
         return true;
     } else {
-      if (random <= 3)
+      if (random <= 20)
         return true;
     }
     return false;
   }
 
-  public void firstStrike() {
-
+  /**
+   * Striking an enemy first gives you double damage on the attack.
+   * 
+   * @return T/F
+   */
+  public boolean firstStrike() {
+    if(fred.getPlayerPrio() > currentMonster.getPrio())
+      return true;
+    return false;
   }
 
   /**
-   * Randomly selects a value to see if enemy takes 50% of damage dealt by their
-   * own attack.
-   *
-   * @return damage taken
+   * Randomly selects a value to see if enemy takes 50% of damage dealt by their own attack.
    */
-  public int reciprocation() {
+  public void reciprocation() {
     boolean willCharm = false;
     int random = (int) (Math.random() * 10) + 1;
-    if (random <= 1 * myBoons.get(getIndexByBoonName("Reciprocation")).getLevel())
+    if (random <= 1 * myBoons.get(getIndexByBoonName("Heartbreaker")).getLevel())
       willCharm = true;
-
     if (willCharm) {
-      // return 50% of monster's damaging attack
+      if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+        currentBoss.addBossHP((int)(-recEnemyHit * 0.5));
+        System.out.println(currentBoss.getName() + " took " + (-recEnemyHit * 0.5) + " damage.");
+      }
+      else{
+        currentMonster.addMonsterHP((int)(-recEnemyHit * 0.5));
+        System.out.println("The " + currentMonster.getName() + " took " + (-recEnemyHit * 0.5) + " damage.");
+      }
     }
-    return 0;
   }
 
+  /**
+   * Random chance to stun the target upon casting special.
+   */
   public void charm() {
     int level = myBoons.get(getIndexByBoonName("Charm")).getLevel();
     int random = (int) (Math.random() * 10) + 1;
@@ -1100,10 +1121,25 @@ public class Game {
   }
 
   /**
-   * Enemies deal 10, 15, 20% less damage to you.
+   * Reduces enemies' attack by 10, 15, 20%.
    */
   public void goEasyOnMe() {
-
+    int level = myBoons.get(getIndexByBoonName("False Weakness")).getLevel();
+    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+      if(level == 1)
+        currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.9));
+      else if(level == 2)
+        currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.85));
+      else 
+        currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.8));
+    } else {
+      if(level == 1)
+        currentMonster.setAtk((int)(currentMonster.getAtk() * 0.9));
+      else if(level == 2)
+        currentMonster.setAtk((int)(currentMonster.getAtk() * 0.85));
+      else 
+        currentMonster.setAtk((int)(currentMonster.getAtk() * 0.8));
+    }
   }
 
   /**
@@ -1113,8 +1149,8 @@ public class Game {
   public void smite() {
     if (!(fred.isAlive())) {
       if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
-        currentBoss.setHP((int) (currentBoss.getHP() - (currentBoss.getMaxHP() * 0.1))); // subtracts 10% max hp from
-                                                                                         // current hp
+        currentBoss.setHP((int) (currentBoss.getHP() - (currentBoss.getMaxHP() * 0.1))); // subtracts 10% max hp from current hp
+        System.out.println();
       } else {
         currentMonster.setHP(0);
       }
@@ -1132,7 +1168,7 @@ public class Game {
       bossRoom = true;
     if (bossRoom) {
       if (level == 1)
-        currentBoss.setBossDef((int) (currentBoss.getDef() - (currentBoss.getDef() * 0.3)));
+        currentBoss.addBossDef((int) (currentBoss.getDef() - (currentBoss.getDef() * 0.3)));
       else if (level == 2)
         currentBoss.setBossDef((int) (currentBoss.getDef() - (currentBoss.getDef() * 0.4)));
       else
@@ -1148,7 +1184,7 @@ public class Game {
   }
 
   /**
-   * Deal additional 1, 2, 3% max hp dmg to enemies.
+   * Deal additional 2, 4, 6% max hp dmg to enemies.
    *
    * @return bonus damage dealt
    */
@@ -1156,18 +1192,18 @@ public class Game {
     int level = myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel();
     if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if (level == 1)
-        return (int) (currentBoss.getMaxHP() * 0.01);
-      else if (level == 2)
         return (int) (currentBoss.getMaxHP() * 0.02);
+      else if (level == 2)
+        return (int) (currentBoss.getMaxHP() * 0.04);
       else
-        return (int) (currentBoss.getMaxHP() * 0.03);
+        return (int) (currentBoss.getMaxHP() * 0.06);
     } else {
       if (level == 1)
-        return (int) (currentMonster.getMaxHP() * 0.01);
-      else if (level == 2)
         return (int) (currentMonster.getMaxHP() * 0.02);
+      else if (level == 2)
+        return (int) (currentMonster.getMaxHP() * 0.04);
       else
-        return (int) (currentMonster.getMaxHP() * 0.03);
+        return (int) (currentMonster.getMaxHP() * 0.06);
     }
   }
 
