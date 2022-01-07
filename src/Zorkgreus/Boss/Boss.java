@@ -103,6 +103,10 @@ public class Boss {
         return atk;
     }
 
+    public void setBossAtk(int newAtk) {
+        atk = newAtk;
+    }
+
     public void addBossAtk(int addAtk) {
         atk += addAtk;
     }
@@ -129,7 +133,7 @@ public class Boss {
         def = setDef;
     }
 
-    public void addBossDefence(int addDef) {
+    public void addBossDef(int addDef) {
         def += addDef;
     }
 
