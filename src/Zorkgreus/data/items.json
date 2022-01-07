@@ -153,6 +153,13 @@
             "weight": 10,
             "gold": 15,
             "startingRoom" : ""
+        },
+        {
+            "name": "Leather Backpack",
+            "description": "",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
         }
     ]
 }
