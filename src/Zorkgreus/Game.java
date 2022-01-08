@@ -46,6 +46,7 @@ public class Game {
   private boolean weaponSelected; // checks if a weapon has been selected.
   private boolean canProceed; // determines if player can move on to the next room.
   private boolean getCurrentRoom; //used for setting the healing from hydralite gold.
+  private boolean setNPC = false; //determines if an NPC has been generated.
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -235,6 +236,9 @@ public class Game {
 
     weaponSelection(null, true);
 
+    currentNPC = new Charon();
+    myBoons = currentNPC.displayChoices(fred, temp, myBoons);
+
     boolean finished = false;
     while (!finished) {
       Command command;
@@ -246,6 +250,8 @@ public class Game {
           }
         }
         setCurrentNPC();
+        if(currentRoom.getRoomName().indexOf("NPC") == -1 || currentRoom.getRoomName().indexOf("Shop") == -1)
+          setNPC = false;
         if (fred.getHydraliteGold()) {
           if (getCurrentRoom) {
             prevRoom = currentRoom.getRoomName();
@@ -763,18 +769,30 @@ public class Game {
 
   public void setCurrentNPC() {
     if (currentRoom.getRoomName().equals("F1 NPC Room"))
-      currentNPC = new Sisyphus(fred);
+      if(!setNPC){
+        currentNPC = new Sisyphus(fred);
+        setNPC = true;
+      }
     else if (currentRoom.getRoomName().equals("F2 NPC Room")){
-      currentNPC = new Eurydice();
-      myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Eurydice
+      if(!setNPC){
+        currentNPC = new Eurydice();
+        myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Eurydice
+        setNPC = true;
+      }
     }
     else if (currentRoom.getRoomName().equals("F3 NPC Room"))
-      currentNPC = new Patroclus(fred);
+      if(!setNPC){
+        currentNPC = new Patroclus(fred);
+        setNPC = true;
+      }
     else if (currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room")
     || currentRoom.getRoomName().equals("F3 Shop Room")){
-      temp = generateBoons(true); // special case to generate boon for selection in the shop.
-      currentNPC = new Charon();
-      myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Charon
+      if(!setNPC){
+        temp = generateBoons(true); // special case to generate boon for selection in the shop.
+        currentNPC = new Charon();
+        myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Charon
+        setNPC = true;
+      }
     }
   }
 
@@ -842,7 +860,7 @@ public class Game {
       if(canProceed){
         currentRoom = nextRoom;
         System.out.println(currentRoom.roomDescription());
-        canProceed = false;
+        //canProceed = false;
       }
       else
         System.out.println(("The doors won't open just yet..."));
