@@ -1333,4 +1333,46 @@ public class Game {
   public void sell() {
 
   }
+
+  public void determineMonsterDrop(){
+    if(!currentMonster.isAlive()){
+    String floor = currentRoom.getRoomName().substring(0, 2);
+    int randomNum = (int)(Math.random()*100+1);
+    int ans = (int)(Math.random()*100+1);
+    int count = 0;
+    if(currentRoom.getRoomName().indexOf("Attack")>=0){
+      if(floor.equals("F1")){
+        currentRoom.getInventory().addItem(items.get(1));
+        if(randomNum<=ans+15&&randomNum>=ans-15){
+          currentRoom.getInventory().addItem(items.get(1));
+          count++;
+        }if(randomNum<=ans+5&&randomNum>=ans-5){
+          currentRoom.getInventory().addItem(items.get(1));
+          count++;
+        }
+          System.out.println("The skeleton has dropped " + count + " bones. ");
+      }else if(floor.equals("F2")){
+        currentRoom.getInventory().addItem(items.get(0));
+        if(randomNum<=ans+15&&randomNum>=ans-15){
+          currentRoom.getInventory().addItem(items.get(0));
+          count++;
+        }if(randomNum<=ans+5&&randomNum>=ans-5){
+          currentRoom.getInventory().addItem(items.get(0));
+          count++;
+        }
+        System.out.println("The spider has dropped " + count + " legs. ");
+      }else{
+        currentRoom.getInventory().addItem(items.get(4));
+        if(randomNum<=ans+10&&randomNum>=ans-10){
+          currentRoom.getInventory().addItem(items.get(4));
+          count++;
+        }if(randomNum<=ans+5&&randomNum>=ans-5){
+          currentRoom.getInventory().addItem(items.get(4));
+          count++;
+        }
+        System.out.println("The fallen hero has dropped " + count + " urns. ");
+      }
+    }
+  }
+  }
 }
