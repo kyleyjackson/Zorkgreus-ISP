@@ -1,9 +1,5 @@
 package Zorkgreus;
 
-import java.util.ArrayList;
-
-import Zorkgreus.Inventory;
-
 public class Player {
     private int maxHP;
     private int HP;
@@ -87,15 +83,6 @@ public class Player {
         return HP >= 0;
     }
 
-    public void backpackIncrease(Inventory i) {
-        i = inventory.getInventory();
-        boolean hasBackpack = i.inInvetory("Leather Backpack");
-        if (hasBackpack) {
-            maxWeight += 100;
-            this.inventory = new Inventory(maxWeight);
-        }
-    }
-
     public void setPlayerHP(int n) {
         HP = n;
     }
@@ -119,10 +106,6 @@ public class Player {
     public void setPlayerPrio(int n) {
         prio = n;
 
-    }
-
-    public void setPlayerInventory(int n, ArrayList<Items> items) {
-        inventory = n;
     }
 
     public void setmaxWeight(int n) {

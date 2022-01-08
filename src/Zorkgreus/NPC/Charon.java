@@ -33,7 +33,7 @@ public class Charon extends NPC{
             }
         }
 
-        System.out.println("In front of you, there are 3 items: " + "\n");
+        System.out.println("In front of you, there are 6 items: " + "\n");
         if(random1 == 0)
             System.out.println("Centaur Heart - Gain +25 max HP (without healing). | 75 Gold");
         else if(random1 == 1)
@@ -50,14 +50,12 @@ public class Charon extends NPC{
         else
             System.out.println("Pom of Power - One of your boons will randomly gain +1 level. | 100 gold");
         
-        System.out.println("----------------------------------------------------------------------------------------------------------");
-        System.out.println("It seems Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
-        System.out.println("----------------------------------------------------------------------------------------------------------");
+        System.out.println("\n" + "It seems Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
 
         while (!validInput) {
-
             if(displayFirstMessage) {
                 System.out.println("\n" + "To exit the shop interface, type \"exit\"." + "\n");
+                System.out.println("To go to the 2nd page of items, type [2]." + "\n");
                 System.out.print("Which one would you like to select: ");
                 if(random1 == 0)
                     System.out.print("[C]entaur Heart, ");
