@@ -20,7 +20,7 @@ public class KingSkeleton extends Boss {
    public void bossRage() {
          if (super.activateRage()) {
             super.addBossAtk(15);
-            super.addBossDefence(5);
+            super.addBossDef(5);
             displayBossRage();
    }
 }
