@@ -155,7 +155,21 @@
             "startingRoom" : ""
         },
         {
+            "name": "Torn Duffel Bag",
+            "description": "",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
+        },
+        {
             "name": "Leather Backpack",
+            "description": "",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Rugged Suitcase",
             "description": "",
             "weight": 0,
             "gold": 0,

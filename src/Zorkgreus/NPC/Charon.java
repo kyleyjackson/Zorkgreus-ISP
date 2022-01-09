@@ -7,6 +7,9 @@ import Zorkgreus.Boon;
 import Zorkgreus.Player;
 
 public class Charon extends NPC{
+    boolean displayFirstMessage = true;
+    boolean displaySellMessage = true;
+
     public Charon(){
         displayIntroMessage();
         System.out.print("\n\n");
@@ -21,8 +24,6 @@ public class Charon extends NPC{
 
     public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons){
         Scanner in = new Scanner(System.in);
-        boolean displayFirstMessage = true;
-        boolean displaySellMessage = true;
         boolean validInput = false;
 
         int random1 = (int)(Math.random() * 3);
@@ -33,45 +34,30 @@ public class Charon extends NPC{
             }
         }
 
-        System.out.println("In front of you, there are 6 items: " + "\n");
-        if(random1 == 0)
-            System.out.println("Centaur Heart - Gain +25 max HP (without healing). | 75 Gold");
-        else if(random1 == 1)
-            System.out.println("Bowl of Noodles - Heal for 40% of your max HP. | 50 gold");
-        else
-            System.out.println("Pom of Power - One of your boons will gain +1 level. | 100 gold");
-
-        System.out.println("Random Blessing - You can select one of 3 boons provided from ANY god (excluding Chaos). | 150 gold");
-
-        if(random2 == 0)
-            System.out.println("Centaur Heart - Gain +25 max HP (without healing). | 75 Gold");
-        else if(random2 == 1)
-            System.out.println("Bowl of Noodles - Heal for 40% of your max HP. | 50 gold");
-        else
-            System.out.println("Pom of Power - One of your boons will randomly gain +1 level. | 100 gold");
+        System.out.println("In front of you, there is an assortment of items: " + "\n");
         
-        System.out.println("\n" + "It seems Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
+        System.out.println("\n" + "Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
 
         while (!validInput) {
             if(displayFirstMessage) {
                 System.out.println("\n" + "To exit the shop interface, type \"exit\"." + "\n");
                 System.out.println("To go to the 2nd page of items, type [2]." + "\n");
-                System.out.print("Which one would you like to select: ");
+                System.out.println("Which one would you like to select: ");
                 if(random1 == 0)
-                    System.out.print("[C]entaur Heart, ");
+                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 75 Gold");
                 else if(random1 == 1)
-                    System.out.print("[B]owl of Noodles, ");
-                else 
-                    System.out.print("[P]om of Power, ");
+                    System.out.println("[B]owl of Noodles - Heal for 40% of your max HP. | 50 gold");
+                else
+                    System.out.println("[P]om of Power - One of your boons will gain +1 level. | 100 gold");
 
-                System.out.print("[R]andom Blessing, or ");
+                System.out.println("[R]andom Blessing - You can select one of 3 boons provided from ANY god (excluding Chaos). | 150 gold");
 
                 if(random2 == 0)
-                    System.out.println("[C]entaur Heart");
+                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 75 Gold");
                 else if(random2 == 1)
-                    System.out.println("[B]owl of Noodles");
-                else 
-                    System.out.println("[P]om of Power");
+                    System.out.println("[B]owl of Noodles - Heal for 40% of your max HP. | 50 gold");
+                else
+                    System.out.println("[P]om of Power - One of your boons will randomly gain +1 level. | 100 gold");
             }
             try {
                 String msg = in.nextLine().toLowerCase();
@@ -148,39 +134,44 @@ public class Charon extends NPC{
                 } else if(msg.equals("exit")) {
                     System.out.println("Ghhhhehh. (Pleasure doing business.)");
                     validInput = true;
-                } else if(msg.equals("sell")) {
-                    boolean validSellInput = false;
-                    while(!validSellInput){
-                        if(displaySellMessage){
-                            System.out.println("Charon will trade the following items for gold: " + "\n");
-                            System.out.println("[Sk]eleton's Bone | 5 Gold per Bone");
-                            System.out.println("[Sp]ider's Leg | 10 Gold per Leg");
-                            System.out.println("[H]ero's Urn | 15 Gold per Urn");
-                            System.out.println("\n" + "To go back to the buying menu, type \"buy\".");
-                            displayFirstMessage = true;
-                            displaySellMessage = false;
-                        }
+                } else if(msg.equals("2")){
+                    System.out.println("\n" + "To exit the shop interface, type \"exit\"." + "\n");
+                    System.out.println("To go to the 1st page of items, type [1]." + "\n");
+                    System.out.println("Which one would you like to select:");
+                    System.out.println("[T]orn Duffel Bag - Increase your inventory's max capacity by 50. | 80 gold");
+                    System.out.println("[L]eather Backpack - Increase your inventory's max capacity by 100. | 140 gold");
+                    System.out.println("[R]ugged Suitcase - Increase your inventory's max capacity by 200. | 220 gold.");
+                    boolean validP2Input = false;
+                    while(!validP2Input){
                         try {
-                            String sellMsg = in.nextLine().toLowerCase();
-                            if(sellMsg.equals("sk") || sellMsg.equals("skeleton's bone")){
-                                //prompt for count and give appropriate gold, also check maxWeight.
-                            }
-                            else if(sellMsg.equals("sp") || sellMsg.equals("spider's leg")){
-                                //prompt for count and give appropriate gold, also check maxWeight.
-                            }
-                            else if(sellMsg.equals("h") || sellMsg.equals("hero's urn")){
-                                //prompt for count and give appropriate gold, also check maxWeight.
-                            }
-                            else if(sellMsg.equals("back") || sellMsg.equals("buy")){
-                                validSellInput = true;
-                            }
-                            else{
-                                System.out.println("Gguhhhhhhh. (Invalid Selection.)");
+                            String msgP2 = in.nextLine().toLowerCase();
+                            if(msgP2.equals("t") || msgP2.equals("torn duffel bag")){
+                                if(player.getPlayerGold() < 80)
+                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                else
+                                    player.addPlayerMaxWeight(50);
+                            } else if(msgP2.equals("l") || msgP2.equals("leather backpack")){
+                                if(player.getPlayerGold() < 140)
+                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                else
+                                    player.addPlayerMaxWeight(100);
+                            } else if(msgP2.equals("r") || msgP2.equals("rugged suitcase")){
+                                if(player.getPlayerGold() < 220)
+                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                else
+                                    player.addPlayerMaxWeight(200);
+                            } else if(msgP2.equals("1")){
+                                displayFirstMessage = true;
+                                validP2Input = true;
+                            } else if(msgP2.equals("sell")){
+                                sell(player, in);
                             }
                         } catch (Exception ex){
-                            displaySellMessage = false;
+                            System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                         }
                     }
+                } else if(msg.equals("sell")) {
+                    sell(player, in);
                 } else {
                     System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                     displayFirstMessage = false;
@@ -190,5 +181,39 @@ public class Charon extends NPC{
             }
         }
         return playerBoons;
+    }
+    public void sell(Player player, Scanner in){
+        boolean validSellInput = false;
+        while(!validSellInput){
+            if(displaySellMessage){
+                System.out.println("Charon will trade the following items for gold: " + "\n");
+                System.out.println("[Sk]eleton Bones | 5 Gold per Bone");
+                System.out.println("[Sp]ider Legs | 10 Gold per Leg");
+                System.out.println("[H]ero Urns | 15 Gold per Urn");
+                System.out.println("\n" + "To go back to the buy menu, type \"buy\".");
+                displayFirstMessage = true;
+                displaySellMessage = false;
+            }
+            try {
+                String sellMsg = in.nextLine().toLowerCase();
+                if(sellMsg.equals("sk") || sellMsg.equals("skeleton bones")){
+                    //prompt for count and give appropriate gold, also check maxWeight.
+                }
+                else if(sellMsg.equals("sp") || sellMsg.equals("spider legs")){
+                    //prompt for count and give appropriate gold, also check maxWeight.
+                }
+                else if(sellMsg.equals("h") || sellMsg.equals("hero urns")){
+                    //prompt for count and give appropriate gold, also check maxWeight.
+                }
+                else if(sellMsg.equals("back") || sellMsg.equals("buy")){
+                    validSellInput = true;
+                }
+                else{
+                    System.out.println("Gguhhhhhhh. (Invalid Selection.)");
+                }
+            } catch (Exception ex){
+                displaySellMessage = false;
+            }
+        }
     }
 }

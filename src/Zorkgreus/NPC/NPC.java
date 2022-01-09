@@ -1,5 +1,7 @@
 package Zorkgreus.NPC;
 
+import java.util.Scanner;
+
 import java.util.ArrayList;
 import Zorkgreus.Boon;
 import Zorkgreus.Player;
@@ -36,6 +38,15 @@ public class NPC {
      */
     public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> playerBoons){
         return playerBoons;
+    }
+
+    /**
+     * Function for selling items at Charon.
+     * @param player the player of the game
+     * @param in Scanner for player to determine which items to sell.
+     */
+    public void sell(Player player, Scanner in){
+
     }
 
 }

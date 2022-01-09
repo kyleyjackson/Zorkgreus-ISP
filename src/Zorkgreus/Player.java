@@ -120,14 +120,14 @@ public class Player {
     public void addPlayerHP(int n) {
         if (n < 0) {
             HP += n;
-            System.out.println("You lost" + n + " HP!");
+            System.out.println("You lost" + n + " HP! Total: " + getPlayerHP());
         } else {
             if ((HP + n) > maxHP) {
                 HP = maxHP;
                 System.out.println("Your HP was maxed out!");
             } else {
                 HP += n;
-                System.out.println("You gained " + n + " HP!");
+                System.out.println("You gained " + n + " HP! Total: " + getPlayerHP());
             }
         }
     }
@@ -135,34 +135,42 @@ public class Player {
     public void addPlayerMaxHP(int n) {
         maxHP += n;
         if (n < 0)
-            System.out.println("You lost " + n + " max HP!");
+            System.out.println("You lost " + n + " max HP! Total: " + getPlayerMaxHP());
         else
-            System.out.println("You gained " + n + " max HP!");
+            System.out.println("You gained " + n + " max HP! Total: " + getPlayerMaxHP());
     }
 
     public void addPlayerPriority(int n) {
         prio += n;
         if (n < 0)
-            System.out.println("You lost " + n + " priority!");
+            System.out.println("You lost " + n + " priority! Total: " + getPlayerPrio());
         else
-            System.out.println("Your gained " + n + " priority!");
+            System.out.println("Your gained " + n + " priority! Total: " + getPlayerPrio());
     }
 
     public void addPlayerAttack(int n) {
         atk += n;
         if (n < 0)
-            System.out.println("You lost " + n + " attack!");
+            System.out.println("You lost " + n + " attack! Total: " + getPlayerAtk());
         else
-            System.out.println("Your gained " + n + " attack!");
+            System.out.println("Your gained " + n + " attack! Total: " + getPlayerAtk());
     }
 
     public void addPlayerDefence(int n) {
         def += n;
         if (n < 0)
-            System.out.println("You lost " + n + " defence!");
+            System.out.println("You lost " + n + " defence! Total: " + getPlayerDef());
         else
-            System.out.println("You gained " + n + " defence!");
+            System.out.println("You gained " + n + " defence! Total: " + getPlayerDef());
 
+    }
+
+    public void addPlayerMaxWeight(int n) { 
+        maxWeight += n;
+        if (n < 0)
+            System.out.println("Your inventory's max weight decreased by " + n + "! Total: " + getMaxWeight());
+        else   
+            System.out.println("Your inventory's max weight increased by " + n + "! Total: " + getMaxWeight());
     }
 
     public boolean getExtraLife() {
