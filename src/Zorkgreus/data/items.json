@@ -1,6 +1,13 @@
 {
     "items": [
         {
+            "name": "Skeleton's Bone",
+            "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
+            "weight": 10,
+            "gold": 5,
+            "startingRoom" : ""
+        },
+        {
             "name": "Spider's Leg",
             "description": "A spider's leg, torn from a fully grown adult spider. Something about it still makes you feel uneasy...",
             "weight": 5,
@@ -8,10 +15,10 @@
             "startingRoom" : ""
         },
         {
-            "name": "Skeleton's Bone",
-            "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
+            "name": "Hero's Urn",
+            "description": "A Hero's Urn, earned as a reward for defeating them. Something about it still makes you feel uneasy...",
             "weight": 10,
-            "gold": 5,
+            "gold": 15,
             "startingRoom" : ""
         },
         {
@@ -26,13 +33,6 @@
             "description": "A Pom Of Power, picked off of the tree of life. Capable of strengthening the power of the gods.",
             "weight": 0,
             "gold": 0,
-            "startingRoom" : ""
-        },
-        {
-            "name": "Hero's Urn",
-            "description": "A Hero's Urn, earned as a reward for defeating them. Something about it still makes you feel uneasy...",
-            "weight": 10,
-            "gold": 15,
             "startingRoom" : ""
         },
         {

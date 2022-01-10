@@ -1360,16 +1360,6 @@ public class Game {
     int count = 0;
     if(currentRoom.getRoomName().indexOf("Attack")>=0){
       if(floor.equals("F1")){
-        currentRoom.getInventory().addItem(items.get(1));
-        if(randomNum<=ans+15&&randomNum>=ans-15){
-          currentRoom.getInventory().addItem(items.get(1));
-          count++;
-        }if(randomNum<=ans+5&&randomNum>=ans-5){
-          currentRoom.getInventory().addItem(items.get(1));
-          count++;
-        }
-          System.out.println("The skeleton has dropped " + count + " bones. ");
-      }else if(floor.equals("F2")){
         currentRoom.getInventory().addItem(items.get(0));
         if(randomNum<=ans+15&&randomNum>=ans-15){
           currentRoom.getInventory().addItem(items.get(0));
@@ -1378,14 +1368,24 @@ public class Game {
           currentRoom.getInventory().addItem(items.get(0));
           count++;
         }
-        System.out.println("The spider has dropped " + count + " legs. ");
-      }else{
-        currentRoom.getInventory().addItem(items.get(4));
-        if(randomNum<=ans+10&&randomNum>=ans-10){
-          currentRoom.getInventory().addItem(items.get(4));
+          System.out.println("The skeleton has dropped " + count + " bones. ");
+      }else if(floor.equals("F2")){
+        currentRoom.getInventory().addItem(items.get(1));
+        if(randomNum<=ans+15&&randomNum>=ans-15){
+          currentRoom.getInventory().addItem(items.get(1));
           count++;
         }if(randomNum<=ans+5&&randomNum>=ans-5){
-          currentRoom.getInventory().addItem(items.get(4));
+          currentRoom.getInventory().addItem(items.get(1));
+          count++;
+        }
+        System.out.println("The spider has dropped " + count + " legs. ");
+      }else{
+        currentRoom.getInventory().addItem(items.get(2));
+        if(randomNum<=ans+10&&randomNum>=ans-10){
+          currentRoom.getInventory().addItem(items.get(2));
+          count++;
+        }if(randomNum<=ans+5&&randomNum>=ans-5){
+          currentRoom.getInventory().addItem(items.get(2));
           count++;
         }
         System.out.println("The fallen hero has dropped " + count + " urns. ");
@@ -1393,4 +1393,16 @@ public class Game {
     }
   }
   }
+
+  public void predertimeItems(){
+    for (int i = 0; i < 3; i++) {
+      int numItem = (int)(Math.random()*items.size());
+      if(numItem<=2)
+        numItem+=3;
+      if(numItem>=23)
+        numItem-=3;
+      currentRoom.getInventory().addItem(items.get(numItem));
+    }
+  }
+
 }
