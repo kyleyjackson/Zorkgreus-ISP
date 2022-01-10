@@ -1,14 +1,14 @@
 {
     "items": [
         {
-            "name": "Spider's leg",
+            "name": "Spider's Leg",
             "description": "A spider's leg, torn from a fully grown adult spider. Something about it still makes you feel uneasy...",
             "weight": 5,
             "gold": 10,
             "startingRoom" : ""
         },
         {
-            "name": "Skeleton's bone",
+            "name": "Skeleton's Bone",
             "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
             "weight": 10,
             "gold": 5,
@@ -29,7 +29,7 @@
             "startingRoom" : ""
         },
         {
-            "name": "Hero's Urn's",
+            "name": "Hero's Urn",
             "description": "A Hero's Urn, earned as a reward for defeating them. Something about it still makes you feel uneasy...",
             "weight": 10,
             "gold": 15,

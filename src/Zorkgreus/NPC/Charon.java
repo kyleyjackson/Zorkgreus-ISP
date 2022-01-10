@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import java.util.ArrayList;
 import Zorkgreus.Boon;
+import Zorkgreus.Inventory;
 import Zorkgreus.Player;
 
 public class Charon extends NPC{
@@ -33,15 +34,16 @@ public class Charon extends NPC{
                 random2 = (int)(Math.random() * 3);
             }
         }
-
-        System.out.println("In front of you, there is an assortment of items: " + "\n");
         
-        System.out.println("\n" + "Charon is also offering to purge certain items in exchange for gold. (Type \"sell\" to prompt sell commands!)");
+        System.out.print("Charon is offering you an assortment of items in exchange for gold. ");
+        System.out.println("He is also offering to purge certain items in exchange for gold.");
 
         while (!validInput) {
+            displaySellMessage = true;
             if(displayFirstMessage) {
-                System.out.println("\n" + "To exit the shop interface, type \"exit\"." + "\n");
-                System.out.println("To go to the 2nd page of items, type [2]." + "\n");
+                System.out.println("To exit the shop interface, type \"exit\".");
+                System.out.println("To open the selling menu, type \"sell\".");
+                System.out.println("To go to the 2nd page of items, type \"2\"." + "\n");
                 System.out.println("Which one would you like to select: ");
                 if(random1 == 0)
                     System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 75 Gold");
@@ -66,6 +68,7 @@ public class Charon extends NPC{
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         player.addPlayerMaxHP(25);
+                        player.addPlayerGold(-75);
                         System.out.println("Hrrrrraughhhh. (Anything else?)");
                     }
                 } else if(msg.equals("b") || msg.equals("bowl of noodles")) {
@@ -73,6 +76,7 @@ public class Charon extends NPC{
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         player.addPlayerHP((int)(player.getPlayerHP() * 0.4));
+                        player.addPlayerGold(-50);
                         System.out.println("Nhrrrrrrrgh. (Anything else?)");
                     }
                 } else if(msg.equals("p") || msg.equals("pom of power")) {
@@ -88,6 +92,7 @@ public class Charon extends NPC{
                             b = playerBoons.get(random);
                         }
                         b.levelUpPom(playerBoons, random);
+                        player.addPlayerGold(-100);
                         System.out.println("Grrrrhhhah. (Anything else?)");
                     }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
@@ -129,6 +134,7 @@ public class Charon extends NPC{
                                 System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                             }
                         }
+                        player.addPlayerGold(-150);
                         System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                     }
                 } else if(msg.equals("exit")) {
@@ -149,17 +155,23 @@ public class Charon extends NPC{
                                 if(player.getPlayerGold() < 80)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else
-                                    player.addPlayerMaxWeight(50);
+                                    player.getInventory().addMaxWeight(50);
+                                    player.addPlayerGold(-80);
+                                    System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                             } else if(msgP2.equals("l") || msgP2.equals("leather backpack")){
                                 if(player.getPlayerGold() < 140)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else
-                                    player.addPlayerMaxWeight(100);
+                                    player.getInventory().addMaxWeight(100);
+                                    player.addPlayerGold(-140);
+                                    System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                             } else if(msgP2.equals("r") || msgP2.equals("rugged suitcase")){
                                 if(player.getPlayerGold() < 220)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else
-                                    player.addPlayerMaxWeight(200);
+                                    player.getInventory().addMaxWeight(200);
+                                    player.addPlayerGold(-220);
+                                    System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)"); 
                             } else if(msgP2.equals("1")){
                                 displayFirstMessage = true;
                                 validP2Input = true;
@@ -197,13 +209,67 @@ public class Charon extends NPC{
             try {
                 String sellMsg = in.nextLine().toLowerCase();
                 if(sellMsg.equals("sk") || sellMsg.equals("skeleton bones")){
-                    //prompt for count and give appropriate gold, also check maxWeight.
+                    if(!player.getInventory().inInventory("Skeleton's Bone"))
+                        System.out.println("Hnnnnnnnnnnrrghhhhh. (You don't have that.)");
+                    else{
+                        try{
+                            System.out.println("You have " + player.getInventory().countItem("Skeleton's Bone") + " skeleton bones.");
+                            System.out.println("Hsssurrrrrggh. (How many?) ");
+                            String count = in.nextLine().toLowerCase();
+                            int cParsed = Integer.parseInt(count);
+                            if(cParsed > player.getInventory().countItem("Skeleton's Bone"))
+                                System.out.println("(Charon can't take more than what you have...)");
+                            else{
+                                player.addPlayerGold(cParsed * 5);
+                                System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                            }
+                        } catch (Exception ex){
+                            System.out.println("Grrrrraggggghhh. (Select a number.)");
+                        }
+                    }
+                    displaySellMessage = true;
                 }
                 else if(sellMsg.equals("sp") || sellMsg.equals("spider legs")){
-                    //prompt for count and give appropriate gold, also check maxWeight.
+                    if(!player.getInventory().inInventory("Spider's Leg"))
+                        System.out.println("Hnnnnnnnnnnrrghhhhh. (You don't have that.)");
+                    else{
+                        try{
+                            System.out.println("You have " + player.getInventory().countItem("Spider's Leg") + " spider legs");
+                            System.out.println("Hsssurrrrrggh. (How many?) ");
+                            String count = in.nextLine().toLowerCase();
+                            int cParsed = Integer.parseInt(count);
+                            if(cParsed > player.getInventory().countItem("Spider's Leg"))
+                                System.out.println("(Charon can't take more than what you have...)");
+                            else{
+                                player.addPlayerGold(cParsed * 10);
+                                System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                            }
+                        } catch (Exception ex){
+                            System.out.println("Grrrrraggggghhh. (Select a number.)");
+                        }
+                    }
+                    displaySellMessage = true;
                 }
                 else if(sellMsg.equals("h") || sellMsg.equals("hero urns")){
-                    //prompt for count and give appropriate gold, also check maxWeight.
+                    if(!player.getInventory().inInventory("Hero's Urn"))
+                        System.out.println("Hnnnnnnnnnnrrghhhhh. (You don't have that.)");
+                    else{
+                        try{
+                            System.out.println("You have " + player.getInventory().countItem("Hero's Urn") + " heros' urns.");
+                            System.out.println("Hsssurrrrrggh. (How many?) ");
+                            String count = in.nextLine().toLowerCase();
+                            int cParsed = Integer.parseInt(count);
+                            if(cParsed > player.getInventory().countItem("Spider's Leg"))
+                                System.out.println("(Charon can't take more than what you have...)");
+                            else{
+                                player.addPlayerGold(cParsed * 15);
+                                System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                            }
+                        } catch (Exception ex){
+                            System.out.println("Grrrrraggggghhh. (Select a number.)");
+                        }
+                    }
+                    displaySellMessage = true;
                 }
                 else if(sellMsg.equals("back") || sellMsg.equals("buy")){
                     validSellInput = true;
