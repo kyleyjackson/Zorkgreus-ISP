@@ -1,6 +1,13 @@
 {
     "items": [
         {
+            "name": "Skeleton's Bone",
+            "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
+            "weight": 10,
+            "gold": 5,
+            "startingRoom" : ""
+        },
+        {
             "name": "Spider's Leg",
             "description": "A spider's leg, torn from a fully grown adult spider. Something about it still makes you feel uneasy...",
             "weight": 5,
@@ -8,10 +15,10 @@
             "startingRoom" : ""
         },
         {
-            "name": "Skeleton's Bone",
-            "description": "A Skeletons bone, fallen off from a skeleton. Something about it still makes you feel uneasy...",
+            "name": "Hero's Urn",
+            "description": "A Hero's Urn, earned as a reward for defeating them. Something about it still makes you feel uneasy...",
             "weight": 10,
-            "gold": 5,
+            "gold": 15,
             "startingRoom" : ""
         },
         {
@@ -29,129 +36,122 @@
             "startingRoom" : ""
         },
         {
-            "name": "Hero's Urn",
-            "description": "A Hero's Urn, earned as a reward for defeating them. Something about it still makes you feel uneasy...",
-            "weight": 10,
-            "gold": 15,
-            "startingRoom" : ""
-        },
-        {
             "name": "Pot",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Grand Piano",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Family Photo",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Vase",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Chair",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Table",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Plate",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Fork",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Knife",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Spoon",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Stool",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Metal Rod",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Chain",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Pile of Dust",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Anvil",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Stone Statue of Hades",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Rotten Corpse",
             "description": "",
             "weight": 10,
-            "gold": 15,
+            "gold": 0,
             "startingRoom" : ""
         },
         {
