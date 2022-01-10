@@ -237,7 +237,7 @@ public class Game {
     weaponSelection(null, true);
 
     currentNPC = new Charon();
-    myBoons = currentNPC.displayChoices(fred, temp, myBoons);
+    myBoons = currentNPC.displayChoices(fred, temp, myBoons, items);
 
     boolean finished = false;
     while (!finished) {
@@ -776,7 +776,7 @@ public class Game {
     else if (currentRoom.getRoomName().equals("F2 NPC Room")){
       if(!setNPC){
         currentNPC = new Eurydice();
-        myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Eurydice
+        myBoons = currentNPC.displayChoices(fred, myBoons); //to alter the player's boons through Eurydice
         setNPC = true;
       }
     }
@@ -790,7 +790,7 @@ public class Game {
       if(!setNPC){
         temp = generateBoons(true); // special case to generate boon for selection in the shop.
         currentNPC = new Charon();
-        myBoons = currentNPC.displayChoices(fred, temp, myBoons); //to alter the player's boons through Charon
+        myBoons = currentNPC.displayChoices(fred, temp, myBoons, items); //to alter the player's boons through Charon
         setNPC = true;
       }
     }

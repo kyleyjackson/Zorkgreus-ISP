@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 import java.util.ArrayList;
 import Zorkgreus.Boon;
+import Zorkgreus.Item;
 import Zorkgreus.Player;
 
 public class NPC {
@@ -24,9 +25,10 @@ public class NPC {
      * @param player the player of the game
      * @param generatedBoons randomly generated boons for the player to select
      * @param playerBoons the boons in the player's inventory
+     * @param items items generated
      * @return potentially altered boons in the player's inventory
      */
-    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons){ 
+    public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons, ArrayList<Item> items){ 
         return playerBoons;
     }
 
