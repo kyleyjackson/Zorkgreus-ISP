@@ -1399,7 +1399,7 @@ public class Game {
       int numItem = (int)(Math.random()*items.size());
       if(numItem<=2)
         numItem+=3;
-      if(numItem>=23)
+      if(numItem>=22)
         numItem-=3;
       currentRoom.getInventory().addItem(items.get(numItem));
     }
