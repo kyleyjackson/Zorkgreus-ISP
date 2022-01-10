@@ -16,7 +16,6 @@ public class Player {
     private boolean extraLife = true;
     private boolean hyradliteGold = false;
     private Inventory inventory;
-    private int maxWeight;
 
     public Player(int prio, int atk, int def) {
         this.maxHP = 50;
@@ -30,8 +29,7 @@ public class Player {
         basePrio = prio;
         baseAtk = atk;
         baseDef = def;
-        maxWeight = 100;
-        inventory = new Inventory(maxWeight);
+        inventory = new Inventory(150);
 
     }
 
@@ -73,10 +71,6 @@ public class Player {
 
     public int getBaseDef() {
         return baseDef;
-    }
-
-    public int getMaxWeight() {
-        return maxWeight;
     }
 
     public int getPlayerGold() {

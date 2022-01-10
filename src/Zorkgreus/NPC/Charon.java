@@ -43,18 +43,18 @@ public class Charon extends NPC{
             if(displayFirstMessage) {
                 System.out.println("Which one would you like to select: ");
                 if(random1 == 0)
-                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 75 Gold");
+                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 50 gold");
                 else if(random1 == 1)
-                    System.out.println("[B]owl of Noodles - Heal for 25% of your max HP. | 50 gold");
+                    System.out.println("[B]owl of Noodles - Heal for 25% of your max HP. | 25 gold");
                 else
-                    System.out.println("[P]om of Power - One of your boons will gain +1 level. | 100 gold");
+                    System.out.println("[P]om of Power - One of your boons will gain +1 level. | 80 gold");
 
-                System.out.println("[R]andom Blessing - You can select one of 3 boons provided from ANY god (excluding Chaos). | 150 gold");
+                System.out.println("[R]andom Blessing - You can select one of 3 boons provided from ANY god (excluding Chaos). | 100 gold");
 
                 if(random2 == 0)
-                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 75 Gold");
+                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 50 gold");
                 else if(random2 == 1)
-                    System.out.println("[B]owl of Noodles - Heal for 40% of your max HP. | 50 gold");
+                    System.out.println("[B]owl of Noodles - Heal for 40% of your max HP. | 25 gold");
                 else
                     System.out.println("[P]om of Power - One of your boons will randomly gain +1 level. | 100 gold");
                 System.out.println("\n" + "To exit the shop interface, type \"exit\".");
@@ -64,25 +64,25 @@ public class Charon extends NPC{
             try {
                 String msg = in.nextLine().toLowerCase();
                 if(msg.equals("c") || msg.equals("centaur heart")){
-                    if(player.getPlayerGold() < 75)
+                    if(player.getPlayerGold() < 50)
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         player.addPlayerMaxHP(25);
-                        player.addPlayerGold(-75);                      
+                        player.addPlayerGold(-50);                      
                         System.out.println("Hrrrrraughhhh. (Anything else?)");
                         System.out.println();
                     }
                 } else if(msg.equals("b") || msg.equals("bowl of noodles")) {
-                    if(player.getPlayerGold() < 50)
+                    if(player.getPlayerGold() < 25)
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         player.addPlayerHP((int)(player.getPlayerHP() * 0.25));
-                        player.addPlayerGold(-50);
+                        player.addPlayerGold(-25);
                         System.out.println("Nhrrrrrrrgh. (Anything else?)");
                         System.out.println();
                     }
                 } else if(msg.equals("p") || msg.equals("pom of power")) {
-                    if(player.getPlayerGold() < 100)
+                    if(player.getPlayerGold() < 80)
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         int random = (int)(Math.random() * playerBoons.size());
@@ -94,12 +94,12 @@ public class Charon extends NPC{
                             b = playerBoons.get(random);
                         }
                         b.levelUpPom(playerBoons, random);
-                        player.addPlayerGold(-100);
+                        player.addPlayerGold(-80);
                         System.out.println("Grrrrhhhah. (Anything else?)");
                         System.out.println();
                     }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
-                    if(player.getPlayerGold() < 150)
+                    if(player.getPlayerGold() < 100)
                         System.out.println("Ngggghhh. (You can't afford that.)");
                     else{
                         System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
@@ -137,7 +137,7 @@ public class Charon extends NPC{
                                 System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                             }
                         }
-                        player.addPlayerGold(-150);
+                        player.addPlayerGold(-100);
                         System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                         System.out.println();
                     }
@@ -146,10 +146,10 @@ public class Charon extends NPC{
                     validInput = true;
                 } else if(msg.equals("2")){
                     System.out.println("Which one would you like to select:");
-                    System.out.println("[T]orn Duffel Bag - Increase your inventory's max capacity by 50. | 80 gold");
-                    System.out.println("[L]eather Backpack - Increase your inventory's max capacity by 100. | 140 gold");
-                    System.out.println("[R]ugged Suitcase - Increase your inventory's max capacity by 200. | 220 gold");
-                    System.out.println("[V]ase of a Thousand Lost Souls - Sets your inventory's max capacity to 69420. | 666 gold");
+                    System.out.println("[T]orn Duffel Bag - Increase your inventory's max capacity by 50. | 70 gold");
+                    System.out.println("[L]eather Backpack - Increase your inventory's max capacity by 100. | 120 gold");
+                    System.out.println("[R]ugged Suitcase - Increase your inventory's max capacity by 200. | 180 gold");
+                    System.out.println("[V]ase of a Thousand Tormented Souls - Sets your inventory's max capacity to 69420. | 666 gold");
                     System.out.println("\n" + "To exit the shop interface, type \"exit\".");
                     System.out.println("To open the selling menu, type \"sell\".");
                     System.out.println("To go to the 1st page of items, type \"1\".");
@@ -158,41 +158,41 @@ public class Charon extends NPC{
                         try {
                             String msgP2 = in.nextLine().toLowerCase();
                             if(msgP2.equals("t") || msgP2.equals("torn duffel bag")){
-                                if(player.getPlayerGold() < 80)
+                                if(player.getPlayerGold() < 70)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().addMaxWeight(50);
                                     player.getInventory().addItem(items.get(22)); //torn duffel bag location in items ArrayList
-                                    player.addPlayerGold(-80);
+                                    player.addPlayerGold(-70);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                                     System.out.println();
                                 }
                             } else if(msgP2.equals("l") || msgP2.equals("leather backpack")){
-                                if(player.getPlayerGold() < 140)
+                                if(player.getPlayerGold() < 120)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().addMaxWeight(100);
                                     player.getInventory().addItem(items.get(23)); //leather backpack location in items ArrayList
-                                    player.addPlayerGold(-140);
+                                    player.addPlayerGold(-120);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                                     System.out.println();
                                 }
                             } else if(msgP2.equals("r") || msgP2.equals("rugged suitcase")){
-                                if(player.getPlayerGold() < 220)
+                                if(player.getPlayerGold() < 180)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().addMaxWeight(200);
                                     player.getInventory().addItem(items.get(24)); //rugged suitcase location in items ArrayList
-                                    player.addPlayerGold(-220);
+                                    player.addPlayerGold(-180);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)"); 
                                     System.out.println();
                                 }
-                            } else if(msgP2.equals("v") || msgP2.equals("vase of a thousand lost souls")){
+                            } else if(msgP2.equals("v") || msgP2.equals("vase of a thousand tormented souls")){
                                 if(player.getPlayerGold() < 666)
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().setMaxWeight(69420);
-                                    System.out.println("Your inventory's max weight was set to 69420. Why did you buy that again?");
+                                    System.out.println("Your inventory's max weight was set to 69420. Excellent choice.");
                                     player.getInventory().addItem(items.get(25)); //vase of a thousand lost souls location in items ArrayList
                                     player.addPlayerGold(-666);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)"); 
