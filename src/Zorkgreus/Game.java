@@ -915,30 +915,32 @@ public class Game {
 
   /* Making combat here */
 
-  public void fight(Player player, Weapons weapon, Monsters monster, Command command) {
-    int monsterHP = monster.getHP();
+  public void fight(Player player, Weapons weapon, Monsters monster, Command command, Room room) {
     int playerHP = player.getPlayerHP();
 
-    while (playerHP > 0 || monsterHP > 0) {
-      if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
-        System.out.println("Are you doing a normal or special attack?");
+    if (room.getRoomName().equals("Miniboss Room") || room.getRoomName().equals("Boss Room")) {
+      //*Boss fight code here
+    }else {
+      int monsterHP = monster.getHP();
+      while (playerHP > 0 || monsterHP > 0) {
+        if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
+          System.out.println("Are you doing a normal or special attack?");
+        }
+  
+        if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
+          int dmg = weapon.normalAttack();
+          monsterHP -= dmg;
+          System.out.println("You hit the " + monster.getName() + " for " + dmg + " damage!");
+        } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
+          int dmg = weapon.specialAttack(weapon.getId());
+          monsterHP -= dmg;
+          System.out.println("You hit the " + monster.getName() + " for " + dmg + " damage!");
+        }
+  
+        int dmg = currentMonster.monsterNormalAttack(); 
+        playerHP -= dmg;
+        System.out.println("The " + currentMonster.getName() + " hit you for " + dmg + " damage!");
       }
-
-      if (command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
-        int dmg = weapon.normalAttack();
-        recPlayerHit = dmg;
-        monsterHP -= dmg;
-        System.out.println("You hit the " + monster.getName() + " for " + dmg + " damage!");
-      } else if (command.getSecondWord() == "special" || command.getCommandWord() == "special") {
-        int dmg = weapon.specialAttack(weapon.getId());
-        monsterHP -= dmg;
-        System.out.println("You hit the " + monster.getName() + " for " + dmg + " damage!");
-      }
-
-      int dmg = currentMonster.monsterNormalAttack();
-      recEnemyHit = dmg; //assigns damage done to global recEnemyHit for other functions
-      playerHP -= dmg;
-      System.out.println("The " + currentMonster.getName() + " hit you for " + dmg + " damage!");
     }
   }
 
