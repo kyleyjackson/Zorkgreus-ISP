@@ -1,6 +1,16 @@
 {
     "monsters": [
         {
+            "Monster": "Training Dummy",
+            "attack": 0,
+            "priority": 0,
+            "defense": 0,
+            "health": 1,
+            "dodge": 0,
+            "description": "A lone training dummy covered in scratches. It's dressed like someone devilishly handsome..",
+            "location": "Test Dummy Room"
+        },
+        {
             "Monster": "Weak Skeleton",
             "attack": 0,
             "priority": 0,
