@@ -915,11 +915,28 @@ public class Game {
 
   /* Making combat here */
 
-  public void fight(Player player, Weapons weapon, Monsters monster, Command command, Room room) {
+  public void fight(Player player, Weapons weapon, Monsters monster, Command command, Room room, Boss boss) {
     int playerHP = player.getPlayerHP();
 
     if (room.getRoomName().equals("Miniboss Room") || room.getRoomName().equals("Boss Room")) {
-      //*Boss fight code here
+      //*Boss fight code 
+      
+      int bossHP = boss.getHP();
+      while(playerHP > 0 || bossHP > 0) {
+        if (!command.hasSecondWord() || command.getCommandWord() == "attack") {
+          System.out.println("Are you doing a normal or special attack?");
+        }
+
+        if(command.getSecondWord() == "normal" || command.getCommandWord() == "normal") {
+          int dmg = weapon.normalAttack();
+          bossHP -= dmg;
+          System.out.println("You hit " + boss.getName() + " for " + dmg + " damage!");
+        }else if(command.getSecondWord() == "special" || command.getCommandWord() == "special") {
+          int dmg = weapon.specialAttack(weapon.getId());
+          bossHP -= dmg;
+          System.out.println("You hit " + boss.getName() + " for " + dmg + " damage!");
+        }
+      }
     }else {
       int monsterHP = monster.getHP();
       while (playerHP > 0 || monsterHP > 0) {
