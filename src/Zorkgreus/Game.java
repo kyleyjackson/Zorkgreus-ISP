@@ -240,6 +240,7 @@ public class Game {
     currentNPC = new Charon();
     myBoons = currentNPC.displayChoices(fred, temp, myBoons, items);
     boolean finished = false;
+    boolean finishedFighting = false;
     while (!finished) {
       Command command;
       try {
@@ -276,17 +277,17 @@ public class Game {
           System.out.println("Please proceed to the next room.");
 
         command = parser.getCommand();
-        if(isFighting)
-          while(isFighting)
-            isFighting = processFightCommand(command);
-        else 
+
+        if (isFighting)
+          finishedFighting = processFightCommand(command);
+        else if (!isFighting)
           finished = processCommand(command);
       } catch (IOException e) {
         e.printStackTrace();
       }
 
     }
-    System.out.println("Thank you for playing.  Good bye.");
+    System.out.println("Thank you for playing.Good bye.");
   }
 
   /**
@@ -665,6 +666,7 @@ public class Game {
   }
 
   public boolean processFightCommand(Command command) {
+    System.out.println("You've engaged in combat!");
     int playerHP = fred.getPlayerHP();
     int enemyHP = 0;
     boolean isBoss = false;
@@ -685,12 +687,7 @@ public class Game {
 
     String commandWord = command.getCommandWord();
 
-    if (commandWord.equals("run") && isMonster == true) {
-      System.out.println("You managed to escape!");
-      return true;
-    } else if(commandWord.equals("run") && isBoss == true) {
-      System.out.println("You can escape from this enemy...");
-    } else if(commandWord.equals("special") || commandWord.equals("special attack")) {
+    if(commandWord.equals("special") || commandWord.equals("special attack")) {
       //*Damage the monster, check for HP, damage the player, check for HP
       if(fred.getBasePrio() > currentMonster.getPrio() || fred.getBasePrio() > currentBoss.getPrio()) {
         enemyHP -= currentWeapon.specialAttack(currentWeapon.getId());
@@ -718,19 +715,23 @@ public class Game {
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster + "for " + dmg + " damage!");
         System.out.println(enemyHP);
-        if(enemyHP < 1)
+        if(enemyHP < 1) {
           System.out.println("You won!");
-        if(isMonster == true) {
+          return true;
+        } else if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
           playerHP -= mdmg;
           System.out.println("You took " + mdmg + " damage!");
           System.out.println(playerHP);
         }else {
-          
+          int bdmg = currentBoss.attack(currentBoss.getAtk());
+          playerHP -= bdmg;
+          System.out.println("You took " + bdmg + " damage!");
         }
 
         if(playerHP < 1) { //* Will implement dd later
           System.out.println("You died lmao");
+          return true;
         }
       }else {
         if(isMonster == true) {
