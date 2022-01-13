@@ -113,7 +113,7 @@ public class Player {
     public void addPlayerHP(int n) {
         if (n <= 0) {
             HP += n;
-            System.out.println("You lo st" + Math.abs(n) + " HP! Total: " + getPlayerHP());
+            System.out.println("You lost " + Math.abs(n) + " HP! Total: " + getPlayerHP());
         } else {
             if ((HP + n) > maxHP) {
                 HP = maxHP;
