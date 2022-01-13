@@ -190,15 +190,15 @@ public class Game {
 
     for (Object weaponObj : jsonWeapons) {
       String weaponName = (String) ((JSONObject) weaponObj).get("Weapon");
-      int atk = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Attack"));
       int prio = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Priority"));
+      int atk = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Attack"));
       int def = Math.toIntExact((Long) ((JSONObject) weaponObj).get("Defense"));
       int speAtkDmg = Math.toIntExact((Long) ((JSONObject) weaponObj).get("SpecialAttackDamage"));
       int id = Math.toIntExact((Long) ((JSONObject) weaponObj).get("id"));
       String speAtkName = (String) ((JSONObject) weaponObj).get("SpecialAttackName");
       String desc = (String) ((JSONObject) weaponObj).get("Description");
 
-      Weapons weapon = new Weapons(weaponName, atk, prio, def, speAtkDmg, id, speAtkName, desc);
+      Weapons weapon = new Weapons(weaponName, prio, atk, def, speAtkDmg, id, speAtkName, desc);
       weapons.add(weapon);
     }
   }
