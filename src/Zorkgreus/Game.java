@@ -723,6 +723,7 @@ public class Game {
           else 
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
           System.out.println("-------------------------------------------------------------------------");
+          System.out.println();
           return false;
         }
       }else{
@@ -758,6 +759,7 @@ public class Game {
           else 
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
           System.out.println("-------------------------------------------------------------------------");
+          System.out.println();
           return false;
         }
       }
@@ -793,6 +795,7 @@ public class Game {
           else 
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
           System.out.println("-------------------------------------------------------------------------");
+          System.out.println();
           return false;
         }
       }else {
@@ -826,6 +829,7 @@ public class Game {
           else 
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
           System.out.println("-------------------------------------------------------------------------");
+          System.out.println();
           return false;
         }
       }
