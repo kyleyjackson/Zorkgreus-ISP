@@ -713,7 +713,7 @@ public class Game {
       if(fred.getBasePrio() > currentMonster.getPrio() || fred.getBasePrio() > currentBoss.getPrio()) {
         int dmg = currentWeapon.normalAttack();
         enemyHP -= dmg;
-        System.out.println("You hit the " + currentMonster + "for " + dmg + " damage!");
+        System.out.println("You hit the " + currentMonster.getName() + "for " + dmg + " damage!");
         System.out.println(enemyHP);
         if(enemyHP < 1) {
           System.out.println("You won!");
@@ -741,7 +741,7 @@ public class Game {
         }
         int dmg = currentWeapon.normalAttack();
         enemyHP -= dmg;
-        System.out.println("You hit the " + currentMonster + "for " + dmg + " damage!");
+        System.out.println("You hit the " + currentMonster.getName() + "for " + dmg + " damage!");
       }
     } else {
       System.out.println("You can't do that!");
