@@ -87,7 +87,10 @@ public class Weapons {
         int dmg = atk;
 
         if (rand == 1) {
-            dmg -= randDmg;
+            if((dmg - randDmg) < 0)
+                dmg = 0;
+            else
+                dmg -= randDmg;
         } else if (rand == 2) {
             dmg += randDmg;
         } else {
