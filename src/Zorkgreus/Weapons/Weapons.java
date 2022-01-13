@@ -25,6 +25,7 @@ public class Weapons {
         this.atk = atk;
         this.def = def;
         this.speAtkDmg = speAtkDmg;
+        this.id = id;
         this.speAtkName = speAtkName;
         this.desc = desc;
 
@@ -98,21 +99,26 @@ public class Weapons {
     public int specialAttack(int id) {
         int dmg = 0;
 
-        if (id == 1) {
+        if (id == 0) {
+            System.out.println("Your abilities grow faster..");
+            dmg = 8;
+
+            changePrio(30);
+        } else if (id == 1) {
+            System.out.println("You've become tougher..");
             dmg = 25;
 
             changeDef(10);
             changeAtk(15);
             changePrio(6);
         } else if (id == 2) {
+            System.out.println("Your attacks become faster and stronger..");
             dmg = 20;
 
             changePrio(8);
-        } else if (id == 0) {
-            dmg = 8;
-
-            changePrio(30);
-        } else {
+            changeAtk(19);
+        } else if (id == 3) {
+            System.out.println("Your strength reaches new levels..");
             dmg = 20;
 
             changeDef(5);

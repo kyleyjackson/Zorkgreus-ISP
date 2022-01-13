@@ -276,14 +276,19 @@ public class Game {
 
         command = parser.getCommand();
 
-        if (isFighting)
-          finishedFighting = processFightCommand(command);
-        else if (!isFighting)
+        if (isFighting) {
+          while(!finishedFighting) {
+            finishedFighting = processFightCommand(command);
+            isFighting = !finishedFighting;
+            System.out.println("You left combat.");
+          }
+          finishedFighting = false;
+        } else if (!isFighting) {
           finished = processCommand(command);
+        }
       } catch (IOException e) {
         e.printStackTrace();
       }
-
     }
     System.out.println("Thank you for playing.Good bye.");
   }
@@ -576,7 +581,7 @@ public class Game {
         }
       }
     } else if(commandWord.equals("fight")) {
-      if(currentMonster == null || currentBoss == null || currentRoom.getRoomId().equals("Spawn Room") || currentRoom.getRoomId().equals("Boom Room") || currentRoom.getRoomId().equals("F1C1") || currentRoom.getRoomId().equals("Boom Room") || currentRoom.getRoomId().equals("F1 NPC Room") || currentRoom.getRoomId().equals("F1 Shop Room") || currentRoom.getRoomId().equals("F2 Starting Room") || currentRoom.getRoomId().equals("F2C2") || currentRoom.getRoomId().equals("F2 NPC Room") || currentRoom.getRoomId().equals("F2 Shop Room") || currentRoom.getRoomId().equals("F3 Starting Room") || currentRoom.getRoomId().equals("F3C3") || currentRoom.getRoomId().equals("F3 NPC Room") || currentRoom.getRoomId().equals("F3 Shop Room")) {
+      if(currentMonster == null || currentBoss == null || currentRoom.getRoomId().equals("Spawn Room") || currentRoom.getRoomId().equals("Boon Room") || currentRoom.getRoomId().equals("F1C1") || currentRoom.getRoomId().equals("Boom Room") || currentRoom.getRoomId().equals("F1 NPC Room") || currentRoom.getRoomId().equals("F1 Shop Room") || currentRoom.getRoomId().equals("F2 Starting Room") || currentRoom.getRoomId().equals("F2C2") || currentRoom.getRoomId().equals("F2 NPC Room") || currentRoom.getRoomId().equals("F2 Shop Room") || currentRoom.getRoomId().equals("F3 Starting Room") || currentRoom.getRoomId().equals("F3C3") || currentRoom.getRoomId().equals("F3 NPC Room") || currentRoom.getRoomId().equals("F3 Shop Room")) {
         int random = (int)(Math.random() * 4) + 1;
         if(random == 1) 
           System.out.println("Who are you gonna fight, the air?");
@@ -588,6 +593,7 @@ public class Game {
           System.out.println("Have you gone blind?");
       }else {
         isFighting = true;
+        System.out.println("You've engaged in combat!");
       }
     } else if (prevCommand != null) { // commands for the word entered the line before (i.e. instead of bow confirm, it'd be bow *break* confirm)
       if (prevCommand.equals("bow")) {
@@ -663,7 +669,6 @@ public class Game {
   }
 
   public boolean processFightCommand(Command command) {
-    System.out.println("You've engaged in combat!");
     int playerHP = fred.getPlayerHP();
     int enemyHP = 0;
     boolean isBoss = false;
@@ -687,30 +692,9 @@ public class Game {
     if(commandWord.equals("special") || commandWord.equals("special attack")) {
       //*Damage the monster, check for HP, damage the player, check for HP
       if(fred.getBasePrio() > currentMonster.getPrio() || fred.getBasePrio() > currentBoss.getPrio()) {
-        enemyHP -= currentWeapon.specialAttack(currentWeapon.getId());
-        if(enemyHP < 0)
-          System.out.println("You won!");
-        if(isMonster == true) {
-          playerHP -= currentMonster.monsterNormalAttack();
-        }else {
-          
-        }
-
-        if(playerHP < 0) { //* Will implement dd later
-          System.out.println("You died lmao");
-        }
-      }else {
-        if(isMonster == true) {
-          playerHP -= currentMonster.monsterNormalAttack();
-        }else {
-          
-        }
-      }
-    } else if (commandWord.equals("normal") || commandWord.equals("normal attack")) {
-      if(fred.getBasePrio() > currentMonster.getPrio() || fred.getBasePrio() > currentBoss.getPrio()) {
-        int dmg = currentWeapon.normalAttack();
+        int dmg = currentWeapon.specialAttack(currentWeapon.getId());
         enemyHP -= dmg;
-        System.out.println("You hit the " + currentMonster.getName() + "for " + dmg + " damage!");
+        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
         System.out.println(enemyHP);
         if(enemyHP < 1) {
           System.out.println("You won!");
@@ -727,18 +711,78 @@ public class Game {
         }
 
         if(playerHP < 1) { //* Will implement dd later
-          System.out.println("You died lmao");
+          System.out.println("You died");
           return true;
         }
       }else {
         if(isMonster == true) {
           playerHP -= currentMonster.monsterNormalAttack();
         }else {
-          
+          int bdmg = currentBoss.attack(currentBoss.getAtk());
+          playerHP -= bdmg;
+          System.out.println("You took " + bdmg + " damage!");
         }
+
+        if(playerHP < 1) {
+          System.out.println("You died");
+          return true;
+        }
+
+        int dmg = currentWeapon.specialAttack(currentWeapon.getId());
+        enemyHP -= dmg;
+        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+
+        if(enemyHP < 1) {
+          System.out.println("You won!");
+          return true;
+        }
+      }
+    } else if (commandWord.equals("normal") || commandWord.equals("normal attack")) {
+      if(fred.getBasePrio() > currentMonster.getPrio() || fred.getBasePrio() > currentBoss.getPrio()) {
         int dmg = currentWeapon.normalAttack();
         enemyHP -= dmg;
-        System.out.println("You hit the " + currentMonster.getName() + "for " + dmg + " damage!");
+        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+        System.out.println(enemyHP);
+        if(enemyHP < 1) {
+          System.out.println("You won!");
+          return true;
+        } else if(isMonster == true) {
+          int mdmg = currentMonster.monsterNormalAttack();
+          playerHP -= mdmg;
+          System.out.println("You took " + mdmg + " damage!");
+          System.out.println(playerHP);
+        }else {
+          int bdmg = currentBoss.attack(currentBoss.getAtk());
+          playerHP -= bdmg;
+          System.out.println("You took " + bdmg + " damage!");
+        }
+
+        if(playerHP < 1) { //* Will implement dd later
+          System.out.println("You died");
+          return true;
+        }
+      }else {
+        if(isMonster == true) {
+          playerHP -= currentMonster.monsterNormalAttack();
+        }else {
+          int bdmg = currentBoss.attack(currentBoss.getAtk());
+          playerHP -= bdmg;
+          System.out.println("You took " + bdmg + " damage!");
+        }
+
+        if(playerHP < 1) {
+          System.out.println("You died");
+          return true;
+        }
+
+        int dmg = currentWeapon.normalAttack();
+        enemyHP -= dmg;
+        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+
+        if(enemyHP < 1) {
+          System.out.println("You won!");
+          return true;
+        }
       }
     } else {
       System.out.println("You can't do that!");
