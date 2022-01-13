@@ -252,9 +252,9 @@ public class Game {
             break;
           }
         }
-        setCurrentNPC();
         if(currentRoom.getRoomName().indexOf("NPC") == -1 || currentRoom.getRoomName().indexOf("Shop") == -1)
           setNPC = false;
+        setCurrentNPC();
         if (fred.getHydraliteGold()) {
           if (getCurrentRoom) {
             prevRoom = currentRoom.getRoomName();
@@ -281,7 +281,7 @@ public class Game {
         command = parser.getCommand();
 
         if (isFighting) {
-          finishedFighting = processFightCommand(command, fred.getPlayerHP());
+          finishedFighting = processFightCommand(command);
           if(finishedFighting == true) {
             System.out.println("You left combat.");
             isFighting = false;
@@ -290,7 +290,7 @@ public class Game {
             isBoss = false;
             isMonster = false;
           }else {
-            finishedFighting = processFightCommand(command, fred.getPlayerHP());
+            finishedFighting = processFightCommand(command);
           }
         } else if (!isFighting) {
           finished = processCommand(command);
@@ -299,7 +299,7 @@ public class Game {
         e.printStackTrace();
       }
     }
-    System.out.println("Thank you for playing.Good bye.");
+    System.out.println("Thank you for playing. Goodbye.");
   }
 
   /**
@@ -471,26 +471,26 @@ public class Game {
     } else if (commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
       if (onBoonScreen() && !boonSelected) {
         if (commandWord.equals("b1")) {
-          myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
-          System.out.println("You selected Boon: " + temp.get(0).getBoonName());
-          boonSelected = true;
           for (Boon b : myBoons) {
             b.levelUp(myBoons, temp, 0);
           }
-        } else if (commandWord.equals("b2")) {
-          myBoons.add(temp.get(1));
-          System.out.println("You selected Boon: " + temp.get(1).getBoonName());
+          myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
+          System.out.println("You selected Boon: " + temp.get(0).getBoonName());
           boonSelected = true;
+        } else if (commandWord.equals("b2")) {
           for (Boon b : myBoons) {
             b.levelUp(myBoons, temp, 1);
           }
-        } else if (commandWord.equals("b3")) {
-          myBoons.add(temp.get(2));
-          System.out.println("You selected Boon: " + temp.get(2).getBoonName());
+          myBoons.add(temp.get(1));
+          System.out.println("You selected Boon: " + temp.get(1).getBoonName());
           boonSelected = true;
+        } else if (commandWord.equals("b3")) {
           for (Boon b : myBoons) {
             b.levelUp(myBoons, temp, 2);
           }
+          myBoons.add(temp.get(2));
+          System.out.println("You selected Boon: " + temp.get(2).getBoonName());
+          boonSelected = true;
         } else {
           System.out.println("Which boon do you wish to receive?");
         }
@@ -589,7 +589,7 @@ public class Game {
           System.out.println("Type \"confirm\" to confirm your selection.");
         }
       }
-    } else if(commandWord.equals("fight")) {
+    } else if(commandWord.equals("fight") || commandWord.equals("attack")) {
       if(fightRooms.contains(currentRoom.getRoomId()) || currentRoom.getRoomId().equals("Spawn Room") || currentRoom.getRoomId().equals("Boon Room") || currentRoom.getRoomId().equals("F1C1") || currentRoom.getRoomId().equals("Boom Room") || currentRoom.getRoomId().equals("F1 NPC Room") || currentRoom.getRoomId().equals("F1 Shop Room") || currentRoom.getRoomId().equals("F2 Starting Room") || currentRoom.getRoomId().equals("F2C2") || currentRoom.getRoomId().equals("F2 NPC Room") || currentRoom.getRoomId().equals("F2 Shop Room") || currentRoom.getRoomId().equals("F3 Starting Room") || currentRoom.getRoomId().equals("F3C3") || currentRoom.getRoomId().equals("F3 NPC Room") || currentRoom.getRoomId().equals("F3 Shop Room")) {
         int random = (int)(Math.random() * 4) + 1;
         if(random == 1) 
@@ -684,7 +684,7 @@ public class Game {
     return false;
   }
 
-  public boolean processFightCommand(Command command, int playerHP) {
+  public boolean processFightCommand(Command command) {
     if (command.isUnknown()) {
       System.out.println("I don't know what you mean...");
       return false;
@@ -703,43 +703,45 @@ public class Game {
           return true;
         } else if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
-          playerHP -= mdmg;
-          System.out.println("You took " + mdmg + " damage!");
-          System.out.println(playerHP);
+          recEnemyHit = mdmg;
+          fred.addPlayerHP(-mdmg);
         }else {
           int bdmg = currentBoss.attack(currentBoss.getAtk());
-          playerHP -= bdmg;
-          System.out.println("You took " + bdmg + " damage!");
+          recEnemyHit = bdmg;
+          fred.addPlayerHP(-bdmg);
         }
 
-        if(playerHP < 1) { //* Will implement dd later
-          System.out.println("You died");
+        if(!fred.isAlive()) { //* Will implement dd later
+          System.out.println("You died.");
           return true;
         }else {
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + playerHP + " | Your Priority: " + currentWeapon.getPriority());
-          if(isMonster == true )
-          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
+          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
+          if(isMonster == true)
+            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
-          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
+            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
+          System.out.println("-------------------------------------------------------------------------");
           return false;
         }
-      }else {
+      }else{
         if(isMonster == true) {
-          playerHP -= currentMonster.monsterNormalAttack();
-        }else {
+          int mdmg = currentMonster.monsterNormalAttack();
+          recEnemyHit = mdmg;
+          fred.addPlayerHP(-mdmg);
+        } else {
           int bdmg = currentBoss.attack(currentBoss.getAtk());
-          playerHP -= bdmg;
-          System.out.println("You took " + bdmg + " damage!");
+          recEnemyHit = bdmg;
+          fred.addPlayerHP(-bdmg);
         }
 
-        if(playerHP < 1) {
-          System.out.println("You died");
+        if(!fred.isAlive()) {
+          System.out.println("You died.");
           return true;
         }
 
         int dmg = currentWeapon.specialAttack(currentWeapon.getId());
+        recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
 
@@ -747,77 +749,80 @@ public class Game {
           System.out.println("You won!");
           return true;
         }else {
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + playerHP + " | Your Priority: " + currentWeapon.getPriority());
+          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
           if(isMonster == true )
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
+          System.out.println("-------------------------------------------------------------------------");
           return false;
         }
       }
     } else if (commandWord.equals("normal") || commandWord.equals("normal attack")) {
       if(currentWeapon.getPriority() > currentMonster.getPrio() || currentWeapon.getPriority() > currentBoss.getPrio()) {
         int dmg = currentWeapon.normalAttack();
+        recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
         System.out.println(enemyHP);
         
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
-          playerHP -= mdmg;
-          System.out.println("You took " + mdmg + " damage!");
-          System.out.println(playerHP);
-        }else {
+          recEnemyHit = mdmg;
+          fred.addPlayerHP(-mdmg);
+        } else {
           int bdmg = currentBoss.attack(currentBoss.getAtk());
-          playerHP -= bdmg;
-          System.out.println("You took " + bdmg + " damage!");
+          recEnemyHit = bdmg;
+          fred.addPlayerHP(-bdmg);
         }
 
         if(enemyHP < 1) {
           System.out.println("You won!");
           return true;
-        } else if(playerHP < 1) { //* Will implement dd later
-          System.out.println("You died");
+        } else if(!fred.isAlive()) { //* Will implement dd later
+          System.out.println("You died.");
           return true;
         }else {
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + playerHP + " | Your Priority: " + currentWeapon.getPriority());
+          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
           if(isMonster == true )
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
-          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
+            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
+          System.out.println("-------------------------------------------------------------------------");
           return false;
         }
       }else {
         if(isMonster == true) {
-          playerHP -= currentMonster.monsterNormalAttack();
+          int mdmg = currentMonster.monsterNormalAttack();
+          recEnemyHit = mdmg;
+          fred.addPlayerHP(-mdmg);
         }else {
           int bdmg = currentBoss.attack(currentBoss.getAtk());
-          playerHP -= bdmg;
-          System.out.println("You took " + bdmg + " damage!");
+          recEnemyHit = bdmg;
+          fred.addPlayerHP(-bdmg);
         }
 
         int dmg = currentWeapon.normalAttack();
+        recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
 
-        if(playerHP < 1) {
+        if(!fred.isAlive()) {
           System.out.println("You died");
           return true;
         }else if(enemyHP < 1) {
           System.out.println("You won!");
           return true;
         }else {
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + playerHP + " | Your Priority: " + currentWeapon.getPriority());
-          if(isMonster == true )
+          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
+          if(isMonster == true)
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
+          System.out.println("-------------------------------------------------------------------------");
           return false;
         }
       }
@@ -830,8 +835,6 @@ public class Game {
     prevCommand = command.getCommandWord();
     return false;
   }
-
-  // implementations of user commands:
 
   /**
    * Print out some help information. Here we print some stupid, cryptic message
@@ -852,8 +855,7 @@ public class Game {
   public void formatMyBoons() {
     if (myBoons.size() != 0) {
       System.out.println("\n" + "Your current boons are:");
-      System.out.print(
-          "----------------------------------------------------------------------------------------------------------");
+      System.out.print("----------------------------------------------------------------------------------------------------------");
       for (int i = 0; i < myBoons.size(); i++) {
         System.out.println(myBoons.get(0).displayBoon());
       }

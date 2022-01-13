@@ -31,7 +31,7 @@ public class Sisyphus extends NPC{
         System.out.println("Life Essence - Restore 50% of max HP ");
         while (!validInput) {
             if(displayFullHPMessage)
-                System.out.print("Invalid Inpupt - [T]ouch of Midas, or [C]entaur Soul: ");
+                System.out.print("Invalid Input - [T]ouch of Midas, or [C]entaur Soul: ");
             else if(player.getPlayerHP()==player.getPlayerMaxHP()){
             System.out.println("Because you are full HP already, you cannot select Life Essence. ");
             System.out.print("Which one would you like to select, [T]ouch of Midas, or [C]entaur Soul: ");
