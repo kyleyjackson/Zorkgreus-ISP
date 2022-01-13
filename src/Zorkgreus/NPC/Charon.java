@@ -56,7 +56,7 @@ public class Charon extends NPC{
                 else if(random2 == 1)
                     System.out.println("[B]owl of Noodles - Heal for 40% of your max HP. | 25 gold");
                 else
-                    System.out.println("[P]om of Power - One of your boons will randomly gain +1 level. | 100 gold");
+                    System.out.println("[P]om of Power - One of your boons will randomly gain +1 level. | 80 gold");
                 System.out.println("\n" + "To exit the shop interface, type \"exit\".");
                 System.out.println("To open the selling menu, type \"sell\".");
                 System.out.println("To go to the 2nd page of items, type \"2\".");

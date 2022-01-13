@@ -132,13 +132,13 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F1 MiniBoss Room"
+          "adjacentRoom": "F1 Miniboss Room"
         }
       ]
     },
     {
-      "id": "F1 MiniBoss Room",
-      "name": "MiniBoss Room",
+      "id": "F1 Miniboss Room",
+      "name": "Miniboss Room",
       "descriptions": [
         "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
         "As you enter the room you can see two giant bony skeletons with bombs in their hands and explosion marks and ash all over the room with broken pots and ash. Behind the skeletons you can see a glowing boon and the only exit to the room heading West.",
@@ -378,13 +378,13 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 MiniBoss Room"
+          "adjacentRoom": "F2 Miniboss Room"
         }
       ]
     },
     {
-      "id": "F2 MiniBoss Room",
-      "name": "MiniBoss Room",
+      "id": "F2 Miniboss Room",
+      "name": "Miniboss Room",
       "descriptions": [
       "As you enter the room you feel very creeped out as the room is being very dimly lit up with green soul torches with the only exit to the room heading East and a boon beside it. The room is filled to the brim with cobwebs and dead spider parts with stone walls that look old and cracked and a pit in the middle of the room.",
       "As you enter the room you feel very creeped out as the room is being very dimly lit up with green soul torches with the only exit to the room heading East and a boon beside it. The room is filled to the brim with cobwebs and dead spider parts with stone walls that look old and cracked and a pit in the middle of the room.",
@@ -700,13 +700,13 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "F3 MiniBoss Room"
+          "adjacentRoom": "F3 Miniboss Room"
         }
       ]
     },
     {
-      "id": "F3 MiniBoss Room",
-      "name": "MiniBoss Room",
+      "id": "F3 Miniboss Room",
+      "name": "Miniboss Room",
       "descriptions": [
       "As you enter the room you can see blood on the floor along with test tubes with souls in them screaming and lighting up the room in a eerie green glow. As you keep looking around you can see a glowing boon and an exit heading West. In the middle of the room you can see a giant mass of flesh with bloody rusted chains attached to it.",
       "As you enter the room you can see blood on the floor along with test tubes with souls in them screaming and lighting up the room in a eerie green glow. As you keep looking around you can see a glowing boon and an exit heading West. In the middle of the room you can see a giant mass of flesh with bloody rusted chains attached to it.",

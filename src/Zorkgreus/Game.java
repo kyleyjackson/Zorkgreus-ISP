@@ -70,7 +70,7 @@ public class Game {
       initItems("src\\Zorkgreus\\data\\items.json");
       currentRoom = roomMap.get("Spawn Room");
       currentBoss = new DemolisionistSkeleton();
-      fred = new Player(6, 9, 420);
+      fred = new Player(0, 0, 0);
       getCurrentRoom = true;
     } catch (Exception e) {
       e.printStackTrace();
@@ -236,9 +236,6 @@ public class Game {
 
     weaponSelection(null, true);
 
-    currentNPC = new Charon();
-    myBoons = currentNPC.displayChoices(fred, temp, myBoons, items);
-
     boolean finished = false;
     while (!finished) {
       Command command;
@@ -269,7 +266,7 @@ public class Game {
           temp = generateBoons(false);
           generatedBoons = true;
         }
-        if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("MiniBoss Room")
+        if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("Miniboss Room")
         || currentRoom.getRoomName().equals("Boss Room")))
           boonSelected = false;
         if (boonSelected)
@@ -442,8 +439,7 @@ public class Game {
         System.out.println("The underworld feeds off your tears.");
       }
       if (msg == 1) {
-        System.out.println(
-            "Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
+        System.out.println("Sun Tzu once said: 'The supreme art of war is to subdue the enemy without fighting'. I don't think it's working.");
       }
       if (msg == 2) {
         System.out.println("Someone cutting onions?");
@@ -483,8 +479,7 @@ public class Game {
       }
     } else if (commandWord.equals("bow")) {
       if (weaponSelected)
-        System.out.println(
-            "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -495,6 +490,7 @@ public class Game {
           } else if (command.getSecondWord().equals("confirm")) {
             currentWeapon = weaponSelection("bow", false);
             weaponSelected = true;
+            fred = new Player(currentWeapon.getPriority(), currentWeapon.getAtk(), currentWeapon.getDef());
             System.out.println("You have selected the bow. Please proceed to the next room.");
           } else {
             System.out.println("Type \"help\" after the weapon to learn more about it.");
@@ -506,8 +502,7 @@ public class Game {
       }
     } else if (commandWord.equals("spear")) {
       if (weaponSelected)
-        System.out.println(
-            "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -518,6 +513,7 @@ public class Game {
           } else if (command.getSecondWord().equals("confirm")) {
             currentWeapon = weaponSelection("spear", false);
             weaponSelected = true;
+            fred = new Player(currentWeapon.getPriority(), currentWeapon.getAtk(), currentWeapon.getDef());
             System.out.println("You have selected the spear. Please proceed to the next room.");
           } else {
             System.out.println("Type \"help\" after the weapon to learn more about it.");
@@ -529,8 +525,7 @@ public class Game {
       }
     } else if (commandWord.equals("sword")) {
       if (weaponSelected)
-        System.out.println(
-            "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -541,6 +536,7 @@ public class Game {
           } else if (command.getSecondWord().equals("confirm")) {
             currentWeapon = weaponSelection("sword", false);
             weaponSelected = true;
+            fred = new Player(currentWeapon.getPriority(), currentWeapon.getAtk(), currentWeapon.getDef());
             System.out.println("You have selected the sword. Please proceed to the next room.");
           } else {
             System.out.println("Type \"help\" after the weapon to learn more about it.");
@@ -552,8 +548,7 @@ public class Game {
       }
     } else if (commandWord.equals("shield")) {
       if (weaponSelected)
-        System.out.println(
-            "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -564,6 +559,7 @@ public class Game {
           } else if (command.getSecondWord().equals("confirm")) {
             currentWeapon = weaponSelection("shield", false);
             weaponSelected = true;
+            fred = new Player(currentWeapon.getPriority(), currentWeapon.getAtk(), currentWeapon.getDef());
             System.out.println("You have selected the shield. Please proceed to the next room.");
           } else {
             System.out.println("Type \"help\" after the weapon to learn more about it.");
@@ -579,7 +575,7 @@ public class Game {
           System.out.println(weapons.get(0).getDescription() + "\n");
           System.out.println("Attack: " + weapons.get(0).getAtk() + "\n" + "Priority: " + weapons.get(0).getPriority()
               + "\n" + "Defense: " + weapons.get(0).getDef()
-              + "\n" + "Special Attack: " + weapons.get(0).getSpeAtkName());
+              + "\n" + "Special Attack: " + weapons.get(0).getSpeAtkName() + " | "  + weapons.get(0).getSpeAtkDmg() + " damage");
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
@@ -595,7 +591,7 @@ public class Game {
           System.out.println(weapons.get(1).getDescription() + "\n");
           System.out.println("Attack: " + weapons.get(1).getAtk() + "\n" + "Priority: " + weapons.get(1).getPriority()
               + "\n" + "Defense: " + weapons.get(1).getDef()
-              + "\n" + "Special Attack: " + weapons.get(1).getSpeAtkName());
+              + "\n" + "Special Attack: " + weapons.get(1).getSpeAtkName() + " | "  + weapons.get(1).getSpeAtkDmg() + " damage");
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
@@ -611,7 +607,7 @@ public class Game {
           System.out.println(weapons.get(2).getDescription() + "\n");
           System.out.println("Attack: " + weapons.get(2).getAtk() + "\n" + "Priority: " + weapons.get(2).getPriority()
               + "\n" + "Defense: " + weapons.get(2).getDef()
-              + "\n" + "Special Attack: " + weapons.get(2).getSpeAtkName());
+              + "\n" + "Special Attack: " + weapons.get(2).getSpeAtkName() + " | "  + weapons.get(2).getSpeAtkDmg() + " damage");
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
@@ -627,7 +623,7 @@ public class Game {
           System.out.println(weapons.get(3).getDescription() + "\n");
           System.out.println("Attack: " + weapons.get(3).getAtk() + "\n" + "Priority: " + weapons.get(3).getPriority()
               + "\n" + "Defense: " + weapons.get(3).getDef()
-              + "\n" + "Special Attack: " + weapons.get(3).getSpeAtkName());
+              + "\n" + "Special Attack: " + weapons.get(3).getSpeAtkName() + " | "  + weapons.get(3).getSpeAtkDmg() + " damage");
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
@@ -978,30 +974,30 @@ public class Game {
    */
   public void deathsDance() {
     int level = myBoons.get(getIndexByBoonName("Death's Dance")).getLevel();
-    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+    if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if(fred.getPlayerPrio() == currentBoss.getPrio()){
         if(level == 1){
           currentBoss.addBossHP(-4);
-          System.out.println(currentBoss.getName() + " lost 4 HP.");
+          System.out.println(currentBoss.getName() + " lost 4 HP from Death's Dance.");
         } else if(level == 2){
           currentBoss.addBossHP(-8);
-          System.out.println(currentBoss.getName() + " lost 8 HP.");
+          System.out.println(currentBoss.getName() + " lost 8 HP from Death's Dance.");
         } else {
           currentBoss.addBossHP(-12);
-          System.out.println(currentBoss.getName() + " lost 12 HP.");
+          System.out.println(currentBoss.getName() + " lost 12 HP from Death's Dance.");
         }
       }
     } else {
       if(fred.getPlayerPrio() == currentMonster.getPrio()){
         if(level == 1){
           currentMonster.addMonsterHP(-4);
-          System.out.println("The " + currentMonster.getName() + " lost 4 HP.");
+          System.out.println("The " + currentMonster.getName() + " lost 4 HP from Death's Dance.");
         } else if(level == 2){
           currentMonster.addMonsterHP(-8);
-          System.out.println("The " + currentMonster.getName() + " lost 8 HP.");
+          System.out.println("The " + currentMonster.getName() + " lost 8 HP from Death's Dance.");
         } else {
           currentMonster.addMonsterHP(-12);
-          System.out.println("The " + currentMonster.getName() + " lost 12 HP.");
+          System.out.println("The " + currentMonster.getName() + " lost 12 HP from Death's Dance.");
         }      
       }
     }
@@ -1012,33 +1008,33 @@ public class Game {
    */
   public void killingBlow() {
     int level = myBoons.get(getIndexByBoonName("Killing Blow")).getLevel();
-    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+    if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if (level == 1) {
         if (currentBoss.getHP() < currentBoss.getHP() * 0.05)
           currentBoss.setHP(0);
-          System.out.println(currentBoss.getName() + " was executed.");
+          System.out.println(currentBoss.getName() + " was executed by Killing Blow.");
       } else if (level == 2) {
         if (currentBoss.getHP() < currentBoss.getHP() * 0.1)
           currentBoss.setHP(0);
-          System.out.println(currentBoss.getName() + " was executed.");
+          System.out.println(currentBoss.getName() + " was executed by Killing Blow.");
       } else {
         if (currentBoss.getHP() < currentBoss.getHP() * 0.15)
           currentBoss.setHP(0);
-          System.out.println(currentBoss.getName() + " was executed.");
+          System.out.println(currentBoss.getName() + " was executed by Killing Blow.");
       }
     } else {
       if (level == 1) {
         if (currentMonster.getHP() < currentMonster.getHP() * 0.05)
           currentMonster.setHP(0);
-          System.out.println(currentMonster.getName() + " was executed.");
+          System.out.println("The " + currentMonster.getName() + " was executed by Killing Blow.");
       } else if (level == 2) {
         if (currentMonster.getHP() < currentMonster.getHP() * 0.1)
           currentMonster.setHP(0);
-          System.out.println(currentMonster.getName() + " was executed.");
+          System.out.println("The " + currentMonster.getName() + " was executed by Killing Blow.");
       } else {
         if (currentMonster.getHP() < currentMonster.getHP() * 0.15)
           currentMonster.setHP(0);
-          System.out.println(currentMonster.getName() + " was executed.");
+          System.out.println("The " + currentMonster.getName() + " was executed by Killing Blow.");
       }
     }
   }
@@ -1100,19 +1096,19 @@ public class Game {
   /**
    * Randomly selects a value to see if enemy takes 50% of damage dealt by their own attack.
    */
-  public void reciprocation() {
+  public void heartbreaker() {
     boolean willCharm = false;
     int random = (int) (Math.random() * 10) + 1;
     if (random <= 1 * myBoons.get(getIndexByBoonName("Heartbreaker")).getLevel())
       willCharm = true;
     if (willCharm) {
-      if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")){
+      if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")){
         currentBoss.addBossHP((int)(-recEnemyHit * 0.5));
-        System.out.println(currentBoss.getName() + " took " + (-recEnemyHit * 0.5) + " damage.");
+        System.out.println(currentBoss.getName() + " took " + (-recEnemyHit * 0.5) + " damage from Heartbreaker.");
       }
       else{
         currentMonster.addMonsterHP((int)(-recEnemyHit * 0.5));
-        System.out.println("The " + currentMonster.getName() + " took " + (-recEnemyHit * 0.5) + " damage.");
+        System.out.println("The " + currentMonster.getName() + " took " + (-recEnemyHit * 0.5) + " damage from Heartbreaker.");
       }
     }
   }
@@ -1123,7 +1119,7 @@ public class Game {
   public void charm() {
     int level = myBoons.get(getIndexByBoonName("Charm")).getLevel();
     int random = (int) (Math.random() * 10) + 1;
-    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+    if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if (level == 1) {
         if (random <= 2) {
 
@@ -1145,7 +1141,7 @@ public class Game {
    */
   public void goEasyOnMe() {
     int level = myBoons.get(getIndexByBoonName("False Weakness")).getLevel();
-    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+    if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if(level == 1)
         currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.9));
       else if(level == 2)
@@ -1168,11 +1164,12 @@ public class Game {
    */
   public void smite() {
     if (!(fred.isAlive())) {
-      if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+      if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
         currentBoss.setHP((int) (currentBoss.getHP() - (currentBoss.getMaxHP() * 0.1))); // subtracts 10% max hp from current hp
-        System.out.println();
+        System.out.println(currentBoss.getName() + " took " + (int) (currentBoss.getHP() - (currentBoss.getMaxHP() * 0.1)) + " damage from Smite.");
       } else {
         currentMonster.setHP(0);
+        System.out.println("The " + currentMonster.getName() + " was executed from Smite.");
       }
     }
   }
@@ -1184,22 +1181,31 @@ public class Game {
   public void thunderingFury() {
     int level = myBoons.get(getIndexByBoonName("Thundering Fury")).getLevel();
     boolean bossRoom = false;
-    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room"))
+    if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room"))
       bossRoom = true;
     if (bossRoom) {
-      if (level == 1)
+      if (level == 1){
         currentBoss.addBossDef((int) (currentBoss.getDef() - (currentBoss.getDef() * 0.3)));
-      else if (level == 2)
+        System.out.println(currentBoss.getName() + " lost " + (int) (currentBoss.getDef() - (currentBoss.getDef() * 0.3)) + " defence from Thundering Fury.");
+      }
+      else if (level == 2){
         currentBoss.setBossDef((int) (currentBoss.getDef() - (currentBoss.getDef() * 0.4)));
-      else
+        System.out.println(currentBoss.getName() + " lost " + (int) (currentBoss.getDef() - (currentBoss.getDef() * 0.4)) + " defence from Thundering Fury.");
+      } else {
         currentBoss.setBossDef((int) (currentBoss.getDef() - (currentBoss.getDef() * 0.5)));
+        System.out.println(currentBoss.getName() + " lost " + (int) (currentBoss.getDef() - (currentBoss.getDef() * 0.5)) + " defence from Thundering Fury.");
+      }
     } else {
-      if (level == 1)
+      if (level == 1){
         currentMonster.setDef((int) (currentMonster.getDef() - (currentMonster.getDef() * 0.3)));
-      else if (level == 2)
+        System.out.println("The " + currentMonster.getName() + " lost " + (int) (currentBoss.getDef() - (currentBoss.getDef() * 0.3)) + " defence from Thundering Fury.");
+      } else if (level == 2){
         currentMonster.setDef((int) (currentMonster.getDef() - (currentMonster.getDef() * 0.4)));
-      else
+        System.out.println("The " + currentMonster.getName() + " lost " + (int) (currentBoss.getDef() - (currentBoss.getDef() * 0.4)) + " defence from Thundering Fury.");
+      } else{
         currentMonster.setDef((int) (currentMonster.getDef() - (currentMonster.getDef() * 0.5)));
+        System.out.println("The " + currentMonster.getName() + " lost " + (int) (currentBoss.getDef() - (currentBoss.getDef() * 0.5)) + " defence from Thundering Fury.");
+      }
     }
   }
 
@@ -1210,7 +1216,7 @@ public class Game {
    */
   public int stormbreaker() {
     int level = myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel();
-    if (currentRoom.getRoomName().equals("MiniBoss Room") || currentRoom.getRoomName().equals("Boss Room")) {
+    if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if (level == 1)
         return (int) (currentBoss.getMaxHP() * 0.02);
       else if (level == 2)
@@ -1231,12 +1237,15 @@ public class Game {
    * Restore 12.5, 25, 50% of all damage dealt as hp.
    */
   public void suckyWucky() {
-    int dmgToHP = 69420; // get damage done from weapon normal/special attack and multiply
-    if ((int) (fred.getPlayerHP() + dmgToHP) >= fred.getPlayerMaxHP()) {
-      fred.setPlayerHP(fred.getPlayerMaxHP());
-    } else {
-      fred.setPlayerHP((int) (fred.getPlayerHP() + dmgToHP));
-    }
+    int level = myBoons.get(getIndexByBoonName("Sucky Wucky")).getLevel();
+    int dmgToHP = 0;
+    if(level == 1)
+      dmgToHP = recPlayerHit * (int)0.125; // get damage done from weapon normal/special attack and multiply
+    else if(level == 2)
+      dmgToHP = recPlayerHit * (int)0.25;
+    else 
+      dmgToHP = recPlayerHit * (int)0.5;
+    fred.addPlayerHP(dmgToHP);
   }
 
   /**
@@ -1247,22 +1256,15 @@ public class Game {
    *                  heal/max hp increase(false).
    */
   public void vitality(boolean situation) {
-    if (situation) {
-      if (fred.getPlayerHP() + 20 >= fred.getPlayerMaxHP()) {
-        fred.setPlayerHP(fred.getPlayerMaxHP());
-      } else {
-        fred.setPlayerHP(fred.getPlayerHP() + 20);
-      }
-    } else {
+    if (situation) 
+      fred.addPlayerHP(20);
+    else {
       if (canProceed) {
         if (fred.getPlayerHP() == fred.getPlayerMaxHP()) {
-          fred.setPlayerMaxHP(fred.getPlayerMaxHP() + 2);
-          fred.setPlayerHP(fred.getPlayerMaxHP());
-        } else if (fred.getPlayerHP() + 5 >= fred.getPlayerMaxHP()) {
-          fred.setPlayerHP(fred.getPlayerMaxHP());
-        } else {
-          fred.setPlayerHP(fred.getPlayerHP() + 5);
-        }
+          fred.addPlayerMaxHP(2);
+          fred.addPlayerHP(2);
+        } else
+          fred.addPlayerHP(5);
       }
     }
   }
@@ -1282,56 +1284,78 @@ public class Game {
    * Gain 20, 25, 30 defence, doubled to 40, 50, 60 if you have a shield equipped.
    */
   public void fortify() {
-    int level = myBoons.get(getIndexByBoonName("Stormbreaker")).getLevel();
+    int level = myBoons.get(getIndexByBoonName("Fortify")).getLevel();
     if (currentWeapon.getName().equals("Shield")) {
-      if (level == 1) {
-        fred.setPlayerDef(fred.getPlayerDef() + 40);
-      } else if (level == 2) {
-        fred.setPlayerDef(fred.getPlayerDef() + 10);
-      } else {
-        fred.setPlayerDef(fred.getPlayerDef() + 10);
-      }
+      if (level == 1) 
+        fred.addPlayerDefence(40);
+      else if (level == 2) 
+        fred.addPlayerDefence(10);
+      else 
+        fred.addPlayerDefence(10);
     } else {
-      if (level == 1) {
-        fred.setPlayerDef(fred.getPlayerDef() + 20);
-      } else if (level == 2) {
-        fred.setPlayerDef(fred.getPlayerDef() + 5);
-      } else {
-        fred.setPlayerDef(fred.getPlayerDef() + 5);
-      }
+      if (level == 1)
+        fred.addPlayerDefence(20);
+      else if (level == 2) 
+        fred.addPlayerDefence(5);
+      else
+        fred.addPlayerDefence(5);
     }
   }
 
   /**
-   * Gain a 4, 8, 12% chance to mitigate attack from monster.
+   * Gain a 4, 8, 12% chance to mitigate attack from enemy.
    */
-  public void divineProtection() {
+  public boolean divineProtection() {
+    int level = myBoons.get(getIndexByBoonName("Divine Protection")).getLevel();
     int random = (int) (Math.random() * 100) + 1;
-    if (random <= 4) {
-      // take monster's last attack and add it back to hp
+    if(level == 1){
+      if (random <= 4) 
+        return true;
+      else
+        return false;
+    }
+    else if(level == 2){
+      if(random <= 8)
+        return true;
+      else
+        return false;
+    }
+    else{
+      if(random <= 12)
+        return true;
+      else
+        return false;
     }
   }
 
   /**
    * If player hp goes below 0, bring it back to 1.
+   * 
+   * @param hasCalled check if the boon has been used on the floor.
    */
-  public void secondWind() {
-    if (fred.getPlayerHP() <= 0)
-      fred.setPlayerHP(1);
+  public void secondWind(boolean hasCalled) {
+    if(!hasCalled){
+      if (fred.getPlayerHP() <= 0)
+        fred.setPlayerHP(1);
+    }
   }
 
   public void berserker() {
     fred.setPlayerMaxHP(10);
     fred.setPlayerHP(10);
+    System.out.println("Your HP and max HP have been reduced to 10.");
+    System.out.println("Your attack was increased to " + fred.getPlayerAtk() * 5);
     fred.setPlayerAtk(fred.getPlayerAtk() * 5);
   }
 
   public void callToArms() {
-    // switch weapon
+    weaponSelected = false;
+    System.out.println("Type the name of the weapon you want to switch to!");
   }
 
   public void sheath() {
-    fred.setPlayerPrio(fred.getPlayerPrio() + 25);
+    fred.addPlayerPriority(25);
+    System.out.println("You lost " + (int)(fred.getPlayerAtk() * 0.75) + " attack!");
     fred.setPlayerAtk((int) (fred.getPlayerAtk() * 0.25));
   }
 
