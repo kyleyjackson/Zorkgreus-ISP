@@ -4,9 +4,9 @@
       "id": "Spawn Room",
       "name": "Spawn Room",
       "descriptions": [
-        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West.",
-        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West.",
-        "You are in a inside of a room with 4 walls. There are family pictures on all of the walls and a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West."
+        "You are in a inside of a room with 4 walls. There are a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West.",
+        "You are in a inside of a room with 4 walls. There are a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West.",
+        "You are in a inside of a room with 4 walls. There are a few torches on the walls. You can see a sword, shield, bow, and a spear. the room has one exit leading West."
       ],
       "exits": [
         {
@@ -19,9 +19,9 @@
       "id": "Test Dummy Room",
       "name": "Test Dummy Room",
       "descriptions": [
-        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
-        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a bunch of pots and a statue of Hades and a few torches.",
-        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a bunch of pots and a statue of Hades and a few torches."
+        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a few torches.",
+        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a few torches.",
+        "You are in a room with a skeleton in the middle with one exit heading West. The room is filled with a few torches."
       ],
       "exits": [
         {
@@ -34,9 +34,9 @@
       "id": "Boon Room",
       "name": "Boon Room",
       "descriptions": [
-      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
-      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture.",
-      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family picture."
+      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family.",
+      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family.",
+      "You are in a room with three glowing boons. The room has one exit heading West. The Room has three statues of different gods and a few torches and family."
       ],
       "exits": [
         {
@@ -49,9 +49,9 @@
       "id": "F1R1",
       "name": "F1 1st Attack Room",
       "descriptions": [
-      "You enter a room with some monsters inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West, South and Down.",
-      "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits West, South and Down.",
-      "You enter a room with a couple monsters inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West, South and Down."
+      "You enter a room with some monsters inside of it. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West, South and Down.",
+      "You enter a room with a few monsters inside of it. The room seems vibrant with the river of souls beside it lighting up the room and the two exits West, South and Down.",
+      "You enter a room with a couple monsters inside of it. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West, South and Down."
       ],
       "exits": [
         {
@@ -87,9 +87,9 @@
       "id": "F1R2",
       "name": "F1 2nd Attack Room",
       "descriptions": [
-        "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
-        "You have entered a room with some monsters inside of it with some pots scattered around the ground. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
-        "You have entered a room with a few monsters inside of it with some pots around the room on the ground. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with only a few dimly lit torches lighting it up and broken stone bricks and two exits heading West and North."
+        "You have entered a room with a couple of monsters inside of it. The room seems very eerie with a couple of lanterns hung up glowing purple with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
+        "You have entered a room with some monsters inside of it. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
+        "You have entered a room with a few monsters inside of it The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with only a few dimly lit torches lighting it up and broken stone bricks and two exits heading West and North."
         ],
       "exits": [
         {
@@ -106,9 +106,9 @@
       "id": "F1R3",
       "name": "F1 3rd Attack Room",
       "descriptions": [
-        "You enter a room with some monsters inside of it with a few gold coins scattered about the room. The room seems old and creepy very dimly lit with lanterns with what looks to be screaming souls inside of it and a stony and dusty floor with two exits heading West and South.",
-        "You enter a room with a few monsters inside of it with a couple of gold coins scattered everywhere. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
-        "You enter a room with a couple monsters inside of it with some gold coins scattered around. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
+        "You enter a room with some monsters inside of it. The room seems old and creepy very dimly lit with lanterns with what looks to be screaming souls inside of it and a stony and dusty floor with two exits heading West and South.",
+        "You enter a room with a few monsters inside of it. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
+        "You enter a room with a couple monsters inside of it. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
         ],
       "exits": [
         {
@@ -174,9 +174,9 @@
       "id": "F1R5",
       "name": "F1 5th Attack Room",
       "descriptions": [
-        "You have entered a room with a couple of monsters inside of it with some pots laying around on the ground. The room seems very eerie with a couple of lanterns hung up glowing green with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
-        "You have entered a room with some monsters inside of it with some pots scattered around the ground. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
-        "You have entered a room with a few monsters inside of it with some pots around the room on the ground. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with only a few dimly lit torches lighting it up and broken stone bricks and two exits heading West and North."
+        "You have entered a room with a couple of monsters inside of it. The room seems very eerie with a couple of lanterns hung up glowing green with what looks to be souls inside of it screaming and cracked bricks around the room with the only exits heading West and North.",
+        "You have entered a room with some monsters inside of it. The room has a nice view of the river of souls beside it lighting up the room with stone flooring that is cracked and two exits heading West and North.",
+        "You have entered a room with a few monsters inside of it. The room seems very creepy and old with a old ruined style as the room looks like its going to fall apart with only a few dimly lit torches lighting it up and broken stone bricks and two exits heading West and North."
         ],
       "exits": [
         {
@@ -193,9 +193,9 @@
       "id": "F1R6",
       "name": "F1 6th Attack Room",
       "descriptions": [
-      "You enter a room with some skeletons inside of it with a few gold coins scattered about along with some pots. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
-      "You enter a room with a few skeletons inside of it with a couple of gold coins scattered everywhere along with a few pots. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
-      "You enter a room with a couple skeletons inside of it with some gold coins scattered around along with a couple pots. The room looks really old with cracked bricks and a dusty floor with only a few soul lanterns lighting the room up and the only exits heading West and South."
+      "You enter a room with some skeletons inside of it. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
+      "You enter a room with a few skeletons inside of it. The room seems vibrant with the river of souls beside it lighting up the room and the two exits heading West and South.",
+      "You enter a room with a couple skeletons inside of it. The room looks really old with cracked bricks and a dusty floor with only a few soul lanterns lighting the room up and the only exits heading West and South."
       ],
       "exits": [
         {
@@ -257,9 +257,9 @@
       "id": "F2R1",
       "name": "F2 1st Attack Room",
       "descriptions": [
-      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow and a few coins scattered around the room.",
-      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East, South and Down. The room is dimly with torches lighting up the room with a bunch of coins around the room.",
-      "As you enter the old room you see some cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow and a bunch of coins scattered around the room."
+      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow.",
+      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East, South and Down. The room is dimly with torches lighting up the room.",
+      "As you enter the old room you see some cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow."
       ],
       "exits": [
         {
@@ -295,9 +295,9 @@
       "id": "F2R2",
       "name": "F2 2nd Attack Room",
       "descriptions": [
-      "You enter a room filled with some spiders with exits heading East and North. The room has some spider parts around the room with some coins the room is dimly lit with torches.",
-      "You enter a room with a few monsters with exits heading East and North. The room has a few spider parts around the room with coins the room is being lit up by soul lanterns glowing blue.",
-      "You enter a room with a couple spiders with exits heading East and North. The room has a couple of spider parts scattered around and coins the room is being lit up by soul torches glowing orange."
+      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit with torches glowing red.",
+      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul lanterns glowing blue.",
+      "You enter a room with a couple spiders with exits heading East and North. The room has a few soul torches glowing orange lighting up the room."
       ],
       "exits": [
         {
@@ -314,9 +314,9 @@
       "id": "F2R3",
       "name": "F2 3rd Attack Room",
       "descriptions": [
-      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room has some spider parts around the room with some coins the room is dimly lit with lanterns",
-      "You enter the room you can see it is has a few spiders and exits heading East and South. The room has a few spider parts around the room with coins the room is being lit up by soul torches glowing green.",
-      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room has a couple of spider parts scattered around and coins the room is being lit up by soul lanterns glowing blue."
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with lanterns glowing pink.",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul torches glowing green.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul lanterns glowing blue."
       ],
       "exits": [
         {
@@ -333,9 +333,9 @@
       "id": "F2R4",
       "name": "F2 4th Attack Room",
       "descriptions": [
-      "You enter a room filled with some spiders with exits heading East and North. The room has some spider parts around the room with some coins the room is dimly lit with lanterns.",
-      "You enter a room with a few monsters with exits heading East and North. The room has a few spider parts around the room with coins the room is being lit up by soul torches glowing red.",
-      "You enter a room with a couple spiders with exits heading East and North. The room has a couple of spider parts scattered around and coins the room is being lit up by soul lanterns glowing green."
+      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with soul lanterns glowing orange.",
+      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul torches glowing red.",
+      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul lanterns glowing green."
       ],
       "exits": [
         {
@@ -352,9 +352,9 @@
       "id": "F2R5",
       "name": "F2 5th Attack Room",
       "descriptions": [
-      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room has some spider parts around the room with some coins the room is dimly lit with torches",
-      "You enter the room you can see it is has a few spiders and exits heading East and South. The room has a few spider parts around the room with coins the room is being lit up by soul lanterns glowing blue.",
-      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room has a couple of spider parts scattered around and coins the room is being lit up by soul torches glowing green."
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with torches glowing red.",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul lanterns glowing blue.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul torches glowing green."
       ],
       "exits": [
         {
@@ -401,9 +401,9 @@
       "id": "F2R6",
       "name": "F2 6th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with soul lanterns glowing blue.",
+      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul torches glowing pink.",
+      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul lanterns glowing orange."
       ],
       "exits": [
         {
@@ -420,9 +420,9 @@
       "id": "F2R7",
       "name": "F2 7th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with lanterns glowing blue.",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul torches glowing orange.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul lanterns glowing red."
       ],
       "exits": [
         {
@@ -439,9 +439,9 @@
       "id": "F2R8",
       "name": "F2 8th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with soul lanterns glowing green.",
+      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul torches glowing blue.",
+      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul lanterns glowing orange."
       ],
       "exits": [
         {
@@ -458,9 +458,9 @@
       "id": "F2R9",
       "name": "F2 9th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with torches glowing green.",
+      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul latnerns glowing red.",
+      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul torches glowing orange."
       ],
       "exits": [
         {
@@ -477,9 +477,9 @@
       "id": "F2R10",
       "name": "F2 10th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with torches glowing orange.",
+      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul lanterns glowing red.",
+      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul torches glowing green."
       ],
       "exits": [
         {

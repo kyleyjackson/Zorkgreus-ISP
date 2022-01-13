@@ -6,7 +6,7 @@
             "Priority": 15,
             "Defense": 0,
             "SpecialAttackDamage": 8,
-            "id": 3,
+            "id": 0,
             "SpecialAttackName": "Accelerate",
             "Description": "A lime-coloured bow, its golden crests are covered in blood. The weapon for those who wish to attack quickly, catching their enemies off guard."
         },
@@ -36,7 +36,7 @@
             "Priority": 0,
             "Defense": 30,
             "SpecialAttackDamage": 20,
-            "id": 4,
+            "id": 3,
             "SpecialAttackName": "Rage",
             "Description": "A brown and white shield, worn out from countless attacks. The weapon for those who wish to keep themselves safe, whilst waiting for the chance to counter attack."
         }

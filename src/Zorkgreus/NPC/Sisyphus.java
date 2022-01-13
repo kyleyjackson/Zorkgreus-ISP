@@ -51,7 +51,6 @@ public class Sisyphus extends NPC{
                         || msg.equals("LIFE ESSENCE")) {
                        if(msg.equals("T")||msg.equals("TOUCH OF MIDAS")){
                             player.addPlayerGold(100);
-                            System.out.println("You have gained 100 gold");
                        }else if(msg.equals("C")||msg.equals("CENTAUR SOUL")){
                             player.addPlayerMaxHP(50);
                        }else{

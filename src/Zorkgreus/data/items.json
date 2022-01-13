@@ -37,147 +37,161 @@
         },
         {
             "name": "Pot",
-            "description": "",
+            "description": "A clay pot.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Grand Piano",
-            "description": "",
+            "description": "A massive piano made out of what seems to be wood.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Family Photo",
-            "description": "",
+            "description": "A photo of you, hades, and Persephone.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Vase",
-            "description": "",
+            "description": "A clay vase, with intricite details of folklore.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Chair",
-            "description": "",
+            "description": "A regular wooden chair.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Table",
-            "description": "",
+            "description": "A regular wooden table.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Plate",
-            "description": "",
+            "description": "A clay plate.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Fork",
-            "description": "",
+            "description": "A iron fork.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Knife",
-            "description": "",
+            "description": "A steel knife used for cooking.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Spoon",
-            "description": "",
+            "description": "A iron spoon.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Stool",
-            "description": "",
+            "description": "A wooden stool.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Metal Rod",
-            "description": "",
+            "description": "A metal rod made out of steel.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Chain",
-            "description": "",
+            "description": "A chain made out of steel and slightly rusted.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Pile of Dust",
-            "description": "",
-            "weight": 10,
+            "description": "it's a pile of dust what did you expect.",
+            "weight": 1,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Anvil",
-            "description": "",
+            "description": "An anvil made out of steel.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Stone Statue of Hades",
-            "description": "",
+            "description": "A stone statue detailing Hades in all his glory with his spear in hand.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Rotten Corpse",
-            "description": "",
+            "description": "A rotten corpse that is emits a foul smell.",
             "weight": 10,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Torn Duffel Bag",
-            "description": "",
+            "description": "A torn duffel bag made of leather with holes in it.",
             "weight": 0,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Leather Backpack",
-            "description": "",
+            "description": "A leather backpack that looks brand new.",
             "weight": 0,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Rugged Suitcase",
-            "description": "",
+            "description": "A suitcase that looks beaten up.",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Big Bone Club",
+            "description": "A giant club made of bone.",
+            "weight": 0,
+            "gold": 0,
+            "startingRoom" : ""
+        },
+        {
+            "name": "Sack of Spider Venom",
+            "description": "A venomous sack of poison collected from the Tarantula spider.",
             "weight": 0,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Vase of a Thousand Tormented Souls",
-            "description": "",
+            "description": "A vase containing the souls of the dead.",
             "weight": 0,
             "gold": 0,
             "startingRoom" : ""

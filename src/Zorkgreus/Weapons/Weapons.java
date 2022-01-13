@@ -108,7 +108,7 @@ public class Weapons {
             dmg = 20;
 
             changePrio(8);
-        } else if (id == 3) {
+        } else if (id == 0) {
             dmg = 8;
 
             changePrio(30);

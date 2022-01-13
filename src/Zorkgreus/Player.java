@@ -163,7 +163,7 @@ public class Player {
         if (n < 0)
             System.out.println("You spent " + Math.abs(n) + " gold! Total: " + getPlayerGold());
         else
-            System.out.println("You got " + n + " defence! Total: " + getPlayerGold());
+            System.out.println("You got " + n + " gold! Total: " + getPlayerGold());
     }
 
     public boolean getExtraLife() {
