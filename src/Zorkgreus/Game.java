@@ -792,14 +792,13 @@ public class Game {
           System.out.println("You died.");
           return true;
         }else {
-          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
           if(isMonster == true)
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("-------------------------------------------------------------------------");
-          System.out.println();
+          System.out.println("\n-------------------------------------------------------------------------\n");
           return false;
         }
       }else{
@@ -834,14 +833,13 @@ public class Game {
           currentMonster.setHP(enemyHP);
           return true;
         }else {
-          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
           if(isMonster == true )
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("-------------------------------------------------------------------------");
-          System.out.println();
+          System.out.println("\n-------------------------------------------------------------------------\n");
           return false;
         }
       }
@@ -871,14 +869,13 @@ public class Game {
           System.out.println("You died.");
           return true;
         }else {
-          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
           if(isMonster == true )
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("-------------------------------------------------------------------------");
-          System.out.println();
+          System.out.println("\n-------------------------------------------------------------------------\n");
           return false;
         }
       }else {
@@ -906,14 +903,13 @@ public class Game {
           currentMonster.setHP(enemyHP);
           return true;
         }else {
-          System.out.println("-------------------------------------------------------------------------");
+          System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
           if(isMonster == true)
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("-------------------------------------------------------------------------");
-          System.out.println();
+          System.out.println("\n-------------------------------------------------------------------------\n");
           return false;
         }
       }
