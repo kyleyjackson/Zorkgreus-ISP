@@ -407,20 +407,56 @@ public class Game {
     } else if (commandWord.equals("east") || commandWord.equals("west") || commandWord.equals("north")
         || commandWord.equals("south")) {
       goRoom(command);
-    /*} else if (commandWord.equals("attack")) {
-      // attackType(command);
-    } else if (commandWord.equals("special")) {
-      // attackType(command);
-    } else if (commandWord.equals("look")) {*/
+    } else if (commandWord.equals("look")) {
       currentRoom.roomDescription();
+    } else if (commandWord.equals("display")) {
+      if(!weaponSelected)
+          System.out.println("Pick a weapon first!");
+      else{
+        if(command.hasSecondWord()){
+          if(command.getSecondWord().equals("player")){
+            System.out.println("Your stats: ");
+            System.out.println("Weapon: " + currentWeapon.getName());
+            System.out.println("Special Attack: " + currentWeapon.getSpeAtkName() + " | " + currentWeapon.getSpeAtkDmg());
+            System.out.println("HP: " + fred.getPlayerHP() + "/" + fred.getPlayerMaxHP());
+            System.out.println("Attack: " + fred.getPlayerAtk());
+            System.out.println("Priority: " + fred.getPlayerPrio());
+            System.out.println("Defence: " + fred.getPlayerDef());
+            System.out.println("Dodge Chance: " + fred.getPlayerDodgeChange());
+            System.out.println("Gold: " + fred.getPlayerGold());
+          } else if(command.getSecondWord().equals("boons")){
+            formatMyBoons();
+          } else if(command.getSecondWord().equals("enemy")){
+            if(currentRoom.getRoomName().indexOf("Attack") > -1){
+              System.out.println(currentMonster.getName() + " stats: ");
+              System.out.println("HP: " + currentMonster.getHP() + "/" + currentMonster.getMaxHP());
+              System.out.println("Attack: " + currentMonster.getAtk());
+              System.out.println("Priority: " + currentMonster.getPrio());
+              System.out.println("Defence: " + currentMonster.getDef());
+              System.out.println("Dodge Chance: " + currentMonster.getDodgeChance());
+            } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
+              System.out.println(currentBoss.getName() + " stats: ");
+              System.out.println("HP: " + currentBoss.getHP() + "/" + currentMonster.getMaxHP());
+              System.out.println("Attack: " + currentBoss.getAtk());
+              System.out.println("Priority: " + currentBoss.getPrio());
+              System.out.println("Defence: " + currentBoss.getDef());
+              System.out.println("Dodge Chance: " + currentBoss.getDodge());
+            } else if(command.getSecondWord().equals("inventory")){
+              System.out.println("Your items: ");
+              fred.getInventory().displayInventory();
+            } else {
+              System.out.println("There's no enemy in the room!");
+            }
+          }
+        } else
+          System.out.println("What are you trying to display? (\"player\", \"enemy\", \"inventory\", \"boons\")");
+      }
     } else if (commandWord.equals("take")) {
       attemptToTake(command);
     } else if (commandWord.equals("takeall")) {
       attemptToTake(command);
     } else if (commandWord.equals("drop")) {
 
-    } else if(commandWord.equals("gold")){
-      System.out.println("You have " + fred.getPlayerGold() + " gold!");
     } else if (commandWord.equals("jump")) {
       int msg = (int) (Math.random() * 3);
       if (msg == 0) {
@@ -500,7 +536,7 @@ public class Game {
       }
     } else if (commandWord.equals("bow")) {
       if (weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -523,7 +559,7 @@ public class Game {
       }
     } else if (commandWord.equals("spear")) {
       if (weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -546,7 +582,7 @@ public class Game {
       }
     } else if (commandWord.equals("sword")) {
       if (weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -569,7 +605,7 @@ public class Game {
       }
     } else if (commandWord.equals("shield")) {
       if (weaponSelected)
-        System.out.println("You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+        System.out.println("You've already selected a weapon. Please proceed to the next room.");
       else {
         if (command.hasSecondWord()) {
           if (command.getSecondWord().equals("help")) {
@@ -601,7 +637,7 @@ public class Game {
           System.out.println("What are you trying to fight?");
         else 
           System.out.println("Have you gone blind?");
-      }else {
+      } else {
         if (currentRoom.getRoomName().indexOf("Boss Room") >= 0 || currentRoom.getRoomName().indexOf("Miniboss Room") >= 0) {
           isBoss = true;
           enemyHP = currentBoss.getHP();
@@ -612,8 +648,49 @@ public class Game {
         isFighting = true;
         System.out.println("You've engaged in combat!");
       }
+    } else if(commandWord.equals("normal") || commandWord.equals("special")){
+      System.out.println("You can't use those without initiating a fight. (type \"fight\" or \"attack\"!");
     } else if (prevCommand != null) { // commands for the word entered the line before (i.e. instead of bow confirm, it'd be bow *break* confirm)
-      if (prevCommand.equals("bow")) {
+      if(prevCommand.equals("display")){
+        if(!weaponSelected)
+          System.out.println("Pick a weapon first!");
+      else{
+        if(commandWord.equals("player")){
+          System.out.println("Your stats: ");
+          System.out.println("Weapon: " + currentWeapon.getName());
+          System.out.println("Special Attack: " + currentWeapon.getSpeAtkName() + " | " + currentWeapon.getSpeAtkDmg());
+          System.out.println("HP: " + fred.getPlayerHP() + "/" + fred.getPlayerMaxHP());
+          System.out.println("Attack: " + fred.getPlayerAtk());
+          System.out.println("Priority: " + fred.getPlayerPrio());
+          System.out.println("Defence: " + fred.getPlayerDef());
+          System.out.println("Dodge Chance: " + fred.getPlayerDodgeChange());
+          System.out.println("Gold: " + fred.getPlayerGold());
+        } else if(commandWord.equals("boons")){
+          formatMyBoons();
+        } else if(commandWord.equals("enemy")){
+          if(currentRoom.getRoomName().indexOf("Attack") > -1){
+            System.out.println(currentMonster.getName() + " stats: ");
+            System.out.println("HP: " + currentMonster.getHP() + "/" + currentMonster.getMaxHP());
+            System.out.println("Attack: " + currentMonster.getAtk());
+            System.out.println("Priority: " + currentMonster.getPrio());
+            System.out.println("Defence: " + currentMonster.getDef());
+            System.out.println("Dodge Chance: " + currentMonster.getDodgeChance());
+          } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
+            System.out.println(currentBoss.getName() + " stats: ");
+            System.out.println("HP: " + currentBoss.getHP() + "/" + currentMonster.getMaxHP());
+            System.out.println("Attack: " + currentBoss.getAtk());
+            System.out.println("Priority: " + currentBoss.getPrio());
+            System.out.println("Defence: " + currentBoss.getDef());
+            System.out.println("Dodge Chance: " + currentBoss.getDodge());
+          } else if(commandWord.equals("inventory")){
+            System.out.println("Your items: ");
+            fred.getInventory().displayInventory();
+          } else {
+            System.out.println("There's no enemy in the room!");
+          }
+        }
+      }
+      }else if (prevCommand.equals("bow")) {
         if (commandWord.equals("help")) {
           System.out.println(weapons.get(0).getDescription() + "\n");
           System.out.println("Attack: " + weapons.get(0).getAtk() + "\n" + "Priority: " + weapons.get(0).getPriority()
@@ -621,8 +698,7 @@ public class Game {
               + "\n" + "Special Attack: " + weapons.get(0).getSpeAtkName() + " | "  + weapons.get(0).getSpeAtkDmg() + " damage");
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
-            System.out.println(
-                "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+            System.out.println("You've already selected a weapon. Please proceed to the next room.");
           else {
             currentWeapon = weaponSelection("bow", false);
             weaponSelected = true;
@@ -638,7 +714,7 @@ public class Game {
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
-                "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+                "You've already selected a weapon. Please proceed to the next room.");
           else {
             currentWeapon = weaponSelection("spear", false);
             weaponSelected = true;
@@ -654,7 +730,7 @@ public class Game {
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
-                "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+                "You've already selected a weapon. Please proceed to the next room.");
           else {
             currentWeapon = weaponSelection("sword", false);
             weaponSelected = true;
@@ -670,7 +746,7 @@ public class Game {
         } else if (commandWord.equals("confirm")) {
           if (weaponSelected)
             System.out.println(
-                "You've already selected a weapon. There might be a way to change that, though. Please proceed to the next room.");
+                "You've already selected a weapon. Please proceed to the next room.");
           else {
             currentWeapon = weaponSelection("shield", false);
             weaponSelected = true;

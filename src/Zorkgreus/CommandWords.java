@@ -6,7 +6,7 @@ public class CommandWords {
   // a constant array that holds all valid command words (the numbers "1 2 3")
   // represent the boons that they can select)
   private static final String validCommands[] = { "go", "quit", "help", "eat", "east", "west", "north", "south",
-      "attack", "normal", "special", "look", "take", "takeall", "drop", "gold", "jump", "run", "slap", "cry", "boon", "boonlist",
+      "attack", "normal", "special", "look", "display", "player", "enemy", "inventory", "boons", "take", "takeall", "drop", "jump", "run", "slap", "cry", "boonlist",
       "myboons", "APCSP!", "APSCP", "fight", "bow", "spear", "sword", "shield", "confirm", "b1", "b2", "b3", };
 
   /**
