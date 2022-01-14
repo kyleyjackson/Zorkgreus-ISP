@@ -49,7 +49,7 @@ public class Charon extends NPC{
                 else
                     System.out.println("[P]om of Power - One of your boons will gain +1 level. | 80 gold");
 
-                System.out.println("[R]andom Blessing - You can select one of 3 boons provided from ANY god (excluding Chaos). | 100 gold");
+                System.out.println("[R]andom Blessing - You can select one of 3 boons provided from ANY god. | 100 gold");
 
                 if(random2 == 0)
                     System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 50 gold");

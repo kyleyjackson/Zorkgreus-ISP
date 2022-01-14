@@ -101,7 +101,7 @@ public class Boon {
         for(Boon b : myBoons){
           if(tempBoons.get(selection).getBoonName().equals(b.getBoonName())){
             if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
-            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")){
+            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind")){
               b.setLevel(b.getLevel() + 1);
               System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
               System.out.println(b.getStats());
@@ -145,7 +145,7 @@ public class Boon {
     public boolean canLevelAtIndex(ArrayList<Boon> myBoons, int index){
         Boon b = myBoons.get(index);
         if((b.getLevel() < 3 && (b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
-        || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos")) || b.getLevel() >= 3)
+        || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind")) || b.getLevel() >= 3)
             return false;
         else
             return true;

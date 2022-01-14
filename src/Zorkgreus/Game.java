@@ -930,8 +930,7 @@ public class Game {
   }
 
   /**
-   * Randomly choose 3 boons of the same god for player to choose (excluding
-   * Chaos).
+   * Randomly choose 3 boons of the same god for player to choose.
    *
    * @param atShop determines if we are in a shop room or not when generating.
    */
@@ -966,10 +965,8 @@ public class Game {
       }
       System.out
           .println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
-      System.out.print(
-          "----------------------------------------------------------------------------------------------------------");
-      System.out
-          .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+      System.out.print("----------------------------------------------------------------------------------------------------------");
+      System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     } else {
       selection.add(boons.get(num)); // uses num from beginning of function
       selection.add(boons.get((int) (Math.random() * boons.size()))); // different random value
