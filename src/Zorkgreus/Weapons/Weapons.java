@@ -18,8 +18,7 @@ public class Weapons {
     private int baseAtk; // attack at the start of the game
     private int baseDef; // defense at the start of the game
 
-    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName,
-            String desc) {
+    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName, String desc) {
         this.weaponName = weaponName;
         this.prio = prio;
         this.atk = atk;
