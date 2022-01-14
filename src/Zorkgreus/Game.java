@@ -824,7 +824,7 @@ public class Game {
 
         if(enemyHP < 1) {
           System.out.println("You won!");
-          currentMonster.setHP(enemyHP);
+          currentMonster.setHP(0);
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -843,7 +843,7 @@ public class Game {
         recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        System.out.println();
+        speAtkCounter--;
         
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
@@ -886,15 +886,15 @@ public class Game {
         int dmg = currentWeapon.normalAttack();
         recPlayerHit = dmg;
         enemyHP -= dmg;
+        speAtkCounter--;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        System.out.println();
 
         if(!fred.isAlive()) {
           System.out.println("You died");
           return true;
         }else if(enemyHP < 1) {
           System.out.println("You won!");
-          currentMonster.setHP(enemyHP);
+          currentMonster.setHP(0);
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
