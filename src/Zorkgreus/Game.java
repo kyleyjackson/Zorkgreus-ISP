@@ -54,6 +54,7 @@ public class Game {
   boolean isBoss = false; // checks if you're in combat with a boss.
   boolean isMonster = false; // checks if you're in combat with a monster.
   private boolean determineItems;
+  private boolean monsterDrop;
   boolean isEnraged = false; // checks if the boss is currently in a state of rage
 
   /*------------------------------------global strings------------------------------------*/
@@ -264,8 +265,13 @@ public class Game {
         if(currentRoom.getInventory().getCurrentWeight()==0)
           determineItems = true;
         predertimineItems();
-        if(currentMonster!=null)
+        if(currentMonster!=null){
+          if(!currentMonster.isAlive())
+            monsterDrop = true;
+            if(currentRoom.getInventory().getCurrentWeight()>30)
+              monsterDrop = false;
         determineMonsterDrop();
+        }
 
         if (!generatedBoons && onBoonScreen()) {
           temp = generateBoons(false);
@@ -1654,6 +1660,7 @@ public class Game {
   }
 
   public void determineMonsterDrop(){
+    if(monsterDrop){
     if(!currentMonster.isAlive()){
     String floor = currentRoom.getRoomName().substring(0, 2);
     int randomNum = (int)(Math.random()*100+1);
@@ -1661,32 +1668,35 @@ public class Game {
     int count = 0;
     if(currentRoom.getRoomName().indexOf("Attack")>=0){
       if(floor.equals("F1")){
-        currentRoom.getInventory().addItem(items.get(0));
+        currentRoom.getInventory().addRoomItem(items.get(0));
+        count++;
         if(randomNum<=ans+15&&randomNum>=ans-15){
-          currentRoom.getInventory().addItem(items.get(0));
+          currentRoom.getInventory().addRoomItem(items.get(0));
           count++;
         }if(randomNum<=ans+5&&randomNum>=ans-5){
-          currentRoom.getInventory().addItem(items.get(0));
+          currentRoom.getInventory().addRoomItem(items.get(0));
           count++;
         }
           System.out.println("The skeleton has dropped " + count + " bones. ");
       }else if(floor.equals("F2")){
-        currentRoom.getInventory().addItem(items.get(1));
+        currentRoom.getInventory().addRoomItem(items.get(1));
+        count++;
         if(randomNum<=ans+15&&randomNum>=ans-15){
-          currentRoom.getInventory().addItem(items.get(1));
+          currentRoom.getInventory().addRoomItem(items.get(1));
           count++;
         }if(randomNum<=ans+5&&randomNum>=ans-5){
-          currentRoom.getInventory().addItem(items.get(1));
+          currentRoom.getInventory().addRoomItem(items.get(1));
           count++;
         }
         System.out.println("The spider has dropped " + count + " legs. ");
       }else{
-        currentRoom.getInventory().addItem(items.get(2));
+        currentRoom.getInventory().addRoomItem(items.get(2));
+        count++;
         if(randomNum<=ans+10&&randomNum>=ans-10){
-          currentRoom.getInventory().addItem(items.get(2));
+          currentRoom.getInventory().addRoomItem(items.get(2));
           count++;
         }if(randomNum<=ans+5&&randomNum>=ans-5){
-          currentRoom.getInventory().addItem(items.get(2));
+          currentRoom.getInventory().addRoomItem(items.get(2));
           count++;
         }
         System.out.println("The fallen hero has dropped " + count + " urns. ");
@@ -1694,18 +1704,19 @@ public class Game {
     }
   }
   }
+}
 
   public void predertimineItems(){
     if(determineItems){
     for (int i = 0; i < 3; i++) {
       int numItem = (int)(Math.random()*items.size());
-      if(numItem<=2)
-        numItem+=3;
+      if(numItem<=4)
+        numItem+=5;
       if(numItem>=22&&numItem<=24)
         numItem-=3;
       if(numItem>=25)
         numItem-=6;
-      currentRoom.getInventory().addItem(items.get(numItem));
+      currentRoom.getInventory().addRoomItem(items.get(numItem));
     }
     determineItems = false;
     }
