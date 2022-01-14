@@ -53,6 +53,7 @@ public class Game {
   private boolean isFighting = false; //checks if you're currently in combat.
   boolean isBoss = false; // checks if you're in combat with a boss.
   boolean isMonster = false; // checks if you're in combat with a monster.
+  private boolean determineItems;
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -257,17 +258,13 @@ public class Game {
           setNPC = false;
         setCurrentNPC();
         if (fred.getHydraliteGold()) {
-          if (getCurrentRoom) {
-            prevRoom = currentRoom.getRoomName();
-          }
-          getCurrentRoom = false;
-          if (!(prevRoom.equals(currentRoom.getRoomName()))) {
-            int addHP = (int) (fred.getPlayerMaxHP() * 0.3);
-            fred.addPlayerHP(addHP);
-            System.out.println("You have gained " + addHP + " HP");
-            prevRoom = currentRoom.getRoomName();
-          }
+          hydraliteGold();
         }
+        if(currentRoom.getInventory().getCurrentWeight()==0)
+          determineItems = true;
+        predertimineItems();
+        if(currentMonster!=null)
+        determineMonsterDrop();
 
         if (!generatedBoons && onBoonScreen()) {
           temp = generateBoons(false);
@@ -409,7 +406,7 @@ public class Game {
       goRoom(command);
     } else if (commandWord.equals("look")) {
       currentRoom.roomDescription();
-      currentRoom.getInventory().displayInventory();
+      currentRoom.getInventory().displayRoomInventory();
     } else if (commandWord.equals("display")) {
       if(!weaponSelected)
           System.out.println("Pick a weapon first!");
@@ -433,8 +430,8 @@ public class Game {
             } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
               currentBoss.bossInfo();
             } else if(command.getSecondWord().equals("inventory")){
-              System.out.println("Your items: ");
-              fred.getInventory().displayInventory();
+              fred.getInventory().displayPlayerInventory();
+              fred.getInventory().displayWeight();
             } else {
               System.out.println("There's no enemy in the room!");
             }
@@ -447,7 +444,6 @@ public class Game {
     } else if (commandWord.equals("takeall")) {
       attemptToTake(command);
     } else if (commandWord.equals("drop")) {
-
     } else if (commandWord.equals("jump")) {
       int msg = (int) (Math.random() * 3);
       if (msg == 0) {
@@ -664,8 +660,8 @@ public class Game {
           } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
             currentBoss.bossInfo();
           } else if(commandWord.equals("inventory")){
-            System.out.println("Your items: ");
-            fred.getInventory().displayInventory();
+            fred.getInventory().displayPlayerInventory();
+            fred.getInventory().displayWeight();
           } else {
             System.out.println("There's no enemy in the room!");
           }
@@ -1694,14 +1690,34 @@ public class Game {
   }
   }
 
-  public void predertimeItems(){
+  public void predertimineItems(){
+    if(determineItems){
     for (int i = 0; i < 3; i++) {
       int numItem = (int)(Math.random()*items.size());
       if(numItem<=2)
         numItem+=3;
-      if(numItem>=22)
+      if(numItem>=22&&numItem<=24)
         numItem-=3;
+      if(numItem>=25)
+        numItem-=6;
       currentRoom.getInventory().addItem(items.get(numItem));
     }
+    determineItems = false;
   }
+  }
+
+  public void hydraliteGold(){{
+      if (getCurrentRoom) {
+        prevRoom = currentRoom.getRoomName();
+      }
+      getCurrentRoom = false;
+      if (!(prevRoom.equals(currentRoom.getRoomName()))) {
+        int addHP = (int) (fred.getPlayerMaxHP() * 0.3);
+        fred.addPlayerHP(addHP);
+        System.out.println("You have gained " + addHP + " HP");
+        prevRoom = currentRoom.getRoomName();
+      }
+  }
+
+}
 }
