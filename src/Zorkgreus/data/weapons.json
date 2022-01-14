@@ -2,7 +2,7 @@
     "weapons": [
         {
             "Weapon": "Bow",
-            "Attack": 10,
+            "Attack": 4,
             "Priority": 15,
             "Defense": 0,
             "SpecialAttackDamage": 8,
@@ -12,7 +12,7 @@
         },
         {
             "Weapon": "Spear", 
-            "Attack": 13, 
+            "Attack": 7, 
             "Priority": 8, 
             "Defense": 0, 
             "SpecialAttackDamage": 25, 
@@ -22,7 +22,7 @@
         },
         {
             "Weapon": "Sword",
-            "Attack": 17,
+            "Attack": 10,
             "Priority": 5,
             "Defense": 0,
             "SpecialAttackDamage": 20,
@@ -32,7 +32,7 @@
         },
         {
             "Weapon": "Shield",
-            "Attack": 15,
+            "Attack": 5,
             "Priority": 0,
             "Defense": 30,
             "SpecialAttackDamage": 20,

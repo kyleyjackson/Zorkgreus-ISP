@@ -53,6 +53,7 @@ public class Game {
   private boolean isFighting = false; //checks if you're currently in combat.
   boolean isBoss = false; // checks if you're in combat with a boss.
   boolean isMonster = false; // checks if you're in combat with a monster.
+  boolean isEnraged = false; // checks if the currentBoss is in a state of rage.
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -756,21 +757,33 @@ public class Game {
     if(commandWord.equals("special") || commandWord.equals("special attack")) {
       //*Damage the monster, check for HP, damage the player, check for HP
       if(currentWeapon.getPriority() > currentMonster.getPrio() || currentWeapon.getPriority() > currentBoss.getPrio()) {
-        int dmg = currentWeapon.specialAttack(currentWeapon.getId());
-        enemyHP -= dmg;
-        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        System.out.println();
+        if(speAtkCounter > 0) {
+          System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
+          speAtkCounter--;
+        }else {
+          int dmg = currentWeapon.specialAttack(currentWeapon.getId());
+          enemyHP -= dmg;
+          System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+          System.out.println();
+          speAtkCounter += 3;
+        }
+        
         if(enemyHP < 1) {
           System.out.println("You won!");
+          currentMonster.setHP(enemyHP);
           return true;
         } else if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
           recEnemyHit = mdmg;
           fred.addPlayerHP(-mdmg);
         }else {
-          int bdmg = currentBoss.attack(currentBoss.getAtk());
-          recEnemyHit = bdmg;
-          fred.addPlayerHP(-bdmg);
+          if(currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) {
+            currentBoss.bossRage();
+          }else {
+            int bdmg = currentBoss.attack(currentBoss.getAtk());
+            recEnemyHit = bdmg;
+            fred.addPlayerHP(-bdmg);
+          }
         }
 
         if(!fred.isAlive()) { //* Will implement dd later
@@ -803,14 +816,20 @@ public class Game {
           return true;
         }
 
-        int dmg = currentWeapon.specialAttack(currentWeapon.getId());
-        recPlayerHit = dmg;
-        enemyHP -= dmg;
-        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        System.out.println();
+        if(speAtkCounter > 0) {
+          System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
+          speAtkCounter--;
+        }else {
+          int dmg = currentWeapon.specialAttack(currentWeapon.getId());
+          enemyHP -= dmg;
+          System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+          System.out.println();
+          speAtkCounter += 3;
+        }
 
         if(enemyHP < 1) {
           System.out.println("You won!");
+          currentMonster.setHP(enemyHP);
           return true;
         }else {
           System.out.println("-------------------------------------------------------------------------");
@@ -844,6 +863,7 @@ public class Game {
 
         if(enemyHP < 1) {
           System.out.println("You won!");
+          currentMonster.setHP(enemyHP);
           return true;
         } else if(!fred.isAlive()) { //* Will implement dd later
           System.out.println("You died.");
@@ -881,6 +901,7 @@ public class Game {
           return true;
         }else if(enemyHP < 1) {
           System.out.println("You won!");
+          currentMonster.setHP(enemyHP);
           return true;
         }else {
           System.out.println("-------------------------------------------------------------------------");
@@ -1686,6 +1707,16 @@ public class Game {
       if(numItem>=22)
         numItem-=3;
       currentRoom.getInventory().addItem(items.get(numItem));
+    }
+  }
+
+  public int defenseCalc(int dmg) {
+    int defCalc = (fred.getPlayerDef() / 4) - 2;
+    
+    if((dmg - defCalc) < 0) {
+      return 0;
+    }else {
+      return dmg - defCalc;
     }
   }
 }
