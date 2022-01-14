@@ -17,20 +17,12 @@ public class Inventory {
     return maxWeight;
   }
 
-  public void addCurrentWeight(Item item){
-    currentWeight += item.getWeight();
-  }
-
-  public void subtractCurrentWeight(Item item){
-    currentWeight -= item.getWeight();
+  public void setMaxWeight(int extra) {
+    maxWeight = extra;
   }
 
   public int getCurrentWeight() {
     return currentWeight;
-  }
-
-  public void setMaxWeight(int extra) {
-    maxWeight += extra;
   }
 
   public void displayWeight(){
@@ -51,7 +43,18 @@ public class Inventory {
 
   public void addItem(Item item) {
     if (item.getWeight() + currentWeight <= maxWeight){
-    currentWeight += item.getWeight();
+      currentWeight += item.getWeight();
+      items.add(item);
+      System.out.println(item.getName() + " has been added to your inventory. ");
+    }
+    else {
+      System.out.println("There is no room to add the item.");
+    }
+  }
+
+  public void addRoomItem(Item item){
+    if (item.getWeight() + currentWeight <= maxWeight){
+      currentWeight += item.getWeight();
       items.add(item);
     }
     else {
@@ -79,20 +82,31 @@ public class Inventory {
    * @param item name of the item dropped
    * @return true if you drop the item
    */
-  public boolean dropItem(String item) {
+  public void dropItem(String item) {
     if (inInventory(item)) {
       for (int i = 0; i < items.size(); i++) {
         Item toRemove = items.get(i);
         if (toRemove.getName().equals(item)) {
-          subtractCurrentWeight(items.get(i));
+          currentWeight -= items.get(i).getWeight();
           items.remove(i);
           System.out.println(item + " has been removed from your inventory. ");
-          return true;
         }
       }
     }
     System.out.println("Can't drop something you dont have. ");
-    return false;
+  }
+
+  public void dropRoomItem(String item) {
+    if (inInventory(item)) {
+      for (int i = 0; i < items.size(); i++) {
+        Item toRemove = items.get(i);
+        if (toRemove.getName().equals(item)) {
+          currentWeight -= items.get(i).getWeight();
+          items.remove(i);
+        }
+      }
+    }
+    System.out.println("Can't drop something you dont have. ");
   }
 
   /**
