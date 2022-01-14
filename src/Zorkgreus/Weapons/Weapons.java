@@ -18,8 +18,7 @@ public class Weapons {
     private int baseAtk; // attack at the start of the game
     private int baseDef; // defense at the start of the game
 
-    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName,
-            String desc) {
+    public Weapons(String weaponName, int prio, int atk, int def, int speAtkDmg, int id, String speAtkName, String desc) {
         this.weaponName = weaponName;
         this.prio = prio;
         this.atk = atk;
@@ -87,7 +86,10 @@ public class Weapons {
         int dmg = atk;
 
         if (rand == 1) {
-            dmg -= randDmg;
+            if((dmg - randDmg) < 0)
+                dmg = 0;
+            else
+                dmg -= randDmg;
         } else if (rand == 2) {
             dmg += randDmg;
         } else {
@@ -100,32 +102,22 @@ public class Weapons {
         int dmg = 0;
 
         if (id == 0) {
-            System.out.println("Your abilities grow faster..");
-            dmg = 8;
-
-            changePrio(30);
+            System.out.println("You send out a volley of arrows... ");
+            System.out.println();
+            dmg = 10;
         } else if (id == 1) {
-            System.out.println("You've become tougher..");
-            dmg = 25;
-
-            changeDef(10);
-            changeAtk(15);
-            changePrio(6);
+            System.out.println("You unleash a flurry of jabs... ");
+            System.out.println();
+            dmg = 17;
         } else if (id == 2) {
-            System.out.println("Your attacks become faster and stronger..");
+            System.out.println("You leap into the air, falling towards your opponent... ");
+            System.out.println();
             dmg = 20;
-
-            changePrio(8);
-            changeAtk(19);
         } else if (id == 3) {
-            System.out.println("Your strength reaches new levels..");
-            dmg = 20;
-
-            changeDef(5);
-            changeAtk(20);
-            changePrio(10);
+            System.out.println("You toss your shield... ");
+            System.out.println();
+            dmg = 15;
         }
-
         return dmg;
     }
 }

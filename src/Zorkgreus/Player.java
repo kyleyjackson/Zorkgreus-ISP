@@ -111,9 +111,9 @@ public class Player {
     }
 
     public void addPlayerHP(int n) {
-        if (n < 0) {
+        if (n <= 0) {
             HP += n;
-            System.out.println("You lost" + Math.abs(n) + " HP! Total: " + getPlayerHP());
+            System.out.println("You lost " + Math.abs(n) + " HP! Total: " + getPlayerHP());
         } else {
             if ((HP + n) > maxHP) {
                 HP = maxHP;
@@ -127,7 +127,7 @@ public class Player {
 
     public void addPlayerMaxHP(int n) {
         maxHP += n;
-        if (n < 0)
+        if (n <= 0)
             System.out.println("You lost " + Math.abs(n) + " max HP! Total: " + getPlayerMaxHP());
         else
             System.out.println("You gained " + n + " max HP! Total: " + getPlayerMaxHP());
@@ -135,7 +135,7 @@ public class Player {
 
     public void addPlayerPriority(int n) {
         prio += n;
-        if (n < 0)
+        if (n <= 0)
             System.out.println("You lost " + Math.abs(n) + " priority! Total: " + getPlayerPrio());
         else
             System.out.println("Your gained " + n + " priority! Total: " + getPlayerPrio());
@@ -143,7 +143,7 @@ public class Player {
 
     public void addPlayerAttack(int n) {
         atk += n;
-        if (n < 0)
+        if (n <= 0)
             System.out.println("You lost " + Math.abs(n) + " attack! Total: " + getPlayerAtk());
         else
             System.out.println("Your gained " + n + " attack! Total: " + getPlayerAtk());
@@ -151,7 +151,7 @@ public class Player {
 
     public void addPlayerDefence(int n) {
         def += n;
-        if (n < 0)
+        if (n <= 0)
             System.out.println("You lost " + Math.abs(n) + " defence! Total: " + getPlayerDef());
         else
             System.out.println("You gained " + n + " defence! Total: " + getPlayerDef());
@@ -160,7 +160,7 @@ public class Player {
 
     public void addPlayerGold(int n) {
         gold += n;
-        if (n < 0)
+        if (n <= 0)
             System.out.println("You spent " + Math.abs(n) + " gold! Total: " + getPlayerGold());
         else
             System.out.println("You got " + n + " gold! Total: " + getPlayerGold());

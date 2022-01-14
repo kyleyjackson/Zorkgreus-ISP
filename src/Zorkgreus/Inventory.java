@@ -101,7 +101,7 @@ public class Inventory {
    */
   public void displayInventory() {
     for (Item item : items) {
-      System.out.println(item.getName());
+      System.out.println(item.getName() + " | Weight: " + item.getWeight());
     }
   }
 
