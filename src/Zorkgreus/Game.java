@@ -937,7 +937,7 @@ public class Game {
    */
   public ArrayList<Boon> generateBoons(boolean atShop) {
     ArrayList<Boon> selection = new ArrayList<>();
-    int num = (int) (Math.random() * (boons.size() - 6));
+    int num = (int) (Math.random() * boons.size());
     if (!atShop) {
       if (num <= 2) { // Ares
         selection.add(boons.get(0));
@@ -972,8 +972,8 @@ public class Game {
           .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     } else {
       selection.add(boons.get(num)); // uses num from beginning of function
-      selection.add(boons.get((int) (Math.random() * (boons.size() - 6)))); // different random value
-      selection.add(boons.get((int) (Math.random() * (boons.size() - 6))));
+      selection.add(boons.get((int) (Math.random() * boons.size()))); // different random value
+      selection.add(boons.get((int) (Math.random() * boons.size())));
     }
     return selection;
   }
@@ -1612,38 +1612,6 @@ public class Game {
       if (fred.getPlayerHP() <= 0)
         fred.setPlayerHP(1);
     }
-  }
-
-  public void berserker() {
-    fred.setPlayerMaxHP(10);
-    fred.setPlayerHP(10);
-    System.out.println("Your HP and max HP have been reduced to 10.");
-    System.out.println("Your attack was increased to " + fred.getPlayerAtk() * 5);
-    fred.setPlayerAtk(fred.getPlayerAtk() * 5);
-  }
-
-  public void callToArms() {
-    weaponSelected = false;
-    System.out.println("Type the name of the weapon you want to switch to!");
-  }
-
-  public void sheath() {
-    fred.addPlayerPriority(25);
-    System.out.println("You lost " + (int)(fred.getPlayerAtk() * 0.75) + " attack!");
-    fred.setPlayerAtk((int) (fred.getPlayerAtk() * 0.25));
-  }
-
-  public void exposed() {
-    fred.setPlayerAtk(fred.getPlayerAtk() + (int) (fred.getPlayerDef() * 0.75));
-    fred.setPlayerDef((int) (fred.getPlayerDef() * 0.25));
-  }
-
-  public void satanicRitual() {
-    // gonna have to do something outside related to the turn-based combat system
-  }
-
-  public void thouKnowethNotWeakness() {
-    // call in chaos
   }
 
   /*------------------------------------End of Boon Functionality------------------------------------*/
