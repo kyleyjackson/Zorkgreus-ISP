@@ -41,6 +41,7 @@ public class Game {
   private int recEnemyHit; //value of damage done by monster/boss most recent hit.
   private int recPlayerHit; //value of damage done by player's most recent hit.
   private int enemyHP; // enemy hp
+  private int speAtkCounter; // used to make sure you cannot special attack too often
 
   /*------------------------------------global booleans------------------------------------*/
   private boolean generatedBoons; // determine if boons have been generated.

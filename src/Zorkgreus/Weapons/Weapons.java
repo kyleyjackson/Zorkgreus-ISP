@@ -103,36 +103,22 @@ public class Weapons {
         int dmg = 0;
 
         if (id == 0) {
-            System.out.println("Your abilities grow faster..");
+            System.out.println("You send out a volley of arrows... ");
             System.out.println();
-            dmg = 8;
-
-            changePrio(30);
+            dmg = 10;
         } else if (id == 1) {
-            System.out.println("You've become tougher..");
+            System.out.println("You unleash a flurry of jabs... ");
             System.out.println();
-            dmg = 25;
-
-            changeDef(10);
-            changeAtk(15);
-            changePrio(6);
+            dmg = 17;
         } else if (id == 2) {
-            System.out.println("Your attacks become faster and stronger..");
+            System.out.println("You leap into the air, falling towards your opponent... ");
             System.out.println();
             dmg = 20;
-
-            changePrio(8);
-            changeAtk(19);
         } else if (id == 3) {
-            System.out.println("Your strength reaches new levels..");
+            System.out.println("You toss your shield... ");
             System.out.println();
-            dmg = 20;
-
-            changeDef(5);
-            changeAtk(20);
-            changePrio(10);
+            dmg = 15;
         }
-
         return dmg;
     }
 }
