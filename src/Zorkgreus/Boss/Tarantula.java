@@ -49,7 +49,7 @@ public class Tarantula extends Boss {
         boolean displayCommandMessage = false;
         int decrement = (int) (getMaxHP() * 0.25);
         if (getMakeArray()) {
-            getDecrements().clear();
+            clearDecrements();
             for (int i = 1; i <= getMaxHP() / decrement; i++) {
                 super.addToDecrements(0, getMaxHP() - decrement * i);
             }

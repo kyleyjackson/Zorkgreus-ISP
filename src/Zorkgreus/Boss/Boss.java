@@ -185,6 +185,10 @@ public class Boss {
         return decrements.size();
     }
 
+    public void clearDecrements(){
+        decrements.clear();
+    }
+
     // all methods below exist just for polymorphism - allowing subclasses to override
     public void bossRage() {
     }

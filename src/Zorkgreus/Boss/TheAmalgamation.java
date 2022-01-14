@@ -25,7 +25,7 @@ public class TheAmalgamation extends Boss {
     public void specialBossAttack(int dmgDone) {
         int decrement = (int) (getMaxHP() * 0.1);
         if(getMakeArray()){
-            getDecrements().clear();
+            clearDecrements();
             for(int i = 1; i<=getMaxHP()/decrement; i++){
                 super.addToDecrements(0, getMaxHP()-decrement*i);
             }
