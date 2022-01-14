@@ -103,11 +103,13 @@ public class Weapons {
 
         if (id == 0) {
             System.out.println("Your abilities grow faster..");
+            System.out.println();
             dmg = 8;
 
             changePrio(30);
         } else if (id == 1) {
             System.out.println("You've become tougher..");
+            System.out.println();
             dmg = 25;
 
             changeDef(10);
@@ -115,12 +117,14 @@ public class Weapons {
             changePrio(6);
         } else if (id == 2) {
             System.out.println("Your attacks become faster and stronger..");
+            System.out.println();
             dmg = 20;
 
             changePrio(8);
             changeAtk(19);
         } else if (id == 3) {
             System.out.println("Your strength reaches new levels..");
+            System.out.println();
             dmg = 20;
 
             changeDef(5);
