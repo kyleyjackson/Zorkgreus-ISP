@@ -176,7 +176,7 @@ public class Eurydice extends NPC{
         int count = 0;
         for(Boon b : playerBoons){
             if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
-            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind" || b.getGodName() == "Chaos"))
+            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind"))
                 count++;
         }
         return count;

@@ -499,6 +499,7 @@ public class Game {
             b.levelUp(myBoons, temp, 0);
           }
           myBoons.add(temp.get(0)); // adds to the end of the myBoons ArrayList
+          rawIncreases(temp.get(0));
           System.out.println("You selected Boon: " + temp.get(0).getBoonName());
           boonSelected = true;
         } else if (commandWord.equals("b2")) {
@@ -506,6 +507,7 @@ public class Game {
             b.levelUp(myBoons, temp, 1);
           }
           myBoons.add(temp.get(1));
+          rawIncreases(temp.get(1));
           System.out.println("You selected Boon: " + temp.get(1).getBoonName());
           boonSelected = true;
         } else if (commandWord.equals("b3")) {
@@ -513,6 +515,7 @@ public class Game {
             b.levelUp(myBoons, temp, 2);
           }
           myBoons.add(temp.get(2));
+          rawIncreases(temp.get(2));
           System.out.println("You selected Boon: " + temp.get(2).getBoonName());
           boonSelected = true;
         } else {
@@ -926,55 +929,6 @@ public class Game {
   }
 
   /**
-   * Randomly choose 3 boons of the same god for player to choose (excluding
-   * Chaos).
-   *
-   * @param atShop determines if we are in a shop room or not when generating.
-   */
-  public ArrayList<Boon> generateBoons(boolean atShop) {
-    ArrayList<Boon> selection = new ArrayList<>();
-    int num = (int) (Math.random() * (boons.size() - 6));
-    if (!atShop) {
-      if (num <= 2) { // Ares
-        selection.add(boons.get(0));
-        selection.add(boons.get(1));
-        selection.add(boons.get(2));
-      } else if (num > 2 && num <= 5) { // Artemis
-        selection.add(boons.get(3));
-        selection.add(boons.get(4));
-        selection.add(boons.get(5));
-      } else if (num > 5 && num <= 8) { // Aphrodite
-        selection.add(boons.get(6));
-        selection.add(boons.get(7));
-        selection.add(boons.get(8));
-      } else if (num > 8 && num <= 11) { // Zeus
-        selection.add(boons.get(9));
-        selection.add(boons.get(10));
-        selection.add(boons.get(11));
-      } else if (num > 11 && num <= 14) { // Poseidon
-        selection.add(boons.get(12));
-        selection.add(boons.get(13));
-        selection.add(boons.get(14));
-      } else { // Athena
-        selection.add(boons.get(15));
-        selection.add(boons.get(16));
-        selection.add(boons.get(17));
-      }
-      System.out
-          .println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
-      System.out.print(
-          "----------------------------------------------------------------------------------------------------------");
-      System.out
-          .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
-    } else {
-      selection.add(boons.get(num)); // uses num from beginning of function
-      selection.add(boons.get((int) (Math.random() * (boons.size() - 6)))); // different random value
-      selection.add(boons.get((int) (Math.random() * (boons.size() - 6))));
-    }
-    return selection;
-  }
-
-  /**
    * checks if the currentBoss has been defeated. Changes currentBoss to the next
    * miniboss/boss.
    *
@@ -1225,6 +1179,51 @@ public class Game {
 
 
   /*------------------------------------Boon Functionality------------------------------------*/
+
+  /**
+   * Randomly choose 3 boons of the same god for player to choose.
+   *
+   * @param atShop determines if we are in a shop room or not when generating.
+   */
+  public ArrayList<Boon> generateBoons(boolean atShop) {
+    ArrayList<Boon> selection = new ArrayList<>();
+    int num = (int) (Math.random() * boons.size());
+    if (!atShop) {
+      if (num <= 2) { // Ares
+        selection.add(boons.get(0));
+        selection.add(boons.get(1));
+        selection.add(boons.get(2));
+      } else if (num > 2 && num <= 5) { // Artemis
+        selection.add(boons.get(3));
+        selection.add(boons.get(4));
+        selection.add(boons.get(5));
+      } else if (num > 5 && num <= 8) { // Aphrodite
+        selection.add(boons.get(6));
+        selection.add(boons.get(7));
+        selection.add(boons.get(8));
+      } else if (num > 8 && num <= 11) { // Zeus
+        selection.add(boons.get(9));
+        selection.add(boons.get(10));
+        selection.add(boons.get(11));
+      } else if (num > 11 && num <= 14) { // Poseidon
+        selection.add(boons.get(12));
+        selection.add(boons.get(13));
+        selection.add(boons.get(14));
+      } else { // Athena
+        selection.add(boons.get(15));
+        selection.add(boons.get(16));
+        selection.add(boons.get(17));
+      }
+      System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
+      System.out.print("----------------------------------------------------------------------------------------------------------");
+      System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+    } else {
+      selection.add(boons.get(num)); // uses num from beginning of function
+      selection.add(boons.get((int) (Math.random() * boons.size()))); // different random value
+      selection.add(boons.get((int) (Math.random() * boons.size())));
+    }
+    return selection;
+  }
 
   /**
    * Gain 5, 10, 15 (5, 5, 5) attack.
@@ -1610,36 +1609,21 @@ public class Game {
     }
   }
 
-  public void berserker() {
-    fred.setPlayerMaxHP(10);
-    fred.setPlayerHP(10);
-    System.out.println("Your HP and max HP have been reduced to 10.");
-    System.out.println("Your attack was increased to " + fred.getPlayerAtk() * 5);
-    fred.setPlayerAtk(fred.getPlayerAtk() * 5);
-  }
-
-  public void callToArms() {
-    weaponSelected = false;
-    System.out.println("Type the name of the weapon you want to switch to!");
-  }
-
-  public void sheath() {
-    fred.addPlayerPriority(25);
-    System.out.println("You lost " + (int)(fred.getPlayerAtk() * 0.75) + " attack!");
-    fred.setPlayerAtk((int) (fred.getPlayerAtk() * 0.25));
-  }
-
-  public void exposed() {
-    fred.setPlayerAtk(fred.getPlayerAtk() + (int) (fred.getPlayerDef() * 0.75));
-    fred.setPlayerDef((int) (fred.getPlayerDef() * 0.25));
-  }
-
-  public void satanicRitual() {
-    // gonna have to do something outside related to the turn-based combat system
-  }
-
-  public void thouKnowethNotWeakness() {
-    // call in chaos
+  /**
+   * Takes a boon and sees if it is a boon to increase raw stats. If so, call it.
+   * @param selection boon that is potentially being called
+   */
+  public void rawIncreases(Boon selection){
+    if(selection.getBoonName().equals("Brutal Strength"))
+      brutalStrength();
+    else if(selection.getBoonName().equals("Hunter's Eye"))
+      huntersEye();
+    else if(selection.getBoonName().equals("Vitality"))
+      vitality(true);
+    else if(selection.getBoonName().equals("High Tide"))
+      highTide();
+    else if(selection.getBoonName().equals("Fortify"))
+      fortify();
   }
 
   /*------------------------------------End of Boon Functionality------------------------------------*/

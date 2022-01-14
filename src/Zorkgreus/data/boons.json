@@ -143,54 +143,6 @@
             "flavour": "Pain is an afterthought.",
             "stats": "Damage that would otherwise be lethal reduces your hp to 1. This boon deactivates for the rest of the floor.",
             "level": 1
-        },
-        {
-            "god": "Chaos",
-            "name": "Berserker",
-            "colour": "A cold aura swallows you. ",
-            "flavour": "It's time to test your skills...",
-            "stats": "Reduce your max hp to 10, but you gain a 500% damage bonus.",
-            "level": 1
-        },
-        {
-            "god": "Chaos",
-            "name": "Call to Arms",
-            "colour": "A cold aura swallows you. ",
-            "flavour": "How about another go?",
-            "stats": "You can switch your weapon.",
-            "level": 1
-        },
-        {
-            "god": "Chaos",
-            "name": "Sheath",
-            "colour": "A cold aura swallows you. ",
-            "flavour": "The word 'consequence' just became a lot clearer.",
-            "stats": "You gain +25 attack priority but deal 75% reduced damage.",
-            "level": 1
-        },
-        {
-            "god": "Chaos",
-            "name": "Exposed",
-            "colour": "A cold aura swallows you. ",
-            "flavour": "If the king doesn't move, then his subjects won't follow.",
-            "stats": "You convert 75% of your current defence to attack.",
-            "level": 1
-        },
-        {
-            "god": "Chaos",
-            "name": "Satanic Ritual",
-            "colour": "A cold aura swallows you. ",
-            "flavour": "Sacrifices must be made.",
-            "stats": "Transform your special attack into a satanic ritual. Once per room, immediately after casting your special attack, you lose attack priority for the next 5 turns. Once the ritual is complete, damage an enemy for 99% of their current hp.",
-            "level": 1
-        },
-        {
-            "god": "Chaos",
-            "name": "Thou Knoweth Not Weakness",
-            "colour": "A cold aura swallows you. ",
-            "flavour": "To gain strength, one must first know weakness.",
-            "stats": "For the next 3 rooms, lose -50% of your attack. Afterwards, gain an additional +25% of your original attack.",
-            "level": 1
         }
     ]
 }
