@@ -17,12 +17,24 @@ public class Inventory {
     return maxWeight;
   }
 
+  public void addCurrentWeight(Item item){
+    currentWeight += item.getWeight();
+  }
+
+  public void subtractCurrentWeight(Item item){
+    currentWeight -= item.getWeight();
+  }
+
   public int getCurrentWeight() {
     return currentWeight;
   }
 
   public void setMaxWeight(int extra) {
     maxWeight += extra;
+  }
+
+  public void displayWeight(){
+    System.out.println("Current Weight: " + currentWeight + "/" + maxWeight);
   }
 
   /**
@@ -37,12 +49,13 @@ public class Inventory {
         System.out.println("Your inventory's max weight increased by " + n + "! Total: " + getMaxWeight());
   }
 
-  public boolean addItem(Item item) {
-    if (item.getWeight() + currentWeight <= maxWeight)
-      return items.add(item);
+  public void addItem(Item item) {
+    if (item.getWeight() + currentWeight <= maxWeight){
+    currentWeight += item.getWeight();
+      items.add(item);
+    }
     else {
       System.out.println("There is no room to add the item.");
-      return false;
     }
   }
 
@@ -71,6 +84,7 @@ public class Inventory {
       for (int i = 0; i < items.size(); i++) {
         Item toRemove = items.get(i);
         if (toRemove.getName().equals(item)) {
+          subtractCurrentWeight(items.get(i));
           items.remove(i);
           System.out.println(item + " has been removed from your inventory. ");
           return true;
@@ -99,7 +113,15 @@ public class Inventory {
   /**
    * displays the name of all items in inventory
    */
-  public void displayInventory() {
+  public void displayPlayerInventory() {
+    System.out.println("Player Inventory: ");
+    for (Item item : items) {
+      System.out.println(item.getName() + " | Weight: " + item.getWeight());
+    }
+  }
+
+  public void displayRoomInventory() {
+    System.out.println("Room Inventory: ");
     for (Item item : items) {
       System.out.println(item.getName() + " | Weight: " + item.getWeight());
     }
