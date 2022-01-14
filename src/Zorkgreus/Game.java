@@ -409,6 +409,7 @@ public class Game {
       goRoom(command);
     } else if (commandWord.equals("look")) {
       currentRoom.roomDescription();
+      currentRoom.getInventory().displayInventory();
     } else if (commandWord.equals("display")) {
       if(!weaponSelected)
           System.out.println("Pick a weapon first!");
@@ -428,19 +429,9 @@ public class Game {
             formatMyBoons();
           } else if(command.getSecondWord().equals("enemy")){
             if(currentRoom.getRoomName().indexOf("Attack") > -1){
-              System.out.println(currentMonster.getName() + " stats: ");
-              System.out.println("HP: " + currentMonster.getHP() + "/" + currentMonster.getMaxHP());
-              System.out.println("Attack: " + currentMonster.getAtk());
-              System.out.println("Priority: " + currentMonster.getPrio());
-              System.out.println("Defence: " + currentMonster.getDef());
-              System.out.println("Dodge Chance: " + currentMonster.getDodgeChance());
+              currentMonster.monsterInfo();
             } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
-              System.out.println(currentBoss.getName() + " stats: ");
-              System.out.println("HP: " + currentBoss.getHP() + "/" + currentMonster.getMaxHP());
-              System.out.println("Attack: " + currentBoss.getAtk());
-              System.out.println("Priority: " + currentBoss.getPrio());
-              System.out.println("Defence: " + currentBoss.getDef());
-              System.out.println("Dodge Chance: " + currentBoss.getDodge());
+              currentBoss.bossInfo();
             } else if(command.getSecondWord().equals("inventory")){
               System.out.println("Your items: ");
               fred.getInventory().displayInventory();
@@ -669,19 +660,9 @@ public class Game {
           formatMyBoons();
         } else if(commandWord.equals("enemy")){
           if(currentRoom.getRoomName().indexOf("Attack") > -1){
-            System.out.println(currentMonster.getName() + " stats: ");
-            System.out.println("HP: " + currentMonster.getHP() + "/" + currentMonster.getMaxHP());
-            System.out.println("Attack: " + currentMonster.getAtk());
-            System.out.println("Priority: " + currentMonster.getPrio());
-            System.out.println("Defence: " + currentMonster.getDef());
-            System.out.println("Dodge Chance: " + currentMonster.getDodgeChance());
+            currentMonster.monsterInfo();
           } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
-            System.out.println(currentBoss.getName() + " stats: ");
-            System.out.println("HP: " + currentBoss.getHP() + "/" + currentMonster.getMaxHP());
-            System.out.println("Attack: " + currentBoss.getAtk());
-            System.out.println("Priority: " + currentBoss.getPrio());
-            System.out.println("Defence: " + currentBoss.getDef());
-            System.out.println("Dodge Chance: " + currentBoss.getDodge());
+            currentBoss.bossInfo();
           } else if(commandWord.equals("inventory")){
             System.out.println("Your items: ");
             fred.getInventory().displayInventory();

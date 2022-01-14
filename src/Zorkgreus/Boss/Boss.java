@@ -80,14 +80,13 @@ public class Boss {
      * displays info about the boss
      */
     public void bossInfo(){
-        System.out.println(name);
+        System.out.println(name + " Stats: ");
         System.out.println("-----------------------");
-        System.out.println("Attack: " + getAtk());
-        System.out.println("Priority: " + getPrio());
-        System.out.println("Defence: " + getDef());
-        System.out.println("HP: " + getHP());
-        System.out.println("Max HP: " + getMaxHP());
-        System.out.println("Dodge Chance: " + getDodge());
+        System.out.println("Attack: " + atk);
+        System.out.println("Priority: " + priority);
+        System.out.println("Defence: " + def);
+        System.out.println("HP: " + hp + "/" + maxHP);
+        System.out.println("Dodge Chance: " + dodge);
     }
 
     public boolean isAlive() {

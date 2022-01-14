@@ -28,6 +28,19 @@ public class Monsters {
         this.location = location;
     }
 
+    /**
+     * displays info about the monster
+     */
+    public void monsterInfo(){
+        System.out.println(name + " Stats: ");
+        System.out.println("-----------------------");
+        System.out.println("Attack: " + atk);
+        System.out.println("Priority: " + priority);
+        System.out.println("Defence: " + getDef());
+        System.out.println("HP: " + hp + "/" + maxHP);
+        System.out.println("Dodge Chance: " + dodge);
+    }
+
     public String getName(){
         return name;
     }
