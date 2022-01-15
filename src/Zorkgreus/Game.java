@@ -294,8 +294,6 @@ public class Game {
             isMonster = false;
             fightRooms.add(currentRoom.getRoomId());
             speAtkCounter = 0;
-          }else if (!finishedFighting) {
-            finishedFighting = processFightCommand(command);
           }
           finishedFighting = false;
         } else if (!isFighting) {
