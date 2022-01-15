@@ -57,6 +57,7 @@ public class Game {
   private boolean monsterDrop;
   private boolean takeAll;
   boolean isEnraged = false; // checks if the boss is currently in a state of rage
+  boolean isDead = false; // checks if you're dead
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -833,12 +834,18 @@ public class Game {
           return false;
         }
       }else{
+        if(speAtkCounter > 0) {
+          System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
+          return false;
+        }
+
         if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){ //death's dance
           for(Boon b : myBoons){ //death's dance
             if(b.getBoonName().equals("Death's Dance"))
               deathsDance();
           }
         }
+
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
           recEnemyHit = mdmg;
@@ -863,19 +870,16 @@ public class Game {
 
         if(!fred.isAlive()) {
           System.out.println("You died.");
+          isDead = true;
           return true;
         }
 
-        if(speAtkCounter > 0) {
-          System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          return false;
-        }else {
-          int dmg = fred.specialAttack(currentWeapon.getId());
-          enemyHP -= dmg;
-          System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-          System.out.println();
-          speAtkCounter += 3;
-        }
+        
+        int dmg = fred.specialAttack(currentWeapon.getId());
+        enemyHP -= dmg;
+        System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+        System.out.println();
+        speAtkCounter += 3;
 
         for(Boon b : myBoons){ //killing blow
           if(b.getBoonName().equals("Killing Blow"))
@@ -949,6 +953,7 @@ public class Game {
           return true;
         } else if(!fred.isAlive()) { //* Will implement dd later
           System.out.println("You died.");
+          isDead = true;
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -993,7 +998,8 @@ public class Game {
         recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-
+    
+        
         if ((speAtkCounter - 1) < 0)
           speAtkCounter = 0;
         else 
@@ -1010,6 +1016,7 @@ public class Game {
         }
         if(!fred.isAlive()) {
           System.out.println("You died.");
+          isDead = true;
           return true;
         } else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -1028,6 +1035,7 @@ public class Game {
     } else {
       System.out.println("You can't do that!");
     }
+
     firstTurn = false;
     firstCrit = false;
 
