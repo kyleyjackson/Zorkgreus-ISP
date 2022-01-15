@@ -193,7 +193,7 @@ public class Charon extends NPC{
                                 else{
                                     player.getInventory().setMaxWeight(69420);
                                     System.out.println("Your inventory's max weight was set to 69420. Excellent choice.");
-                                    player.getInventory().addItem(items.get(25)); //vase of a thousand lost souls location in items ArrayList
+                                    player.getInventory().addItem(items.get(27)); //vase of a thousand lost souls location in items ArrayList
                                     player.addPlayerGold(-666);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)"); 
                                     System.out.println();

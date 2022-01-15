@@ -182,4 +182,44 @@ public class Player {
         hyradliteGold = n;
     }
 
+    public int normalAttack() {
+        int rand = (int) (Math.random() * 3) + 1;
+        int randDmg = (int) (Math.random() * (atk / 10)) + 1;
+        int dmg = atk;
+
+        if (rand == 1) {
+            if((dmg - randDmg) < 0)
+                dmg = 0;
+            else
+                dmg -= randDmg;
+        } else if (rand == 2) {
+            dmg += randDmg;
+        } else {
+            dmg += 0;
+        }
+        return dmg;
+    }
+
+    public int specialAttack(int id) {
+        int dmg = 0;
+
+        if (id == 0) {
+            System.out.println("You send out a volley of arrows... ");
+            System.out.println();
+            dmg = 10;
+        } else if (id == 1) {
+            System.out.println("You unleash a flurry of jabs... ");
+            System.out.println();
+            dmg = 17;
+        } else if (id == 2) {
+            System.out.println("You leap into the air, falling towards your opponent... ");
+            System.out.println();
+            dmg = 20;
+        } else if (id == 3) {
+            System.out.println("You toss your shield... ");
+            System.out.println();
+            dmg = 15;
+        }
+        return dmg;
+    }
 }
