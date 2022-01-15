@@ -287,16 +287,17 @@ public class Game {
 
         if (isFighting) {
           finishedFighting = processFightCommand(command);
-          if(finishedFighting == true) {
+          if(finishedFighting) {
             System.out.println("You left combat.");
             isFighting = false;
-            finishedFighting = false;
             isBoss = false;
             isMonster = false;
             fightRooms.add(currentRoom.getRoomId());
-          }else {
+            speAtkCounter = 0;
+          }else if (!finishedFighting) {
             finishedFighting = processFightCommand(command);
           }
+          finishedFighting = false;
         } else if (!isFighting) {
           finished = processCommand(command);
         }
@@ -761,7 +762,7 @@ public class Game {
       if(currentWeapon.getPriority() > currentMonster.getPrio() || currentWeapon.getPriority() > currentBoss.getPrio()) {
         if(speAtkCounter > 0) {
           System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          speAtkCounter--;
+          return false;
         }else {
           int dmg = currentWeapon.specialAttack(currentWeapon.getId());
           enemyHP -= dmg;
@@ -819,7 +820,7 @@ public class Game {
 
         if(speAtkCounter > 0) {
           System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          speAtkCounter--;
+          return false;
         }else {
           int dmg = currentWeapon.specialAttack(currentWeapon.getId());
           enemyHP -= dmg;
@@ -849,7 +850,11 @@ public class Game {
         recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        speAtkCounter--;
+
+        if ((speAtkCounter - 1) < 0)
+          speAtkCounter = 0;
+        else 
+          speAtkCounter--;
         
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
@@ -892,8 +897,12 @@ public class Game {
         int dmg = currentWeapon.normalAttack();
         recPlayerHit = dmg;
         enemyHP -= dmg;
-        speAtkCounter--;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+
+        if ((speAtkCounter - 1) < 0)
+          speAtkCounter = 0;
+        else 
+          speAtkCounter--;
 
         if(!fred.isAlive()) {
           System.out.println("You died");
