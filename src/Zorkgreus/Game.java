@@ -287,16 +287,15 @@ public class Game {
 
         if (isFighting) {
           finishedFighting = processFightCommand(command);
-          if(finishedFighting == true) {
+          if(finishedFighting) {
             System.out.println("You left combat.");
             isFighting = false;
-            finishedFighting = false;
             isBoss = false;
             isMonster = false;
             fightRooms.add(currentRoom.getRoomId());
-          }else {
-            finishedFighting = processFightCommand(command);
+            speAtkCounter = 0;
           }
+          finishedFighting = false;
         } else if (!isFighting) {
           finished = processCommand(command);
         }
@@ -761,7 +760,7 @@ public class Game {
       if(currentWeapon.getPriority() > currentMonster.getPrio() || currentWeapon.getPriority() > currentBoss.getPrio()) {
         if(speAtkCounter > 0) {
           System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          speAtkCounter--;
+          return false;
         }else {
           int dmg = currentWeapon.specialAttack(currentWeapon.getId());
           enemyHP -= dmg;
@@ -819,7 +818,7 @@ public class Game {
 
         if(speAtkCounter > 0) {
           System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          speAtkCounter--;
+          return false;
         }else {
           int dmg = currentWeapon.specialAttack(currentWeapon.getId());
           enemyHP -= dmg;
@@ -830,7 +829,7 @@ public class Game {
 
         if(enemyHP < 1) {
           System.out.println("You won!");
-          currentMonster.setHP(enemyHP);
+          currentMonster.setHP(0);
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -849,7 +848,11 @@ public class Game {
         recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        System.out.println();
+
+        if ((speAtkCounter - 1) < 0)
+          speAtkCounter = 0;
+        else 
+          speAtkCounter--;
         
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
@@ -893,14 +896,18 @@ public class Game {
         recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-        System.out.println();
+
+        if ((speAtkCounter - 1) < 0)
+          speAtkCounter = 0;
+        else 
+          speAtkCounter--;
 
         if(!fred.isAlive()) {
           System.out.println("You died");
           return true;
         }else if(enemyHP < 1) {
           System.out.println("You won!");
-          currentMonster.setHP(enemyHP);
+          currentMonster.setHP(0);
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
