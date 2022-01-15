@@ -424,8 +424,7 @@ public class Game {
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("player")){
             System.out.println("Your stats: ");
-            System.out.println("Weapon: " + currentWeapon.getName());
-            System.out.println("Special Attack: " + currentWeapon.getSpeAtkName() + " | " + currentWeapon.getSpeAtkDmg());
+            System.out.println("Weapon: " + currentWeapon.getName() + " | Special Attack: " + currentWeapon.getSpeAtkName() + " | Damage: " + currentWeapon.getSpeAtkDmg());
             System.out.println("HP: " + fred.getPlayerHP() + "/" + fred.getPlayerMaxHP());
             System.out.println("Attack: " + fred.getPlayerAtk());
             System.out.println("Priority: " + fred.getPlayerPrio());
@@ -931,8 +930,9 @@ public class Game {
               dmg *= 2;
           }
         }
-        recPlayerHit = dmg;
         enemyHP -= dmg;
+        recPlayerHit = dmg;
+        
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
 
         if ((speAtkCounter - 1) < 0)
@@ -1235,8 +1235,8 @@ public class Game {
       if(boonSelected)
         canProceed = true; 
     } else {
-      if(!currentMonster.isAlive())
-        canProceed = true;
+      //if(!currentMonster.isAlive())
+        //canProceed = true;
     }
 
     if (command.hasSecondWord())
@@ -1259,7 +1259,7 @@ public class Game {
       if(canProceed){
         currentRoom = nextRoom;
         System.out.println(currentRoom.roomDescription());
-        //canProceed = false;
+        canProceed = false;
       }
       else
         System.out.println(("The doors won't open just yet..."));

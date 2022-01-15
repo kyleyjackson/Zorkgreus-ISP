@@ -40,7 +40,7 @@ public class KingSkeleton extends Boss {
       if(!super.isAlive()){
       System.out.println("The king skeleton falls onto one knee as he slams his club into the ground. ");
       int responseNum = (int) (Math.random() * 3 + 1);
-      if(player.getBasePrio()<=5){
+      if(Math.abs(player.getPlayerPrio() - getPrio()) <=5){
          if (responseNum == 1) {
             System.out.println("Got too close. ");
         } else if (responseNum == 2) {

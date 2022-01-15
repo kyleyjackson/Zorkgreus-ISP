@@ -9,10 +9,6 @@ public class Player {
     private int prio;
     private int gold;
 
-    private int basePrio; // priority at the start of the game
-    private int baseAtk; // attack at the start of the game
-    private int baseDef; // defense at the start of the game
-
     private boolean extraLife = true;
     private boolean hyradliteGold = false;
     private Inventory inventory;
@@ -25,10 +21,7 @@ public class Player {
         this.prio = prio;
         this.dodge = 0;
         this.gold = 100;
-
-        basePrio = prio;
-        baseAtk = atk;
-        baseDef = def;
+        
         inventory = new Inventory(150);
 
     }
@@ -59,18 +52,6 @@ public class Player {
 
     public int getPlayerPrio() {
         return prio;
-    }
-
-    public int getBasePrio() {
-        return basePrio;
-    }
-
-    public int getBaseAtk() {
-        return baseAtk;
-    }
-
-    public int getBaseDef() {
-        return baseDef;
     }
 
     public int getPlayerGold() {
