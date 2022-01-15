@@ -55,6 +55,7 @@ public class Game {
   boolean isMonster = false; // checks if you're in combat with a monster.
   private boolean determineItems;
   private boolean monsterDrop;
+  private boolean takeAll;
   boolean isEnraged = false; // checks if the boss is currently in a state of rage
 
   /*------------------------------------global strings------------------------------------*/
@@ -262,6 +263,8 @@ public class Game {
         if (fred.getHydraliteGold()) {
           hydraliteGold();
         }
+        if(currentRoom.getInventory().getCurrentWeight()>0)
+          takeAll = false;
         if(currentRoom.getInventory().getCurrentWeight()==0)
           determineItems = true;
         predertimineItems();
@@ -411,7 +414,7 @@ public class Game {
         || commandWord.equals("south")) {
       goRoom(command);
     } else if (commandWord.equals("look")) {
-      currentRoom.roomDescription();
+      System.out.println(currentRoom.roomDescription());
       currentRoom.getInventory().displayRoomInventory();
     } else if (commandWord.equals("display")) {
       if(!weaponSelected)
@@ -1130,7 +1133,32 @@ public class Game {
   }
 
   public void attemptToTake(Command command) {
+    if(!command.hasSecondWord()){
+      if(command.getCommandWord().toLowerCase().equals("takeall")){
+    for(int i = currentRoom.getInventory().getItems().size()-1; i>=0; i--){
+      fred.getInventory().addPlayerItem((currentRoom.getInventory().getItems().get(i)));
+        currentRoom.getInventory().dropRoomItem(currentRoom.getInventory().getItems().get(i));
+        takeAll = true;
 
+    }
+    }else if(command.getCommandWord().toLowerCase().equals("take")){
+      System.out.println("Take what? Your options are:" );
+      currentRoom.getInventory().displayRoomInventory();
+    }
+  }else{
+    String secondWord = command.getSecondWord().toLowerCase();
+      if(currentRoom.getInventory().inInventory(secondWord)){
+        for (int i = 0; i < items.size(); i++) {
+            if(items.get(i).getName().toLowerCase().equals(secondWord)){
+              currentRoom.getInventory().dropRoomItem(items.get(i));
+              fred.getInventory().addPlayerItem(items.get(i));
+            }
+        }
+      }else{
+        System.out.println(secondWord + " is not in this rooms inventory. Your options are: ");
+        currentRoom.getInventory().displayPlayerInventory();
+      }
+  }
   }
 
   /**
@@ -1845,6 +1873,7 @@ public class Game {
 }
 
   public void predertimineItems(){
+  if(!takeAll){
     if(determineItems){
     for (int i = 0; i < 3; i++) {
       int numItem = (int)(Math.random()*items.size());
@@ -1858,6 +1887,7 @@ public class Game {
     }
     determineItems = false;
     }
+  }
   }
 
   public void hydraliteGold() {

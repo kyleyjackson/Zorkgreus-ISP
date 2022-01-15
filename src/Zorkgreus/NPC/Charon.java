@@ -162,7 +162,7 @@ public class Charon extends NPC{
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().addMaxWeight(50);
-                                    player.getInventory().addItem(items.get(22)); //torn duffel bag location in items ArrayList
+                                    player.getInventory().addPlayerItem(items.get(22)); //torn duffel bag location in items ArrayList
                                     player.addPlayerGold(-70);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                                     System.out.println();
@@ -172,7 +172,7 @@ public class Charon extends NPC{
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().addMaxWeight(100);
-                                    player.getInventory().addItem(items.get(23)); //leather backpack location in items ArrayList
+                                    player.getInventory().addPlayerItem(items.get(23)); //leather backpack location in items ArrayList
                                     player.addPlayerGold(-120);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
                                     System.out.println();
@@ -182,7 +182,7 @@ public class Charon extends NPC{
                                     System.out.println("Ngggghhh. (You can't afford that.)");
                                 else{
                                     player.getInventory().addMaxWeight(200);
-                                    player.getInventory().addItem(items.get(24)); //rugged suitcase location in items ArrayList
+                                    player.getInventory().addPlayerItem(items.get(24)); //rugged suitcase location in items ArrayList
                                     player.addPlayerGold(-180);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)"); 
                                     System.out.println();
@@ -193,7 +193,7 @@ public class Charon extends NPC{
                                 else{
                                     player.getInventory().setMaxWeight(69420);
                                     System.out.println("Your inventory's max weight was set to 69420. Excellent choice.");
-                                    player.getInventory().addItem(items.get(27)); //vase of a thousand lost souls location in items ArrayList
+                                    player.getInventory().addPlayerItem(items.get(27)); //vase of a thousand lost souls location in items ArrayList
                                     player.addPlayerGold(-666);
                                     System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)"); 
                                     System.out.println();
