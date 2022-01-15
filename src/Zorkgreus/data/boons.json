@@ -76,7 +76,7 @@
             "god": "Zeus",
             "name": "Smite",
             "colour": "A golden glow fills the room. ",
-            "flavour": "You're not going down without a fight.",
+            "flavour": "You're going down with me.",
             "stats": "If you are to take lethal damage, execute the enemy who delivered the attack. If the enemy is a boss or miniboss, it deals 10% max hp damage instead.",
             "level": 1
         },
@@ -85,7 +85,7 @@
             "name": "Thundering Fury",
             "colour": "A golden glow fills the room. ",
             "flavour": "You're gonna make them remember your name.",
-            "stats": "Once you lose attack priority, remove 30/40/50% of the enemy's current defence at levels 1/2/3.",
+            "stats": "If your attack priority is equal to the enemy's attack priority, remove 30/40/50% of the enemy's current defence at levels 1/2/3.",
             "level": 1
         },
         {
