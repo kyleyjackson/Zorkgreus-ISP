@@ -768,13 +768,17 @@ public class Game {
     if(commandWord.equals("special") || commandWord.equals("special attack")) {
       //*Damage the monster, check for HP, damage the player, check for HP
       if(fred.getPlayerPrio() > currentMonster.getPrio() || fred.getPlayerPrio() > currentBoss.getPrio()) {
-        if(speAtkCounter > 0) {
+        if(speAtkCounter > 0) { 
           System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
           return false;
         }else{
           int dmg = fred.specialAttack(currentWeapon.getId());
           if(firstTurn && firstCrit)
             dmg *= 2;
+          for(Boon b : myBoons){ //stormbreaker
+            if(b.getBoonName().equals("Stormbreaker"))
+              dmg += stormbreaker();
+          }
           enemyHP -= dmg;
           System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
           System.out.println();
@@ -821,6 +825,10 @@ public class Game {
 
         if(!fred.isAlive()) { //* Will implement dd later
           System.out.println("You died.");
+          for(Boon b : myBoons){ //smite
+            if(b.getBoonName().equals("Smite"))
+              smite();
+          }
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -833,8 +841,10 @@ public class Game {
           return false;
         }
       }else{
-        if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){ //death's dance
-          for(Boon b : myBoons){ //death's dance
+        if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){
+          for(Boon b : myBoons){ //death's dance & thundering fury
+            if(b.getBoonName().equals("Thundering Fury"))
+              thunderingFury();
             if(b.getBoonName().equals("Death's Dance"))
               deathsDance();
           }
@@ -863,6 +873,10 @@ public class Game {
 
         if(!fred.isAlive()) {
           System.out.println("You died.");
+          for(Boon b : myBoons){ //smite
+            if(b.getBoonName().equals("Smite"))
+              smite();
+          }
           return true;
         }
 
@@ -901,7 +915,9 @@ public class Game {
         int dmg = fred.normalAttack();
         if(firstTurn && firstCrit)
           dmg *= 2;
-        for(Boon b : myBoons){ //precision strike
+        for(Boon b : myBoons){ //precision strike & stormbreaker
+          if(b.getBoonName().equals("Stormbreaker"))
+            dmg += stormbreaker();
           if(b.getBoonName().equals("Precision Strike")){
             boolean crit = precisionStrike(); 
             if(crit)
@@ -949,6 +965,10 @@ public class Game {
           return true;
         } else if(!fred.isAlive()) { //* Will implement dd later
           System.out.println("You died.");
+          for(Boon b : myBoons){ //smite
+            if(b.getBoonName().equals("Smite"))
+              smite();
+          }
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -961,10 +981,12 @@ public class Game {
           return false;
         }
       }else {
-        if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){ //death's dance
-          for(Boon b : myBoons){
-            if(b.getBoonName().equals("Death's Dance"))
-              deathsDance();
+        if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){
+          for(Boon b : myBoons){ //death's dance & thundering fury
+          if(b.getBoonName().equals("Thundering Fury"))
+            thunderingFury();
+          if(b.getBoonName().equals("Death's Dance"))
+            deathsDance();
           }
         }
         if(isMonster == true) {
@@ -1008,8 +1030,13 @@ public class Game {
           currentMonster.setHP(0);
           return true;
         }
+
         if(!fred.isAlive()) {
           System.out.println("You died.");
+          for(Boon b : myBoons){ //smite
+            if(b.getBoonName().equals("Smite"))
+              smite();
+          }
           return true;
         } else {
           System.out.println("\n-------------------------------------------------------------------------\n");
@@ -1637,8 +1664,7 @@ public class Game {
   }
 
   /**
-   * Remove 30, 40, 50% of the enemy's current defence just attacked after losing
-   * priority.
+   * Remove 30, 40, 50% of the enemy's current defence if you and the enemy have equal attack prio.
    */
   public void thunderingFury() {
     int level = myBoons.get(getIndexByBoonName("Thundering Fury")).getLevel();
