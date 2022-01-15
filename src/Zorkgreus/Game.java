@@ -1747,4 +1747,8 @@ public class Game {
       return dmg - defCalc;
    }
   }
+
+  public void priorityReduction() { //* Priority reduction after each attack!
+    
+  }
 }
