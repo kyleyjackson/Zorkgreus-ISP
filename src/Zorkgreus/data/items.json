@@ -10,7 +10,7 @@
         {
             "name": "Spider's Leg",
             "description": "A spider's leg, torn from a fully grown adult spider. Something about it still makes you feel uneasy...",
-            "weight": 5,
+            "weight": 10,
             "gold": 10,
             "startingRoom" : ""
         },
@@ -22,15 +22,15 @@
             "startingRoom" : ""
         },
         {
-            "name": "Centaur Heart",
-            "description": "A Centaur Heart, torn right out of a Centaur brimming with vitality.",
+            "name": "Pom Of Power",
+            "description": "A Pom Of Power, picked off of the tree of life. Capable of strengthening the power of the gods.",
             "weight": 0,
             "gold": 0,
             "startingRoom" : ""
         },
         {
-            "name": "Pom Of Power",
-            "description": "A Pom Of Power, picked off of the tree of life. Capable of strengthening the power of the gods.",
+            "name": "Centaur Heart",
+            "description": "A Centaur Heart, torn right out of a Centaur brimming with vitality.",
             "weight": 0,
             "gold": 0,
             "startingRoom" : ""
