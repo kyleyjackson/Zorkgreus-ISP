@@ -29,6 +29,7 @@ public class Inventory {
     System.out.println("Current Weight: " + currentWeight + "/" + maxWeight);
   }
 
+
   /**
    * Adds to players' inventory's max weight.
    * @param n is the value added.
@@ -41,7 +42,7 @@ public class Inventory {
         System.out.println("Your inventory's max weight increased by " + n + "! Total: " + getMaxWeight());
   }
 
-  public void addItem(Item item) {
+  public void addPlayerItem(Item item) {
     if (item.getWeight() + currentWeight <= maxWeight){
       currentWeight += item.getWeight();
       items.add(item);
@@ -62,6 +63,10 @@ public class Inventory {
     }
   }
 
+  public ArrayList<Item> getItems(){
+    return items;
+  }
+
   /**
    * checks to see if the parameter matches any of the item names
    *
@@ -70,7 +75,7 @@ public class Inventory {
    */
   public boolean inInventory(String item) {
     for (Item c : items) {
-      if (c.getName().equals(item))
+      if (c.getName().toLowerCase().equals(item))
         return true;
     }
     return false;
@@ -82,6 +87,23 @@ public class Inventory {
    * @param item name of the item dropped
    * @return true if you drop the item
    */
+  public void dropPlayerItem(Item item) {
+    if (inInventory(item.getName().toLowerCase())) {
+          currentWeight -= item.getWeight();
+          items.remove(item);
+          System.out.println(item.getName() + " has been removed from your inventory. ");
+        }else
+    System.out.println("Can't drop something you dont have. ");
+  }
+
+  public void dropRoomItem(Item item) {
+    if (inInventory(item.getName().toLowerCase())) {
+          currentWeight -= item.getWeight();
+          items.remove(item);
+        }else
+    System.out.println("Can't drop something you dont have. ");
+  }
+
   public void dropItem(String item) {
     if (inInventory(item)) {
       for (int i = 0; i < items.size(); i++) {
@@ -90,19 +112,6 @@ public class Inventory {
           currentWeight -= items.get(i).getWeight();
           items.remove(i);
           System.out.println(item + " has been removed from your inventory. ");
-        }
-      }
-    }
-    System.out.println("Can't drop something you dont have. ");
-  }
-
-  public void dropRoomItem(String item) {
-    if (inInventory(item)) {
-      for (int i = 0; i < items.size(); i++) {
-        Item toRemove = items.get(i);
-        if (toRemove.getName().equals(item)) {
-          currentWeight -= items.get(i).getWeight();
-          items.remove(i);
         }
       }
     }
