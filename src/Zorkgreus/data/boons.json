@@ -101,7 +101,7 @@
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "The ocean devours some, and brings life to others.",
-            "stats": "12.5/25/50% of all damage dealt is restored as hp at levels 1/2/3.",
+            "stats": "12.5/25/50% of damage dealt from normal and special attacks is restored as hp at levels 1/2/3.",
             "level": 1
         },
         {
