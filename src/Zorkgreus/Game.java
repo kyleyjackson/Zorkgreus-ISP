@@ -53,9 +53,7 @@ public class Game {
   private boolean isFighting = false; //checks if you're currently in combat.
   boolean isBoss = false; // checks if you're in combat with a boss.
   boolean isMonster = false; // checks if you're in combat with a monster.
-  private boolean determineItems;
   private boolean monsterDrop;
-  private boolean takeAll;
   boolean isEnraged = false; // checks if the boss is currently in a state of rage
 
   /*------------------------------------global strings------------------------------------*/
@@ -263,10 +261,6 @@ public class Game {
         if (fred.getHydraliteGold()) {
           hydraliteGold();
         }
-        if(currentRoom.getInventory().getCurrentWeight()>0)
-          takeAll = false;
-        if(currentRoom.getInventory().getCurrentWeight()==0)
-          determineItems = true;
         predertimineItems();
         if(currentMonster!=null){
           if(!currentMonster.isAlive())
@@ -438,13 +432,13 @@ public class Game {
               currentMonster.monsterInfo();
             } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
               currentBoss.bossInfo();
-            } else if(command.getSecondWord().equals("inventory")){
-              fred.getInventory().displayPlayerInventory();
-              fred.getInventory().displayWeight();
-            } else {
+            }else {
               System.out.println("There's no enemy in the room!");
             }
-          }
+          } else if(command.getSecondWord().equals("inventory")){
+            fred.getInventory().displayPlayerInventory();
+            fred.getInventory().displayWeight();
+          } 
         } else
           System.out.println("What are you trying to display? (\"player\", \"enemy\", \"inventory\", \"boons\")");
       }
@@ -671,13 +665,13 @@ public class Game {
             currentMonster.monsterInfo();
           } else if(currentRoom.getRoomName().indexOf("oss") > -1){ //Check for oss instead of boss because indexOf is case-sensitive
             currentBoss.bossInfo();
-          } else if(commandWord.equals("inventory")){
-            fred.getInventory().displayPlayerInventory();
-            fred.getInventory().displayWeight();
-          } else {
+          }else {
             System.out.println("There's no enemy in the room!");
           }
-        }
+        } else if(commandWord.equals("inventory")){
+          fred.getInventory().displayPlayerInventory();
+          fred.getInventory().displayWeight();
+        } 
       }
       }else if (prevCommand.equals("bow")) {
         if (commandWord.equals("help")) {
@@ -1031,13 +1025,14 @@ public class Game {
   }
 
   public void attemptToTake(Command command) {
-    if(!command.hasSecondWord()){
+    if(currentRoom.getInventory().getCurrentWeight()==0){
+      System.out.println("You took everything from me... I don't even know who you are. ");
+    }
+    else if(!command.hasSecondWord()){
       if(command.getCommandWord().toLowerCase().equals("takeall")){
     for(int i = currentRoom.getInventory().getItems().size()-1; i>=0; i--){
       fred.getInventory().addPlayerItem((currentRoom.getInventory().getItems().get(i)));
         currentRoom.getInventory().dropRoomItem(currentRoom.getInventory().getItems().get(i));
-        takeAll = true;
-
     }
     }else if(command.getCommandWord().toLowerCase().equals("take")){
       System.out.println("Take what? Your options are:" );
@@ -1047,14 +1042,17 @@ public class Game {
     String secondWord = command.getSecondWord().toLowerCase();
       if(currentRoom.getInventory().inInventory(secondWord)){
         for (int i = 0; i < items.size(); i++) {
-            if(items.get(i).getName().toLowerCase().equals(secondWord)){
+          if(items.get(i).getName().toLowerCase().indexOf(secondWord.toLowerCase())>=0){
+          currentRoom.getInventory().dropRoomItem(items.get(i));
+          fred.getInventory().addPlayerItem(items.get(i));
+          }else if(items.get(i).getName().toLowerCase().equals(secondWord)){
               currentRoom.getInventory().dropRoomItem(items.get(i));
               fred.getInventory().addPlayerItem(items.get(i));
             }
         }
       }else{
         System.out.println(secondWord + " is not in this rooms inventory. Your options are: ");
-        currentRoom.getInventory().displayPlayerInventory();
+        currentRoom.getInventory().displayRoomInventory();
       }
   }
   }
@@ -1738,8 +1736,7 @@ public class Game {
 }
 
   public void predertimineItems(){
-  if(!takeAll){
-    if(determineItems){
+    if(compareRooms()){
     for (int i = 0; i < 3; i++) {
       int numItem = (int)(Math.random()*items.size());
       if(numItem<=4)
@@ -1750,17 +1747,22 @@ public class Game {
         numItem-=6;
       currentRoom.getInventory().addRoomItem(items.get(numItem));
     }
-    determineItems = false;
-    }
   }
   }
 
+  public boolean compareRooms(){
+    if(getCurrentRoom)
+      prevRoom = currentRoom.getRoomName();
+    getCurrentRoom = false;
+    if (!prevRoom.equals(currentRoom.getRoomName())){
+      prevRoom = currentRoom.getRoomName();
+    return true;
+    }else
+      return false;
+  }
+
   public void hydraliteGold() {
-      if (getCurrentRoom) {
-        prevRoom = currentRoom.getRoomName();
-      }
-      getCurrentRoom = false;
-      if (!(prevRoom.equals(currentRoom.getRoomName()))) {
+        if(compareRooms()) {
         int addHP = (int) (fred.getPlayerMaxHP() * 0.3);
         fred.addPlayerHP(addHP);
         System.out.println("You have gained " + addHP + " HP");
@@ -1776,9 +1778,5 @@ public class Game {
     }else {
       return dmg - defCalc;
    }
-  }
-
-  public void priorityReduction() { //* Priority reduction after each attack!
-    
   }
 }
