@@ -3,15 +3,19 @@ package Zorkgreus;
 public class Command {
   private String commandWord;
   private String secondWord;
+  private String thirdWord;
+  private String fourthWord;
 
   /**
    * Create a command object. First and second word must be supplied, but either
    * one (or both) can be null. The command word should be null to indicate that
    * this was a command that is not recognised by this game.
    */
-  public Command(String firstWord, String secondWord) {
+  public Command(String firstWord, String secondWord, String thirdWord, String fourthWord) {
     commandWord = firstWord;
     this.secondWord = secondWord;
+    this.thirdWord = thirdWord;
+    this.fourthWord = fourthWord;
   }
 
   /**
@@ -30,6 +34,14 @@ public class Command {
     return secondWord;
   }
 
+  public String getThirdWord() {
+    return thirdWord;
+  }
+
+  public String getFourthWord() {
+    return fourthWord;
+  }
+
   /**
    * Return true if this command was not understood.
    */
@@ -42,5 +54,13 @@ public class Command {
    */
   public boolean hasSecondWord() {
     return (secondWord != null);
+  }
+
+  public boolean hasThirdWord() {
+    return (thirdWord != null);
+  }
+
+  public boolean hasFourthWord() {
+    return (fourthWord != null);
   }
 }

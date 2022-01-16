@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -1292,10 +1293,7 @@ public class Game {
     String secondWord = command.getSecondWord().toLowerCase();
       if(currentRoom.getInventory().inInventory(secondWord)){
         for (int i = 0; i < items.size(); i++) {
-          if(items.get(i).getName().toLowerCase().indexOf(secondWord.toLowerCase())>=0){
-          currentRoom.getInventory().dropRoomItem(items.get(i));
-          fred.getInventory().addPlayerItem(items.get(i));
-          }else if(items.get(i).getName().toLowerCase().equals(secondWord)){
+          if(items.get(i).getName().toLowerCase().equals(secondWord)){
               currentRoom.getInventory().dropRoomItem(items.get(i));
               fred.getInventory().addPlayerItem(items.get(i));
             }
