@@ -51,10 +51,14 @@ public class Game {
   private boolean getCurrentRoom; //used for setting the healing from hydralite gold.
   private boolean setNPC = false; //determines if an NPC has been generated.
   private boolean isFighting = false; //checks if you're currently in combat.
-  boolean isBoss = false; // checks if you're in combat with a boss.
-  boolean isMonster = false; // checks if you're in combat with a monster.
+  private boolean isBoss = false; // checks if you're in combat with a boss.
+  private boolean isMonster = false; // checks if you're in combat with a monster.
+  private boolean determineItems;
   private boolean monsterDrop;
-  boolean isEnraged = false; // checks if the boss is currently in a state of rage
+  private boolean takeAll;
+  private boolean isEnraged = false; // checks if the boss is currently in a state of rage
+  private boolean isDead = false; // checks if you're dead
+  private boolean hasCalledSW = false; //checks if Boon: Second Wind has been called on the floor.
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -270,6 +274,11 @@ public class Game {
         determineMonsterDrop();
         }
 
+        if(currentRoom.getRoomName().indexOf("F2") > -1 && prevRoom.indexOf("F1") > -1)
+          hasCalledSW = false;
+        else if(currentRoom.getRoomName().indexOf("F3") > -1 && prevRoom.indexOf("F2") > -1)
+          hasCalledSW = false;
+
         if (!generatedBoons && onBoonScreen()) {
           temp = generateBoons(false);
           generatedBoons = true;
@@ -417,8 +426,7 @@ public class Game {
         if(command.hasSecondWord()){
           if(command.getSecondWord().equals("player")){
             System.out.println("Your stats: ");
-            System.out.println("Weapon: " + currentWeapon.getName());
-            System.out.println("Special Attack: " + currentWeapon.getSpeAtkName() + " | " + currentWeapon.getSpeAtkDmg());
+            System.out.println("Weapon: " + currentWeapon.getName() + " | Special Attack: " + currentWeapon.getSpeAtkName() + " | Damage: " + currentWeapon.getSpeAtkDmg());
             System.out.println("HP: " + fred.getPlayerHP() + "/" + fred.getPlayerMaxHP());
             System.out.println("Attack: " + fred.getPlayerAtk());
             System.out.println("Priority: " + fred.getPlayerPrio());
@@ -745,105 +753,239 @@ public class Game {
   }
 
   public boolean processFightCommand(Command command) {
-    if (command.isUnknown()) {
-      System.out.println("I don't know what you mean...");
-      return false;
-    }
+      if (command.isUnknown()) {
+        System.out.println("I don't know what you mean...");
+        return false;
+      }
 
-    String commandWord = command.getCommandWord();
+      String commandWord = command.getCommandWord();
 
-    if(commandWord.equals("special") || commandWord.equals("special attack")) {
-      //*Damage the monster, check for HP, damage the player, check for HP
-      if(currentWeapon.getPriority() > currentMonster.getPrio() || currentWeapon.getPriority() > currentBoss.getPrio()) {
-        if(speAtkCounter > 0) {
-          System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          return false;
-        }else {
-          int dmg = currentWeapon.specialAttack(currentWeapon.getId());
-          enemyHP -= dmg;
-          System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-          System.out.println();
-          speAtkCounter += 3;
-        }
-        
-        if(enemyHP < 1) {
-          System.out.println("You won!");
-          currentMonster.setHP(enemyHP);
-          return true;
-        } else if(isMonster == true) {
-          int mdmg = currentMonster.monsterNormalAttack();
-          recEnemyHit = mdmg;
-          fred.addPlayerHP(-mdmg);
-        }else {
-          if(currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) {
-            currentBoss.bossRage();
+      boolean firstTurn = true; //first turn of combat
+      boolean firstCrit = false;
+      for(Boon b : myBoons){ //first strike
+        if(b.getBoonName().equals("First Strike"))
+          firstCrit = firstStrike();
+      }
+
+      if(commandWord.equals("special") || commandWord.equals("special attack")) {
+        //*Damage the monster, check for HP, damage the player, check for HP
+        if(fred.getPlayerPrio() > currentMonster.getPrio() || fred.getPlayerPrio() > currentBoss.getPrio()) {
+          if(speAtkCounter > 0) { 
+            System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
+            return false;
+          }else{
+            int dmg = fred.specialAttack(currentWeapon.getId());
+            if(firstTurn && firstCrit)
+              dmg *= 2;
+            for(Boon b : myBoons){ //stormbreaker & sucky wucky
+              if(b.getBoonName().equals("Stormbreaker"))
+                dmg += stormbreaker();
+              if(b.getBoonName().equals("Sucky Wucky"))
+                suckyWucky(dmg);
+            }
+            enemyHP -= dmg;
+            System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
+            System.out.println();
+            for(Boon b : myBoons){ //charm
+              if(b.getBoonName().equals("Charm"))
+                charm();
+            }
+            speAtkCounter += 3;
+          }
+          
+          for(Boon b : myBoons){ //killing blow
+            if(b.getBoonName().equals("Killing Blow"))
+              killingBlow();
+          }
+          if(enemyHP < 1) {
+            System.out.println("You won!");
+            currentMonster.setHP(enemyHP);
+            return true;
+          } else if(isMonster == true) {
+            int mdmg = currentMonster.monsterNormalAttack();
+            recEnemyHit = mdmg;
+            for(Boon b : myBoons){ //divine protection
+              if(b.getBoonName().equals("Divine Protection")){
+                if(divineProtection()){
+                  mdmg = 0;
+                  System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+                }
+              }
+            }
+            fred.addPlayerHP(-mdmg);
+            for(Boon b : myBoons){ //heartbreaker & false weakness
+              if(b.getBoonName().equals("Heartbreaker"))
+                heartbreaker();
+              if(b.getBoonName().equals("False Weakness"))
+                falseWeakness();
+            }
+          } else {
+            if(currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) {
+              currentBoss.bossRage();
+            }else {
+              int bdmg = currentBoss.attack(currentBoss.getAtk());
+              recEnemyHit = bdmg;
+              for(Boon b : myBoons){ //divine protection
+                if(b.getBoonName().equals("Divine Protection")){
+                  if(divineProtection()){
+                    bdmg = 0;
+                    System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+                  }
+                }
+              }
+              fred.addPlayerHP(-bdmg);
+              for(Boon b : myBoons){ //heartbreaker & false weakness
+                if(b.getBoonName().equals("Heartbreaker"))
+                  heartbreaker();
+                if(b.getBoonName().equals("False Weakness"))
+                  falseWeakness();
+              }
+            }
+          }
+
+          if(!fred.isAlive()) { //* Will implement dd later
+            for(Boon b : myBoons){ //second wind & smite
+              if(b.getBoonName().equals("Second Wind")){
+                secondWind();
+                hasCalledSW = true;
+              }
+              if(b.getBoonName().equals("Smite"))
+                smite();
+            }
+            System.out.println("You died.");
+            isDead = true;
+            return true;
           }else {
+            System.out.println("\n-------------------------------------------------------------------------\n");
+            System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
+            if(isMonster == true)
+              System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
+            else 
+              System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
+            System.out.println("\n-------------------------------------------------------------------------\n");
+            return false;
+          }
+        }else{
+          if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){
+            for(Boon b : myBoons){ //death's dance & thundering fury
+              if(b.getBoonName().equals("Thundering Fury"))
+                thunderingFury();
+            }
+          if(speAtkCounter > 0) {
+            System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
+            return false;
+          }
+
+          if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){ //death's dance
+            for(Boon b : myBoons){ //death's dance
+              if(b.getBoonName().equals("Death's Dance"))
+                deathsDance();
+            }
+          }
+
+          if(isMonster == true) {
+            int mdmg = currentMonster.monsterNormalAttack();
+            recEnemyHit = mdmg;
+            for(Boon b : myBoons){ //divine protection
+              if(b.getBoonName().equals("Divine Protection")){
+                if(divineProtection()){
+                  mdmg = 0;
+                  System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+                }
+              }
+            }
+            fred.addPlayerHP(-mdmg);
+            for(Boon b : myBoons){ //heartbreaker & false weakness
+              if(b.getBoonName().equals("Heartbreaker"))
+                heartbreaker();
+              if(b.getBoonName().equals("False Weakness"))
+                falseWeakness();
+            }
+          } else {
             int bdmg = currentBoss.attack(currentBoss.getAtk());
             recEnemyHit = bdmg;
+            for(Boon b : myBoons){ //divine protection
+              if(b.getBoonName().equals("Divine Protection")){
+                if(divineProtection()){
+                  bdmg = 0;
+                  System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+                }
+              }
+            }
             fred.addPlayerHP(-bdmg);
+            for(Boon b : myBoons){ //heartbreaker & false weakness
+              if(b.getBoonName().equals("Heartbreaker"))
+                heartbreaker();
+              if(b.getBoonName().equals("False Weakness"))
+                falseWeakness();
+            }
           }
-        }
 
-        if(!fred.isAlive()) { //* Will implement dd later
-          System.out.println("You died.");
-          return true;
-        }else {
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
-          if(isMonster == true)
-            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
-          else 
-            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          return false;
-        }
-      }else{
-        if(isMonster == true) {
-          int mdmg = currentMonster.monsterNormalAttack();
-          recEnemyHit = mdmg;
-          fred.addPlayerHP(-mdmg);
-        } else {
-          int bdmg = currentBoss.attack(currentBoss.getAtk());
-          recEnemyHit = bdmg;
-          fred.addPlayerHP(-bdmg);
-        }
-
-        if(!fred.isAlive()) {
-          System.out.println("You died.");
-          return true;
-        }
-
-        if(speAtkCounter > 0) {
-          System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
-          return false;
-        }else {
-          int dmg = currentWeapon.specialAttack(currentWeapon.getId());
+          if(!fred.isAlive()) {
+            for(Boon b : myBoons){ //second wind & smite
+              if(b.getBoonName().equals("Second Wind")){
+                secondWind();
+                hasCalledSW = true;
+              }
+              if(b.getBoonName().equals("Smite"))
+                smite();
+            }
+            System.out.println("You died.");
+            isDead = true;
+            return true;
+          }
+          
+          int dmg = fred.specialAttack(currentWeapon.getId());
+          for(Boon b : myBoons){ //stormbreaker & sucky wucky
+            if(b.getBoonName().equals("Stormbreaker"))
+              dmg += stormbreaker();
+            if(b.getBoonName().equals("Sucky Wucky"))
+              suckyWucky(dmg);
+          }
           enemyHP -= dmg;
           System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
           System.out.println();
           speAtkCounter += 3;
-        }
 
-        if(enemyHP < 1) {
-          System.out.println("You won!");
-          currentMonster.setHP(0);
-          return true;
-        }else {
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
-          if(isMonster == true )
-          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
-          else 
-          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          return false;
+          for(Boon b : myBoons){ //killing blow
+            if(b.getBoonName().equals("Killing Blow"))
+              killingBlow();
+          }
+          if(enemyHP < 1) {
+            System.out.println("You won!");
+            currentMonster.setHP(0);
+            return true;
+          }else {
+            System.out.println("\n-------------------------------------------------------------------------\n");
+            System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
+            if(isMonster == true )
+            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
+            else 
+            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
+            System.out.println("\n-------------------------------------------------------------------------\n");
+            return false;
+          }
         }
       }
     } else if (commandWord.equals("normal") || commandWord.equals("normal attack")) {
-      if(currentWeapon.getPriority() > currentMonster.getPrio() || currentWeapon.getPriority() > currentBoss.getPrio()) {
-        int dmg = currentWeapon.normalAttack();
-        recPlayerHit = dmg;
+      if(fred.getPlayerPrio() > currentMonster.getPrio() || fred.getPlayerPrio() > currentBoss.getPrio()) {
+        int dmg = fred.normalAttack();
+        if(firstTurn && firstCrit)
+          dmg *= 2;
+        for(Boon b : myBoons){ //precision strike & stormbreaker & sucky wucky
+          if(b.getBoonName().equals("Stormbreaker"))
+            dmg += stormbreaker();
+          if(b.getBoonName().equals("Precision Strike")){
+            boolean crit = precisionStrike(); 
+            if(crit)
+              dmg *= 2;
+          }
+          if(b.getBoonName().equals("Sucky Wucky"))
+            suckyWucky(dmg);
+        }
         enemyHP -= dmg;
+        recPlayerHit = dmg;
+        
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
 
         if ((speAtkCounter - 1) < 0)
@@ -854,23 +996,64 @@ public class Game {
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
           recEnemyHit = mdmg;
+          for(Boon b : myBoons){ //divine protection
+            if(b.getBoonName().equals("Divine Protection")){
+              if(divineProtection()){
+                mdmg = 0;
+                System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+              }
+            }
+          }
           fred.addPlayerHP(-mdmg);
+          for(Boon b : myBoons){ //heartbreaker & false weakness
+            if(b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
+            if(b.getBoonName().equals("False Weakness"))
+              falseWeakness();
+          }
         } else {
           int bdmg = currentBoss.attack(currentBoss.getAtk());
           recEnemyHit = bdmg;
+          for(Boon b : myBoons){ //divine protection
+            if(b.getBoonName().equals("Divine Protection")){
+              if(divineProtection()){
+                bdmg = 0;
+                System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+              }
+            }
+          }
           fred.addPlayerHP(-bdmg);
+          for(Boon b : myBoons){ //heartbreaker & false weakness
+            if(b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
+            if(b.getBoonName().equals("False Weakness"))
+              falseWeakness();
+          }
         }
 
+        for(Boon b : myBoons){ //killing blow
+          if(b.getBoonName().equals("Killing Blow"))
+            killingBlow();
+        }
         if(enemyHP < 1) {
           System.out.println("You won!");
           currentMonster.setHP(enemyHP);
           return true;
         } else if(!fred.isAlive()) { //* Will implement dd later
+          for(Boon b : myBoons){ //second wind & smite
+            if(b.getBoonName().equals("Second Wind")){
+              secondWind();
+              hasCalledSW = true;
+            }
+            if(b.getBoonName().equals("Smite"))
+              smite();
+          }
           System.out.println("You died.");
+          isDead = true;
           return true;
         }else {
           System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
+          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if(isMonster == true )
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
@@ -879,36 +1062,99 @@ public class Game {
           return false;
         }
       }else {
+        if(fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()){
+          for(Boon b : myBoons){ //death's dance & thundering fury
+          if(b.getBoonName().equals("Thundering Fury"))
+            thunderingFury();
+          if(b.getBoonName().equals("Death's Dance"))
+            deathsDance();
+          }
+        }
         if(isMonster == true) {
           int mdmg = currentMonster.monsterNormalAttack();
           recEnemyHit = mdmg;
+          for(Boon b : myBoons){ //divine protection
+            if(b.getBoonName().equals("Divine Protection")){
+              if(divineProtection()){
+                mdmg = 0;
+                System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+              }
+            }
+          }
           fred.addPlayerHP(-mdmg);
+          for(Boon b : myBoons){ //heartbreaker & false weakness
+            if(b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
+            if(b.getBoonName().equals("False Weakness"))
+              falseWeakness();
+          }
         }else {
           int bdmg = currentBoss.attack(currentBoss.getAtk());
           recEnemyHit = bdmg;
+          for(Boon b : myBoons){ //divine protection
+            if(b.getBoonName().equals("Divine Protection")){
+              if(divineProtection()){
+                bdmg = 0;
+                System.out.println("The " + currentMonster.getName() + "'s attack was blocked by Divine Protection.");
+              }
+            }
+          }
           fred.addPlayerHP(-bdmg);
+          for(Boon b : myBoons){ //heartbreaker & false weakness
+            if(b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
+            if(b.getBoonName().equals("False Weakness"))
+              falseWeakness();
+          }
         }
 
-        int dmg = currentWeapon.normalAttack();
+        int dmg = fred.normalAttack();
+        for(Boon b : myBoons){ //precision strike & stormbreaker & sucky wucky
+          if(b.getBoonName().equals("Stormbreaker"))
+            dmg += stormbreaker();
+          if(b.getBoonName().equals("Precision Strike")){
+            boolean crit = precisionStrike(); 
+            if(crit)
+              dmg *= 2;
+          }
+          if(b.getBoonName().equals("Sucky Wucky"))
+            suckyWucky(dmg);
+        }
         recPlayerHit = dmg;
         enemyHP -= dmg;
         System.out.println("You hit the " + currentMonster.getName() + " for " + dmg + " damage!");
-
+    
+        
         if ((speAtkCounter - 1) < 0)
           speAtkCounter = 0;
         else 
           speAtkCounter--;
 
-        if(!fred.isAlive()) {
-          System.out.println("You died");
-          return true;
-        }else if(enemyHP < 1) {
+        for(Boon b : myBoons){ //killing blow
+          if(b.getBoonName().equals("Killing Blow"))
+            killingBlow();
+        }
+        if(enemyHP < 1){
           System.out.println("You won!");
           currentMonster.setHP(0);
           return true;
-        }else {
+        }
+
+        if(!fred.isAlive()) {
+          for(Boon b : myBoons){ //second wind & smite
+            if(b.getBoonName().equals("Second Wind")){
+              secondWind();
+              hasCalledSW = true;
+            }
+            if(b.getBoonName().equals("Smite"))
+              smite();
+          }
+          System.out.println("You died.");
+          isDead = true;
+          return true;
+        } else {
           System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + currentWeapon.getPriority());
+          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if(isMonster == true)
           System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
           else 
@@ -923,6 +1169,10 @@ public class Game {
     } else {
       System.out.println("You can't do that!");
     }
+
+    firstTurn = false;
+    firstCrit = false;
+
     prevCommand = command.getCommandWord();
     return false;
   }
@@ -1090,11 +1340,21 @@ public class Game {
     else if(currentRoom.getRoomName().equals("Test Dummy Room"))
       canProceed = true;
     else if(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")){
-      if(boonSelected)
-        canProceed = true; 
-    } else {
-      if(!currentMonster.isAlive())
+      if(boonSelected){ 
         canProceed = true;
+        for(Boon b : myBoons){ //vitality
+          if(b.getBoonName().equals("vitality"))
+            vitality(false);
+        } 
+      }
+    } else {
+      //if(!currentMonster.isAlive()){
+        //canProceed = true;
+        for(Boon b : myBoons){ //vitality
+          if(b.getBoonName().equals("vitality"))
+            vitality(false);
+        } 
+      //}
     }
 
     if (command.hasSecondWord())
@@ -1117,7 +1377,7 @@ public class Game {
       if(canProceed){
         currentRoom = nextRoom;
         System.out.println(currentRoom.roomDescription());
-        //canProceed = false;
+        canProceed = false;
       }
       else
         System.out.println(("The doors won't open just yet..."));
@@ -1413,8 +1673,13 @@ public class Game {
    * @return T/F
    */
   public boolean firstStrike() {
-    if(fred.getPlayerPrio() > currentMonster.getPrio())
-      return true;
+    if(currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")){
+      if(fred.getPlayerPrio() > currentBoss.getPrio())
+        return true;
+    } else {
+      if(fred.getPlayerPrio() > currentMonster.getPrio())
+        return true;
+    }
     return false;
   }
 
@@ -1439,23 +1704,43 @@ public class Game {
   }
 
   /**
-   * Random chance to stun the target upon casting special.
+   * 25/50/75% chance to reduce prio to 4/2/0.
    */
   public void charm() {
     int level = myBoons.get(getIndexByBoonName("Charm")).getLevel();
-    int random = (int) (Math.random() * 10) + 1;
+    int random = (int) (Math.random() * 100) + 1;
     if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
       if (level == 1) {
-        if (random <= 2) {
-
+        if (random <= 25) {
+          currentBoss.setBossPriority(4);
+          System.out.println("You charmed " + currentBoss.getName() + ".");
         }
       } else if (level == 2) {
-        if (random <= 3) {
-
+        if (random <= 50) {
+          currentBoss.setBossPriority(2);
+          System.out.println("You charmed " + currentBoss.getName() + ".");
         }
       } else {
-        if (random <= 4) {
-
+        if (random <= 75) {
+          currentBoss.setBossPriority(0);
+          System.out.println("You charmed " + currentBoss.getName() + ".");
+        }
+      }
+    } else {
+      if (level == 1) {
+        if (random <= 25) {
+          currentBoss.setBossPriority(4);
+          System.out.println("You charmed the " + currentMonster.getName() + ".");
+        }
+      } else if (level == 2) {
+        if (random <= 50) {
+          currentBoss.setBossPriority(2);
+          System.out.println("You charmed the " + currentMonster.getName() + ".");
+        }
+      } else {
+        if (random <= 75) {
+          currentBoss.setBossPriority(0);
+          System.out.println("You charmed the " + currentMonster.getName() + ".");
         }
       }
     }
@@ -1464,22 +1749,30 @@ public class Game {
   /**
    * Reduces enemies' attack by 10, 15, 20%.
    */
-  public void goEasyOnMe() {
+  public void falseWeakness() {
     int level = myBoons.get(getIndexByBoonName("False Weakness")).getLevel();
     if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
-      if(level == 1)
+      if(level == 1){
         currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.9));
-      else if(level == 2)
+        System.out.println(currentBoss.getName() + " lost " + (int)(currentBoss.getAtk() * 0.9) + " from False Weakness.");
+      } else if(level == 2){
         currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.85));
-      else 
+        System.out.println(currentBoss.getName() + " lost " + (int)(currentBoss.getAtk() * 0.85) + " from False Weakness.");
+      } else { 
         currentBoss.setBossAtk((int)(currentBoss.getAtk() * 0.8));
+        System.out.println(currentBoss.getName() + " lost " + (int)(currentBoss.getAtk() * 0.8) + " from False Weakness.");
+      }
     } else {
-      if(level == 1)
+      if(level == 1){
         currentMonster.setAtk((int)(currentMonster.getAtk() * 0.9));
-      else if(level == 2)
+        System.out.println("The" + currentMonster.getName() + " lost " + (int)(currentBoss.getAtk() * 0.9) + " from False Weakness.");
+      } else if(level == 2){
         currentMonster.setAtk((int)(currentMonster.getAtk() * 0.85));
-      else 
+        System.out.println("The" + currentMonster.getName() + " lost " + (int)(currentBoss.getAtk() * 0.85) + " from False Weakness.");
+      } else {
         currentMonster.setAtk((int)(currentMonster.getAtk() * 0.8));
+        System.out.println("The" + currentMonster.getName() + " lost " + (int)(currentBoss.getAtk() * 0.8) + " from False Weakness.");
+      }
     }
   }
 
@@ -1500,8 +1793,7 @@ public class Game {
   }
 
   /**
-   * Remove 30, 40, 50% of the enemy's current defence just attacked after losing
-   * priority.
+   * Remove 30, 40, 50% of the enemy's current defence if you and the enemy have equal attack prio.
    */
   public void thunderingFury() {
     int level = myBoons.get(getIndexByBoonName("Thundering Fury")).getLevel();
@@ -1560,8 +1852,9 @@ public class Game {
 
   /**
    * Restore 12.5, 25, 50% of all damage dealt as hp.
+   * @param damage 
    */
-  public void suckyWucky() {
+  public void suckyWucky(int damage) {
     int level = myBoons.get(getIndexByBoonName("Sucky Wucky")).getLevel();
     int dmgToHP = 0;
     if(level == 1)
@@ -1655,18 +1948,15 @@ public class Game {
 
   /**
    * If player hp goes below 0, bring it back to 1.
-   * 
-   * @param hasCalled check if the boon has been used on the floor.
    */
-  public void secondWind(boolean hasCalled) {
-    if(!hasCalled){
-      if (fred.getPlayerHP() <= 0)
-        fred.setPlayerHP(1);
-    }
+  public void secondWind() {
+    if (fred.getPlayerHP() <= 0)
+      fred.setPlayerHP(1);
+      System.out.println("Lethal damage has been nullified by Second Wind.");
   }
 
   /**
-   * Takes a boon and sees if it is a boon to increase raw stats. If so, call it.
+   * Takes a boon and sees if increases raw stats. If so, call it.
    * @param selection boon that is potentially being called
    */
   public void rawIncreases(Boon selection){
@@ -1681,7 +1971,7 @@ public class Game {
     else if(selection.getBoonName().equals("Fortify"))
       fortify();
   }
-
+  
   /*------------------------------------End of Boon Functionality------------------------------------*/
   
   public void sell() {

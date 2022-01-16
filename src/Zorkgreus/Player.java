@@ -9,10 +9,6 @@ public class Player {
     private int prio;
     private int gold;
 
-    private int basePrio; // priority at the start of the game
-    private int baseAtk; // attack at the start of the game
-    private int baseDef; // defense at the start of the game
-
     private boolean extraLife = true;
     private boolean hyradliteGold = false;
     private Inventory inventory;
@@ -25,10 +21,7 @@ public class Player {
         this.prio = prio;
         this.dodge = 0;
         this.gold = 100;
-
-        basePrio = prio;
-        baseAtk = atk;
-        baseDef = def;
+        
         inventory = new Inventory(150);
 
     }
@@ -59,18 +52,6 @@ public class Player {
 
     public int getPlayerPrio() {
         return prio;
-    }
-
-    public int getBasePrio() {
-        return basePrio;
-    }
-
-    public int getBaseAtk() {
-        return baseAtk;
-    }
-
-    public int getBaseDef() {
-        return baseDef;
     }
 
     public int getPlayerGold() {
@@ -182,4 +163,44 @@ public class Player {
         hyradliteGold = n;
     }
 
+    public int normalAttack() {
+        int rand = (int) (Math.random() * 3) + 1;
+        int randDmg = (int) (Math.random() * (atk / 10)) + 1;
+        int dmg = atk;
+
+        if (rand == 1) {
+            if((dmg - randDmg) < 0)
+                dmg = 0;
+            else
+                dmg -= randDmg;
+        } else if (rand == 2) {
+            dmg += randDmg;
+        } else {
+            dmg += 0;
+        }
+        return dmg;
+    }
+
+    public int specialAttack(int id) {
+        int dmg = 0;
+
+        if (id == 0) {
+            System.out.println("You send out a volley of arrows... ");
+            System.out.println();
+            dmg = 10;
+        } else if (id == 1) {
+            System.out.println("You unleash a flurry of jabs... ");
+            System.out.println();
+            dmg = 17;
+        } else if (id == 2) {
+            System.out.println("You leap into the air, falling towards your opponent... ");
+            System.out.println();
+            dmg = 20;
+        } else if (id == 3) {
+            System.out.println("You toss your shield... ");
+            System.out.println();
+            dmg = 15;
+        }
+        return dmg;
+    }
 }

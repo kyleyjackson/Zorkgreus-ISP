@@ -45,14 +45,14 @@
             "name": "First Strike",
             "colour": "A green light glimmers at the appearance of the boons. ",
             "flavour": "The first shot is always the deadliest.",
-            "stats": "If you strike an enemy first, your attack will deal double damage.",
+            "stats": "If you strike an enemy first, your normal and/or special attack will deal double damage.",
             "level": 1
         },
         {
             "god": "Aphrodite",
             "name": "Heartbreaker",
             "colour": "A rosy ambience warms the room. ",
-            "flavour": "It's a single-sided love.",
+            "flavour": "Naughty boys who don't do what they're told need a little bit of punishment to keep them in line.",
             "stats": "When attacked, there is a 10/20/30% chance to redirect 50% of damage taken to the attacker at levels 1/2/3.", 
             "level": 1
         },
@@ -60,8 +60,8 @@
             "god": "Aphrodite",
             "name": "Charm",
             "colour": "A rosy ambience warms the room. ",
-            "flavour": "Your displays of talent knocks the enemies off their feet.",
-            "stats": "After using your special attack, there is a 20/30/40% chance to stun the target for one turn at levels 1/2/3.", 
+            "flavour": "Don't worry about it, just come a little closer.",
+            "stats": "After using your special attack, there is a 25/50/75% chance to set the enemy's attack priority to 4/2/0 at levels 1/2/3.", 
             "level": 1
         },
         {
@@ -76,7 +76,7 @@
             "god": "Zeus",
             "name": "Smite",
             "colour": "A golden glow fills the room. ",
-            "flavour": "You're not going down without a fight.",
+            "flavour": "You're going down with me.",
             "stats": "If you are to take lethal damage, execute the enemy who delivered the attack. If the enemy is a boss or miniboss, it deals 10% max hp damage instead.",
             "level": 1
         },
@@ -85,7 +85,7 @@
             "name": "Thundering Fury",
             "colour": "A golden glow fills the room. ",
             "flavour": "You're gonna make them remember your name.",
-            "stats": "Once you lose attack priority, remove 30/40/50% of the enemy's current defence at levels 1/2/3.",
+            "stats": "If your attack priority is equal to the enemy's attack priority, remove 30/40/50% of the enemy's current defence at levels 1/2/3.",
             "level": 1
         },
         {
@@ -101,14 +101,14 @@
             "name": "Sucky Wucky",
             "colour": "A calming blue is emitted from the boons. ",
             "flavour": "The ocean devours some, and brings life to others.",
-            "stats": "12.5/25/50% of all damage dealt is restored as hp at levels 1/2/3.",
+            "stats": "12.5/25/50% of damage dealt from normal and special attacks is restored as hp at levels 1/2/3.",
             "level": 1
         },
         {
             "god": "Poseidon",
             "name": "Vitality",
             "colour": "A calming blue is emitted from the boons. ",
-            "flavour": "The feeling of fire is washed away by the sensation.",
+            "flavour": "The scorching hell is washed away by the sensation.",
             "stats": "Restore 20hp now. After clearing a room, restore +5 hp. If your hp is maxed out, gain +2 max hp instead.",
             "level": 1
         },
