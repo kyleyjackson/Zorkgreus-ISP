@@ -21,74 +21,23 @@ public class Player {
         this.prio = prio;
         this.dodge = 0;
         this.gold = 100;
-        
+
         inventory = new Inventory(150);
 
     }
 
+    /*accessor method for inventory*/
     public Inventory getInventory() {
         return inventory;
     }
 
+    /*accessor and mutator methods for HP */
     public int getPlayerHP() {
         return HP;
     }
 
-    public int getPlayerMaxHP() {
-        return maxHP;
-    }
-
-    public int getPlayerDef() {
-        return def;
-    }
-
-    public int getPlayerAtk() {
-        return atk;
-    }
-
-    public int getPlayerDodgeChange() {
-        return dodge;
-    }
-
-    public int getPlayerPrio() {
-        return prio;
-    }
-
-    public int getPlayerGold() {
-        return gold;
-    }
-
-    public boolean isAlive() {
-        return HP >= 0;
-    }
-
     public void setPlayerHP(int n) {
         HP = n;
-    }
-
-    public void setPlayerMaxHP(int n) {
-        maxHP = n;
-    }
-
-    public void setPlayerDef(int n) {
-        def = n;
-    }
-
-    public void setPlayerAtk(int n) {
-        atk = n;
-    }
-
-    public void setPlayerDodge(int n) {
-        dodge = n;
-    }
-
-    public void setPlayerPrio(int n) {
-        prio = n;
-    }
-
-    public void incrementPlayerHP(int n) {
-        maxHP += n;
-        HP += n;
     }
 
     public void addPlayerHP(int n) {
@@ -106,6 +55,15 @@ public class Player {
         }
     }
 
+    /*accessor and mutator methods for maxHP */
+    public int getPlayerMaxHP() {
+        return maxHP;
+    }
+
+    public void setPlayerMaxHP(int n) {
+        maxHP = n;
+    }
+
     public void addPlayerMaxHP(int n) {
         maxHP += n;
         if (n <= 0)
@@ -114,20 +72,13 @@ public class Player {
             System.out.println("You gained " + n + " max HP! Total: " + getPlayerMaxHP());
     }
 
-    public void addPlayerPriority(int n) {
-        prio += n;
-        if (n <= 0)
-            System.out.println("You lost " + Math.abs(n) + " priority! Total: " + getPlayerPrio());
-        else
-            System.out.println("Your gained " + n + " priority! Total: " + getPlayerPrio());
+    /*accessor and mutator methods for defence */
+    public int getPlayerDef() {
+        return def;
     }
 
-    public void addPlayerAttack(int n) {
-        atk += n;
-        if (n <= 0)
-            System.out.println("You lost " + Math.abs(n) + " attack! Total: " + getPlayerAtk());
-        else
-            System.out.println("Your gained " + n + " attack! Total: " + getPlayerAtk());
+    public void setPlayerDef(int n) {
+        def = n;
     }
 
     public void addPlayerDefence(int n) {
@@ -139,6 +90,54 @@ public class Player {
 
     }
 
+    /*accessor and mutator methods for attack */
+    public int getPlayerAtk() {
+        return atk;
+    }
+
+    public void setPlayerAtk(int n) {
+        atk = n;
+    }
+
+    public void addPlayerAttack(int n) {
+        atk += n;
+        if (n <= 0)
+            System.out.println("You lost " + Math.abs(n) + " attack! Total: " + getPlayerAtk());
+        else
+            System.out.println("Your gained " + n + " attack! Total: " + getPlayerAtk());
+    }
+
+    /*accessor and mutator methods for dodge */
+    public int getPlayerDodgeChange() {
+        return dodge;
+    }
+
+    public void setPlayerDodge(int n) {
+        dodge = n;
+    }
+
+    /*accessor and mutator methods for priority */
+    public int getPlayerPrio() {
+        return prio;
+    }
+
+    public void setPlayerPrio(int n) {
+        prio = n;
+    }
+
+    public void addPlayerPriority(int n) {
+        prio += n;
+        if (n <= 0)
+            System.out.println("You lost " + Math.abs(n) + " priority! Total: " + getPlayerPrio());
+        else
+            System.out.println("Your gained " + n + " priority! Total: " + getPlayerPrio());
+    }
+
+    /*accessor and mutator methods for gold */
+    public int getPlayerGold() {
+        return gold;
+    }
+
     public void addPlayerGold(int n) {
         gold += n;
         if (n <= 0)
@@ -147,14 +146,16 @@ public class Player {
             System.out.println("You got " + n + " gold! Total: " + getPlayerGold());
     }
 
+    /*accessor and mutator methods for the extra life */
     public boolean getExtraLife() {
         return extraLife;
     }
 
     public void setExtraLife(boolean n) {
         extraLife = n;
-    }
+    }  
 
+    /*accessor and mutator methods for hydralite gold (patroculus offering) */
     public boolean getHydraliteGold() {
         return hyradliteGold;
     }
@@ -163,13 +164,34 @@ public class Player {
         hyradliteGold = n;
     }
 
+    /**
+     * checks if HP is bigger than 0
+     * @return true if HP is bigger than 0
+     */
+    public boolean isAlive() {
+        return HP > 0;
+    }
+    
+    /**
+     * increases/decreases HP and max HP by n
+     * @param n number added to HP and max HP
+     */
+    public void incrementPlayerHP(int n) {
+        maxHP += n;
+        HP += n;
+    }
+
+    /**
+     * normal attack function, damage dealt is randomized within a threshold based of attack
+     * @return damage done
+     */
     public int normalAttack() {
         int rand = (int) (Math.random() * 3) + 1;
         int randDmg = (int) (Math.random() * (atk / 10)) + 1;
         int dmg = atk;
 
         if (rand == 1) {
-            if((dmg - randDmg) < 0)
+            if ((dmg - randDmg) < 0)
                 dmg = 0;
             else
                 dmg -= randDmg;
@@ -181,6 +203,11 @@ public class Player {
         return dmg;
     }
 
+    /**
+     * special attack function, damage dealt is weapon based
+     * @param id number used to identify weapon to determine which special attack to use
+     * @return damage done
+     */
     public int specialAttack(int id) {
         int dmg = 0;
 

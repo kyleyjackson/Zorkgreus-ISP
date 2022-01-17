@@ -4,9 +4,9 @@ import java.util.Scanner;
 import Zorkgreus.Player;
 
 
-public class Patroclus extends NPC {
+public class Patroculus extends NPC {
 
-    public Patroclus(Player player) {
+    public Patroculus(Player player) {
         displayIntroMessage();
         System.out.println("");
         System.out.println("");
