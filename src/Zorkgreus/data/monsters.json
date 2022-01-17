@@ -48,7 +48,7 @@
             "health": 15,
             "dodge": 0,
             "description": "The skeleton wields a long rotten baseball bat swings it around, taking practice swings. ",
-            "location": "F1R6"
+            "location": "F1R4"
         },
         {
             "Monster": "Skeleton Protector",
@@ -58,7 +58,7 @@
             "health": 20,
             "dodge": 0,
             "description": "A skeleton with a towering shield that has scratch and burn marks all over it slams it into a ground, sending rubble everywhere and creating a heavy impact. ",
-            "location": "F1R7"
+            "location": "F1R5"
         },
         {
             "Monster": "Skeleton Manic",
@@ -68,7 +68,7 @@
             "health": 15,
             "dodge": 0,
             "description": "A skeleton slowly lumbers towards you, tugging on a bone in his body. As the bone pops out with a snap, he looks at it approvingly as he snarls at you. ",
-            "location": "F1R8"
+            "location": "F1R6"
         },
         {
             "Monster": "Spider Hatchling",
@@ -126,19 +126,19 @@
             "priority": 10,
             "defense": 10,
             "health": 15,
-            "dodge": 10, 
+            "dodge": 10,
             "description": "The spider's speed allows him to dip in and out of attacks",
-            "location": "F2R8"
+            "location": "F2R6"
         },
         {
-            "Monster": "Webshooter", 
+            "Monster": "Webshooter",
             "attack": 8,
             "priority": 11,
             "defense": 15,
             "health": 15,
             "dodge": 15,
             "description": "Spinning webs with immense speed and skill, the spider looks at you with curious eyes. ",
-            "location": "F2R9"
+            "location": "F2R7"
         },
         {
             "Monster": "Venemous Spider",
@@ -148,7 +148,7 @@
             "health": 20,
             "dodge": 15,
             "description": "Dripping venom from it's fangs, the spider leaves a trail of corrosion everywhere it goes ",
-            "location": "F2R10"
+            "location": "F2R8"
         },
         {
             "Monster": "Spider Mutation",
@@ -158,7 +158,7 @@
             "health": 20,
             "dodge": 20,
             "description": "Spinning much more rough and powerful webs than the webshooter, this spider managed to handle a drop of the tarantula's blood.  ",
-            "location": "F2R11"
+            "location": "F2R9"
         },
         {
             "Monster": "Failed Mutation",
@@ -168,7 +168,7 @@
             "health": 25,
             "dodge": 25,
             "description": "A spider that couldn't handle the tarantula's blood twtiches around, screaming in pain as its eyes turn black",
-            "location": "F2R12"
+            "location": "F2R10"
         },
         {
             "Monster": "Ghost of the Labyrinth",
@@ -189,7 +189,7 @@
             "dodge": 25,
             "description": "Riding on the legendary and nimble Pegasus, the forgotten hero brandishes his spear at you. ",
             "location": "F3R2"
-        }, 
+        },
         {
             "Monster": "The Destroyer",
             "attack": 13,
@@ -248,7 +248,7 @@
             "health": 20,
             "dodge": 40,
             "description": "Blessed by the gods with the power to the prophecy, but cursed to never be believed, the dejected priestess looks up .",
-            "location": "F3R10"
+            "location": "F3R8"
         },
         {
             "Monster": "King of Athens",
@@ -258,7 +258,7 @@
             "health": 25,
             "dodge": 20,
             "description": "The perfect Athenian, venturing the labyrinth and killing the minotaur with his bare hands, stands proudly in the centre of the room.",
-            "location": "F3R11"
+            "location": "F3R9"
         },
         {
             "Monster": "The Invincible",
@@ -268,7 +268,7 @@
             "health": 10,
             "dodge": 80,
             "description": "Enduring the pain of the styx, this great warrior, wielding a spear and shield is almost invulnerable.",
-            "location": "F3R12"
+            "location": "F3R10"
         },
         {
             "Monster": "The Journeyer",
@@ -278,7 +278,7 @@
             "health": 25,
             "dodge": 25,
             "description": "The king of Icatha, journeying 10 years to return home, his cleverness and courage getting him past multiple dangers, notches an arrow into his bow.",
-            "location": "F3R13"
+            "location": "F3R11"
         },
         {
             "Monster": "Leader of the Argonauts",
@@ -288,7 +288,7 @@
             "health": 25,
             "dodge": 15,
             "description": "The rightful king of Iolcos, claiming the impossible to obtain golden fleece now wears it around his shoulders.",
-            "location": "F3R14"
+            "location": "F3R12"
         },
         {
             "Monster": "The Strongest Trojan",
@@ -298,7 +298,7 @@
             "health": 30,
             "dodge": 20,
             "description": "A noble and honorable warrior, the Trojan's greatest champion raises his fists up.",
-            "location": "F3R15"
+            "location": "F3R13"
         },
         {
             "Monster": "The Glory of Hera",
@@ -308,7 +308,7 @@
             "health": 15,
             "dodge": 20,
             "description": "Standing above all the others around him, bearing the hide of the Nemean Lion, the greatest hero lets out a monstrous roar.",
-            "location": "F3R16"
+            "location": "F3R14"
         }
     ]
 }

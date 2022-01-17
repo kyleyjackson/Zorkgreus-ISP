@@ -50,9 +50,9 @@
       "name": "F1 1st Attack Room",
 
       "descriptions": [
-      "You enter a room with some monsters inside of it. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West, South and Down.",
-      "You enter a room with a few monsters inside of it. The room seems vibrant with the river of souls beside it lighting up the room and the two exits West, South and Down.",
-      "You enter a room with a couple monsters inside of it. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West, South and Down."
+      "You enter a room with some monsters inside of it. The room seems old and creepy very dimly lit with torches and a stony and dusty floor with two exits heading West and South.",
+      "You enter a room with a few monsters inside of it. The room seems vibrant with the river of souls beside it lighting up the room and the two exits West and South.",
+      "You enter a room with a couple monsters inside of it. The room looks really old with cracked bricks and a dusty floor with only a few torches lighting the room up and the only exits heading West and South."
       ],
       "exits": [
         {
@@ -62,25 +62,6 @@
         {
           "direction": "South",
           "adjacentRoom": "F1R2"
-        },
-        {
-          "direction": "Down",
-          "adjacentRoom": "F1C1"
-        }
-      ]
-    },
-    {
-      "id": "F1C1",
-      "name": "F1 Chaos Room",
-      "descriptions": [
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up."
-        ],
-      "exits": [
-        {
-          "direction": "Up",
-          "adjacentRoom": "F1R3"
         }
       ]
     },
@@ -258,9 +239,9 @@
       "id": "F2R1",
       "name": "F2 1st Attack Room",
       "descriptions": [
-      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow.",
-      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East, South and Down. The room is dimly with torches lighting up the room.",
-      "As you enter the old room you see some cobwebs around the room with exits heading East, South and Down. The room is dimly lit with soul lanterns lighting up the room in a green glow."
+      "As you enter the old, decrepit room you can see a bunch of cobwebs around the room with exits heading East and South. The room is dimly lit with soul lanterns lighting up the room in a green glow.",
+      "As you enter the room you can see a bunch of cobwebs in the room with exits heading East and South. The room is dimly with torches lighting up the room.",
+      "As you enter the old room you see some cobwebs around the room with exits heading East and South. The room is dimly lit with soul lanterns lighting up the room in a green glow."
       ],
       "exits": [
         {
@@ -270,25 +251,6 @@
         {
           "direction": "South",
           "adjacentRoom": "F2R2"
-        },
-        {
-          "direction": "Down",
-          "adjacentRoom": "F2C2"
-        }
-      ]
-    },
-    {
-      "id": "F2C2",
-      "name": "F2 Chaos Room",
-      "descriptions": [
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up."
-        ],
-      "exits": [
-        {
-          "direction": "Up",
-          "adjacentRoom": "F2R3"
         }
       ]
     },
@@ -542,9 +504,9 @@
       "id": "F3R1",
       "name": "F3 1st Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see bright green soul torches lighting the way to a maze. Inside the maze you can see exits West and South being guarded by a man with a hammer in hand.",
+      "As you enter the room you can see bright green soul torches lighting the way to a maze. Inside the maze you can see exits West and South being guarded by a man with a hammer in hand.",
+      "As you enter the room you can see bright green soul torches lighting the way to a maze. Inside the maze you can see exits West and South being guarded by a man with a hammer in hand."
       ],
       "exits": [
         {
@@ -554,25 +516,6 @@
         {
           "direction": "South",
           "adjacentRoom": "F3R2"
-        },
-        {
-          "direction": "Down",
-          "adjacentRoom": "F3C3"
-        }
-      ]
-    },
-    {
-      "id": "F3C3",
-      "name": "F3 Chaos Room",
-      "descriptions": [
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up.",
-        "As you enter the room you can only see some candles around the marbled room surrounded by the void. You can see a dark boon in the middle of the marbled room. The only way to exit you can see is a portal heading up."
-        ],
-      "exits": [
-        {
-          "direction": "Up",
-          "adjacentRoom": "F3R3"
         }
       ]
     },
@@ -580,9 +523,9 @@
       "id": "F3R2",
       "name": "F3 2nd Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see a man on a Pegasus looking at your in a massive colosseum. The colosseum is lit up by soul torches glowing orange with exits heading West and North.",
+      "As you enter the room you can see a man on a Pegasus looking at your in a massive colosseum. The colosseum is lit up by soul torches glowing orange with exits heading West and North.",
+      "As you enter the room you can see a man on a Pegasus looking at your in a massive colosseum. The colosseum is lit up by soul torches glowing orange with exits heading West and North."
       ],
       "exits": [
         {
@@ -599,9 +542,9 @@
       "id": "F3R3",
       "name": "F3 3rd Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see a man with a sickle looking at you guarding both exits heading West and South. The room is being lit up by soul lanterns glowing green.",
+      "As you enter the room you can see a man with a sickle looking at you guarding both exits heading West and South. The room is being lit up by soul lanterns glowing green.",
+      "As you enter the room you can see a man with a sickle looking at you guarding both exits heading West and South. The room is being lit up by soul lanterns glowing green."
       ],
       "exits": [
         {
@@ -618,9 +561,9 @@
       "id": "F3R4",
       "name": "F3 4th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can tell it resembles a theatre with a man standing at the front with a lyre in hand playing music. The room is lit up with soul lanterns glowing orange with the only exits of the room heading West and North.",
+      "As you enter the room you can tell it resembles a theatre with a man standing at the front with a lyre in hand playing music. The room is lit up with soul lanterns glowing orange with the only exits of the room heading West and North.",
+      "As you enter the room you can tell it resembles a theatre with a man standing at the front with a lyre in hand playing music. The room is lit up with soul lanterns glowing orange with the only exits of the room heading West and North."
       ],
       "exits": [
         {
@@ -637,9 +580,9 @@
       "id": "F3R5",
       "name": "F3 5th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can tell you have entered a golden palace with a man sitting on a golden throne guarding both exits that are heading West and South. The room is being lit up by gold lanterns that are glowing yellow.",
+      "As you enter the room you can tell you have entered a golden palace with a man sitting on a golden throne guarding both exits that are heading West and South. The room is being lit up by gold lanterns that are glowing yellow.",
+      "As you enter the room you can tell you have entered a golden palace with a man sitting on a golden throne guarding both exits that are heading West and South. The room is being lit up by gold lanterns that are glowing yellow."
       ],
       "exits": [
         {
@@ -656,9 +599,9 @@
       "id": "F3R6",
       "name": "F3 6th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see a man with an eagle on his shoulder with a liver in its mouth. The room is being lit up by fires scattered around the room with exits heading West and North.",
+      "As you enter the room you can see a man with an eagle on his shoulder with a liver in its mouth. The room is being lit up by fires scattered around the room with exits heading West and North.",
+      "As you enter the room you can see a man with an eagle on his shoulder with a liver in its mouth. The room is being lit up by fires scattered around the room with exits heading West and North."
       ],
       "exits": [
         {
@@ -675,9 +618,9 @@
       "id": "F3R7",
       "name": "F3 7th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see a giant hill with no other distinctive feautures other then the green torches lighting up the room. The only exits out of the room you can see are heading West and South.",
+      "As you enter the room you can see a giant hill with no other distinctive feautures other then the green torches lighting up the room. The only exits out of the room you can see are heading West and South.",
+      "As you enter the room you can see a giant hill with no other distinctive feautures other then the green torches lighting up the room. The only exits out of the room you can see are heading West and South."
       ],
       "exits": [
         {
@@ -724,9 +667,9 @@
       "id": "F3R8",
       "name": "F3 8th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can feel the powers of the god coming from someone in the room. The room is being lit up by the torches glowing orange in the marbled room with exits heading West and South.",
+      "As you enter the room you can feel the powers of the god coming from someone in the room. The room is being lit up by the torches glowing orange in the marbled room with exits heading West and South.",
+      "As you enter the room you can feel the powers of the god coming from someone in the room. The room is being lit up by the torches glowing orange in the marbled room with exits heading West and South."
       ],
       "exits": [
         {
@@ -743,9 +686,9 @@
       "id": "F3R9",
       "name": "F3 9th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you see similar features to the other palace you were in when you defeated midas but not gold but just as majestic. The room is being lit up by bright torches glowing orange with exits out of the room heading West and North with a man sitting on the throne blocking the exits",
+      "As you enter the room you see similar features to the other palace you were in when you defeated midas but not gold but just as majestic. The room is being lit up by bright torches glowing orange with exits out of the room heading West and North with a man sitting on the throne blocking the exits",
+      "As you enter the room you see similar features to the other palace you were in when you defeated midas but not gold but just as majestic. The room is being lit up by bright torches glowing orange with exits out of the room heading West and North with a man sitting on the throne blocking the exits"
       ],
       "exits": [
         {
