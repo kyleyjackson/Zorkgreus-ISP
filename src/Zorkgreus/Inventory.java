@@ -89,7 +89,7 @@ public class Inventory {
    */
   public boolean inInventory(String item) {
     for (Item c : items) {
-      if (c.getName().toLowerCase().equals(item))
+      if (c.getName().toLowerCase().equals(item.toLowerCase()))
         return true;
     }
     return false;
