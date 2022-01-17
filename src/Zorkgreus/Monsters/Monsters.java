@@ -118,7 +118,7 @@ public class Monsters {
     }
 
     public boolean isAlive() {
-        return hp >= 0;
+        return hp > 0;
     }
 
     public void displayMonsterMessage(){

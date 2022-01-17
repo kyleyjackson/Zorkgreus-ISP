@@ -56,15 +56,18 @@ public class Inventory {
   /**
    * adds an items to the players inventory and increases the currentWeight
    * @param item the item being added
+   * @return true if taken
    */
-  public void addPlayerItem(Item item) {
+  public boolean addPlayerItem(Item item) {
     if (item.getWeight() + currentWeight <= maxWeight){
       currentWeight += item.getWeight();
       items.add(item);
       System.out.println(item.getName() + " has been added to your inventory. ");
+      return true;
     }
     else {
       System.out.println("There is no room to add the item.");
+      return false;
     }
   }
 

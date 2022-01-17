@@ -59,10 +59,12 @@ public class Game {
   private boolean isDead = false; // checks if you're dead
   private boolean hasCalledSW = false; // checks if Boon: Second Wind has been called on the floor.
   private boolean hasTakenMonsterDrop = false;
+  private boolean getCurrentRoomDrops;
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
   private String prevRoom; // stores the previous room.
+  private String prevRoomDrops;
 
   /*------------------------------------coloured font------------------------------------*/
   public static final String RED = "\033[1;91m";
@@ -84,6 +86,7 @@ public class Game {
       currentBoss = new DemolisionistSkeleton();
       fred = new Player(0, 0, 0);
       getCurrentRoom = true;
+      getCurrentRoomDrops = true;
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -302,6 +305,7 @@ public class Game {
           finishedFighting = processFightCommand(command);
           if (finishedFighting) {
             System.out.println("You left combat.");
+            canProceed = true;
             isFighting = false;
             isBoss = false;
             isMonster = false;
@@ -1089,6 +1093,7 @@ public class Game {
           else
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
           System.out.println("\n-------------------------------------------------------------------------\n");
+          canProceed = true;
           return false;
         }
       } else {
@@ -1189,6 +1194,7 @@ public class Game {
           else
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
           System.out.println("\n-------------------------------------------------------------------------\n");
+          canProceed = true;
           return false;
         }
       }
@@ -1302,15 +1308,23 @@ public class Game {
         }
   }
 
+  /**
+   * attempts to take an item, or take the entire rooms inventory
+   * @param command the user's input
+   */
   public void attemptToTake(Command command) {
+
     if (currentRoom.getInventory().getCurrentWeight() == 0) {
       System.out.println("You took everything from me... I don't even know who you are. ");
     } else if (!command.hasSecondWord()) {
       if (command.getCommandWord().toLowerCase().equals("takeall")) {
+        boolean take;
         if(currentRoom.getInventory().inInventory("Skeleton's Bone")||currentRoom.getInventory().inInventory("Spider's Leg")||currentRoom.getInventory().inInventory("Hero's Urn"))
           hasTakenMonsterDrop = true;
         for (int i = currentRoom.getInventory().getItems().size() - 1; i >= 0; i--) {
-          fred.getInventory().addPlayerItem((currentRoom.getInventory().getItems().get(i)));
+          take = fred.getInventory().addPlayerItem((currentRoom.getInventory().getItems().get(i)));
+          if(take==false)
+            break;
           currentRoom.getInventory().dropRoomItem(currentRoom.getInventory().getItems().get(i));
         }
       } else if (command.getCommandWord().toLowerCase().equals("take")) {
@@ -1331,10 +1345,13 @@ public class Game {
       if(itemWord.equals("skeleton's bone")||itemWord.equals("spider's leg")||itemWord.equals("hero's urn"))
         hasTakenMonsterDrop = true;
       if (currentRoom.getInventory().inInventory(itemWord)) {
+        boolean take;
         for (int i = 0; i < items.size(); i++) {
           if (items.get(i).getName().toLowerCase().equals(itemWord)) {
+            take = fred.getInventory().addPlayerItem(items.get(i));
+            if(take==false)
+              break;
             currentRoom.getInventory().dropRoomItem(items.get(i));
-            fred.getInventory().addPlayerItem(items.get(i));
           }
         }
       } else {
@@ -1343,7 +1360,11 @@ public class Game {
       }
     }
   }
-
+  
+  /**
+   * attempts to drop an item, or drop the entire inventory
+   * @param command the user's input
+   */
   private void attemptToDrop(Command command) {
     if(fred.getInventory().getCurrentWeight()==0)
       System.out.println("Got nothing left to drop");
@@ -1353,7 +1374,7 @@ public class Game {
           currentRoom.getInventory().addRoomItem(fred.getInventory().getItems().get(i));
           fred.getInventory().dropPlayerItem(fred.getInventory().getItems().get(i));
         }
-      }else if(command.getCommandWord().toCharArray().equals("drop")){
+      }else if(command.getCommandWord().toLowerCase().equals("drop")){
         System.out.println("Drop what? Your options are:");
         fred.getInventory().displayPlayerInventory();
       }
@@ -2141,7 +2162,11 @@ public class Game {
   }
 
   public void predertimineItems() {
-    if (compareRooms()) {
+    if(getCurrentRoomDrops)
+        prevRoomDrops = currentRoom.getRoomName();
+      getCurrentRoomDrops = false;
+      if(!prevRoomDrops.equals(currentRoom.getRoomName())){
+          prevRoomDrops = currentRoom.getRoomName();
       for (int i = 0; i < 3; i++) {
         int numItem = (int) (Math.random() * items.size());
         if (numItem <= 4)
@@ -2167,11 +2192,10 @@ public class Game {
   }
 
   public void hydraliteGold() {
-    if (compareRooms()) {
+    if (canProceed==true) {
       int addHP = (int) (fred.getPlayerMaxHP() * 0.3);
       fred.addPlayerHP(addHP);
       System.out.println("You have gained " + addHP + " HP");
-      prevRoom = currentRoom.getRoomName();
     }
   }
 
