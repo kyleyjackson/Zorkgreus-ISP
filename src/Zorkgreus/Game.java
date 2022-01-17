@@ -464,6 +464,9 @@ public class Game {
     } else if (commandWord.equals("takeall")) {
       attemptToTake(command);
     } else if (commandWord.equals("drop")) {
+      attemptToDrop(command);
+    } else if(commandWord.equals("dropall")){
+      attemptToDrop(command);
     } else if (commandWord.equals("jump")) {
       int msg = (int) (Math.random() * 3);
       if (msg == 0) {
@@ -1337,6 +1340,44 @@ public class Game {
       } else {
         System.out.println(itemWord + " is not in this rooms inventory. Your options are: ");
         currentRoom.getInventory().displayRoomInventory();
+      }
+    }
+  }
+
+  private void attemptToDrop(Command command) {
+    if(fred.getInventory().getCurrentWeight()==0)
+      System.out.println("Got nothing left to drop");
+    else if(!command.hasSecondWord()){
+      if(command.getCommandWord().toLowerCase().equals("dropall")){
+        for (int i = fred.getInventory().getItems().size() - 1; i >=0;  i--) {
+          currentRoom.getInventory().addRoomItem(fred.getInventory().getItems().get(i));
+          fred.getInventory().dropPlayerItem(fred.getInventory().getItems().get(i));
+        }
+      }else if(command.getCommandWord().toCharArray().equals("drop")){
+        System.out.println("Drop what? Your options are:");
+        fred.getInventory().displayPlayerInventory();
+      }
+    }else{
+      String itemWord = command.getSecondWord().toLowerCase();
+      if (command.hasThirdWord()) {
+        itemWord += " " + command.getThirdWord().toLowerCase();
+      }
+      if (command.hasFourthWord()) {
+        itemWord += " " + command.getFourthWord().toLowerCase();
+      }
+      if (command.hasFifthWord()) {
+        itemWord += " " + command.getFifthWord().toLowerCase();
+      }
+      if(fred.getInventory().inInventory(itemWord)){
+        for (int i = 0; i < items.size(); i++) {
+          if(items.get(i).getName().toLowerCase().equals(itemWord)){
+            fred.getInventory().dropPlayerItem(items.get(i));
+            currentRoom.getInventory().addRoomItem(items.get(i));
+          }
+        }
+      }else{
+        System.out.println(itemWord + " is not in your inventory. Your options are: ");
+        fred.getInventory().displayPlayerInventory();
       }
     }
   }
