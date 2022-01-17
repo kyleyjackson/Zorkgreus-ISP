@@ -13,6 +13,16 @@ public class Inventory {
     this.currentWeight = 0;
   }
 
+  /*accessor and mutator methods for items array list */
+  public ArrayList<Item> getItems(){
+    return items;
+  }
+
+  public void setInventory(ArrayList<Item> items) {
+    this.items = items;
+  }
+
+  /*accessor and mutator methods for maxWeight */
   public int getMaxWeight() {
     return maxWeight;
   }
@@ -20,15 +30,6 @@ public class Inventory {
   public void setMaxWeight(int extra) {
     maxWeight = extra;
   }
-
-  public int getCurrentWeight() {
-    return currentWeight;
-  }
-
-  public void displayWeight(){
-    System.out.println("Current Weight: " + currentWeight + "/" + maxWeight);
-  }
-
 
   /**
    * Adds to players' inventory's max weight.
@@ -42,6 +43,20 @@ public class Inventory {
         System.out.println("Your inventory's max weight increased by " + n + "! Total: " + getMaxWeight());
   }
 
+  /*accessor method for currentWeight */
+  public int getCurrentWeight() {
+    return currentWeight;
+  }
+
+  /*displays the current weight in comparison to the the max weight */
+  public void displayWeight(){
+    System.out.println("Current Weight: " + currentWeight + "/" + maxWeight);
+  }
+
+  /**
+   * adds an items to the players inventory and increases the currentWeight
+   * @param item the item being added
+   */
   public void addPlayerItem(Item item) {
     if (item.getWeight() + currentWeight <= maxWeight){
       currentWeight += item.getWeight();
@@ -53,6 +68,10 @@ public class Inventory {
     }
   }
 
+  /**
+   * adds an item to the rooms inventory and increases the currentWeight
+   * @param item the item being added
+   */
   public void addRoomItem(Item item){
     if (item.getWeight() + currentWeight <= maxWeight){
       currentWeight += item.getWeight();
@@ -63,13 +82,8 @@ public class Inventory {
     }
   }
 
-  public ArrayList<Item> getItems(){
-    return items;
-  }
-
   /**
    * checks to see if the parameter matches any of the item names
-   *
    * @param item name of the item
    * @return true if matches
    */
@@ -82,10 +96,8 @@ public class Inventory {
   }
 
   /**
-   * attempts to drop an item
-   *
-   * @param item name of the item dropped
-   * @return true if you drop the item
+   * attempts to drop an item from the players inventory and decreases currentWeight
+   * @param item the item being dropped
    */
   public void dropPlayerItem(Item item) {
     if (inInventory(item.getName().toLowerCase())) {
@@ -96,6 +108,10 @@ public class Inventory {
     System.out.println("Can't drop something you dont have. ");
   }
 
+  /**
+   * attempts to drop an item from the rooms inventory and decreases currentWeight
+   * @param item the item being dropped
+   */
   public void dropRoomItem(Item item) {
     if (inInventory(item.getName().toLowerCase())) {
           currentWeight -= item.getWeight();
@@ -104,6 +120,10 @@ public class Inventory {
     System.out.println("Can't drop something you dont have. ");
   }
 
+  /**
+   * attempts to drop an item from the players inventory and decreases currentWeight
+   * @param item the name of the item being dropped
+   */
   public void dropItem(String item) {
     if (inInventory(item)) {
       for (int i = 0; i < items.size(); i++) {
@@ -120,7 +140,6 @@ public class Inventory {
 
   /**
    * Counts the number of a specified item in the player's inventory.
-   * 
    * @param item name of the item being searched for.
    * @return # of times the item appears in the inventory
    */
@@ -133,9 +152,7 @@ public class Inventory {
     return count;
   }
 
-  /**
-   * displays the name of all items in inventory
-   */
+  /* displays the name of all items in the players inventory */
   public void displayPlayerInventory() {
     System.out.println("Player Inventory: ");
     for (Item item : items) {
@@ -143,14 +160,11 @@ public class Inventory {
     }
   }
 
+  /*displays the name of all items in the rooms inventory */
   public void displayRoomInventory() {
     System.out.println("Room Inventory: ");
     for (Item item : items) {
       System.out.println(item.getName() + " | Weight: " + item.getWeight());
     }
-  }
-
-  public void setInventory(ArrayList<Item> items) {
-    this.items = items;
   }
 }

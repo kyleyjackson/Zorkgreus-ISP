@@ -1,14 +1,11 @@
 package Zorkgreus;
 
-public class Item extends OpenableObject {
-  private String id;
+public class Item{
   private String name;
   private String desc;
   private int weight;
   private String startRoom;
   private int gold;
-
-  private boolean isOpenable; //debating usage
 
   public Item(String name, String desc, int weight, String startRoom, int gold) {
     this.name = name;
@@ -17,13 +14,8 @@ public class Item extends OpenableObject {
     this.startRoom = startRoom;
     this.gold = gold;
   }
-  /**
-  public void open() {
-    if (!isOpenable)
-      System.out.println("The " + name + " cannot be opened.");
-  }
-  */
 
+  /*accessor and mutator methods for item name */
   public String getName() {
     return name;
   }
@@ -32,6 +24,7 @@ public class Item extends OpenableObject {
     this.name = name;
   }
 
+  /*accessor and mutator methods for item description */
   public String getDescription() {
     return desc;
   }
@@ -40,6 +33,7 @@ public class Item extends OpenableObject {
     this.desc = desc;
   }
 
+  /*accessor and mutator methods for item weight */
   public int getWeight() {
     return weight;
   }
@@ -48,6 +42,7 @@ public class Item extends OpenableObject {
     this.weight = weight;
   }
 
+  /*accessor and mutator methods for item startingRoom */
   public String getStartingRoom() {
     return startRoom;
   }
@@ -55,18 +50,8 @@ public class Item extends OpenableObject {
   public void setStartingRoom(String startRoom) {
     this.startRoom = startRoom;
   }
-
+  /*accessor method for item gold */
   public int getGold(){
     return gold;
   }
-
-/*
-  public boolean isOpenable() {
-    return isOpenable;
-  }
-
-  public void setOpenable(boolean isOpenable) {
-    this.isOpenable = isOpenable;
-  }
-*/
 }

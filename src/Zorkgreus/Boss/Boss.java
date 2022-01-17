@@ -90,7 +90,7 @@ public class Boss {
     }
 
     public boolean isAlive() {
-        return hp >= 0;
+        return hp > 0;
     }
 
     public String getName(){

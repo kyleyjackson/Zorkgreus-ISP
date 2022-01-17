@@ -267,10 +267,12 @@ public class Game {
           hydraliteGold();
         }
         predertimineItems();
+        if(compareRooms())
+          takeAll = false;
         if(currentMonster!=null){
           if(!currentMonster.isAlive())
             monsterDrop = true;
-            if(currentRoom.getInventory().getCurrentWeight()>30)
+          else if (currentRoom.getInventory().getCurrentWeight()>30)
               monsterDrop = false;
         determineMonsterDrop();
         }
@@ -1261,7 +1263,7 @@ public class Game {
     }
     else if (currentRoom.getRoomName().equals("F3 NPC Room"))
       if(!setNPC){
-        currentNPC = new Patroclus(fred);
+        currentNPC = new Patroculus(fred);
         setNPC = true;
       }
     else if (currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room")
@@ -1276,6 +1278,7 @@ public class Game {
   }
 
   public void attemptToTake(Command command) {
+    takeAll = true;
     if(currentRoom.getInventory().getCurrentWeight()==0){
       System.out.println("You took everything from me... I don't even know who you are. ");
     }
@@ -1986,8 +1989,8 @@ public class Game {
   }
 
   public void determineMonsterDrop(){
+    if(!takeAll){
     if(monsterDrop){
-    if(!currentMonster.isAlive()){
     String floor = currentRoom.getRoomName().substring(0, 2);
     int randomNum = (int)(Math.random()*100+1);
     int ans = (int)(Math.random()*100+1);
@@ -2027,9 +2030,9 @@ public class Game {
         }
         System.out.println("The fallen hero has dropped " + count + " urns. ");
       }
-    }
   }
   }
+}
 }
 
   public void predertimineItems(){

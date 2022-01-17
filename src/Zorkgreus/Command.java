@@ -8,8 +8,8 @@ public class Command {
   private String fifthWord;
 
   /**
-   * Create a command object. First and second word must be supplied, but either
-   * one (or both) can be null. The command word should be null to indicate that
+   * Create a command object. First, second, third, and fourth word must be supplied, but either
+   * ones (or all) can be null. The command word should be null to indicate that
    * this was a command that is not recognised by this game.
    */
   public Command(String firstWord, String secondWord, String thirdWord, String fourthWord, String fifthWord) {
@@ -20,18 +20,11 @@ public class Command {
     this.fifthWord = fifthWord;
   }
 
-  /**
-   * Return the command word (the first word) of this command. If the command was
-   * not understood, the result is null.
-   */
+  /*accessor methods for first, second, third, and fourth words. Returns null if there was no word respectively */
   public String getCommandWord() {
     return commandWord;
   }
 
-  /**
-   * Return the second word of this command. Returns null if there was no second
-   * word.
-   */
   public String getSecondWord() {
     return secondWord;
   }
@@ -39,7 +32,7 @@ public class Command {
   public String getThirdWord() {
     return thirdWord;
   }
-
+  
   public String getFourthWord() {
     return fourthWord;
   }
@@ -49,15 +42,14 @@ public class Command {
   }
 
   /**
-   * Return true if this command was not understood.
+   * checks if there isn't a first word
+   * @return true if there isn't a first word
    */
   public boolean isUnknown() {
     return (commandWord == null);
   }
 
-  /**
-   * Return true if the command has a second word.
-   */
+  /*checks if there is a second, third, or third word. Returns true if there is */
   public boolean hasSecondWord() {
     return (secondWord != null);
   }
