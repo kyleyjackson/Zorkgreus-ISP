@@ -1281,28 +1281,37 @@ public class Game {
     }
     else if(!command.hasSecondWord()){
       if(command.getCommandWord().toLowerCase().equals("takeall")){
-    for(int i = currentRoom.getInventory().getItems().size()-1; i>=0; i--){
-      fred.getInventory().addPlayerItem((currentRoom.getInventory().getItems().get(i)));
-        currentRoom.getInventory().dropRoomItem(currentRoom.getInventory().getItems().get(i));
-    }
-    }else if(command.getCommandWord().toLowerCase().equals("take")){
-      System.out.println("Take what? Your options are:" );
-      currentRoom.getInventory().displayRoomInventory();
-    }
-  }else{
-    String secondWord = command.getSecondWord().toLowerCase();
-      if(currentRoom.getInventory().inInventory(secondWord)){
-        for (int i = 0; i < items.size(); i++) {
-          if(items.get(i).getName().toLowerCase().equals(secondWord)){
-              currentRoom.getInventory().dropRoomItem(items.get(i));
-              fred.getInventory().addPlayerItem(items.get(i));
-            }
-        }
-      }else{
-        System.out.println(secondWord + " is not in this rooms inventory. Your options are: ");
+      for(int i = currentRoom.getInventory().getItems().size()-1; i>=0; i--){
+        fred.getInventory().addPlayerItem((currentRoom.getInventory().getItems().get(i)));
+          currentRoom.getInventory().dropRoomItem(currentRoom.getInventory().getItems().get(i));
+      }
+      }else if(command.getCommandWord().toLowerCase().equals("take")){
+        System.out.println("Take what? Your options are:" );
         currentRoom.getInventory().displayRoomInventory();
       }
-  }
+    }else{
+      String itemWord = command.getSecondWord().toLowerCase();
+      if(command.hasThirdWord()){
+        itemWord += " " + command.getThirdWord().toLowerCase();
+      }
+      if(command.hasFourthWord()){
+        itemWord += " " + command.getFourthWord().toLowerCase();
+      }
+      if(command.hasFifthWord()){
+        itemWord += " " + command.getFifthWord().toLowerCase();
+      }
+      if(currentRoom.getInventory().inInventory(itemWord)){
+        for (int i = 0; i < items.size(); i++) {
+          if(items.get(i).getName().toLowerCase().equals(itemWord)){
+            currentRoom.getInventory().dropRoomItem(items.get(i));
+            fred.getInventory().addPlayerItem(items.get(i));
+          }
+        }
+      }else{
+        System.out.println(itemWord + " is not in this rooms inventory. Your options are: ");
+        currentRoom.getInventory().displayRoomInventory();
+      }
+    }
   }
 
   /**
