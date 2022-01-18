@@ -49,7 +49,7 @@ public class Command {
     return (commandWord == null);
   }
 
-  /*checks if there is a second, third, or third word. Returns true if there is */
+  /*checks if there is a second, third, fourth, or fifth word. Returns true if there is */
   public boolean hasSecondWord() {
     return (secondWord != null);
   }

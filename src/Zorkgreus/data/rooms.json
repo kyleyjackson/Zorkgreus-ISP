@@ -224,9 +224,9 @@
       "id": "F2 Starting Room",
       "name": "F2 Starting Room",
       "descriptions": [
-      "As you scale the ledges, you can see a room filled to the brim with golden pots. The room is brightly lit by orange lanterns. The room has one exit heading East.",
-      "As you scale the ledges, you can see a room filled to the brim with golden bricks. The room is brightly lit by red lanterns. The room has one exit heading East.",
-      "As you scale the ledges, you can see a room filled to the brim with lanterns. The room is brightly lit by red lanterns. The room has one exit heading East."
+      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a large vortex formed by the weaving of a spider. The room has one exit heading East.",
+      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a colossal vortex formed by the weaving of a spider. The room has one exit heading East.",
+      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a vast vortex formed by the weaving of a spider. The room has one exit heading East."
       ],
       "exits": [
         {
@@ -239,9 +239,9 @@
       "id": "F2R1",
       "name": "F2 1st Attack Room",
       "descriptions": [
-      "As you enter the old, decrepit room, you can see a bunch of cobwebs around the room. There are two exits heading East and South.",
-      "As you enter the room, you see the remains of a naive wanderer. There are two exits heading East and South.",
-      "As you enter the old room, you see tiny eggs in the corner of the room. There are two exits heading East and South."
+      "The vortex leads you into an old, decrepit room. Moss covers the walls, with cobwebs spun in the corners. A spider egg sits prompt in the middle of the room. There are two exits heading East and South.",
+      "The vortex leads you into an old, decrepit room. Vines cover the walls, with cobwebs spun in the corners. A cluster of spider eggs lays in the corner. There are two exits heading East and South.",
+      "The vortex leads you into an old, decrepit room. Moss covers the floor, with cobwebs spun in the corners. You see a spider egg off to the side. There are two exits heading East and South."
       ],
       "exits": [
         {
@@ -258,9 +258,9 @@
       "id": "F2R2",
       "name": "F2 2nd Attack Room",
       "descriptions": [
-      "You enter a room with a bulky spider. The room is dimly lit with torches barely illuminating the wall. The room has two exits heading North and East.",
-      "You enter a room with a creepily large spider. The room is dimly lit with torches barely illuminating the wall. The room has two exits heading North and East.",
-      "You enter a room with a large spider. The room is dimly lit with torches barely illuminating the wall. The room has two exits heading North and East."
+      "As you venture further, the area once again narrows. Cobwebs and moss cover the floor. You smell something vile up ahead. There are two exits heading North and East.",
+      "As you venture further, the area once again narrows. Cobwebs are spun around the entrances. You smell something vile up ahead. There are two exits heading North and East.",
+      "As you venture further, the area once again narrows. Vines cover the walls. You smell something vile up ahead. There are two exits heading North and East."
       ],
       "exits": [
         {
@@ -277,9 +277,9 @@
       "id": "F2R3",
       "name": "F2 3rd Attack Room",
       "descriptions": [
-      "You enter a room that has cobwebs lining the ceiling and wall. This room is different, the remains are on the walls... The room has two exits heading South and East.",
-      "You enter a room that has cobwebs lining the ceiling and wall. This room is different, the remains are on the ceiling... The room has two exits heading South and East.",
-      "You enter a room that has cobwebs lining the ceiling and wall. This room is different, the remains are on the ceiling and walls... The room has two exits heading South and East."
+      "Following the cracked stone path, you come up to a large room. Chains hang from the ceiling, and webs stretch across the room. The room has two exits heading South and East.",
+      "Following the cryptic stone path, you come up to a large room. Chains hang from the ceiling, and webs stretch across the room. The room has two exits heading South and East.",
+      "Following the old stone path, you come up to a large room. Chains hang from the ceiling, and webs stretch across the room. The room has two exits heading South and East."
       ],
       "exits": [
         {
@@ -296,9 +296,9 @@
       "id": "F2R4",
       "name": "F2 4th Attack Room",
       "descriptions": [
-      "You enter a room with stone floors and cracked eggs in the corners. You see a small bit of venom dripping from the ceiling. The room has two exits heading East and North.",
-      "You enter a room with cracked stone floors and shattered eggs in the corners. You see a small bit of venom dripping from the ceiling. The room has two exits heading East and North.",
-      "You enter a room with mossy stone floors and cracked eggs in the corners. You see a small bit of venom dripping from the ceiling. The room has two exits heading East and North."
+      "The path converges into another large room. Cobwebs crowded the entrance, and puddles of an unknown liquid lace the floor. The room has two exits heading East and North.",
+      "The path converges into another large room. Cobwebs are strung across the room, and droplets of an unknown liquid are seen coming from the spider. The room has two exits heading East and North.",
+      "The path converges into another large room. There are cobwebs in the corners of the room. An unknown liquid oozes from the spider. The room has two exits heading East and North."
       ],
       "exits": [
         {
@@ -705,9 +705,9 @@
       "id": "F3R10",
       "name": "F3 10th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you realize the room is actually a colosseum being lit up with torches lighting up the room orange with a man blocking the only exits that are heading West and South.",
+      "As you enter the room you realize the room is actually a colosseum being lit up with torches lighting up the room orange with a man blocking the only exits that are heading West and South.",
+      "As you enter the room you realize the room is actually a colosseum being lit up with torches lighting up the room orange with a man blocking the only exits that are heading West and South."
       ],
       "exits": [
         {
@@ -724,9 +724,9 @@
       "id": "F3R11",
       "name": "F3 11th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you once again enter another palace you can see murals of an epic 10 year long journey with a man sitting on a throne blocking the exits leading North and West.",
+      "As you once again enter another palace you can see murals of an epic 10 year long journey with a man sitting on a throne blocking the exits leading North and West.",
+      "As you once again enter another palace you can see murals of an epic 10 year long journey with a man sitting on a throne blocking the exits leading North and West."
       ],
       "exits": [
         {
@@ -743,9 +743,9 @@
       "id": "F3R12",
       "name": "F3 12th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter another palace once again outside of the windows you can see the golden fleece outside at the docks with a man sitting on a throne blocking the exits heading West and South.",
+      "As you enter another palace once again outside of the windows you can see the golden fleece outside at the docks with a man sitting on a throne blocking the exits heading West and South.",
+      "As you enter another palace once again outside of the windows you can see the golden fleece outside at the docks with a man sitting on a throne blocking the exits heading West and South."
       ],
       "exits": [
         {
@@ -762,9 +762,9 @@
       "id": "F3R13",
       "name": "F3 13th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter another colosseum you can see a majestic man standing in the middle of the colosseum blocking the only exits heading West and North.",
+      "As you enter another colosseum you can see a majestic man standing in the middle of the colosseum blocking the only exits heading West and North.",
+      "As you enter another colosseum you can see a majestic man standing in the middle of the colosseum blocking the only exits heading West and North."
       ],
       "exits": [
         {
@@ -781,9 +781,9 @@
       "id": "F3R14",
       "name": "F3 14th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see murals detailing 12 trials with the room being lit up by torches lighting up the room orange. The rooms exits that head West and South are being blocked by a man staring at you.",
+      "As you enter the room you can see murals detailing 12 trials with the room being lit up by torches lighting up the room orange. The rooms exits that head West and South are being blocked by a man staring at you.",
+      "As you enter the room you can see murals detailing 12 trials with the room being lit up by torches lighting up the room orange. The rooms exits that head West and South are being blocked by a man staring at you."
       ],
       "exits": [
         {
@@ -819,6 +819,21 @@
       "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes",
       "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes"
       ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "Ending"
+        }
+      ]
+    },
+    {
+      "id": "Ending",
+      "name": "Ending",
+      "descriptions": [
+      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,",
+      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,",
+      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,"
+    ],
       "exits": [
         {
           "direction": "Up",
