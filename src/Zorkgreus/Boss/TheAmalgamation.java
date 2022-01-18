@@ -49,7 +49,7 @@ public class TheAmalgamation extends Boss {
      * @param true if used
      */
     public boolean specialBossAttack() {
-        if (getHP()<=(int)(getMaxHP()*0.75)) {
+        if (getHP()<=(int)(getMaxHP()*0.75)&&super.isAlive()) {
             super.addBossAtk(-6);
             super.addBossPriority(4);
             super.addBossDodge(20);

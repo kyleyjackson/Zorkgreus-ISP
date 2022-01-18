@@ -1822,7 +1822,7 @@ public class Game {
       return;
     }
 
-    if (currentRoom.getRoomName().equals("Spawn Room")) {
+    if (currentRoom.getRoomName().equals("Spawn Room")||currentRoom.getRoomName().equals("F2 Starting Room")||currentRoom.getRoomName().equals("F3 Starting Room")){
       if (weaponSelected)
         canProceed = true;
     } else if (currentRoom.getRoomName().equals("Test Dummy Room"))

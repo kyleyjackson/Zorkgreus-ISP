@@ -14,7 +14,7 @@ public class DemolisionistSkeleton extends Boss {
     }
 
     public void displayBossMessage() {
-        System.out.println("A skeleton carrying a bagful of bombs on its back look at you with glee in its eye as it start to laugh maniacally. As it juggles those bombs around, it gesture for you to come");
+        System.out.println("A skeleton carrying a bagful of bombs on its back look at you with glee in its eye as it start to laugh maniacally. As it juggles those bombs around, it gesture for you to come. ");
     }
 
     /**

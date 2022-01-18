@@ -42,7 +42,7 @@ public class QueenSpider extends Boss {
  * @return true if used
  */
 public boolean specialBossAttack(){
-    if(getHP()<=(int)(getMaxHP()*0.75)){
+    if(getHP()<=(int)(getMaxHP()*0.75)&&super.isAlive()){
         super.addBossDodge(30);
         displayBossSpecialAttack();
         return true;
