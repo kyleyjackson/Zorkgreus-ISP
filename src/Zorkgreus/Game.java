@@ -703,7 +703,7 @@ public class Game {
         System.out.println("You've engaged in combat!");
       }
     } else if (commandWord.equals("normal") || commandWord.equals("special")) {
-      System.out.println("You can't use those without initiating a fight. (type \"fight\" or \"attack\"!");
+      System.out.println("You can't use those without initiating a fight. Type \"fight\" or \"attack\" to initiate a fight!");
     } else if (prevCommand != null) { // commands for the word entered the line before (i.e. instead of bow confirm,
                                       // it'd be bow *break* confirm)
       if (prevCommand.equals("display")) {
@@ -817,9 +817,9 @@ public class Game {
   }
 
   public boolean processFightCommand(Command command) { //* Seperate process method for fight commands
-    if (command.isUnknown()) {
+    if (command.isUnknown()) { 
       System.out.println("I don't know what you mean...");
-      return false;
+      return false; //* Return false so you stay in combat
     }
 
     String commandWord = command.getCommandWord();
@@ -847,15 +847,15 @@ public class Game {
       }else if (fred.getPlayerPrio() < 1 && currentBoss.getPrio() < 1) {
         fred.addPlayerPriority(currentWeapon.getPriority());
         currentBoss.addBossPriority(bossPrio);
-        System.out.println("Priority has been reset!");
+        System.out.println("Priority has been reset!"); //* Prio resets for when both sides hit 0
         return false;
-      }else if (fred.getPlayerPrio() < 1) {
+      }else if (fred.getPlayerPrio() < 1) { //* Only player has 0 prio
         System.out.println("You can't attack!");
 
         if (isMonster == true) {
           int mdmg = monsterDefCalc(currentMonster.monsterNormalAttack()); 
 
-          if(playerDodge()) {
+          if(playerDodge()) { //* Player dodge chance
             System.out.println("You dodged!");
           }else {    
             recEnemyHit = mdmg;
@@ -876,7 +876,7 @@ public class Game {
               falseWeakness();
           }
         } else {
-          if (currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) {
+          if (currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) { //* Boss enraged state
             currentBoss.bossRage();
           } else {
             int bdmg = monsterDefCalc(currentBoss.attack(currentBoss.getAtk()));
@@ -909,7 +909,7 @@ public class Game {
           System.out.println("You aren't dying just yet!");
           fred.setExtraLife(false);
           return false;
-        } else if (!fred.isAlive()) { // * Will implement dd later
+        } else if (!fred.isAlive()) { 
           for (Boon b : myBoons) { // second wind & smite
             if (b.getBoonName().equals("Second Wind")) {
               secondWind();
@@ -923,11 +923,11 @@ public class Game {
           return true;
         } else {
           if(isMonster)
-            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio())); //* Priority reduction for monster/boss
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
-          System.out.println("\n-------------------------------------------------------------------------\n");
+          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio())); //* Priority reduction for player
+          System.out.println("\n-------------------------------------------------------------------------\n"); //* Displays current HP and Prio
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
             System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
@@ -936,14 +936,14 @@ public class Game {
           System.out.println("\n-------------------------------------------------------------------------\n");
           return false;
         }
-      } else if (currentMonster.getPrio() < 1 || currentBoss.getPrio() < 1) {
+      } else if (currentMonster.getPrio() < 1 || currentBoss.getPrio() < 1) { //* Monster/Boss has 0 prio
         System.out.println("The monster couldn't attack!");
 
         if (speAtkCounter > 0) {
           System.out.println("You can't special attack yet! | " + speAtkCounter + " turn(s).");
           return false;
         } else {
-          int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
+          int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId())); //* Def calculations
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -1413,12 +1413,20 @@ public class Game {
 
         System.out.println("You hit the " + enemyName + " for " + dmg + " damage!");
 
+        if (enemyHP < 1) {
+          System.out.println("You won!");
+          if(isMonster)
+            currentMonster.setHP(enemyHP);
+          else 
+            currentBoss.setHP(enemyHP);
+          return true;
+        }
+
         if ((speAtkCounter - 1) < 0)
           speAtkCounter = 0;
         else
           speAtkCounter--;
         }
-        
 
         if (isMonster == true) {
           int mdmg = monsterDefCalc(currentMonster.monsterNormalAttack());
@@ -1472,14 +1480,8 @@ public class Game {
           if (b.getBoonName().equals("Killing Blow"))
             killingBlow();
         }
-        if (enemyHP < 1) {
-          System.out.println("You won!");
-          if(isMonster)
-            currentMonster.setHP(enemyHP);
-          else 
-            currentBoss.setHP(enemyHP);
-          return true;
-        } else if (!fred.isAlive() && fred.getExtraLife()) {
+
+        if (!fred.isAlive() && fred.getExtraLife()) {
           fred.setPlayerHP(fred.getPlayerMaxHP() / 2);
           System.out.println("You aren't dying just yet!");
           fred.setExtraLife(false);
