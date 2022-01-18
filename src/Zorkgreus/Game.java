@@ -45,6 +45,7 @@ public class Game {
   private int speAtkCounter; // used to make sure you cannot special attack too often
   private int monsterPrio; // used to keep track of the current monster's starting priority
   private int bossPrio; // used to keep track of the current boss' startubg priority
+  private int specialCount;
 
   /*------------------------------------global booleans------------------------------------*/
   private boolean generatedBoons; // determine if boons have been generated.
@@ -64,6 +65,7 @@ public class Game {
   private boolean getCurrentRoomDrops;
   private boolean displayBossMessage = false;
   private boolean doBossSpecialAttack = false;
+
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -93,6 +95,7 @@ public class Game {
       getCurrentRoom = true;
       getCurrentRoomDrops = true;
       bossCounter = 0;
+      specialCount= 0;
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -271,7 +274,7 @@ public class Game {
         }
         if (currentRoom.getRoomName().indexOf("NPC") == -1 && currentRoom.getRoomName().indexOf("Shop") == -1)
           setNPC = false;
-        if(!(currentRoom.getRoomName().equals("F2 Miniboss Room")||currentRoom.getRoomName().equals("F2 Boss Room")||currentRoom.getRoomName().equals("F3 Miniboss Room")||currentRoom.getRoomName().equals("F3 Boss Room")))
+        if(!(currentRoom.getRoomId().equals("F2 Miniboss Room")||currentRoom.getRoomId().equals("F2 Boss Room")||currentRoom.getRoomId().equals("F3 Miniboss Room")||currentRoom.getRoomId().equals("F3 Boss Room")))
           doBossSpecialAttack = false;
         setCurrentNPC();
         predertimineItems();
@@ -291,6 +294,14 @@ public class Game {
           determineMonsterDrop();
         }
         displayBossIntroMessage();
+        if(specialCount==1&&currentRoom.getRoomId().equals("F2 Miniboss Room"))
+          doBossSpecialAttack = false;
+        else if(specialCount==2&&currentRoom.getRoomId().equals("F2 Boss Room"))
+          doBossSpecialAttack = false;
+        else if(specialCount==3&&currentRoom.getRoomId().equals("F3 Miniboss Room"))
+          doBossSpecialAttack = false;
+        else if(specialCount==4&&currentRoom.getRoomId().equals("F3 Boss Room"))
+          doBossSpecialAttack = false;
         bossSpecialAttack();
         bossFinalAttack();
         currentBossDefeated();
@@ -1635,25 +1646,31 @@ public class Game {
     return false;
   }
 
+  /*does the special attack for the current boss */
   public void bossSpecialAttack(){
     if(doBossSpecialAttack){
       if(currentRoom.getRoomId().equals("F2 Miniboss Room")||currentRoom.getRoomId().equals("F3 Miniboss Room")){
         boolean special = currentBoss.specialBossAttack();
-        if(special == true)
+        if(special == true||!currentBoss.isAlive()){
         doBossSpecialAttack = false;
+        specialCount++;
+        }
       }
-      else if(currentRoom.getRoomId().equals("F2 Boss Room")||currentRoom.getRoomId().equals("F3 Boss Room")){
+      else if(currentRoom.getRoomId().equals("F2 Boss Room")||(currentRoom.getRoomId().equals("F3 Boss Room"))){
         currentBoss.specialBossAttack(fred);
         doBossSpecialAttack = false;
+        specialCount++;
     }
   }
 }
 
+/*does the final attack for the current boss */
   public void bossFinalAttack() {
     if (currentBoss != null)
       currentBoss.finalBossAttack(fred);
   }
 
+  /*displays the intro message for the final boss */
   public void displayBossIntroMessage() {
     if (currentRoom.getRoomId().equals("F1 Miniboss Room")) {
       if (!displayBossMessage) {
@@ -1692,6 +1709,7 @@ public class Game {
     }
   }
 
+  /*sets the curent NPC */
   public void setCurrentNPC() {
     if (currentRoom.getRoomName().equals("F1 NPC Room")) {
       if (!setNPC) {
@@ -1889,12 +1907,14 @@ public class Game {
 
     if (nextRoom == null) {
       System.out.println("There is no door!");
+      if(!(currentRoom.getRoomId().equals("F2 Miniboss Room")||currentRoom.getRoomId().equals("F2 Boss Room")||currentRoom.getRoomId().equals("F3 Miniboss Room")||currentRoom.getRoomId().equals("F3 Boss Room")))
       displayBossMessage = false;
     } else {
       if (canProceed) {
         currentRoom = nextRoom;
         System.out.println(currentRoom.roomDescription());
         canProceed = false;
+        if(!(currentRoom.getRoomId().equals("F2 Miniboss Room")||currentRoom.getRoomId().equals("F2 Boss Room")||currentRoom.getRoomId().equals("F3 Miniboss Room")||currentRoom.getRoomId().equals("F3 Boss Room")))
         displayBossMessage = false;
       } else
         System.out.println(("The doors won't open just yet..."));

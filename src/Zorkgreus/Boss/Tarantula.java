@@ -262,10 +262,10 @@ public class Tarantula extends Boss {
                         }
                         displayFirstMessage = true;
                         if (poison > height) {
-                            int dmgDealt = super.attack(5);
+                            int dmgDealt = super.attack(3);
                             System.out.println("You have taken " + dmgDealt + " damage. ");
                             if (player.getPlayerMaxHP() < player.getPlayerHP())
-                                player.addPlayerHP(-5);
+                                player.addPlayerHP(-3);
                             else
                                 player.addPlayerMaxHP(-5);
                         }
