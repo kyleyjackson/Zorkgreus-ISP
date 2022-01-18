@@ -705,9 +705,9 @@
       "id": "F3R10",
       "name": "F3 10th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you realize the room is actually a colosseum being lit up with torches lighting up the room orange with a man blocking the only exits that are heading West and South.",
+      "As you enter the room you realize the room is actually a colosseum being lit up with torches lighting up the room orange with a man blocking the only exits that are heading West and South.",
+      "As you enter the room you realize the room is actually a colosseum being lit up with torches lighting up the room orange with a man blocking the only exits that are heading West and South."
       ],
       "exits": [
         {
@@ -724,9 +724,9 @@
       "id": "F3R11",
       "name": "F3 11th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you once again enter another palace you can see murals of an epic 10 year long journey with a man sitting on a throne blocking the exits leading North and West.",
+      "As you once again enter another palace you can see murals of an epic 10 year long journey with a man sitting on a throne blocking the exits leading North and West.",
+      "As you once again enter another palace you can see murals of an epic 10 year long journey with a man sitting on a throne blocking the exits leading North and West."
       ],
       "exits": [
         {
@@ -743,9 +743,9 @@
       "id": "F3R12",
       "name": "F3 12th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter another palace once again outside of the windows you can see the golden fleece outside at the docks with a man sitting on a throne blocking the exits heading West and South.",
+      "As you enter another palace once again outside of the windows you can see the golden fleece outside at the docks with a man sitting on a throne blocking the exits heading West and South.",
+      "As you enter another palace once again outside of the windows you can see the golden fleece outside at the docks with a man sitting on a throne blocking the exits heading West and South."
       ],
       "exits": [
         {
@@ -762,9 +762,9 @@
       "id": "F3R13",
       "name": "F3 13th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter another colosseum you can see a majestic man standing in the middle of the colosseum blocking the only exits heading West and North.",
+      "As you enter another colosseum you can see a majestic man standing in the middle of the colosseum blocking the only exits heading West and North.",
+      "As you enter another colosseum you can see a majestic man standing in the middle of the colosseum blocking the only exits heading West and North."
       ],
       "exits": [
         {
@@ -781,9 +781,9 @@
       "id": "F3R14",
       "name": "F3 14th Attack Room",
       "descriptions": [
-      "",
-      "",
-      ""
+      "As you enter the room you can see murals detailing 12 trials with the room being lit up by torches lighting up the room orange. The rooms exits that head West and South are being blocked by a man staring at you.",
+      "As you enter the room you can see murals detailing 12 trials with the room being lit up by torches lighting up the room orange. The rooms exits that head West and South are being blocked by a man staring at you.",
+      "As you enter the room you can see murals detailing 12 trials with the room being lit up by torches lighting up the room orange. The rooms exits that head West and South are being blocked by a man staring at you."
       ],
       "exits": [
         {
@@ -819,6 +819,21 @@
       "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes",
       "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes"
       ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "Ending"
+        }
+      ]
+    },
+    {
+      "id": "Ending",
+      "name": "Ending",
+      "descriptions": [
+      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,",
+      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,",
+      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,"
+    ],
       "exits": [
         {
           "direction": "Up",
