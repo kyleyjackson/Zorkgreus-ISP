@@ -447,7 +447,7 @@ public class Game {
     } else if (commandWord.equals("eat")) {
       System.out.println("Do they even have food in the underworld?");
     } else if (commandWord.equals("east") || commandWord.equals("west") || commandWord.equals("north")
-        || commandWord.equals("south")) {
+        || commandWord.equals("south")||commandWord.equals("up")) {
       goRoom(command);
     } else if (commandWord.equals("look")) {
       System.out.println(currentRoom.roomDescription());
@@ -1816,7 +1816,7 @@ public class Game {
     boolean twoWords = false;
     // if the command doesn't have a second word AND it isn't a direction
     if (!command.hasSecondWord() && !(command.getCommandWord().equals("east") || command.getCommandWord().equals("west")
-        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south"))) {
+        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south")||command.getCommandWord().equals("up"))) {
       // if there is no second word, we don't know where to go...
       System.out.println("Go where?");
       return;
