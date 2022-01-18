@@ -54,21 +54,9 @@ public class Charon extends NPC{
             displaySellMessage = true;
             if(displayFirstMessage) {
                 System.out.println("Which one would you like to select: ");
-                if(random1 == 0)
-                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 50 gold");
-                else if(random1 == 1)
-                    System.out.println("[B]owl of Noodles - Heal for 25% of your max HP. | 25 gold");
-                else
-                    System.out.println("[P]om of Power - One of your boons will gain +1 level. | 80 gold");
-
+                System.out.println("[B]owl of Noodles - Heal for 25% of your max HP. | 25 gold");
                 System.out.println("[R]andom Blessing - You can select one of 3 boons provided from ANY god. | 100 gold");
-
-                if(random2 == 0)
-                    System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 50 gold");
-                else if(random2 == 1)
-                    System.out.println("[B]owl of Noodles - Heal for 40% of your max HP. | 25 gold");
-                else
-                    System.out.println("[P]om of Power - One of your boons will randomly gain +1 level. | 80 gold");
+                System.out.println("[C]entaur Heart - Gain +25 max HP (without healing). | 50 gold");
                 System.out.println("\n" + "To exit the shop interface, type \"exit\".");
                 System.out.println("To open the selling menu, type \"sell\".");
                 System.out.println("To go to the 2nd page of items, type \"2\".");

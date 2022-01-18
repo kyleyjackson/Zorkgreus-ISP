@@ -126,10 +126,10 @@ public class Boon {
     public boolean levelUpPom(ArrayList<Boon> myBoons, int index){
         boolean validNum = false;
         int count = 0;
-        while(!validNum || count < 100){
+        while(!validNum || count < 10){
             Boon b = myBoons.get(index);
             if(!canLevelAtIndex(myBoons, index)){
-                while(!canLevelAtIndex(myBoons, index) || count < 100){
+                while(!canLevelAtIndex(myBoons, index) || count < 10){
                     index = (int)(Math.random() * myBoons.size());
                     count++;
                 }
