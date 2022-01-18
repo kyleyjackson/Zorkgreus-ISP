@@ -22,7 +22,7 @@
         },
         {
             "Weapon": "Sword",
-            "Attack": 59,
+            "Attack": 10,
             "Priority": 6,
             "Defense": 0,
             "SpecialAttackDamage": 20,
