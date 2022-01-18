@@ -87,16 +87,14 @@ public class Charon extends NPC{
                     else{
                         int random = (int)(Math.random() * playerBoons.size());
                         Boon b = playerBoons.get(random);
-                        if(!b.canLevelAtIndex(playerBoons, random)){
-                            while(!b.canLevelAtIndex(playerBoons, random)){
-                                random = (int)(Math.random() * playerBoons.size());
-                            }
-                            b = playerBoons.get(random);
+                        boolean canLevel = b.levelUpPom(playerBoons, random);
+                        if(!canLevel)
+                            System.out.println("Ghah. (None of your boons can be levelled up. Select a different item.)");
+                        else{
+                            player.addPlayerGold(-80);
+                            System.out.println("Grrrrhhhah. (Anything else?)");
+                            System.out.println();
                         }
-                        b.levelUpPom(playerBoons, random);
-                        player.addPlayerGold(-80);
-                        System.out.println("Grrrrhhhah. (Anything else?)");
-                        System.out.println();
                     }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
                     if(player.getPlayerGold() < 100)

@@ -122,18 +122,28 @@ public class Boon {
      * Levels up a boon from the player's current boons.
      * @param myBoons ArrayList of player's boons
      * @param index index of the boon being levelled
+     * 
+     * @return T/F, true if can level boon, false if cannot
      */
-    public void levelUpPom(ArrayList<Boon> myBoons, int index){
+    public boolean levelUpPom(ArrayList<Boon> myBoons, int index){
         boolean validNum = false;
-        while(!validNum){
+        int count = 0;
+        while(!validNum || count < 100){
             Boon b = myBoons.get(index);
-            if(!canLevelAtIndex(myBoons, index))
-                return;
+            if(!canLevelAtIndex(myBoons, index)){
+                while(!canLevelAtIndex(myBoons, index) || count < 100){
+                    index = (int)(Math.random() * myBoons.size());
+                    count++;
+                }
+            }
+            b = myBoons.get(index);
             b.setLevel(b.getLevel() + 1);
             System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
             System.out.println(b.getStats());
             validNum = true;
+            return true;
         }
+        return false;
     }
 
     /**
