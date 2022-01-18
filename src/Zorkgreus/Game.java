@@ -1578,29 +1578,29 @@ public class Game {
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
-      }
-      if (bossCounter == 1) {
+        return true;
+      } else if (bossCounter == 1) {
         currentBoss = new QueenSpider();
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
-      }
-      if (bossCounter == 2) {
+        return true;
+      } else if (bossCounter == 2) {
         currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
-      }
-      if (bossCounter == 3) {
+        return true;
+      } else if (bossCounter == 3) {
         currentBoss = new TheAmalgamation();
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
-      }
-      if (bossCounter == 4) {
+        return true;
+      } else if (bossCounter == 4) {
         currentBoss = new Thanatos();
+        return true;
       }
-      return true;
     }
     return false;
   }
