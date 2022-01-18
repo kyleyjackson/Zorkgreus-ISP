@@ -101,7 +101,7 @@ public class Boon {
         for(Boon b : myBoons){
           if(tempBoons.get(selection).getBoonName().equals(b.getBoonName())){
             if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
-            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind")){
+            || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind")){ //dont use canLevelAtIndex because player selects from tempBoons, not myBoons
               b.setLevel(b.getLevel() + 1);
               System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
               System.out.println(b.getStats());
@@ -122,18 +122,28 @@ public class Boon {
      * Levels up a boon from the player's current boons.
      * @param myBoons ArrayList of player's boons
      * @param index index of the boon being levelled
+     * 
+     * @return T/F, true if can level boon, false if cannot
      */
-    public void levelUpPom(ArrayList<Boon> myBoons, int index){
+    public boolean levelUpPom(ArrayList<Boon> myBoons, int index){
         boolean validNum = false;
-        while(!validNum){
+        int count = 0;
+        while(!validNum || count < 100){
             Boon b = myBoons.get(index);
-            if(!canLevelAtIndex(myBoons, index))
-                return;
+            if(!canLevelAtIndex(myBoons, index)){
+                while(!canLevelAtIndex(myBoons, index) || count < 100){
+                    index = (int)(Math.random() * myBoons.size());
+                    count++;
+                }
+            }
+            b = myBoons.get(index);
             b.setLevel(b.getLevel() + 1);
             System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
             System.out.println(b.getStats());
             validNum = true;
+            return true;
         }
+        return false;
     }
 
     /**
@@ -144,7 +154,7 @@ public class Boon {
      */
     public boolean canLevelAtIndex(ArrayList<Boon> myBoons, int index){
         Boon b = myBoons.get(index);
-        if((b.getLevel() < 3 && (b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
+        if((b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
         || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind")) || b.getLevel() >= 3)
             return false;
         else
