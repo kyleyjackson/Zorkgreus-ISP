@@ -163,7 +163,6 @@ public class Charon extends NPC{
                     System.out.println("[L]eather Backpack - Increase your inventory's max capacity by 100. | 120 gold");
                     System.out.println("[R]ugged Suitcase - Increase your inventory's max capacity by 200. | 180 gold");
                     System.out.println("[V]ase of a Thousand Tormented Souls - Sets your inventory's max capacity to 69420. | 666 gold");
-                    System.out.println("\n" + "To exit the shop interface, type \"exit\".");
                     System.out.println("To open the selling menu, type \"sell\".");
                     System.out.println("To go to the 1st page of items, type \"1\".");
                     boolean validP2Input = false;
@@ -217,9 +216,7 @@ public class Charon extends NPC{
                             } else if(msgP2.equals("sell")){
                                 sell(player, in);
                             } else if(msg.equals("exit")) {
-                                System.out.println("Ghhhhehh. (Pleasure doing business.)");
-                                validP2Input = true;
-                                validInput = true;
+                                System.out.println("Why don't you take another look at page 1 before leaving?");
                             }
                         } catch (Exception ex){
                             System.out.println("Gguhhhhhhh. (Invalid Selection.)");
@@ -324,6 +321,8 @@ public class Charon extends NPC{
                     System.out.println("Srrrrrrrrrrh. (Pick something.)");
                 } else if(sellMsg.equals("back") || sellMsg.equals("buy")){
                     validSellInput = true;
+                } else if(sellMsg.equals("exit")){
+                    System.out.println("Why don't you take another look at page 1 before leaving?");
                 } else{
                     System.out.println("Gguhhhhhhh. (Invalid Selection.)");
                 }
