@@ -2,7 +2,7 @@
     "weapons": [
         {
             "Weapon": "Bow",
-            "Attack": 15,
+            "Attack": 4,
             "Priority": 15,
             "Defense": 0,
             "SpecialAttackDamage": 8,
@@ -22,8 +22,8 @@
         },
         {
             "Weapon": "Sword",
-            "Attack": 25,
-            "Priority": 5,
+            "Attack": 10,
+            "Priority": 6,
             "Defense": 0,
             "SpecialAttackDamage": 20,
             "id": 2,
@@ -33,7 +33,7 @@
         {
             "Weapon": "Shield",
             "Attack": 5,
-            "Priority": 0,
+            "Priority": 5,
             "Defense": 30,
             "SpecialAttackDamage": 20,
             "id": 3,

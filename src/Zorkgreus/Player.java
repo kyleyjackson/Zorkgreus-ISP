@@ -104,7 +104,7 @@ public class Player {
         if (n <= 0)
             System.out.println("You lost " + Math.abs(n) + " attack! Total: " + getPlayerAtk());
         else
-            System.out.println("Your gained " + n + " attack! Total: " + getPlayerAtk());
+            System.out.println("You gained " + n + " attack! Total: " + getPlayerAtk());
     }
 
     /*accessor and mutator methods for dodge */
@@ -130,7 +130,7 @@ public class Player {
         if (n <= 0)
             System.out.println("You lost " + Math.abs(n) + " priority! Total: " + getPlayerPrio());
         else
-            System.out.println("Your gained " + n + " priority! Total: " + getPlayerPrio());
+            System.out.println("You gained " + n + " priority! Total: " + getPlayerPrio());
     }
 
     /*accessor and mutator methods for gold */
