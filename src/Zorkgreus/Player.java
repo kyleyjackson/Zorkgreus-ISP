@@ -13,8 +13,8 @@ public class Player {
     private Inventory inventory;
 
     public Player(int prio, int atk, int def) {
-        this.maxHP = 69420;
-        this.HP = 69420;
+        this.maxHP = 50;
+        this.HP = 50;
         this.def = 10 + def;
         this.atk = atk;
         this.prio = prio;
