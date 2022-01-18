@@ -18,7 +18,7 @@ public class Player {
         this.def = 10 + def;
         this.atk = atk;
         this.prio = prio;
-        this.dodge = 0;
+        this.dodge = 1;
         this.gold = 100;
 
         inventory = new Inventory(150);
