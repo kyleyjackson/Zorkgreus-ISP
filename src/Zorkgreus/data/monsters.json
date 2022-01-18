@@ -5,7 +5,7 @@
             "attack": 0,
             "priority": 0,
             "defense": 0,
-            "health": 100,
+            "health": 20,
             "dodge": 0,
             "description": "...",
             "location": "Test Dummy Room"

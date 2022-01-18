@@ -209,7 +209,7 @@ public class Charon extends NPC{
                                 validP2Input = true;
                             } else if(msgP2.equals("sell")){
                                 sell(player, in);
-                            } else if(msg.equals("exit")) {
+                            } else if(msg.equals("exit") && !validP2Input) {
                                 System.out.println("Why don't you take another look at page 1 before leaving?");
                             }
                         } catch (Exception ex){
@@ -315,7 +315,7 @@ public class Charon extends NPC{
                     System.out.println("Srrrrrrrrrrh. (Pick something.)");
                 } else if(sellMsg.equals("back") || sellMsg.equals("buy")){
                     validSellInput = true;
-                } else if(sellMsg.equals("exit")){
+                } else if(sellMsg.equals("exit") && !validSellInput){
                     System.out.println("Why don't you take another look at page 1 before leaving?");
                 } else{
                     System.out.println("Gguhhhhhhh. (Invalid Selection.)");
