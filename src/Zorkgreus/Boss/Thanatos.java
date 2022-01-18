@@ -184,6 +184,8 @@ public class Thanatos extends Boss {
                             System.out.println("You have lost 5 attack and 3 priority. ");
                             count++;
                         }
+                        if(count==5)
+                        validInput = true;
                     } else if (ans.equals("RIGHT") || ans.equals("R") || ans.equals("LEFT") || ans.equals("L")) {
                         String scytheNum;
                         int num = (int) (Math.random() * 2 + 1);
@@ -217,7 +219,7 @@ public class Thanatos extends Boss {
                             count++;
                         }
                         if(count==5)
-                            validInput = true;
+                        validInput = true;
                     } else {
                         CommandWords words = new CommandWords();
                         for(String word: words.getValidCommands()){
@@ -236,7 +238,7 @@ public class Thanatos extends Boss {
      * final attack for Thanatos, instant kill if no death defiance, if there is a death defiance, revive with 50% HP, and no death defiance
      * @param player player object to subtract HP from
      */
-    public void bossFinalAttack(Player player) {
+    public void finalBossAttack(Player player) {
         Scanner in = new Scanner(System.in);
         if(!super.isAlive()){
             System.out.println("Thanatos slams his scythe into the ground, causing a tremor to ripple through the room. ");
