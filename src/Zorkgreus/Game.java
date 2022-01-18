@@ -303,12 +303,30 @@ public class Game {
         bossFinalAttack();
         currentBossDefeated();
 
-        if (!generatedBoons && currentRoom.getRoomName().equals("Boon Room")) {
+        if (!generatedBoons && currentRoom.getRoomId().equals("B1")) {
           temp = generateBoons(false);
           generatedBoons = true;
-        }
-        if (!currentRoom.getRoomName().equals("Boon Room"))
+        } else if(!generatedBoons && currentRoom.getRoomId().equals("B2")) {
+          temp = generateBoons(false);
+          generatedBoons = true;
+        } else if(!generatedBoons && currentRoom.getRoomId().equals("B3")) {
+          temp = generateBoons(false);
+          generatedBoons = true;
+        } else if(!generatedBoons && currentRoom.getRoomId().equals("B4")) {
+          temp = generateBoons(false);
+          generatedBoons = true;
+        } else if(!generatedBoons && currentRoom.getRoomId().equals("B5")) {
+          temp = generateBoons(false);
+          generatedBoons = true;
+        } else if(!generatedBoons && currentRoom.getRoomId().equals("B6")) {
+          temp = generateBoons(false);
+          generatedBoons = true;
+        } 
+
+        if (!currentRoom.getRoomName().equals("Boon Room")){
+          generatedBoons = false;
           boonSelected = false;
+        }
         if (boonSelected)
           System.out.println("Please proceed to the next room.");
 
@@ -829,6 +847,8 @@ public class Game {
     for (Boon b : myBoons) { // first strike
       if (b.getBoonName().equals("First Strike"))
         firstCrit = firstStrike();
+      if (b.getBoonName().equals("False Weakness"))
+        falseWeakness();
     }
 
     /*if(fred.getPlayerPrio() < 1) {
@@ -872,8 +892,6 @@ public class Game {
           for (Boon b : myBoons) { // heartbreaker & false weakness
             if (b.getBoonName().equals("Heartbreaker"))
               heartbreaker();
-            if (b.getBoonName().equals("False Weakness"))
-              falseWeakness();
           }
         } else {
           if (currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) { //* Boss enraged state
@@ -898,8 +916,6 @@ public class Game {
             for (Boon b : myBoons) { // heartbreaker & false weakness
               if (b.getBoonName().equals("Heartbreaker"))
                 heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
             }
           }
         }
@@ -1044,8 +1060,6 @@ public class Game {
           for (Boon b : myBoons) { // heartbreaker & false weakness
             if (b.getBoonName().equals("Heartbreaker"))
               heartbreaker();
-            if (b.getBoonName().equals("False Weakness"))
-              falseWeakness();
           }
         } else {
           if (currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) {
@@ -1071,8 +1085,6 @@ public class Game {
             for (Boon b : myBoons) { // heartbreaker & false weakness
               if (b.getBoonName().equals("Heartbreaker"))
                 heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
             }
           }
         }
@@ -1150,8 +1162,6 @@ public class Game {
             for (Boon b : myBoons) { // heartbreaker & false weakness
               if (b.getBoonName().equals("Heartbreaker"))
                 heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
             }
           } else {
             int bdmg = monsterDefCalc(currentBoss.attack(currentBoss.getAtk()));
@@ -1173,8 +1183,6 @@ public class Game {
             for (Boon b : myBoons) { // heartbreaker & false weakness
               if (b.getBoonName().equals("Heartbreaker"))
                 heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
             }
           }
 
@@ -1272,8 +1280,6 @@ public class Game {
           for (Boon b : myBoons) { // heartbreaker & false weakness
             if (b.getBoonName().equals("Heartbreaker"))
               heartbreaker();
-            if (b.getBoonName().equals("False Weakness"))
-              falseWeakness();
           }
         } else {
           if (currentBoss.getHP() <= (currentBoss.getHP() / 3) && !isEnraged) {
@@ -1299,8 +1305,6 @@ public class Game {
             for (Boon b : myBoons) { // heartbreaker & false weakness
               if (b.getBoonName().equals("Heartbreaker"))
                 heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
             }
           }
         }
@@ -1449,13 +1453,11 @@ public class Game {
                 }
               }
             }
-            fred.addPlayerHP(-mdmg);
-            for (Boon b : myBoons) { // heartbreaker & false weakness
-              if (b.getBoonName().equals("Heartbreaker"))
-                heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
-            }
+          }
+          fred.addPlayerHP(-mdmg);
+          for (Boon b : myBoons) { // heartbreaker & false weakness
+            if (b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
           }
         } else {
           int bdmg = monsterDefCalc(currentBoss.attack(currentBoss.getAtk()));
@@ -1480,7 +1482,11 @@ public class Game {
                 falseWeakness();
             }
           }
-          
+          fred.addPlayerHP(-bdmg);
+          for (Boon b : myBoons) { // heartbreaker & false weakness
+            if (b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
+          }
         }
         for (Boon b : myBoons) { // killing blow
           if (b.getBoonName().equals("Killing Blow"))
@@ -1544,13 +1550,11 @@ public class Game {
                 }
               }
             }
-            fred.addPlayerHP(-mdmg);
-            for (Boon b : myBoons) { // heartbreaker & false weakness
-              if (b.getBoonName().equals("Heartbreaker"))
-                heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
-            }
+          }
+          fred.addPlayerHP(-mdmg);
+          for (Boon b : myBoons) { // heartbreaker & false weakness
+            if (b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
           }
         } else {
           int bdmg = monsterDefCalc(currentBoss.attack(currentBoss.getAtk()));
@@ -1567,13 +1571,11 @@ public class Game {
                 }
               }
             }
-            fred.addPlayerHP(-bdmg);
-            for (Boon b : myBoons) { // heartbreaker & false weakness
-              if (b.getBoonName().equals("Heartbreaker"))
-                heartbreaker();
-              if (b.getBoonName().equals("False Weakness"))
-                falseWeakness();
-            }
+          }
+          fred.addPlayerHP(-bdmg);
+          for (Boon b : myBoons) { // heartbreaker & false weakness
+            if (b.getBoonName().equals("Heartbreaker"))
+              heartbreaker();
           }
         }
 
@@ -2146,12 +2148,9 @@ public class Game {
         selection.add(boons.get(16));
         selection.add(boons.get(17));
       }
-      System.out
-          .println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
-      System.out.print(
-          "----------------------------------------------------------------------------------------------------------");
-      System.out
-          .println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
+      System.out.println("\n" + selection.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
+      System.out.print("----------------------------------------------------------------------------------------------------------");
+      System.out.println(selection.get(0).displayBoon() + selection.get(1).displayBoon() + selection.get(2).displayBoon());
     } else {
       selection.add(boons.get(num)); // uses num from beginning of function
       selection.add(boons.get((int) (Math.random() * boons.size()))); // different random value
@@ -2375,29 +2374,29 @@ public class Game {
       if (level == 1) {
         currentBoss.setBossAtk((int) (currentBoss.getAtk() * 0.9));
         System.out
-            .println(currentBoss.getName() + " lost " + (int) (currentBoss.getAtk() * 0.9) + " from False Weakness.");
+            .println(currentBoss.getName() + " lost " + (int) (currentBoss.getAtk() * 0.9) + " attack from False Weakness.");
       } else if (level == 2) {
         currentBoss.setBossAtk((int) (currentBoss.getAtk() * 0.85));
         System.out
-            .println(currentBoss.getName() + " lost " + (int) (currentBoss.getAtk() * 0.85) + " from False Weakness.");
+            .println(currentBoss.getName() + " lost " + (int) (currentBoss.getAtk() * 0.85) + " attack from False Weakness.");
       } else {
         currentBoss.setBossAtk((int) (currentBoss.getAtk() * 0.8));
         System.out
-            .println(currentBoss.getName() + " lost " + (int) (currentBoss.getAtk() * 0.8) + " from False Weakness.");
+            .println(currentBoss.getName() + " lost " + (int) (currentBoss.getAtk() * 0.8) + " attack from False Weakness.");
       }
     } else {
       if (level == 1) {
         currentMonster.setAtk((int) (currentMonster.getAtk() * 0.9));
         System.out.println(
-            "The" + currentMonster.getName() + " lost " + (int) (currentBoss.getAtk() * 0.9) + " from False Weakness.");
+            "The " + currentMonster.getName() + " lost " + (int) (currentBoss.getAtk() * 0.9) + " attack from False Weakness.");
       } else if (level == 2) {
         currentMonster.setAtk((int) (currentMonster.getAtk() * 0.85));
-        System.out.println("The" + currentMonster.getName() + " lost " + (int) (currentBoss.getAtk() * 0.85)
-            + " from False Weakness.");
+        System.out.println("The " + currentMonster.getName() + " lost " + (int) (currentBoss.getAtk() * 0.85) +
+        " attack from False Weakness.");
       } else {
         currentMonster.setAtk((int) (currentMonster.getAtk() * 0.8));
         System.out.println(
-            "The" + currentMonster.getName() + " lost " + (int) (currentBoss.getAtk() * 0.8) + " from False Weakness.");
+            "The " + currentMonster.getName() + " lost " + (int) (currentBoss.getAtk() * 0.8) + " attack from False Weakness.");
       }
     }
   }

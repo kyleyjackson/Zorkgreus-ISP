@@ -352,11 +352,11 @@
       "exits": [
         {
           "direction": "East",
-          "adjacentRoom": "F2 NPC Room"
+          "adjacentRoom": "F2 Miniboss Room"
         },
         {
           "direction": "South",
-          "adjacentRoom": "F2 NPC Room"
+          "adjacentRoom": "F2 Miniboss Room"
         }
       ]
     },
