@@ -1577,6 +1577,25 @@ public class Game {
           }
         }
 
+        if(!fred.isAlive() && fred.getExtraLife()) {
+          fred.setPlayerHP(fred.getPlayerMaxHP() / 2);
+          System.out.println("You aren't dying just yet!");
+          fred.setExtraLife(false);
+          return false;
+        } else if (!fred.isAlive()) {
+          for (Boon b : myBoons) { // second wind & smite
+            if (b.getBoonName().equals("Second Wind")) {
+              secondWind();
+              hasCalledSW = true;
+            }
+            if (b.getBoonName().equals("Smite"))
+              smite();
+          }
+          System.out.println("You died.");
+          isDead = true;
+          return true;
+        } 
+
         int dmg = defenseCalc(fred.normalAttack());
 
         if(monsterDodge()) {
@@ -1618,39 +1637,20 @@ public class Game {
           return true;
         }
 
-        if(!fred.isAlive() && fred.getExtraLife()) {
-          fred.setPlayerHP(fred.getPlayerMaxHP() / 2);
-          System.out.println("You aren't dying just yet!");
-          fred.setExtraLife(false);
-          return false;
-        } else if (!fred.isAlive()) {
-          for (Boon b : myBoons) { // second wind & smite
-            if (b.getBoonName().equals("Second Wind")) {
-              secondWind();
-              hasCalledSW = true;
-            }
-            if (b.getBoonName().equals("Smite"))
-              smite();
-          }
-          System.out.println("You died.");
-          isDead = true;
-          return true;
-        } else {
-          if(isMonster)
-            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
-          else 
-            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
-          if (isMonster == true)
-            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
-          else
-            System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
-          System.out.println("\n-------------------------------------------------------------------------\n");
-          canProceed = true;
-          return false;
-        }
+        if(isMonster)
+          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+        else 
+          currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
+        fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+        System.out.println("\n-------------------------------------------------------------------------\n");
+        System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
+        if (isMonster == true)
+          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentMonster.getPrio());
+        else
+          System.out.println("Enemy HP: " + enemyHP + " | Enemy Priority: " + currentBoss.getPrio());
+        System.out.println("\n-------------------------------------------------------------------------\n");
+        canProceed = true;
+        return false;
       }
     } else {
       System.out.println("You can't do that!");
