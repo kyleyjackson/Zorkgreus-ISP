@@ -135,7 +135,7 @@ public class Thanatos extends Boss {
      * special attack for Thanatos, interactive dodging, if not dodged: reduce attack and priority or subtract HP
      * @param player player object to reduce attack and priority or subtract HP if not dodged
      */
-    public void bossSpecialAttack(Player player) {
+    public void specialBossAttack(Player player) {
         Scanner in = new Scanner(System.in);
         boolean validInput = false;
         boolean displayFirstMessage = true;

@@ -200,12 +200,6 @@ public class Boss {
         return true;
     }
 
-    public void specialBossAttack(int dmg) {
-    }
-
-    public void specialBossAttack(int dmg, Player player) {
-    }
-
     public void specialBossAttack(Player player){
     }
 
