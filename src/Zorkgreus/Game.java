@@ -470,6 +470,7 @@ public class Game {
             formatMyBoons();
           } else if (command.getSecondWord().equals("enemy")) {
             if (currentRoom.getRoomName().indexOf("Attack") > -1) {
+              currentMonster.displayMonsterMessage();
               currentMonster.monsterInfo();
             } else if (currentRoom.getRoomName().indexOf("oss") > -1) { // Check for oss instead of boss because indexOf
                                                                         // is case-sensitive
