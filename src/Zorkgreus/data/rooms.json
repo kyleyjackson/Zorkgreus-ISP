@@ -848,6 +848,12 @@
       "Thank you for playing our text based knock off of Hades, Zorkgreus. Creators: Harrison Cazzin, Fred He, Kyle Jackson, and Richie Tran.",
       "Thank you for playing our text based knock off of Hades, Zorkgreus. Creators: Kyle Jackson, Richie Tran, Fred He, and Harrison Cazzin.",
       "Thank you for playing our text based game Zorkgreus from the creators of Zorkgreus Fred He, Kyle Jackson, Harrison Cazzin, Richie Tran."
+    ],
+      "exits": [
+        {
+          "direction": "Up",
+          "adjacentRoom": "Ending"
+        }
     ]
     }
   ]
