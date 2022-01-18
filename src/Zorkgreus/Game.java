@@ -51,7 +51,7 @@ public class Game {
   private boolean boonSelected; // checks if the player has selected a boon.
   private boolean weaponSelected; // checks if a weapon has been selected.
   private boolean canProceed; // determines if player can move on to the next room.
-  private boolean getCurrentRoom; // used for setting the healing from hydralite gold.
+  private boolean getCurrentRoom; 
   private boolean setNPC = false; // determines if an NPC has been generated.
   private boolean isFighting = false; // checks if you're currently in combat.
   private boolean isBoss = false; // checks if you're in combat with a boss.
@@ -63,6 +63,7 @@ public class Game {
   private boolean hasTakenMonsterDrop = false;
   private boolean getCurrentRoomDrops;
   private boolean displayBossMessage = false;
+  private boolean doBossSpecialAttack = false;
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -91,6 +92,7 @@ public class Game {
       fred = new Player(0, 0, 0);
       getCurrentRoom = true;
       getCurrentRoomDrops = true;
+      bossCounter = 0;
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -269,10 +271,9 @@ public class Game {
         }
         if (currentRoom.getRoomName().indexOf("NPC") == -1 && currentRoom.getRoomName().indexOf("Shop") == -1)
           setNPC = false;
+        if(!(currentRoom.getRoomName().equals("F2 Miniboss Room")||currentRoom.getRoomName().equals("F2 Boss Room")||currentRoom.getRoomName().equals("F3 Miniboss Room")||currentRoom.getRoomName().equals("F3 Boss Room")))
+          doBossSpecialAttack = false;
         setCurrentNPC();
-        if (fred.getHydraliteGold()) {
-          hydraliteGold();
-        }
         predertimineItems();
         if (compareRooms()){
           hasTakenMonsterDrop = false;
@@ -287,10 +288,10 @@ public class Game {
             monsterDrop = true;
           determineMonsterDrop();
         }
-        currentBossDefeated();
         displayBossIntroMessage();
         bossSpecialAttack();
         bossFinalAttack();
+        currentBossDefeated();
 
         if (currentRoom.getRoomName().indexOf("F2") > -1 && prevRoom.indexOf("F1") > -1)
           hasCalledSW = false;
@@ -435,7 +436,7 @@ public class Game {
     } else if (commandWord.equals("eat")) {
       System.out.println("Do they even have food in the underworld?");
     } else if (commandWord.equals("east") || commandWord.equals("west") || commandWord.equals("north")
-        || commandWord.equals("south")) {
+        || commandWord.equals("south")||commandWord.equals("up")) {
       goRoom(command);
     } else if (commandWord.equals("look")) {
       System.out.println(currentRoom.roomDescription());
@@ -1480,7 +1481,10 @@ public class Game {
         }
         if (enemyHP < 1) {
           System.out.println("You won!");
+          if(isMonster)
           currentMonster.setHP(0);
+          else
+          currentBoss.setHP(0);
           return true;
         }
 
@@ -1567,25 +1571,25 @@ public class Game {
         generatedBoons = false;
         boonSelected = false;
       }
-      if (bossCounter == 1) {
+      else if (bossCounter == 1) {
         currentBoss = new QueenSpider();
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
       }
-      if (bossCounter == 2) {
+      else if (bossCounter == 2) {
         currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
       }
-      if (bossCounter == 3) {
+      else if (bossCounter == 3) {
         currentBoss = new TheAmalgamation();
         bossCounter++;
         generatedBoons = false;
         boonSelected = false;
       }
-      if (bossCounter == 4) {
+      else if (bossCounter == 4) {
         currentBoss = new Thanatos();
       }
       return true;
@@ -1594,9 +1598,18 @@ public class Game {
   }
 
   public void bossSpecialAttack(){
-    if(currentBoss!=null)
-      currentBoss.specialBossAttack(recPlayerHit, fred);
+    if(doBossSpecialAttack){
+      if(currentRoom.getRoomId().equals("F2 Miniboss Room")||currentRoom.getRoomId().equals("F3 Miniboss Room")){
+        boolean special = currentBoss.specialBossAttack();
+        if(special == true)
+        doBossSpecialAttack = false;
+      }
+      else if(currentRoom.getRoomId().equals("F2 Boss Room")||currentRoom.getRoomId().equals("F3 Boss Room")){
+        currentBoss.specialBossAttack(fred);
+        doBossSpecialAttack = false;
+    }
   }
+}
 
   public void bossFinalAttack(){
     if(currentBoss!=null)
@@ -1609,30 +1622,34 @@ public class Game {
       currentBoss.displayBossMessage();
       displayBossMessage = true;
       }
-    }else if(currentRoom.getRoomId().equals("F1 Boss Room")){
+    }else if(currentRoom.getRoomId().equals("F1 Boss Room")&&currentBoss.getName().equals("King Skeleton")){
       if(!displayBossMessage){
       currentBoss.displayBossMessage();
       displayBossMessage = true;
       }
-    }else if(currentRoom.getRoomId().equals("F2 Miniboss Room")){
+    }else if(currentRoom.getRoomId().equals("F2 Miniboss Room")&&currentBoss.getName().equals("Queen Spider")){
       if(!displayBossMessage){
       currentBoss.displayBossMessage();
       displayBossMessage = true;
+      doBossSpecialAttack = true;
       }
-    }else if(currentRoom.getRoomId().equals("F2 Boss Room")){
+    }else if(currentRoom.getRoomId().equals("F2 Boss Room")&&currentBoss.getName().equals("Tarantula")){
       if(!displayBossMessage){
       currentBoss.displayBossMessage();
       displayBossMessage = true;
+      doBossSpecialAttack = true;
       }
-    }else if(currentRoom.getRoomId().equals("F3 Miniboss Room")){
+    }else if(currentRoom.getRoomId().equals("F3 Miniboss Room")&&currentBoss.getName().equals("The Amalgamation")){
       if(!displayBossMessage){
       currentBoss.displayBossMessage();
       displayBossMessage = true;
+      doBossSpecialAttack = true;
       }
-    }else if(currentRoom.getRoomId().equals("F3 Boss Room")){
+    }else if(currentRoom.getRoomId().equals("F3 Boss Room")&&currentBoss.getName().equals("Thanatos")){
       if(!displayBossMessage){
       currentBoss.displayBossMessage();
       displayBossMessage = true;
+      doBossSpecialAttack = true;
       }
     }
   }
@@ -1784,13 +1801,13 @@ public class Game {
     boolean twoWords = false;
     // if the command doesn't have a second word AND it isn't a direction
     if (!command.hasSecondWord() && !(command.getCommandWord().equals("east") || command.getCommandWord().equals("west")
-        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south"))) {
+        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south")||command.getCommandWord().equals("up"))) {
       // if there is no second word, we don't know where to go...
       System.out.println("Go where?");
       return;
     }
 
-    if (currentRoom.getRoomName().equals("Spawn Room")) {
+    if (currentRoom.getRoomName().equals("Spawn Room")||currentRoom.getRoomName().equals("F2 Starting Room")||currentRoom.getRoomName().equals("F3 Starting Room")) {
       if (weaponSelected)
         canProceed = true;
     } else if (currentRoom.getRoomName().equals("Test Dummy Room"))
@@ -2552,14 +2569,6 @@ public class Game {
       return true;
     } else
       return false;
-  }
-
-  public void hydraliteGold() {
-    if (canProceed==true) {
-      int addHP = (int) (fred.getPlayerMaxHP() * 0.3);
-      fred.addPlayerHP(addHP);
-      System.out.println("You have gained " + addHP + " HP");
-    }
   }
 
   public int defenseCalc(int dmg) {

@@ -26,6 +26,7 @@ public class Thanatos extends Boss {
      * @param player  player object to reduce attack and priority or subtract HP if
      *                not dodged
      */
+    /*
     public void bossSpecialAttack(int dmgDone, Player player) {
         Scanner in = new Scanner(System.in);
         boolean validInput = false;
@@ -127,6 +128,107 @@ public class Thanatos extends Boss {
                     displayFirstMessage = false;
                 }
             }
+        }
+    }*/
+
+    /**
+     * special attack for Thanatos, interactive dodging, if not dodged: reduce attack and priority or subtract HP
+     * @param player player object to reduce attack and priority or subtract HP if not dodged
+     */
+    public void bossSpecialAttack(Player player) {
+        Scanner in = new Scanner(System.in);
+        boolean validInput = false;
+        boolean displayFirstMessage = true;
+        boolean displayCommandMessage = false;
+        int count = 0;
+            while (!validInput) {
+                if(displayCommandMessage){
+                    System.out.print("Can't do that here. [R]ight, [L]eft, or [D]eflect: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
+                    System.out.print("Thanatos hurls his scythe at you, your blood dripping of it as it pierces through the air, would you like to dodge [R]eft, [L]ight, or [D]eflect it: ");
+                else
+                    System.out.print("Invalid Input - [R]ight, [L]eft, or [D]eflect: ");
+                try {
+                    String ans = in.nextLine().toUpperCase();
+                    int responseNum = (int) (Math.random() * 3 + 1);
+                    if (ans.equals("DEFLECT") || ans.equals("D")) {
+                        if (player.getPlayerHP() <= (player.getPlayerMaxHP() / 2)
+                                && player.getPlayerPrio() > (super.getPrio() + 2)) {
+                            if (responseNum == 1) {
+                                System.out.println("Nice coordination. ");
+                            } else if (responseNum == 2) {
+                                System.out.println("Gotta get you in the MLB. ");
+                            } else {
+                                System.out.println("Thanatos has to stop hitting himself. ");
+                            }
+                            super.addBossAtk(-5);
+                            int dmgDealt = super.attack(15);
+                            super.addBossHP(-dmgDealt);
+                            System.out.println("Thanatos has taken " + dmgDealt + " damage. ");
+                            count++;
+                        } else {
+                            if (responseNum == 1) {
+                                System.out.println("Bit off more than you could chew. ");
+                            } else if (responseNum == 2) {
+                                System.out.println("The stick hit the wrench. ");
+                            } else {
+                                System.out.println("You missed the scythe lol. ");
+                            }
+                            player.addPlayerAttack(-5);
+                            player.addPlayerPriority(-3);
+                            int dmgDealt = super.attack(15);
+                            player.addPlayerHP(-dmgDealt);
+                            System.out.println("You have taken " + dmgDealt + " damage. ");
+                            System.out.println("You have lost 5 attack and 3 priority. ");
+                            count++;
+                        }
+                    } else if (ans.equals("RIGHT") || ans.equals("R") || ans.equals("LEFT") || ans.equals("L")) {
+                        String scytheNum;
+                        int num = (int) (Math.random() * 2 + 1);
+                        if (num == 1)
+                            scytheNum = "RIGHT-R";
+                        else
+                            scytheNum = "LEFT-L";
+                        int dash = scytheNum.indexOf("-");
+                        String firstWord = scytheNum.substring(0, dash);
+                        String secondWord = scytheNum.substring(dash + 1);
+                        if (ans.equals(firstWord) || ans.equals(secondWord)) {
+                            if (responseNum == 1) {
+                                System.out.println("Skimmed right past ya. ");
+                            } else if (responseNum == 2) {
+                                System.out.println("Can you see the future? ");
+                            } else {
+                                System.out.println("Hermes, is that you? ");
+                            }
+                            count++;
+                        } else {
+                            if (responseNum == 1) {
+                                System.out.println("Oooooh. Hit you right in the... the sore spot. ");
+                            } else if (responseNum == 2) {
+                                System.out.println("Lost the 50/50 I guess.  ");
+                            } else {
+                                System.out.println("I predict... A scythe in your chest! ");
+                            }
+                            player.addPlayerAttack(-5);
+                            player.addPlayerPriority(-3);
+                            System.out.println("You have lost 5 attack and 3 priority. ");
+                            count++;
+                        }
+                        if(count==5)
+                            validInput = true;
+                    } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(ans.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
+                        displayFirstMessage = false;
+                    }
+                } catch (Exception ex) {
+                    displayFirstMessage = false;
+                }
         }
     }
 

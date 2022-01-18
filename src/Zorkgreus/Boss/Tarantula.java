@@ -42,6 +42,7 @@ public class Tarantula extends Boss {
      * @param dmgDone damage done for compareHP method
      * @param player  player object to subtract HP and priority if not dodged
      */
+    /*
     public void specialBossAttack(int dmgDone, Player player) {
         Scanner in = new Scanner(System.in);
         boolean validInput = false;
@@ -120,7 +121,83 @@ public class Tarantula extends Boss {
                 }
             }
         }
+    }*/
+
+    /**
+     * special attack for the Tarantula, interactive dodging, if not dodged: subtract HP and priority
+     * @param player player object to subtract HP and priority if not dodged
+     */
+    public void specialBossAttack(Player player) {
+        Scanner in = new Scanner(System.in);
+        boolean validInput = false;
+        boolean displayFirstMessage = true;
+        boolean displayCommandMessage = false;
+        int count = 0;
+            while (!validInput) {
+                if(displayCommandMessage){
+                    System.out.print("Can't do that here. [R]ight, [L]eft, [U]p, or [D]own: ");
+                    displayCommandMessage = false;
+                }
+                else if (displayFirstMessage == true)
+                    System.out.print("The tarantula fires a flurry of webs at you. Would you like to dodge [R]ight, [L]eft, [U]p, or [D]own: ");
+                else
+                    System.out.print("Invalid Input - [R]ight, [L]eft, [U]p, or [D]own: ");
+                try {
+                    String ans = in.nextLine().toUpperCase();
+                    if (ans.equals("RIGHT") || ans.equals("R") || ans.equals("LEFT") || ans.equals("L")|| ans.equals("UP") || ans.equals("U") || ans.equals("DOWN") || ans.equals("D")) {
+                        String webAns;
+                        int webNum = (int) (Math.random() * 3 + 1);
+                        if (webNum == 1)
+                            webAns = "RIGHT-R";
+                        else if (webNum == 2)
+                            webAns = "LEFT-L";
+                        else if (webNum == 3)
+                            webAns = "UP-U";
+                        else
+                            webAns = "DOWN-D";
+                        int dash = webAns.indexOf("-");
+                        String firstWord = webAns.substring(0, dash);
+                        String secondWord = webAns.substring(dash + 1);
+                        int responseNum = (int) (Math.random() * 3 + 1);
+                        if (firstWord.equals(ans) || secondWord.equals(ans)) {
+                            if (responseNum == 1)
+                                System.out.println("Speedy reflexes. ");
+                            else if (responseNum == 2)
+                                System.out.println("That was all luck. ");
+                            else
+                                System.out.println("Barely dodged that one. ");
+                            count++;
+                        } else {
+                            if (responseNum == 1) {
+                                System.out.println("Wow... You are slow. ");
+                            } else if (responseNum == 2) {
+                                System.out.println("You deserve to be hit after that performance. ");
+                            } else {
+                                System.out.println("The time when planking feels faster when I see your reaction speed. ");
+                            }
+                            player.addPlayerPriority(-2);
+                            int dmgDealt = super.attack(7);
+                            System.out.println("You have taken " + dmgDealt + " damage. ");
+                            player.addPlayerHP(-dmgDealt);
+                            count++;
+                        }
+                        if(count == 5)
+                            validInput = true;
+                    } else {
+                        CommandWords words = new CommandWords();
+                        for(String word: words.getValidCommands()){
+                            if(words.isCommand(ans.toLowerCase()))
+                            displayCommandMessage = true;
+                        }
+                        displayFirstMessage = false;
+                    }
+                } catch (Exception ex) {
+                    displayFirstMessage = false;
+                }
+        }
     }
+
+    
 
     /**
      * final attack for the Tarantula, interactive choices, deals damage if choices are wrong too many times

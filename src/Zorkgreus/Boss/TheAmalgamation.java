@@ -22,6 +22,7 @@ public class TheAmalgamation extends Boss {
      * 
      * @param dmgDone damage done for the compareHP method
      */
+    /*
     public void specialBossAttack(int dmgDone) {
         int decrement = (int) (getMaxHP() * 0.1);
         if(getMakeArray()){
@@ -40,8 +41,23 @@ public class TheAmalgamation extends Boss {
             super.addBossDodge(2);
             displayBossSpecialAttack();
     }
-    }
+    }*/
 
+    /**
+     * special attak for The Amalgamation, once it gets below 75% HP, decrease attack, increase priority and dodge
+     * 
+     * @param true if used
+     */
+    public boolean specialBossAttack() {
+        if (getHP()<=(int)(getMaxHP()*0.75)) {
+            super.addBossAtk(-6);
+            super.addBossPriority(4);
+            super.addBossDodge(20);
+            displayBossSpecialAttack();
+            return true;
+    }
+    return false;
+    }
 
     public void displayBossSpecialAttack() {
         System.out.println("The Amalgamation feels lighter...");
@@ -120,6 +136,7 @@ public class TheAmalgamation extends Boss {
                             int dmgDealt = super.attack(7);
                             System.out.println("You took " + dmgDealt + " damage.");
                             player.addPlayerHP(-dmgDealt);
+                            count++;
                         }
                         msg = true;
                         displayFirstMessage = true;

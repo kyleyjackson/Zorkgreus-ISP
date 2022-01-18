@@ -196,10 +196,17 @@ public class Boss {
     public void bossRage(Player player){
     }
 
+    public boolean specialBossAttack(){
+        return true;
+    }
+
     public void specialBossAttack(int dmg) {
     }
 
     public void specialBossAttack(int dmg, Player player) {
+    }
+
+    public void specialBossAttack(Player player){
     }
 
     public void finalBossAttack() {

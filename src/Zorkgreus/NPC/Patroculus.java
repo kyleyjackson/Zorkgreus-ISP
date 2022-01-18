@@ -28,7 +28,7 @@ public class Patroculus extends NPC {
         boolean displayExtraLifeMessage = false;
         System.out.println("Patroculus has offered you 3 items: ");
         System.out.println("Kiss of Styx Premium - Replenishes your extra life ");
-        System.out.println("Hyrdalite Gold - Restore 10% of your max HP when you enter a room ");
+        System.out.println("Hyrdalite Gold - Restore all your HP and gain 50 bonus max HP ");
         System.out.println("Cyclops Jerky Select - Your attack deals 30% extra damage ");
         while (!validInput) {
             if(displayExtraLifeMessage)
@@ -53,7 +53,9 @@ public class Patroculus extends NPC {
                        if(msg.equals("K")||msg.equals("KISS OF STYX PREMIUM")){
                             player.setExtraLife(true);
                        }else if(msg.equals("H")||msg.equals("HYDRALITE GOLD")){
-                            player.setHydraliteGold(true);
+                           int HP = player.getPlayerMaxHP()-player.getPlayerHP();
+                           player.addPlayerHP(HP);
+                           player.incrementPlayerHP(50);
                        }else{
                             player.addPlayerAttack((int)(player.getPlayerAtk()*0.3));
                        }

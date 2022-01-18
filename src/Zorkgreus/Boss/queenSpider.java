@@ -19,6 +19,7 @@ public class QueenSpider extends Boss {
      * 
      * @param dmgDone damage done for compareHP method
      */
+    /*
     public void specialBossAttack(int dmgDone) {
     int decrement = (int) (getMaxHP() * 0.1);
         if(getMakeArray()){
@@ -34,6 +35,19 @@ public class QueenSpider extends Boss {
             super.addBossDodge(4);
             displayBossSpecialAttack();
     }
+}*/
+
+/**
+ * special attack for the Queen Spider, once it gets below 75% HP, increase dodge chance
+ * @return true if used
+ */
+public boolean specialBossAttack(){
+    if(getHP()<=(int)(getMaxHP()*0.75)){
+        super.addBossDodge(30);
+        displayBossSpecialAttack();
+        return true;
+    }
+    return false;
 }
 
     public void displayBossSpecialAttack() {
