@@ -303,21 +303,20 @@ public class Game {
         bossFinalAttack();
         currentBossDefeated();
 
-        if (currentRoom.getRoomName().indexOf("F2") > -1 && prevRoom.indexOf("F1") > -1)
-          hasCalledSW = false;
-        else if (currentRoom.getRoomName().indexOf("F3") > -1 && prevRoom.indexOf("F2") > -1)
-          hasCalledSW = false;
-
-        if (!generatedBoons && onBoonScreen()) {
+        if (!generatedBoons && currentRoom.getRoomName().equals("Boon Room")) {
           temp = generateBoons(false);
           generatedBoons = true;
         }
-        if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("Miniboss Room")
-            || currentRoom.getRoomName().equals("Boss Room")))
+        if (!currentRoom.getRoomName().equals("Boon Room"))
           boonSelected = false;
         if (boonSelected)
           System.out.println("Please proceed to the next room.");
 
+        if (currentRoom.getRoomName().indexOf("F2") > -1 && prevRoom.indexOf("F1") > -1)
+          hasCalledSW = false;
+        else if (currentRoom.getRoomName().indexOf("F3") > -1 && prevRoom.indexOf("F2") > -1)
+          hasCalledSW = false;
+          
         command = parser.getCommand();
 
         if (isFighting) {
@@ -543,7 +542,7 @@ public class Game {
     } else if (commandWord.equals("boonlist") || commandWord.equals("myboons")) {
       formatMyBoons();
     } else if (commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
-      if (onBoonScreen() && !boonSelected) {
+      if (currentRoom.getRoomName().equals("Boon Room") && !boonSelected) {
         if (commandWord.equals("b1")) {
           for (Boon b : myBoons) {
             b.levelUp(myBoons, temp, 0);
@@ -829,12 +828,6 @@ public class Game {
       if (b.getBoonName().equals("First Strike"))
         firstCrit = firstStrike();
     }
-
-    /*if(fred.getPlayerPrio() < 1) {
-      System.out.println("You can't attack!");
-
-      return false;
-    }*/
 
     if (commandWord.equals("special") || commandWord.equals("special attack")) {
       // *Damage the monster, check for HP, damage the player, check for HP
@@ -1577,25 +1570,21 @@ public class Game {
         currentBoss = new KingSkeleton();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 1) {
         currentBoss = new QueenSpider();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 2) {
         currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 3) {
         currentBoss = new TheAmalgamation();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 4) {
         currentBoss = new Thanatos();
@@ -1794,18 +1783,6 @@ public class Game {
         fred.getInventory().displayPlayerInventory();
       }
     }
-  }
-
-  /**
-   * Check if you are able to receive a boon.
-   *
-   * @return T/F
-   */
-  public boolean onBoonScreen() {
-    if (currentRoom.getRoomName().equals("Boon Room") || currentBossDefeated()) {
-      return true;
-    }
-    return false;
   }
 
   /**

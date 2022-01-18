@@ -26,12 +26,12 @@
       "exits": [
         {
           "direction": "West",
-          "adjacentRoom": "Boon Room"
+          "adjacentRoom": "B1"
         }
       ]
     },
     {
-      "id": "Boon Room",
+      "id": "B1",
       "name": "Boon Room",
       "descriptions": [
       "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
@@ -129,6 +129,21 @@
       "exits": [
         {
           "direction": "West",
+          "adjacentRoom": "B2"
+        }
+      ]
+    },
+    {
+      "id": "B2",
+      "name": "Boon Room",
+      "descriptions": [
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West."
+      ],
+      "exits": [
+        {
+          "direction": "West",
           "adjacentRoom": "F1R4"
         }
       ]
@@ -216,6 +231,21 @@
       "exits": [
         {
           "direction": "Up",
+          "adjacentRoom": "B3"
+        }
+      ]
+    },
+    {
+      "id": "B3",
+      "name": "Boon Room",
+      "descriptions": [
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading East.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading East.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading East."
+      ],
+      "exits": [
+        {
+          "direction": "East",
           "adjacentRoom": "F2 Starting Room"
         }
       ]
@@ -356,6 +386,21 @@
       "exits": [
         {
           "direction": "East",
+          "adjacentRoom": "B4"
+        }
+      ]
+    },
+    {
+      "id": "B4",
+      "name": "Boon Room",
+      "descriptions": [
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading East.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading East.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading East."
+      ],
+      "exits": [
+        {
+          "direction": "East",
           "adjacentRoom": "F2R6"
         }
       ]
@@ -481,6 +526,21 @@
       "exits": [
         {
           "direction": "Up",
+          "adjacentRoom": "B5"
+        }
+      ]
+    },
+    {
+      "id": "B5",
+      "name": "Boon Room",
+      "descriptions": [
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West."
+      ],
+      "exits": [
+        {
+          "direction": "West",
           "adjacentRoom": "F3 Starting Room"
         }
       ]
@@ -655,6 +715,21 @@
       "A chilling presence surrounds you. An unimaginable monster, limbs and bones, held together by nothing but bloody, rusted chains. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading West.",
       "A chilling presence surrounds you. An unimaginable monster, limbs and bones, held together by nothing but bloody, rusted chains. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading West.",
       "A chilling presence surrounds you. An unimaginable monster, limbs and bones, held together by nothing but bloody, rusted chains. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading West."
+      ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "B6"
+        }
+      ]
+    },
+    {
+      "id": "B6",
+      "name": "Boon Room",
+      "descriptions": [
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West.",
+        "You are in a room with three glowing boons; blessings from the gods. They glow bright, illuminating the room. The room has one exit heading West."
       ],
       "exits": [
         {
