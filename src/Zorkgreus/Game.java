@@ -928,7 +928,6 @@ public class Game {
           return false;
         } else {
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -963,6 +962,7 @@ public class Game {
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+          speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -978,7 +978,6 @@ public class Game {
           return false;
         } else {
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -1067,6 +1066,7 @@ public class Game {
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+          speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -1148,7 +1148,6 @@ public class Game {
           }
 
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
             if (b.getBoonName().equals("Stormbreaker"))
               dmg += stormbreaker();
@@ -1173,6 +1172,7 @@ public class Game {
             else 
               currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
             fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+            speAtkCounter += 3;
             System.out.println("\n-------------------------------------------------------------------------\n");
             System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
             if (isMonster == true)
