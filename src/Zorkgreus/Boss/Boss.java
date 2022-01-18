@@ -60,8 +60,9 @@ public class Boss {
      * @return decrements
      */
     public ArrayList<Integer> compareHP(ArrayList<Integer> decrements, int dmgDone) {
+        int temp = hp;
         int last = decrements.get(decrements.size()-1);
-        if((hp-=dmgDone)<=last){
+        if((temp-=dmgDone)<=last){
             decrements.remove(decrements.size()-1);
         }
         return decrements;

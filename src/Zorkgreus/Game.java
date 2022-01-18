@@ -62,6 +62,7 @@ public class Game {
   private boolean hasCalledSW = false; // checks if Boon: Second Wind has been called on the floor.
   private boolean hasTakenMonsterDrop = false;
   private boolean getCurrentRoomDrops;
+  private boolean displayBossMessage = false;
 
   /*------------------------------------global strings------------------------------------*/
   private String prevCommand = ""; // stores the previous command inputted by player.
@@ -286,6 +287,10 @@ public class Game {
             monsterDrop = true;
           determineMonsterDrop();
         }
+        currentBossDefeated();
+        displayBossIntroMessage();
+        bossSpecialAttack();
+        bossFinalAttack();
 
         if (currentRoom.getRoomName().indexOf("F2") > -1 && prevRoom.indexOf("F1") > -1)
           hasCalledSW = false;
@@ -1588,9 +1593,47 @@ public class Game {
     return false;
   }
 
-  public void currentBossSpecialAttack(){
-    if(currentBoss!=null){
-      currentBoss.specialBossAttack(dmg, fred);
+  public void bossSpecialAttack(){
+    if(currentBoss!=null)
+      currentBoss.specialBossAttack(recPlayerHit, fred);
+  }
+
+  public void bossFinalAttack(){
+    if(currentBoss!=null)
+      currentBoss.finalBossAttack(fred);
+  }
+
+  public void displayBossIntroMessage(){
+    if(currentRoom.getRoomId().equals("F1 Miniboss Room")){
+      if(!displayBossMessage){
+      currentBoss.displayBossMessage();
+      displayBossMessage = true;
+      }
+    }else if(currentRoom.getRoomId().equals("F1 Boss Room")){
+      if(!displayBossMessage){
+      currentBoss.displayBossMessage();
+      displayBossMessage = true;
+      }
+    }else if(currentRoom.getRoomId().equals("F2 Miniboss Room")){
+      if(!displayBossMessage){
+      currentBoss.displayBossMessage();
+      displayBossMessage = true;
+      }
+    }else if(currentRoom.getRoomId().equals("F2 Boss Room")){
+      if(!displayBossMessage){
+      currentBoss.displayBossMessage();
+      displayBossMessage = true;
+      }
+    }else if(currentRoom.getRoomId().equals("F3 Miniboss Room")){
+      if(!displayBossMessage){
+      currentBoss.displayBossMessage();
+      displayBossMessage = true;
+      }
+    }else if(currentRoom.getRoomId().equals("F3 Boss Room")){
+      if(!displayBossMessage){
+      currentBoss.displayBossMessage();
+      displayBossMessage = true;
+      }
     }
   }
 
@@ -1785,13 +1828,15 @@ public class Game {
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
 
-    if (nextRoom == null)
+    if (nextRoom == null){
       System.out.println("There is no door!");
-    else {
+      displayBossMessage = false;
+    }else {
       if (canProceed) {
         currentRoom = nextRoom;
         System.out.println(currentRoom.roomDescription());
         canProceed = false;
+        displayBossMessage = false;
       } else
         System.out.println(("The doors won't open just yet..."));
     }
