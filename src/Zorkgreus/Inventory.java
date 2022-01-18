@@ -138,7 +138,6 @@ public class Inventory {
         }
       }
     }
-    System.out.println("Can't drop something you dont have. ");
   }
 
   /**
