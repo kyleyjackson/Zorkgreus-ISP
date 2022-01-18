@@ -1,7 +1,6 @@
 package Zorkgreus;
 
 import java.util.ArrayList;
-import Zorkgreus.Inventory;
 
 public class Room {
 
@@ -10,23 +9,6 @@ public class Room {
     private ArrayList<Exit> exits;
     private ArrayList<String> descriptions;
     private Inventory inventory;
-
-    public ArrayList<Exit> getExits() {
-        return exits;
-    }
-
-    public void setExits(ArrayList<Exit> exits) {
-        this.exits = exits;
-    }
-
-    public void setDescriptions(ArrayList<String> descriptions) {
-        this.descriptions = descriptions;
-    }
-
-    /**
-     * Create a room described "description". Initially, it has no exits.
-     * "description" is something like "a kitchen" or "an open court yard".
-     */
 
     public Room(String description) {
         exits = new ArrayList<Exit>();
@@ -41,28 +23,62 @@ public class Room {
         inventory = new Inventory(69420);
     }
 
-    public Inventory getInventory() {
-        return inventory;
+    /*accessor and mutator methods for Exits */
+    public ArrayList<Exit> getExits() {
+        return exits;
+    }
+
+    public void setExits(ArrayList<Exit> exits) {
+        this.exits = exits;
     }
 
     public void addExit(Exit exit) throws Exception {
         exits.add(exit);
     }
 
-    /**
-     * Return the description of the room (the one that was defined in the
-     * constructor).
-     */
+    /*accessor and mutator methods for room name */
+    public String getRoomName() {
+        return roomName;
+    }
+
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }  
+
+    public void setDescriptions(ArrayList<String> descriptions) {
+        this.descriptions = descriptions;
+    }
+
+    /*accessor and mutator methods for room ID */
+    public String getRoomId() {
+        return id;
+    }
+
+    public void setRoomId(String id) {
+        this.id = id;
+    }
+
+    /*accessor and mutator methods for inventory */
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(ArrayList<Item> items) {
+    }
+
+    /*Return the description of the room (the one that was defined in the constructor). */
     public String roomDescription() {
         int i = (int) (Math.random() * descriptions.size());
         String description = descriptions.get(i);
         return "Room: " + roomName + "\n\n" + description;
     }
 
-    /**
-     * Return a string describing the room's exits, for example "Exits: north west
-     * ".
-     */
+    
+    public void setDescription(String description) {
+        descriptions = new ArrayList<String>();
+    }
+
+    /* Return a string describing the room's exits */
     private String exitString() {
         String returnString = "Exits: ";
         for (Exit exit : exits) {
@@ -72,10 +88,7 @@ public class Room {
         return returnString;
     }
 
-    /**
-     * Return the room that is reached if we go from this room in direction
-     * "direction". If there is no room in that direction, return null.
-     */
+    /** Return the room that is reached if we go from this room in direction "direction". If there is no room in that direction, return null. */
     public Room nextRoom(String direction) {
         try {
             for (Exit exit : exits) {
@@ -94,39 +107,5 @@ public class Room {
 
         System.out.println(direction + " is not a valid direction.");
         return null;
-    }
-
-    /*
-     * private int getDirectionIndex(String direction) { int dirIndex = 0; for
-     * (String dir : directions) { if (dir.equals(direction)) return dirIndex; else
-     * dirIndex++; }
-     *
-     * throw new IllegalArgumentException("Invalid Direction"); }
-     */
-    public String getRoomName() {
-        return roomName;
-    }
-
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
-
-    public String getRoomId() {
-        return id;
-    }
-
-    public void setRoomId(String id) {
-        this.id = id;
-    }
-
-    public void setDescription(String description) {
-        descriptions = new ArrayList<String>();
-    }
-
-    // creates the rooms max weight and makes a inventory for the items to be put
-    // inside the specific room
-
-    public void setInventory(ArrayList<Item> items) {
-
     }
 }

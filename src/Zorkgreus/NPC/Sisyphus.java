@@ -25,7 +25,7 @@ public class Sisyphus extends NPC{
         boolean displayFirstMessage = true;
         boolean validInput = false;
         boolean displayFullHPMessage = false;
-        System.out.println("Sisyphus has offered you 3 items: ");
+        System.out.println("Sisyphus has offered you 3 items: "); //displays options
         System.out.println("Touch of Midas - Gain 100 gold ");
         System.out.println("Centaur Soul - Gain 50 max HP (without restoring HP) ");
         System.out.println("Life Essence - Restore 50% of max HP ");
@@ -48,7 +48,8 @@ public class Sisyphus extends NPC{
                         || msg.equals("C")
                         || msg.equals("CENTAUR SOUL")
                         || msg.equals("L")
-                        || msg.equals("LIFE ESSENCE")) {
+                        || msg.equals("LIFE ESSENCE")) { //checks to see user input
+                        //determines what the user has selected, gives reward
                        if(msg.equals("T")||msg.equals("TOUCH OF MIDAS")){
                             player.addPlayerGold(100);
                        }else if(msg.equals("C")||msg.equals("CENTAUR SOUL")){

@@ -33,36 +33,28 @@ public class Weapons {
         baseDef = def;
     }
 
+    /*accessor method for weapon name */
     public String getName() {
         return weaponName;
     }
 
+    /*accessor and mutator methods for special attack */
     public String getSpeAtkName() {
         return speAtkName;
-    }
-
-    public String getDescription() {
-        return desc;
-    }
-
-    public int getAtk() {
-        return atk;
-    }
-
-    public int getPriority() {
-        return prio;
-    }
-
-    public int getDef() {
-        return def;
     }
 
     public int getSpeAtkDmg() {
         return speAtkDmg;
     }
 
-    public int getId() {
-        return id;
+    /*accessor method for weapon description */
+    public String getDescription() {
+        return desc;
+    }
+
+    /*accessor and mutator methods for weapon attack */
+    public int getAtk() {
+        return atk;
     }
 
     public void changeAtk(int n) {
@@ -70,9 +62,9 @@ public class Weapons {
         System.out.println("Your attack changed to " + n + "!");
     }
 
-    public void changeDef(int n) {
-        def = n;
-        System.out.println("Your defense changed to " + n + "!");
+    /*accessor and mutator methods for weapon priority */
+    public int getPriority() {
+        return prio;
     }
 
     public void changePrio(int n) {
@@ -80,6 +72,25 @@ public class Weapons {
         System.out.println("Your priority changed to " + n + "!");
     }
 
+    /*accessor and mutator methods for weapon defence */
+    public int getDef() {
+        return def;
+    }
+
+    public void changeDef(int n) {
+        def = n;
+        System.out.println("Your defense changed to " + n + "!");
+    }
+
+    /*accessir method for weapon id */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * normal attack function, damage dealt is randomized within a threshold based of attack
+     * @return damage done
+     */
     public int normalAttack() {
         int rand = (int) (Math.random() * 3) + 1;
         int randDmg = (int) (Math.random() * (atk / 10)) + 1;
@@ -98,6 +109,11 @@ public class Weapons {
         return dmg;
     }
 
+    /**
+     * special attack function, damage dealt is weapon based
+     * @param id number used to identify weapon to determine which special attack to use
+     * @return damage done
+     */
     public int specialAttack(int id) {
         int dmg = 0;
 

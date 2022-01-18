@@ -26,7 +26,7 @@ public class Patroculus extends NPC {
         boolean displayFirstMessage = true;
         boolean validInput = false;
         boolean displayExtraLifeMessage = false;
-        System.out.println("Patroculus has offered you 3 items: ");
+        System.out.println("Patroculus has offered you 3 items: "); //displays options
         System.out.println("Kiss of Styx Premium - Replenishes your extra life ");
         System.out.println("Hyrdalite Gold - Restore all your HP and gain 50 bonus max HP ");
         System.out.println("Cyclops Jerky Select - Your attack deals 30% extra damage ");
@@ -49,7 +49,8 @@ public class Patroculus extends NPC {
                         || msg.equals("H")
                         || msg.equals("HYRDALITE GOLD")
                         || msg.equals("C")
-                        || msg.equals("CYCLOPS JERKY SELECT")) {
+                        || msg.equals("CYCLOPS JERKY SELECT")) {//checks to see user input
+                            //determines what the user has selected, gives reward
                        if(msg.equals("K")||msg.equals("KISS OF STYX PREMIUM")){
                             player.setExtraLife(true);
                        }else if(msg.equals("H")||msg.equals("HYDRALITE GOLD")){
