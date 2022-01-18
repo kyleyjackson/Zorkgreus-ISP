@@ -316,7 +316,7 @@ public class Game {
           hasCalledSW = false;
         else if (currentRoom.getRoomName().indexOf("F3") > -1 && prevRoom.indexOf("F2") > -1)
           hasCalledSW = false;
-          
+
         command = parser.getCommand();
 
         if (isFighting) {
@@ -328,7 +328,6 @@ public class Game {
             isMonster = false;
             monsterPrio = 0;
             bossPrio = 0;
-            speAtkCounter = 0;
             fred.setPlayerPrio(currentWeapon.getPriority());
             fightRooms.add(currentRoom.getRoomId());
             isFighting = false;
@@ -446,7 +445,7 @@ public class Game {
     } else if (commandWord.equals("eat")) {
       System.out.println("Do they even have food in the underworld?");
     } else if (commandWord.equals("east") || commandWord.equals("west") || commandWord.equals("north")
-        || commandWord.equals("south")) {
+        || commandWord.equals("south")||commandWord.equals("up")) {
       goRoom(command);
     } else if (commandWord.equals("look")) {
       System.out.println(currentRoom.roomDescription());
@@ -470,6 +469,7 @@ public class Game {
             formatMyBoons();
           } else if (command.getSecondWord().equals("enemy")) {
             if (currentRoom.getRoomName().indexOf("Attack") > -1) {
+              currentMonster.displayMonsterMessage();
               currentMonster.monsterInfo();
             } else if (currentRoom.getRoomName().indexOf("oss") > -1) { // Check for oss instead of boss because indexOf
                                                                         // is case-sensitive
@@ -686,12 +686,14 @@ public class Game {
       } else {
         if (currentRoom.getRoomName().indexOf("Boss Room") >= 0
             || currentRoom.getRoomName().indexOf("Miniboss Room") >= 0) {
+          speAtkCounter = 0;
           isBoss = true;
           enemyHP = currentBoss.getHP();
           bossPrio = currentBoss.getPrio();
           enemyName = currentBoss.getName();
         } else if (currentRoom.getRoomName().indexOf("Test Dummy Room") >= 0
             || currentRoom.getRoomName().indexOf("Attack Room") >= 0) {
+          speAtkCounter = 0;
           isMonster = true;
           enemyHP = currentMonster.getHP();
           monsterPrio = currentMonster.getPrio();
@@ -829,6 +831,12 @@ public class Game {
         firstCrit = firstStrike();
     }
 
+    /*if(fred.getPlayerPrio() < 1) {
+      System.out.println("You can't attack!"); //!Old prio stuff
+
+      return false;
+    }*/
+
     if (commandWord.equals("special") || commandWord.equals("special attack")) {
       // *Damage the monster, check for HP, damage the player, check for HP
       if(fred.getPlayerPrio() < 1 && currentMonster.getPrio() < 1) {
@@ -845,7 +853,7 @@ public class Game {
         System.out.println("You can't attack!");
 
         if (isMonster == true) {
-          int mdmg = monsterDefCalc(currentMonster.monsterNormalAttack());
+          int mdmg = monsterDefCalc(currentMonster.monsterNormalAttack()); 
           recEnemyHit = mdmg;
           for (Boon b : myBoons) { // divine protection
             if (b.getBoonName().equals("Divine Protection")) {
@@ -921,7 +929,6 @@ public class Game {
           return false;
         } else {
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -956,6 +963,7 @@ public class Game {
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+          speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -971,7 +979,6 @@ public class Game {
           return false;
         } else {
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -1060,6 +1067,7 @@ public class Game {
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+          speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -1070,7 +1078,7 @@ public class Game {
           return false;
         }
       } else {
-        if (fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()) {
+        if (fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio() || fred.getPlayerPrio() < currentMonster.getPrio() || fred.getPlayerPrio() < currentBoss.getPrio()) {
           for (Boon b : myBoons) { // death's dance & thundering fury
             if (b.getBoonName().equals("Thundering Fury"))
               thunderingFury();
@@ -1141,7 +1149,6 @@ public class Game {
           }
 
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
             if (b.getBoonName().equals("Stormbreaker"))
               dmg += stormbreaker();
@@ -1166,6 +1173,7 @@ public class Game {
             else 
               currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
             fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+            speAtkCounter += 3;
             System.out.println("\n-------------------------------------------------------------------------\n");
             System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
             if (isMonster == true)
@@ -1793,13 +1801,13 @@ public class Game {
     boolean twoWords = false;
     // if the command doesn't have a second word AND it isn't a direction
     if (!command.hasSecondWord() && !(command.getCommandWord().equals("east") || command.getCommandWord().equals("west")
-        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south"))) {
+        || command.getCommandWord().equals("north") || command.getCommandWord().equals("south")||command.getCommandWord().equals("up"))) {
       // if there is no second word, we don't know where to go...
       System.out.println("Go where?");
       return;
     }
 
-    if (currentRoom.getRoomName().equals("Spawn Room")) {
+    if (currentRoom.getRoomName().equals("Spawn Room")||currentRoom.getRoomName().equals("F2 Starting Room")||currentRoom.getRoomName().equals("F3 Starting Room")||currentRoom.getRoomName().equals("The Gateway to the Mortal Plane")){
       if (weaponSelected)
         canProceed = true;
     } else if (currentRoom.getRoomName().equals("Test Dummy Room"))
