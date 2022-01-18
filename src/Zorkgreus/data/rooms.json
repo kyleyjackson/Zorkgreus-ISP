@@ -224,9 +224,9 @@
       "id": "F2 Starting Room",
       "name": "F2 Starting Room",
       "descriptions": [
-      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a large vortex formed by the weaving of a spider. The room has one exit heading East.",
-      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a colossal vortex formed by the weaving of a spider. The room has one exit heading East.",
-      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a vast vortex formed by the weaving of a spider. The room has one exit heading East."
+      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a large vortex formed by the weaving of a spider. It leads into what is known as the Infested Pit... The room has one exit heading East.",
+      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a colossal vortex formed by the weaving of a spider. It leads into what is known as the Infested Pit... The room has one exit heading East.",
+      "As you scale the ledges, you encounter a narrow tunnel. You're greeted by a vast vortex formed by the weaving of a spider. It leads into what is known as the Infested Pit... The room has one exit heading East."
       ],
       "exits": [
         {
@@ -315,9 +315,9 @@
       "id": "F2R5",
       "name": "F2 5th Attack Room",
       "descriptions": [
-      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with torches glowing red.",
-      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul lanterns glowing blue.",
-      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul torches glowing green."
+      "Walking through the door, you see a corpse, barely breathing. Any hopes you had of helping him are crushed when the spider slams his head into the floor. There are two exits heading East and South.",
+      "Walking through the door, you see a corpse, barely breathing. Any hopes you had of helping him are crushed when the spider pierces his mouth with its mandibles. There are two exits heading East and South.",
+      "Walking through the door, you see a corpse, barely breathing. Any hopes you had of helping him are crushed when the spider digs a hole into his back. There are two exits heading East and South."
       ],
       "exits": [
         {
@@ -334,9 +334,9 @@
       "id": "F2 NPC Room",
       "name": "F2 NPC Room",
       "descriptions": [
-      "As you enter the room it is brightly lit up with soul torches glowing orange and looks very well cleaned. The room has a tall women standing beside some pots with fruits and a exit heading East. The room seems to have everything one would need to live with a fire place bed and all kinds of other pieces of furniture.",
-      "As you enter the room it is brightly lit up with soul torches glowing orange and looks very well cleaned. The room has a tall women standing beside some pots with fruits and a exit heading East. The room seems to have everything one would need to live with a fire place bed and all kinds of other pieces of furniture.",
-      "As you enter the room it is brightly lit up with soul torches glowing orange and looks very well cleaned. The room has a tall women standing beside some pots with fruits and a exit heading East. The room seems to have everything one would need to live with a fire place bed and all kinds of other pieces of furniture."
+      "Following the stone path, you come across a warming atmosphere. There are no cobwebs, and the room is well-kept. Lanterns scour the floor, making traversal easy. There is one exit heading East.",
+      "Following the stone path, you come across a warming atmosphere. There are no cobwebs, and the room is well-kept. Lanterns scour the floor, making traversal easy. There is one exit heading East.",
+      "Following the stone path, you come across a warming atmosphere. There are no cobwebs, and the room is well-kept. Lanterns scour the floor, making traversal easy. There is one exit heading East."
       ],
       "exits": [
         {
@@ -349,9 +349,9 @@
       "id": "F2 Miniboss Room",
       "name": "Miniboss Room",
       "descriptions": [
-      "As you enter the room you feel very creeped out as the room is being very dimly lit up with green soul torches with the only exit to the room heading East and a boon beside it. The room is filled to the brim with cobwebs and dead spider parts with stone walls that look old and cracked and a pit in the middle of the room.",
-      "As you enter the room you feel very creeped out as the room is being very dimly lit up with green soul torches with the only exit to the room heading East and a boon beside it. The room is filled to the brim with cobwebs and dead spider parts with stone walls that look old and cracked and a pit in the middle of the room.",
-      "As you enter the room you feel very creeped out as the room is being very dimly lit up with green soul torches with the only exit to the room heading East and a boon beside it. The room is filled to the brim with cobwebs and dead spider parts with stone walls that look old and cracked and a pit in the middle of the room."
+      "The room is filled with fog and webs. Eggs litter the floor. Skinned corpses lay next to them, lifeless. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading East.",
+      "The room is filled with fog and webs. Eggs litter the floor. Skinned corpses lay next to them, lifeless. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading East.",
+      "The room is filled with fog and webs. Eggs litter the floor. Skinned corpses lay next to them, lifeless. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading East."
       ],
       "exits": [
         {
@@ -364,9 +364,9 @@
       "id": "F2R6",
       "name": "F2 6th Attack Room",
       "descriptions": [
-      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with soul lanterns glowing blue.",
-      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul torches glowing pink.",
-      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul lanterns glowing orange."
+      "Escaping the Queen Spider, you wonder what lurks ahead... Sharp stalactites hang from the ceiling, with webs stringing the pillars together. There are two exits heading East and North.",
+      "Escaping the Queen Spider, you wonder what lurks ahead... Sharp stalagmites engulf the floor beneath, leaving you on an uneven battlefield. There are two exits heading East and North.",
+      "Escaping the Queen Spider, you wonder what lurks ahead... It's hard to see, stalactites and stalagmites make the room difficult to traverse. There are two exits heading East and North."
       ],
       "exits": [
         {
@@ -383,9 +383,9 @@
       "id": "F2R7",
       "name": "F2 7th Attack Room",
       "descriptions": [
-      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with lanterns glowing blue.",
-      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul torches glowing orange.",
-      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul lanterns glowing red."
+      "As you travel deeper into the Infested Pit, you see beautifully-spun webs. True works of art, which must've taken years. It's a shame you're about to destroy it all... There are two exits heading East and South.",
+      "As you travel deeper into the Infested Pit, you see beautifully-spun webs. Years of web-spinning has led to such perfection. It's a shame you're about to destroy it all... There are two exits heading East and South.",
+      "As you travel deeper into the Infested Pit, you see beautifully-spun webs. You've got to take a second to take it all in. It's a shame you're about to destroy it all... There are two exits heading East and South."
       ],
       "exits": [
         {
@@ -402,9 +402,9 @@
       "id": "F2R8",
       "name": "F2 8th Attack Room",
       "descriptions": [
-      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with soul lanterns glowing green.",
-      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul torches glowing blue.",
-      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul lanterns glowing orange."
+      "That unidentifiable liquid is dripping from the ceiling. You see a spider in the centre of its newly-spun web. You see the liquid dripping from its mandibles. There are two exits heading East and North.",
+      "That unidentifiable liquid is dripping from the ceiling. You see a spider in the centre of its newly-spun web. You see the liquid dripping from its fangs. There are two exits heading East and North.",
+      "That unidentifiable liquid is dripping from the ceiling. You see a spider in the centre of a web in front of the exits. You see the liquid dripping from its mandibles. There are two exits heading East and North."
       ],
       "exits": [
         {
@@ -421,9 +421,9 @@
       "id": "F2R9",
       "name": "F2 9th Attack Room",
       "descriptions": [
-      "As you enter the room you can see it is filled with spiders and exits heading East and South. The room is dimly lit with torches glowing green.",
-      "You enter the room you can see it is has a few spiders and exits heading East and South. The room is being lit up by soul latnerns glowing red.",
-      "You enter the room you can see it has a couple of spiders blocking the exits heading East and South. The room is being lit up by soul torches glowing orange."
+      "The room has no webs, but you quickly realize they aren't needed. A spider at least twice the size of you crawls out from the darkest corner in the room. Its abdomen twitches, and its eyes glow red. Something's off... There are two exits heading East and South",
+      "The room has no webs, but you realize they aren't needed. A spider at least twice the size of you crawls out from the darkest corner in the room. Its eyes are bulging and glowing red. Something's off... There are two exits heading East and South",
+      "The room has no webs, but you realize they aren't needed. A spider at least twice the size of you crawls out from the darkest corner in the room. Its abdomen twitches, and its eyes glow red. Something's off... There are two exits heading East and South"
       ],
       "exits": [
         {
@@ -440,9 +440,9 @@
       "id": "F2R10",
       "name": "F2 10th Attack Room",
       "descriptions": [
-      "You enter a room filled with some spiders with exits heading East and North. The room is dimly lit up with torches glowing orange.",
-      "You enter a room with a few monsters with exits heading East and North. The room is being lit up by soul lanterns glowing red.",
-      "You enter a room with a couple spiders with exits heading East and North. The room is being lit up by soul torches glowing green."
+      "A pitch-black room. A place where this spider was contained. It's eyes are missing, and some of its legs are bigger than the others. A disgusting monster. There are two exits heading East and North.",
+      "A pitch-black room. A place where this spider was contained. It's screech is distorted, and its abdomen pulsates irregularly. A vile monster. There are two exits heading East and North.",
+      "A pitch-black room. A place where this spider was contained. Half it's eyes are bulging, and the other half are missing. It screeches in agony. A sickening monster. There are two exits heading East and North."
       ],
       "exits": [
         {
@@ -459,9 +459,9 @@
       "id": "F2 Shop Room",
       "name": "F2 Shop Room",
       "descriptions": [
-      "As you enter the room you can see a man you have seen before with bright purple eyes holding a staff. The man gesture for you to come to him with items beside him. Around the room you can see cages with souls in the with the room being lit up by purple soul torches that seem to be screaming with the only exit heading East.",
-      "As you enter the room you can see a man you have seen before with bright purple eyes holding a staff. The man gesture for you to come to him with items beside him. Around the room you can see cages with souls in the with the room being lit up by purple soul torches that seem to be screaming with the only exit heading East.",
-      "As you enter the room you can see a man you have seen before with bright purple eyes holding a staff. The man gesture for you to come to him with items beside him. Around the room you can see cages with souls in the with the room being lit up by purple soul torches that seem to be screaming with the only exit heading East."
+      "An eerie presence fills the room... There is one exit heading East.",
+      "An eerie presence fills the room... There is one exit heading East.",
+      "An eerie presence fills the room... There is one exit heading East."
       ],
       "exits": [
         {
@@ -474,9 +474,9 @@
       "id": "F2 Boss Room",
       "name": "Boss Room",
       "descriptions": [
-      "As you enter the room you can see a giant tarantula with a glowing boon behind it and the staircase heading Up leading you out of the room. The room is filled with a foul smell and rotting dead spider parts along with cobwebs. The room is being very dimly lit up by red soul torches.",
-      "As you enter the room you can see a giant tarantula with a glowing boon behind it and the staircase heading Up leading you out of the room. The room is filled with a foul smell and rotting dead spider parts along with cobwebs. The room is being very dimly lit up by red soul torches.",
-      "As you enter the room you can see a giant tarantula with a glowing boon behind it and the staircase heading Up leading you out of the room. The room is filled with a foul smell and rotting dead spider parts along with cobwebs. The room is being very dimly lit up by red soul torches."
+      "Corpses. Human and spider alike. Across the room, you see a large tarantula, piercing the bodies of its prey, injecting its blood into them. These are its experiments... and you're next. Maybe the gods will bless you after killing whatever lurks here... You'll have to climb Up to escape the Infested Pit.",
+      "Corpses. Human and spider alike. Across the room, you see a large tarantula, forcing its prety to drink its blood. These are its experiments... and you're next. Maybe the gods will bless you after killing whatever lurks here... You'll have to climb Up to escape the Infested Pit.",
+      "Corpses. Human and spider alike. Across the room, you see a large tarantula, laughing maniacally while injecting its blood into them. These are its experiments... and you're next. Maybe the gods will bless you after killing whatever lurks here... You'll have to climb Up to escape the Infested Pit."
       ],
       "exits": [
         {
@@ -489,9 +489,9 @@
       "id": "F3 Starting Room",
       "name": "F3 Starting Room",
       "descriptions": [
-      "As you go up the stairs you can see more staircases heading west and a small area with a fountain that has a sign that says healing. The room is being lit up torches that are glowing a bright light blue with no walls with a bunch of clouds below you and a sign saying welcome to Elysuim.",
-      "As you go up the stairs you can see more staircases heading west and a small area with a fountain that has a sign that says healing. The room is being lit up torches that are glowing a bright light blue with no walls with a bunch of clouds below you and a sign saying welcome to Elysuim.",
-      "As you go up the stairs you can see more staircases heading west and a small area with a fountain that has a sign that says healing. The room is being lit up torches that are glowing a bright light blue with no walls with a bunch of clouds below you and a sign saying welcome to Elysuim."
+      "Grasping the final ledge, you escape the pit. A golden sign at the top reads \"Welcome to Elysium, Land of Heroes\". The fields of Elysium are truly beautiful. There is one exit heading West.",
+      "Grasping the final ledge, you escape the pit. A golden sign at the top reads \"Welcome to Elysium, Land of Heroes\". It looks even better than what's in the books. There is one exit heading West.",
+      "Grasping the final ledge, you escape the pit. A golden sign at the top reads \"Welcome to Elysium, Land of Heroes\". Stories could've never told me how beautiful Elysium truly is. There is one exit heading West."
       ],
       "exits": [
         {
@@ -652,9 +652,9 @@
       "id": "F3 Miniboss Room",
       "name": "Miniboss Room",
       "descriptions": [
-      "As you enter the room you can see blood on the floor along with test tubes with souls in them screaming and lighting up the room in a eerie green glow. As you keep looking around you can see a glowing boon and an exit heading West. In the middle of the room you can see a giant mass of flesh with bloody rusted chains attached to it.",
-      "As you enter the room you can see blood on the floor along with test tubes with souls in them screaming and lighting up the room in a eerie green glow. As you keep looking around you can see a glowing boon and an exit heading West. In the middle of the room you can see a giant mass of flesh with bloody rusted chains attached to it.",
-      "As you enter the room you can see blood on the floor along with test tubes with souls in them screaming and lighting up the room in a eerie green glow. As you keep looking around you can see a glowing boon and an exit heading West. In the middle of the room you can see a giant mass of flesh with bloody rusted chains attached to it."
+      "A chilling presence surrounds you. An unimaginable monster, limbs and bones, held together by nothing but bloody, rusted chains. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading West.",
+      "A chilling presence surrounds you. An unimaginable monster, limbs and bones, held together by nothing but bloody, rusted chains. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading West.",
+      "A chilling presence surrounds you. An unimaginable monster, limbs and bones, held together by nothing but bloody, rusted chains. Maybe the gods will bless you after killing whatever lurks here... There is one exit heading West."
       ],
       "exits": [
         {
@@ -800,9 +800,9 @@
       "id": "F3 Shop Room",
       "name": "F3 Shop Room",
       "descriptions": [
-      "As you enter the room you can see a man you have seen before with bright purple eyes holding a staff. The man gesture for you to come to him with items beside him. Around the room you can see cages with souls in the with the room being lit up by purple soul torches that seem to be screaming with the only exit heading West.",
-      "As you enter the room you can see a man you have seen before with bright purple eyes holding a staff. The man gesture for you to come to him with items beside him. Around the room you can see cages with souls in the with the room being lit up by purple soul torches that seem to be screaming with the only exit heading West.",
-      "As you enter the room you can see a man you have seen before with bright purple eyes holding a staff. The man gesture for you to come to him with items beside him. Around the room you can see cages with souls in the with the room being lit up by purple soul torches that seem to be screaming with the only exit heading West."
+        "An eerie presence fills the room... There is one exit heading East.",
+        "An eerie presence fills the room... There is one exit heading East.",
+        "An eerie presence fills the room... There is one exit heading East."
       ],
       "exits": [
         {
@@ -815,10 +815,25 @@
       "id": "F3 Boss Room",
       "name": "Boss Room",
       "descriptions": [
-      "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes",
-      "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes",
-      "As you enter the room you just see a massive hallway along the sides you can see stone statues with a man holding a skull with a robe, pouch full of skulls, and scythe. Beside the statues you can see green soul torches lighting up the statue with the wall being filled with skulls leading down the hallway. As you make you're way down the hall you keep seeing the same thing till you see the end with brightly lit up staircase heading up with a glowing boon beside it and the man you kept seeing in the statues. The man is floating guarding the exit with his scythe and pouch full of skulls as he looks at you with his green eyes"
+      "A hallway of golden statues of the greatest heroes leads you down to the exit at the end of the hallway. Guarding this door stands a reaper, scythe in hand. Doesn't look like he's letting you out easy... The exit leads West.",
+      "A hallway of golden statues of heroes favoured by the gods leads you down to the exit at the end of the hallway. Guarding this door stands a reaper, scythe in hand. Doesn't look like he's letting you out easy... The exit leads West.",
+      "A hallway of golden statues of the most respected heroes leads you down to the exit at the end of the hallway. Guarding this door stands a reaper, scythe in hand. Doesn't look like he's letting you out easy... The exit leads West."
       ],
+      "exits": [
+        {
+          "direction": "West",
+          "adjacentRoom": "PreEnding"
+        }
+      ]
+    },
+    {
+      "id": "PreEnding",
+      "name": "The Gateway to the Mortal Plane",
+      "descriptions": [
+      "You're finally here. Sunlight streams in from the sky above, and you feel the breeze of cool air blowing against your skin. Continue upwards to reach the surface world.",
+      "You're finally here. Sunlight streams in from the sky above. You feel the air flowing against your skin; the sensation of a summer breeze is one you miss ever so dearly. Continue upwards to reach the surface world.",
+      "You're finally here. Sunlight streams in from the sky above, inviting you to once again exoerience the beauty of the world. Continue upwards to reach the surface world."
+    ],
       "exits": [
         {
           "direction": "Up",
@@ -830,16 +845,10 @@
       "id": "Ending",
       "name": "Ending",
       "descriptions": [
-      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,",
-      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,",
-      "Thank you for playing the text based game Zorkgreus from the creators of Zorkgreus Fred he, Kyle Jackson, Harrison Cazzin, Richie Tran,"
-    ],
-      "exits": [
-        {
-          "direction": "Up",
-          "adjacentRoom": "Ending"
-        }
-      ]
+      "Thank you for playing our text based knock off of Hades, Zorkgreus. Creators: Harrison Cazzin, Fred He, Kyle Jackson, and Richie Tran.",
+      "Thank you for playing our text based knock off of Hades, Zorkgreus. Creators: Kyle Jackson, Richie Tran, Fred He, and Harrison Cazzin.",
+      "Thank you for playing our text based game Zorkgreus from the creators of Zorkgreus Fred He, Kyle Jackson, Harrison Cazzin, Richie Tran."
+    ]
     }
   ]
 }
