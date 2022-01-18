@@ -1450,8 +1450,8 @@ public class Game {
                 }
               }
             }
+            fred.addPlayerHP(-mdmg);
           }
-          fred.addPlayerHP(-mdmg);
           for (Boon b : myBoons) { // heartbreaker & false weakness
             if (b.getBoonName().equals("Heartbreaker"))
               heartbreaker();
@@ -1471,7 +1471,6 @@ public class Game {
                 }
               }
             }
-            fred.addPlayerHP(-bdmg);
             for (Boon b : myBoons) { // heartbreaker & false weakness
               if (b.getBoonName().equals("Heartbreaker"))
                 heartbreaker();
@@ -1547,8 +1546,8 @@ public class Game {
                 }
               }
             }
+            fred.addPlayerHP(-mdmg);
           }
-          fred.addPlayerHP(-mdmg);
           for (Boon b : myBoons) { // heartbreaker & false weakness
             if (b.getBoonName().equals("Heartbreaker"))
               heartbreaker();
@@ -1568,8 +1567,8 @@ public class Game {
                 }
               }
             }
+            fred.addPlayerHP(-bdmg);
           }
-          fred.addPlayerHP(-bdmg);
           for (Boon b : myBoons) { // heartbreaker & false weakness
             if (b.getBoonName().equals("Heartbreaker"))
               heartbreaker();
