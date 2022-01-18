@@ -10,12 +10,11 @@ public class Player {
     private int gold;
 
     private boolean extraLife = true;
-    private boolean hyradliteGold = false;
     private Inventory inventory;
 
     public Player(int prio, int atk, int def) {
-        this.maxHP = 50;
-        this.HP = 50;
+        this.maxHP = 69420;
+        this.HP = 69420;
         this.def = 10 + def;
         this.atk = atk;
         this.prio = prio;
@@ -154,15 +153,6 @@ public class Player {
     public void setExtraLife(boolean n) {
         extraLife = n;
     }  
-
-    /*accessor and mutator methods for hydralite gold (patroculus offering) */
-    public boolean getHydraliteGold() {
-        return hyradliteGold;
-    }
-
-    public void setHydraliteGold(boolean n) {
-        hyradliteGold = n;
-    }
 
     /**
      * checks if HP is bigger than 0
