@@ -120,27 +120,21 @@ public class Charon extends NPC{
                             try {
                                 String boonMsg = in.nextLine().toLowerCase();
                                 if(boonMsg.equals("b1")){
-                                    for (Boon b : playerBoons) {
-                                        b.levelUp(playerBoons, generatedBoons, 0);
-                                        break;
-                                    }
-                                    playerBoons.add(generatedBoons.get(0)); 
+                                    Boon b = generatedBoons.get(0);
+                                    b.levelUp(playerBoons, generatedBoons, 0);
+                                    playerBoons.add(b); 
                                     System.out.println("You selected Boon: " + generatedBoons.get(0).getBoonName());
                                 }
                                 else if(boonMsg.equals("b2")){
-                                    for (Boon b : playerBoons) {
-                                        b.levelUp(playerBoons, generatedBoons, 1);
-                                        break;
-                                    }
-                                    playerBoons.add(generatedBoons.get(1)); 
+                                    Boon b = generatedBoons.get(1);
+                                    b.levelUp(playerBoons, generatedBoons, 1);
+                                    playerBoons.add(b);
                                     System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName()); 
                                 }
                                 else if(boonMsg.equals("b3")){
-                                    for (Boon b : playerBoons) {
-                                        b.levelUp(playerBoons, generatedBoons, 2);
-                                        break;
-                                    }
-                                    playerBoons.add(generatedBoons.get(2)); 
+                                    Boon b = generatedBoons.get(2);
+                                    b.levelUp(playerBoons, generatedBoons, 2);
+                                    playerBoons.add(b);
                                     System.out.println("You selected Boon: " + generatedBoons.get(2).getBoonName());
                                 }
                                 else
