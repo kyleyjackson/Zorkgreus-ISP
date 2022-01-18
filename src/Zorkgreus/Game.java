@@ -263,7 +263,7 @@ public class Game {
             break;
           }
         }
-        if (currentRoom.getRoomName().indexOf("NPC") == -1 || currentRoom.getRoomName().indexOf("Shop") == -1)
+        if (currentRoom.getRoomName().indexOf("NPC") == -1 && currentRoom.getRoomName().indexOf("Shop") == -1)
           setNPC = false;
         setCurrentNPC();
         if (fred.getHydraliteGold()) {
@@ -1281,28 +1281,39 @@ public class Game {
     return false;
   }
 
+  public void currentBossSpecialAttack(){
+    if(currentBoss!=null){
+      currentBoss.specialBossAttack(dmg, fred);
+    }
+  }
+
   public void setCurrentNPC() {
-    if (currentRoom.getRoomName().equals("F1 NPC Room"))
+    if (currentRoom.getRoomName().equals("F1 NPC Room")){
       if (!setNPC) {
         currentNPC = new Sisyphus(fred);
+        canProceed = true;
         setNPC = true;
-      } else if (currentRoom.getRoomName().equals("F2 NPC Room")) {
+      }
+     } else if (currentRoom.getRoomName().equals("F2 NPC Room")) {
         if (!setNPC) {
           currentNPC = new Eurydice();
           myBoons = currentNPC.displayChoices(fred, myBoons); // to alter the player's boons through Eurydice
+          canProceed = true;
           setNPC = true;
         }
-      } else if (currentRoom.getRoomName().equals("F3 NPC Room"))
+      } else if (currentRoom.getRoomName().equals("F3 NPC Room")){
         if (!setNPC) {
           currentNPC = new Patroculus(fred);
+          canProceed = true;
           setNPC = true;
-        } else if (currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room")
+        }
+       } else if (currentRoom.getRoomName().equals("F1 Shop Room") || currentRoom.getRoomName().equals("F2 Shop Room")
             || currentRoom.getRoomName().equals("F3 Shop Room")) {
           if (!setNPC) {
             temp = generateBoons(true); // special case to generate boon for selection in the shop.
             currentNPC = new Charon();
-            myBoons = currentNPC.displayChoices(fred, temp, myBoons, items); // to alter the player's boons through
-                                                                             // Charon
+            myBoons = currentNPC.displayChoices(fred, temp, myBoons, items); // to alter the player's boons through Charon
+            canProceed = true;
             setNPC = true;
           }
         }
