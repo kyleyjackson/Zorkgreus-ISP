@@ -991,7 +991,11 @@ public class Game {
             currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+          if(fred.getPlayerPrio() < 0)
+            fred.setPlayerPrio(0);
+          else
+            fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1108,7 +1112,11 @@ public class Game {
             currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+          if(fred.getPlayerPrio() < 0)
+            fred.setPlayerPrio(0);
+          else
+            fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1229,7 +1237,11 @@ public class Game {
               currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
             else 
               currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-            fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+            if(fred.getPlayerPrio() < 0)
+              fred.setPlayerPrio(0);
+            else
+              fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
             speAtkCounter += 3;
             System.out.println("\n-------------------------------------------------------------------------\n");
             System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1328,7 +1340,11 @@ public class Game {
             currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+          if(fred.getPlayerPrio() < 0)
+            fred.setPlayerPrio(0);
+          else
+            fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -1383,7 +1399,11 @@ public class Game {
               currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
             else 
               currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-            fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+            if(fred.getPlayerPrio() < 0)
+              fred.setPlayerPrio(0);
+            else
+              fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
             System.out.println("\n-------------------------------------------------------------------------\n");
             System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
             if (isMonster == true)
@@ -1511,7 +1531,11 @@ public class Game {
             currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+          if(fred.getPlayerPrio() < 0)
+            fred.setPlayerPrio(0);
+          else
+            fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -1639,7 +1663,11 @@ public class Game {
           currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
         else 
           currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
-        fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+
+        if(fred.getPlayerPrio() < 0)
+          fred.setPlayerPrio(0);
+        else
+          fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
         System.out.println("\n-------------------------------------------------------------------------\n");
         System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
         if (isMonster == true)
