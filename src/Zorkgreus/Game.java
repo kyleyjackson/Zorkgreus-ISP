@@ -350,7 +350,10 @@ public class Game {
             fightRooms.add(currentRoom.getRoomId());
             isFighting = false;
           }
-          finishedFighting = false;
+          if(isDead)
+            finished = true;
+          else
+            finishedFighting = false;
         } else if (!isFighting) {
           finished = processCommand(command);
         }
@@ -931,8 +934,8 @@ public class Game {
             if (b.getBoonName().equals("Smite"))
               smite();
           }
-          System.out.println("You died.");
           isDead = true;
+          System.out.println("You died.");
           return true;
         } else {
           if(isMonster)
@@ -1104,8 +1107,8 @@ public class Game {
             if (b.getBoonName().equals("Smite"))
               smite();
           }
-          System.out.println("You died.");
           isDead = true;
+          System.out.println("You died.");
           return true;
         } else {
           if(isMonster)
@@ -1205,8 +1208,8 @@ public class Game {
               if (b.getBoonName().equals("Smite"))
                 smite();
             }
-            System.out.println("You died.");
             isDead = true;
+            System.out.println("You died.");
             return true;
           }
 
@@ -1332,8 +1335,8 @@ public class Game {
             if (b.getBoonName().equals("Smite"))
               smite();
           }
-          System.out.println("You died.");
           isDead = true;
+          System.out.println("You died.");
           return true;
         } else {
           if(isMonster)
@@ -1523,8 +1526,8 @@ public class Game {
             if (b.getBoonName().equals("Smite"))
               smite();
           }
-          System.out.println("You died.");
           isDead = true;
+          System.out.println("You died.");
           return true;
         } else {
           if(isMonster)
@@ -1613,8 +1616,8 @@ public class Game {
             if (b.getBoonName().equals("Smite"))
               smite();
           }
-          System.out.println("You died.");
           isDead = true;
+          System.out.println("You died.");
           return true;
         } 
 
