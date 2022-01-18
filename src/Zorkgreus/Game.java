@@ -889,7 +889,10 @@ public class Game {
           isDead = true;
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -938,7 +941,10 @@ public class Game {
             currentBoss.setHP(enemyHP);
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1039,7 +1045,10 @@ public class Game {
           isDead = true;
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1142,7 +1151,10 @@ public class Game {
             currentMonster.setHP(0);
             return true;
           } else {
-            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+            if(isMonster)
+              currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+            else 
+              currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
             fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
             System.out.println("\n-------------------------------------------------------------------------\n");
             System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1224,7 +1236,10 @@ public class Game {
           isDead = true;
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1269,7 +1284,10 @@ public class Game {
           currentMonster.setHP(0);
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1368,7 +1386,10 @@ public class Game {
           isDead = true;
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -1471,7 +1492,10 @@ public class Game {
           isDead = true;
           return true;
         } else {
-          currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          if(isMonster)
+            currentMonster.setPrio(priorityCalc(currentMonster.getPrio()));
+          else 
+            currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
@@ -2532,4 +2556,8 @@ public class Game {
       }
     }
   }
+
+  //* Sample dodge if statement
+
+
 }
