@@ -1214,7 +1214,10 @@ public class Game {
           }
           if (enemyHP < 1) {
             System.out.println("You won!");
-            currentMonster.setHP(0);
+            if (isMonster)
+              currentMonster.setHP(0);
+            else
+              currentBoss.setHP(0);
             return true;
           } else {
             if(isMonster)
@@ -1369,7 +1372,10 @@ public class Game {
   
           if (enemyHP < 1) {
             System.out.println("You won!");
-            currentMonster.setHP(0);
+            if(isMonster)
+              currentMonster.setHP(0);
+            else 
+              currentBoss.setHP(0);
             return true;
           } else {
             if(isMonster)
@@ -1604,7 +1610,11 @@ public class Game {
         
         if (enemyHP < 1) {
           System.out.println("You won!");
-          currentMonster.setHP(0);
+
+          if (isMonster)
+            currentMonster.setHP(0);
+          else
+            currentBoss.setHP(0);
           return true;
         }
 
