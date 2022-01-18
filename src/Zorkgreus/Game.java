@@ -1860,7 +1860,7 @@ public class Game {
     // Try to leave current room.
     Room nextRoom = currentRoom.nextRoom(direction);
 
-    if (nextRoom == null)
+    if (nextRoom == null){
       System.out.println("There is no door!");
       if(!(currentRoom.getRoomId().equals("F2 Miniboss Room")||currentRoom.getRoomId().equals("F2 Boss Room")||currentRoom.getRoomId().equals("F3 Miniboss Room")||currentRoom.getRoomId().equals("F3 Boss Room")))
       displayBossMessage = false;
