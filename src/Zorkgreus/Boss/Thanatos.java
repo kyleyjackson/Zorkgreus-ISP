@@ -178,7 +178,7 @@ public class Thanatos extends Boss {
                             }
                             player.addPlayerAttack(-5);
                             player.addPlayerPriority(-3);
-                            int dmgDealt = super.attack(15);
+                            int dmgDealt = super.attack(10);
                             player.addPlayerHP(-dmgDealt);
                             System.out.println("You have taken " + dmgDealt + " damage. ");
                             System.out.println("You have lost 5 attack and 3 priority. ");
