@@ -16,6 +16,9 @@ public class Charon extends NPC{
         System.out.print("\n\n");
     }
 
+    /**
+     * Displays Charon's intro message.
+     */
     public void displayIntroMessage(){
         System.out.println("Waiting next to his boat on The River Styx, a shadowy figure dressed in a black cloak with golden coins around his neck turns towards you.");
         System.out.println("You see his large black hat covering most of his face, with the only visible features being his eerie, glowing purple eyes and mouth.");
@@ -23,6 +26,15 @@ public class Charon extends NPC{
         System.out.println("As he mumbles unintelligbly, it is clear that this is Charon, The Stygian Boatman, responsible for escorting dead souls into the Underworld.");
     }
 
+    /**
+     * Displays the choices at Charon's shop. 
+     * @param player the player
+     * @param generatedBoons the randomly generated boons from any god
+     * @param playerBoons ArrayList of boons in player inventory
+     * @param items items ArrayList initialized in Game.java
+     * 
+     * @return new playerBoons ArrayList
+     */
     public ArrayList<Boon> displayChoices(Player player, ArrayList<Boon> generatedBoons, ArrayList<Boon> playerBoons, ArrayList<Item> items){
         Scanner in = new Scanner(System.in);
         boolean validInput = false;
@@ -65,7 +77,7 @@ public class Charon extends NPC{
                 String msg = in.nextLine().toLowerCase();
                 if(msg.equals("c") || msg.equals("centaur heart")){
                     if(player.getPlayerGold() < 50)
-                        System.out.println("Ngggghhh. (You can't afford that.)");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                     else{
                         player.addPlayerMaxHP(25);
                         player.addPlayerGold(-50);                      
@@ -74,7 +86,7 @@ public class Charon extends NPC{
                     }
                 } else if(msg.equals("b") || msg.equals("bowl of noodles")) {
                     if(player.getPlayerGold() < 25)
-                        System.out.println("Ngggghhh. (You can't afford that.)");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                     else{
                         player.addPlayerHP((int)(player.getPlayerHP() * 0.25));
                         player.addPlayerGold(-25);
@@ -83,7 +95,7 @@ public class Charon extends NPC{
                     }
                 } else if(msg.equals("p") || msg.equals("pom of power")) {
                     if(player.getPlayerGold() < 80)
-                        System.out.println("Ngggghhh. (You can't afford that.)");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                     else{
                         int random = (int)(Math.random() * playerBoons.size());
                         Boon b = playerBoons.get(random);
@@ -98,7 +110,7 @@ public class Charon extends NPC{
                     }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
                     if(player.getPlayerGold() < 100)
-                        System.out.println("Ngggghhh. (You can't afford that.)");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                     else{
                         System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
                         System.out.print("----------------------------------------------------------------------------------------------------------");
@@ -108,25 +120,28 @@ public class Charon extends NPC{
                             try {
                                 String boonMsg = in.nextLine().toLowerCase();
                                 if(boonMsg.equals("b1")){
-                                    playerBoons.add(generatedBoons.get(0)); 
-                                    System.out.println("You selected Boon: " + generatedBoons.get(0).getBoonName());
                                     for (Boon b : playerBoons) {
                                         b.levelUp(playerBoons, generatedBoons, 0);
+                                        break;
                                     }
+                                    playerBoons.add(generatedBoons.get(0)); 
+                                    System.out.println("You selected Boon: " + generatedBoons.get(0).getBoonName());
                                 }
                                 else if(boonMsg.equals("b2")){
-                                    playerBoons.add(generatedBoons.get(1)); 
-                                    System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName());
                                     for (Boon b : playerBoons) {
                                         b.levelUp(playerBoons, generatedBoons, 1);
+                                        break;
                                     }
+                                    playerBoons.add(generatedBoons.get(1)); 
+                                    System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName()); 
                                 }
                                 else if(boonMsg.equals("b3")){
-                                    playerBoons.add(generatedBoons.get(1)); 
-                                    System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName());
                                     for (Boon b : playerBoons) {
-                                        b.levelUp(playerBoons, generatedBoons, 1);
+                                        b.levelUp(playerBoons, generatedBoons, 2);
+                                        break;
                                     }
+                                    playerBoons.add(generatedBoons.get(2)); 
+                                    System.out.println("You selected Boon: " + generatedBoons.get(2).getBoonName());
                                 }
                                 else
                                     System.out.println("Gguhhhhhhh. (Invalid Selection.)");
@@ -157,7 +172,7 @@ public class Charon extends NPC{
                             String msgP2 = in.nextLine().toLowerCase();
                             if(msgP2.equals("t") || msgP2.equals("torn duffel bag")){
                                 if(player.getPlayerGold() < 70)
-                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                                 else{
                                     player.getInventory().addMaxWeight(50);
                                     player.getInventory().addPlayerItem(items.get(22)); //torn duffel bag location in items ArrayList
@@ -167,7 +182,7 @@ public class Charon extends NPC{
                                 }
                             } else if(msgP2.equals("l") || msgP2.equals("leather backpack")){
                                 if(player.getPlayerGold() < 120)
-                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                                 else{
                                     player.getInventory().addMaxWeight(100);
                                     player.getInventory().addPlayerItem(items.get(23)); //leather backpack location in items ArrayList
@@ -177,7 +192,7 @@ public class Charon extends NPC{
                                 }
                             } else if(msgP2.equals("r") || msgP2.equals("rugged suitcase")){
                                 if(player.getPlayerGold() < 180)
-                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                                 else{
                                     player.getInventory().addMaxWeight(200);
                                     player.getInventory().addPlayerItem(items.get(24)); //rugged suitcase location in items ArrayList
@@ -187,7 +202,7 @@ public class Charon extends NPC{
                                 }
                             } else if(msgP2.equals("v") || msgP2.equals("vase of a thousand tormented souls")){
                                 if(player.getPlayerGold() < 666)
-                                    System.out.println("Ngggghhh. (You can't afford that.)");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + "You have " + player.getPlayerGold() + "gold.");
                                 else{
                                     player.getInventory().setMaxWeight(69420);
                                     System.out.println("Your inventory's max weight was set to 69420. Excellent choice.");
@@ -201,6 +216,10 @@ public class Charon extends NPC{
                                 validP2Input = true;
                             } else if(msgP2.equals("sell")){
                                 sell(player, in);
+                            } else if(msg.equals("exit")) {
+                                System.out.println("Ghhhhehh. (Pleasure doing business.)");
+                                validP2Input = true;
+                                validInput = true;
                             }
                         } catch (Exception ex){
                             System.out.println("Gguhhhhhhh. (Invalid Selection.)");
