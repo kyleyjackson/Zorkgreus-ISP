@@ -329,7 +329,6 @@ public class Game {
             isMonster = false;
             monsterPrio = 0;
             bossPrio = 0;
-            speAtkCounter = 0;
             fred.setPlayerPrio(currentWeapon.getPriority());
             fightRooms.add(currentRoom.getRoomId());
             isFighting = false;
@@ -687,12 +686,14 @@ public class Game {
       } else {
         if (currentRoom.getRoomName().indexOf("Boss Room") >= 0
             || currentRoom.getRoomName().indexOf("Miniboss Room") >= 0) {
+          speAtkCounter = 0;
           isBoss = true;
           enemyHP = currentBoss.getHP();
           bossPrio = currentBoss.getPrio();
           enemyName = currentBoss.getName();
         } else if (currentRoom.getRoomName().indexOf("Test Dummy Room") >= 0
             || currentRoom.getRoomName().indexOf("Attack Room") >= 0) {
+          speAtkCounter = 0;
           isMonster = true;
           enemyHP = currentMonster.getHP();
           monsterPrio = currentMonster.getPrio();
@@ -831,7 +832,7 @@ public class Game {
     }
 
     /*if(fred.getPlayerPrio() < 1) {
-      System.out.println("You can't attack!");
+      System.out.println("You can't attack!"); //!Old prio stuff
 
       return false;
     }*/
@@ -852,7 +853,7 @@ public class Game {
         System.out.println("You can't attack!");
 
         if (isMonster == true) {
-          int mdmg = monsterDefCalc(currentMonster.monsterNormalAttack());
+          int mdmg = monsterDefCalc(currentMonster.monsterNormalAttack()); 
           recEnemyHit = mdmg;
           for (Boon b : myBoons) { // divine protection
             if (b.getBoonName().equals("Divine Protection")) {
@@ -928,7 +929,6 @@ public class Game {
           return false;
         } else {
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -963,6 +963,7 @@ public class Game {
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+          speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -978,7 +979,6 @@ public class Game {
           return false;
         } else {
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           if (firstTurn && firstCrit)
             dmg *= 2;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
@@ -1067,6 +1067,7 @@ public class Game {
           else 
             currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
           fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+          speAtkCounter += 3;
           System.out.println("\n-------------------------------------------------------------------------\n");
           System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
           if (isMonster == true)
@@ -1077,7 +1078,7 @@ public class Game {
           return false;
         }
       } else {
-        if (fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio()) {
+        if (fred.getPlayerPrio() == currentMonster.getPrio() || fred.getPlayerPrio() == currentBoss.getPrio() || fred.getPlayerPrio() < currentMonster.getPrio() || fred.getPlayerPrio() < currentBoss.getPrio()) {
           for (Boon b : myBoons) { // death's dance & thundering fury
             if (b.getBoonName().equals("Thundering Fury"))
               thunderingFury();
@@ -1148,7 +1149,6 @@ public class Game {
           }
 
           int dmg = defenseCalc(fred.specialAttack(currentWeapon.getId()));
-          speAtkCounter += 3;
           for (Boon b : myBoons) { // stormbreaker & sucky wucky
             if (b.getBoonName().equals("Stormbreaker"))
               dmg += stormbreaker();
@@ -1173,6 +1173,7 @@ public class Game {
             else 
               currentBoss.setBossPriority(priorityCalc(currentBoss.getPrio()));
             fred.setPlayerPrio(priorityCalc(fred.getPlayerPrio()));
+            speAtkCounter += 3;
             System.out.println("\n-------------------------------------------------------------------------\n");
             System.out.println("Your HP: " + fred.getPlayerHP() + " | Your Priority: " + fred.getPlayerPrio());
             if (isMonster == true)
