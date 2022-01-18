@@ -258,7 +258,7 @@ public class Charon extends NPC{
                                 for(int i=0; i < cParsed; i++){
                                     player.getInventory().dropItem("Skeleton's Bone");
                                 }
-                                System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                                validSellInput = true;
                             }
                         } catch (Exception ex){
                             System.out.println("Grrrrraggggghhh. (Select a number.)");
@@ -281,7 +281,7 @@ public class Charon extends NPC{
                                 for(int i=0; i < cParsed; i++){
                                     player.getInventory().dropItem("Spider's Leg");
                                 }
-                                System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                                validSellInput = true;
                             }
                         } catch (Exception ex){
                             System.out.println("Grrrrraggggghhh. (Select a number.)");
@@ -304,7 +304,7 @@ public class Charon extends NPC{
                                 for(int i=0; i < cParsed; i++){
                                     player.getInventory().dropItem("Hero's Urn");
                                 }
-                                System.out.println("Haaaaaaaaaahhhhhh. (Anything else?)");
+                                validSellInput = true;
                             }
                         } catch (Exception ex){
                             System.out.println("Grrrrraggggghhh. (Select a number.)");

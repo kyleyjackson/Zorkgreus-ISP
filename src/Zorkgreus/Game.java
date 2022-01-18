@@ -2337,11 +2337,11 @@ public class Game {
     if (willCharm) {
       if (currentRoom.getRoomName().equals("Miniboss Room") || currentRoom.getRoomName().equals("Boss Room")) {
         currentBoss.addBossHP((int) (-recEnemyHit * 0.5));
-        System.out.println(currentBoss.getName() + " took " + (-recEnemyHit * 0.5) + " damage from Heartbreaker.");
+        System.out.println(currentBoss.getName() + " took " + Math.abs((-recEnemyHit * 0.5)) + " damage from Heartbreaker.");
       } else {
         currentMonster.addMonsterHP((int) (-recEnemyHit * 0.5));
         System.out.println(
-            "The " + currentMonster.getName() + " took " + (-recEnemyHit * 0.5) + " damage from Heartbreaker.");
+            "The " + currentMonster.getName() + " took " + Math.abs((-recEnemyHit * 0.5)) + " damage from Heartbreaker.");
       }
     }
   }
