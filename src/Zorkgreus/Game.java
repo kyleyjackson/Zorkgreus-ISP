@@ -303,20 +303,19 @@ public class Game {
         bossFinalAttack();
         currentBossDefeated();
 
+        if (!generatedBoons && currentRoom.getRoomName().equals("Boon Room")) {
+          temp = generateBoons(false);
+          generatedBoons = true;
+        }
+        if (!currentRoom.getRoomName().equals("Boon Room"))
+          boonSelected = false;
+        if (boonSelected)
+          System.out.println("Please proceed to the next room.");
+
         if (currentRoom.getRoomName().indexOf("F2") > -1 && prevRoom.indexOf("F1") > -1)
           hasCalledSW = false;
         else if (currentRoom.getRoomName().indexOf("F3") > -1 && prevRoom.indexOf("F2") > -1)
           hasCalledSW = false;
-
-        if (!generatedBoons && onBoonScreen()) {
-          temp = generateBoons(false);
-          generatedBoons = true;
-        }
-        if (!(currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomName().equals("Miniboss Room")
-            || currentRoom.getRoomName().equals("Boss Room")))
-          boonSelected = false;
-        if (boonSelected)
-          System.out.println("Please proceed to the next room.");
 
         command = parser.getCommand();
 
@@ -470,6 +469,7 @@ public class Game {
             formatMyBoons();
           } else if (command.getSecondWord().equals("enemy")) {
             if (currentRoom.getRoomName().indexOf("Attack") > -1) {
+              currentMonster.displayMonsterMessage();
               currentMonster.monsterInfo();
             } else if (currentRoom.getRoomName().indexOf("oss") > -1) { // Check for oss instead of boss because indexOf
                                                                         // is case-sensitive
@@ -542,7 +542,7 @@ public class Game {
     } else if (commandWord.equals("boonlist") || commandWord.equals("myboons")) {
       formatMyBoons();
     } else if (commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
-      if (onBoonScreen() && !boonSelected) {
+      if (currentRoom.getRoomName().equals("Boon Room") && !boonSelected) {
         if (commandWord.equals("b1")) {
           for (Boon b : myBoons) {
             b.levelUp(myBoons, temp, 0);
@@ -1692,25 +1692,21 @@ public class Game {
         currentBoss = new KingSkeleton();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 1) {
         currentBoss = new QueenSpider();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 2) {
         currentBoss = new Tarantula();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 3) {
         currentBoss = new TheAmalgamation();
         bossCounter++;
         generatedBoons = false;
-        boonSelected = false;
         return true;
       } else if (bossCounter == 4) {
         currentBoss = new Thanatos();
@@ -1912,18 +1908,6 @@ public class Game {
   }
 
   /**
-   * Check if you are able to receive a boon.
-   *
-   * @return T/F
-   */
-  public boolean onBoonScreen() {
-    if (currentRoom.getRoomName().equals("Boon Room") || currentBossDefeated()) {
-      return true;
-    }
-    return false;
-  }
-
-  /**
    * Try to go to one direction. If there is an exit, enter the new room,
    * otherwise print an error message.
    */
@@ -1937,7 +1921,7 @@ public class Game {
       return;
     }
 
-    if (currentRoom.getRoomName().equals("Spawn Room")||currentRoom.getRoomName().equals("F2 Starting Room")||currentRoom.getRoomName().equals("F3 Starting Room")){
+    if (currentRoom.getRoomName().equals("Spawn Room")||currentRoom.getRoomName().equals("F2 Starting Room")||currentRoom.getRoomName().equals("F3 Starting Room")||currentRoom.getRoomName().equals("The Gateway to the Mortal Plane")){
       if (weaponSelected)
         canProceed = true;
     } else if (currentRoom.getRoomName().equals("Test Dummy Room"))

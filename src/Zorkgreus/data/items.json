@@ -38,21 +38,21 @@
         {
             "name": "Pot",
             "description": "A clay pot.",
-            "weight": 10,
+            "weight": 5,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Grand Piano",
             "description": "A massive piano made out of what seems to be wood.",
-            "weight": 10,
+            "weight": 140,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Family Photo",
             "description": "A photo of you, hades, and Persephone.",
-            "weight": 10,
+            "weight": 8,
             "gold": 0,
             "startingRoom" : ""
         },
@@ -66,63 +66,63 @@
         {
             "name": "Chair",
             "description": "A regular wooden chair.",
-            "weight": 10,
+            "weight": 15,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Table",
             "description": "A regular wooden table.",
-            "weight": 10,
+            "weight": 20,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Plate",
             "description": "A clay plate.",
-            "weight": 10,
+            "weight": 3,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Fork",
             "description": "A iron fork.",
-            "weight": 10,
+            "weight": 2,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Knife",
             "description": "A steel knife used for cooking.",
-            "weight": 10,
+            "weight": 2,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Spoon",
             "description": "A iron spoon.",
-            "weight": 10,
+            "weight": 2,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Stool",
             "description": "A wooden stool.",
-            "weight": 10,
+            "weight": 9,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Metal Rod",
             "description": "A metal rod made out of steel.",
-            "weight": 10,
+            "weight": 15,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Chain",
             "description": "A chain made out of steel and slightly rusted.",
-            "weight": 10,
+            "weight": 4,
             "gold": 0,
             "startingRoom" : ""
         },
@@ -136,21 +136,21 @@
         {
             "name": "Anvil",
             "description": "An anvil made out of steel.",
-            "weight": 10,
+            "weight": 40,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Stone Statue of Hades",
             "description": "A stone statue detailing Hades in all his glory with his spear in hand.",
-            "weight": 10,
+            "weight": 60,
             "gold": 0,
             "startingRoom" : ""
         },
         {
             "name": "Rotten Corpse",
-            "description": "A rotten corpse that is emits a foul smell.",
-            "weight": 10,
+            "description": "A rotten corpse that emits a foul smell.",
+            "weight": 15,
             "gold": 0,
             "startingRoom" : ""
         },
