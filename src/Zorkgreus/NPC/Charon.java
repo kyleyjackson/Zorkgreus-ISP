@@ -65,7 +65,7 @@ public class Charon extends NPC{
                 String msg = in.nextLine().toLowerCase();
                 if(msg.equals("c") || msg.equals("centaur heart")){
                     if(player.getPlayerGold() < 50)
-                        System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                     else{
                         player.addPlayerMaxHP(25);
                         player.addPlayerGold(-50);                      
@@ -74,7 +74,7 @@ public class Charon extends NPC{
                     }
                 } else if(msg.equals("b") || msg.equals("bowl of noodles")) {
                     if(player.getPlayerGold() < 25)
-                        System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                     else{
                         player.addPlayerHP((int)(player.getPlayerHP() * 0.25));
                         player.addPlayerGold(-25);
@@ -83,7 +83,7 @@ public class Charon extends NPC{
                     }
                 } else if(msg.equals("r") || msg.equals("random blessing")) {
                     if(player.getPlayerGold() < 100)
-                        System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                        System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                     else{
                         System.out.println("\n" + generatedBoons.get(0).getColour() + "Please select one of the boons by typing \"b[number]\":");
                         System.out.print("----------------------------------------------------------------------------------------------------------");
@@ -141,7 +141,7 @@ public class Charon extends NPC{
                             String msgP2 = in.nextLine().toLowerCase();
                             if(msgP2.equals("t") || msgP2.equals("torn duffel bag")){
                                 if(player.getPlayerGold() < 70)
-                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                                 else{
                                     player.getInventory().addMaxWeight(50);
                                     player.getInventory().addPlayerItem(items.get(22)); //torn duffel bag location in items ArrayList
@@ -151,7 +151,7 @@ public class Charon extends NPC{
                                 }
                             } else if(msgP2.equals("l") || msgP2.equals("leather backpack")){
                                 if(player.getPlayerGold() < 120)
-                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                                 else{
                                     player.getInventory().addMaxWeight(100);
                                     player.getInventory().addPlayerItem(items.get(23)); //leather backpack location in items ArrayList
@@ -161,7 +161,7 @@ public class Charon extends NPC{
                                 }
                             } else if(msgP2.equals("r") || msgP2.equals("rugged suitcase")){
                                 if(player.getPlayerGold() < 180)
-                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                                 else{
                                     player.getInventory().addMaxWeight(200);
                                     player.getInventory().addPlayerItem(items.get(24)); //rugged suitcase location in items ArrayList
@@ -171,7 +171,7 @@ public class Charon extends NPC{
                                 }
                             } else if(msgP2.equals("v") || msgP2.equals("vase of a thousand tormented souls")){
                                 if(player.getPlayerGold() < 666)
-                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + "gold.");
+                                    System.out.println("Ngggghhh. (You can't afford that.)" + " You have " + player.getPlayerGold() + " gold.");
                                 else{
                                     player.getInventory().setMaxWeight(69420);
                                     System.out.println("Your inventory's max weight was set to 69420. Excellent choice.");

@@ -96,14 +96,17 @@ public class Boon {
      * @param myBoons ArrayList of player's boons
      * @param tempBoons ArrayList of generated boons for player to pick
      * @param selection boon picked by the player
+     * 
+     * @return T/F, true if levelled up, false otherwise.
      */
-    public void levelUp(ArrayList<Boon> myBoons, ArrayList<Boon> tempBoons, int selection){
+    public boolean levelUp(ArrayList<Boon> myBoons, ArrayList<Boon> tempBoons, int selection){
         Boon b = tempBoons.get(selection);
         if(b.getLevel() < 3 && !(b.getBoonName() == "Smite" || b.getBoonName() == "First Strike" || b.getBoonName() == "Vitality"
         || b.getBoonName() == "High Tide" || b.getBoonName() == "Second Wind")){ //dont use canLevelAtIndex because player selects from tempBoons, not myBoons
             b.setLevel(b.getLevel() + 1);
             System.out.println("Your boon, " + b.getBoonName() + ", has been upgraded to level " + b.getLevel());
             System.out.println(b.getStats());
+            return true;
         }
         else {
             if(b.getLevel() >= 3)
@@ -113,6 +116,7 @@ public class Boon {
                 System.out.println("You can't level up this boon!");
             else
                 System.out.println("You've received a new blessing!");
+            return false;
         }
     }
 

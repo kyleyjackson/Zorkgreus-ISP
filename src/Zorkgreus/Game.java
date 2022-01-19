@@ -563,25 +563,32 @@ public class Game {
     } else if (commandWord.equals("boonlist") || commandWord.equals("myboons")) {
       formatMyBoons();
     } else if (commandWord.equals("b1") || commandWord.equals("b2") || commandWord.equals("b3")) {
+      boolean levelledUp = false; //checks if boon was levelled up
       if (currentRoom.getRoomName().equals("Boon Room") && !boonSelected) {
         if (commandWord.equals("b1")) {
           Boon b = temp.get(0);
-          b.levelUp(myBoons, temp, 0);
-          myBoons.add(b); // adds to the end of the myBoons ArrayList
+          levelledUp = b.levelUp(myBoons, temp, 0);
+          if(!levelledUp)
+            myBoons.add(b); // adds to the end of the myBoons ArrayList
+          levelledUp = false;
           rawIncreases(b);
           System.out.println("You selected Boon: " + temp.get(0).getBoonName());
           boonSelected = true;
         } else if (commandWord.equals("b2")) {
           Boon b = temp.get(1);
-          b.levelUp(myBoons, temp, 1);
-          myBoons.add(b); 
+          levelledUp = b.levelUp(myBoons, temp, 1);
+          if(!levelledUp)
+            myBoons.add(b); // adds to the end of the myBoons ArrayList
+          levelledUp = false;
           rawIncreases(b);
           System.out.println("You selected Boon: " + temp.get(1).getBoonName());
           boonSelected = true;
         } else if (commandWord.equals("b3")) {
           Boon b = temp.get(2);
-          b.levelUp(myBoons, temp, 2);
-          myBoons.add(b); // adds to the end of the myBoons ArrayList
+          levelledUp = b.levelUp(myBoons, temp, 0);
+          if(!levelledUp)
+            myBoons.add(b); // adds to the end of the myBoons ArrayList
+          levelledUp = false;
           rawIncreases(b);
           System.out.println("You selected Boon: " + temp.get(2).getBoonName());
           boonSelected = true;
