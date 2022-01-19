@@ -97,18 +97,21 @@ public class Charon extends NPC{
                                     b.levelUp(playerBoons, generatedBoons, 0);
                                     playerBoons.add(b); 
                                     System.out.println("You selected Boon: " + generatedBoons.get(0).getBoonName());
+                                    validBoonInput = true;
                                 }
                                 else if(boonMsg.equals("b2")){
                                     Boon b = generatedBoons.get(1);
                                     b.levelUp(playerBoons, generatedBoons, 1);
                                     playerBoons.add(b);
                                     System.out.println("You selected Boon: " + generatedBoons.get(1).getBoonName()); 
+                                    validBoonInput = true;
                                 }
                                 else if(boonMsg.equals("b3")){
                                     Boon b = generatedBoons.get(2);
                                     b.levelUp(playerBoons, generatedBoons, 2);
                                     playerBoons.add(b);
                                     System.out.println("You selected Boon: " + generatedBoons.get(2).getBoonName());
+                                    validBoonInput = true;
                                 }
                                 else
                                     System.out.println("Gguhhhhhhh. (Invalid Selection.)");
