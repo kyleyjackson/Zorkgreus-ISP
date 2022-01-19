@@ -2517,7 +2517,7 @@ public class Game {
    */
   public void suckyWucky(int damage) {
     int level = myBoons.get(getIndexByBoonName("Sucky Wucky")).getLevel();
-    int dmgToHP = 0;
+    int dmgToHP = damage;
     if (level == 1)
       dmgToHP = recPlayerHit * (int) 0.125; // get damage done from weapon normal/special attack and multiply
     else if (level == 2)
