@@ -685,8 +685,8 @@ public class Game {
       }
     } else if (commandWord.equals("fight") || commandWord.equals("attack")) {
       if (fightRooms.contains(currentRoom.getRoomId()) || currentRoom.getRoomId().equals("Spawn Room")
-          || currentRoom.getRoomId().equals("Boon Room") || currentRoom.getRoomId().equals("F1C1")
-          || currentRoom.getRoomId().equals("Boom Room") || currentRoom.getRoomId().equals("F1 NPC Room")
+          || currentRoom.getRoomName().equals("Boon Room") || currentRoom.getRoomId().equals("F1C1")
+          || currentRoom.getRoomId().equals("F1 NPC Room")
           || currentRoom.getRoomId().equals("F1 Shop Room") || currentRoom.getRoomId().equals("F2 Starting Room")
           || currentRoom.getRoomId().equals("F2C2") || currentRoom.getRoomId().equals("F2 NPC Room")
           || currentRoom.getRoomId().equals("F2 Shop Room") || currentRoom.getRoomId().equals("F3 Starting Room")
